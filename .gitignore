@@ -1,0 +1,45 @@
+# Python virtual environments
+.venv*/
+__pycache__/
+*.pyc
+
+# Training logs and experiment trackers
+logs/
+wandb/
+
+# Model weights are distributed via GitHub Releases
+*.pth
+*.pt
+release_assets/
+
+# Local Isaac Gym / IsaacLab artifacts
+third_party/
+.venv-isaaclab-win/
+
+# LAFAN1 and other restricted motion data
+data/lafan1/
+*.bvh
+*.fbx
+
+# Video caches and release packages
+artifacts/video_frames/
+media/source/
+*.mp4
+*.zip
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.so
+*.egg-info/
+build/
+dist/
+
+# Network / robot connection configuration that may contain secrets
+**/robot-oneclick*
+**/robot-connect*
+**/robot-check*
+env_backups/
+

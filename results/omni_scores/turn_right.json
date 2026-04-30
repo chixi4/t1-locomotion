@@ -1,0 +1,50 @@
+{
+  "checkpoint": "logs/2026-04-29-18-41-41_t1_omni_s8_mirrorloss_from400_6144_i100/nn/model_100.pth",
+  "command": {
+    "vx": 0.0,
+    "vy": 0.0,
+    "yaw": -0.5
+  },
+  "counts": {
+    "falls": 0,
+    "resets": 0,
+    "steps": 1500,
+    "timeouts": 0
+  },
+  "judgement": {
+    "stable_ok": true,
+    "standing_ok": true,
+    "symmetry_ok": false,
+    "tracking_ok": true
+  },
+  "metrics": {
+    "Metrics/action_jerk": 0.04281860589981079,
+    "Metrics/base_height_error": 0.01543937623500824,
+    "Metrics/base_roll_pitch": 0.14087295532226562,
+    "Metrics/command_error_x": 0.013804921880364418,
+    "Metrics/command_error_y": 0.0527561753988266,
+    "Metrics/command_error_yaw": 0.02743063122034073,
+    "Metrics/fall_rate": 0.0,
+    "Metrics/fast_policy_forward_speed": 0.0,
+    "Metrics/foot_clearance_asymmetry": 0.10733126103878021,
+    "Metrics/foot_slip_asymmetry": 0.27561745047569275,
+    "Metrics/foot_slip_energy": 0.19325385987758636,
+    "Metrics/left_stance_time": 18.40679168701172,
+    "Metrics/left_step_count": 45.265625,
+    "Metrics/leg_action_magnitude_asymmetry": 0.061111193150281906,
+    "Metrics/moving_command_error_xy": 0.057684991508722305,
+    "Metrics/moving_command_error_yaw": 0.02743063122034073,
+    "Metrics/policy_forward_speed": 0.011319518089294434,
+    "Metrics/policy_lateral_speed": 0.0527561753988266,
+    "Metrics/policy_yaw_rate": 0.49100542068481445,
+    "Metrics/right_stance_time": 21.045604705810547,
+    "Metrics/right_step_count": 45.546875,
+    "Metrics/stance_time_asymmetry": 0.06699098646640778,
+    "Metrics/standing_policy_speed": 0.0,
+    "Metrics/step_length_asymmetry": 0.006580006331205368,
+    "Metrics/swing_time_asymmetry": 0.1282188892364502,
+    "Metrics/time_out_rate": 0.0
+  },
+  "num_envs": 64,
+  "steps": 1500
+}
