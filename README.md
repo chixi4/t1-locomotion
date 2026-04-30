@@ -105,21 +105,13 @@ S8 之后还定义了 S9 系列（`s9_noise`、`s9_actuator`、`s9_friction`、`
 
 仓库只放重定向脚本，因为协议原因，不包含 LAFAN1 原始 BVH 和由 LAFAN1 生成的 CSV/NPZ。需要时，可以按 `motion_retarget/README.md` 在本地下载 LAFAN1 再运行脚本生成 motion。
 
-## Release 附件
+## Release 下载
 
-`release_assets/` 被 `.gitignore` 排除，不进 git 历史。上传 GitHub Release 时可使用：
+S0 到 S8 课程强化学习全向步态策略，含 WebGL 3D 回放包和各阶段 checkpoint。
+（网页展示无需下载 pth 模型权重即可观看）
 
-- `release_assets/T1-S0-S8-Replay-Player.zip`
-- `release_assets/checkpoints/s0_stand.pth`
-- `release_assets/checkpoints/s1_forward_slow.pth`
-- `release_assets/checkpoints/s2_forward_0.8.pth`
-- `release_assets/checkpoints/s3_forward_backward.pth`
-- `release_assets/checkpoints/s4_turn.pth`
-- `release_assets/checkpoints/s5_strafe.pth`
-- `release_assets/checkpoints/s6_arc.pth`
-- `release_assets/checkpoints/s7_diagonal.pth`
-- `release_assets/checkpoints/s8_omni_full.pth`
-- `release_assets/checkpoints/s8_mirror100_final.pth`
+- `T1-S0-S8-Replay-Player.zip`：解压后双击启动脚本即可在浏览器查看 3D 回放
+- `checkpoints.zip`：S0–S8 各阶段权重 + 最终 mirror100 权重
 
 ## 致谢
 
