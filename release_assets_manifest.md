@@ -5,6 +5,7 @@
 ## 当前主包
 
 - `release_assets/T1Circle-All-Results-1000-2000-3000-7000-Player.zip`
+- `release_assets/T1-Fullbody-Checkpoints.zip`
 
 这个包现在包含：
 
