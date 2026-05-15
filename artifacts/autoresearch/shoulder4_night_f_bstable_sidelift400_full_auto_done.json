@@ -1,0 +1,13 @@
+{
+  "label": "shoulder4_night_f_bstable_sidelift400",
+  "display_name": "T1Shoulder4 NightF BStableSideLift model_400",
+  "task": "T1Shoulder4GaitPhaseNightFBStableSideLift_from7000LegFrozen_train400",
+  "run_dir": "logs/2026-05-11-16-36-41",
+  "arm_checkpoint": "logs/2026-05-11-16-36-41/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_f_bstable_sidelift400_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_f_bstable_sidelift400_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_f_bstable_sidelift400_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightFBStableSideLift_from7000LegFrozen_train400_20260511_163550_full_auto.log",
+  "created_at": "2026-05-11T10:08:32+00:00"
+}

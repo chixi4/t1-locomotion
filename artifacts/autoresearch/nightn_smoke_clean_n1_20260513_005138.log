@@ -1,0 +1,20 @@
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PRECHECK python=/opt/conda/bin/python3
+==== NIGHTN 7WAY START 2026-05-13 00:51:39 order=n1 ====
+==== RUN 1/1 code=n1 label=shoulder4_night_n1_zerospring300 2026-05-13 00:51:39 ====
+START run code=n1 label=shoulder4_night_n1_zerospring300 task=T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300 2026-05-13 00:51:39
+CONFIG train_num_envs=64 train_max_iterations=1 final_iter=1 eval_num_envs=16
+==== START train 2026-05-13 00:51:39 label=shoulder4_night_n1_zerospring300 ====
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Setting seed: 42

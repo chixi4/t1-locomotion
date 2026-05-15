@@ -1,0 +1,46 @@
+{
+  "label": "shoulder4_gaitphase_signfix_down80",
+  "checkpoint": "logs/2026-05-09-12-04-10/nn/model_80.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.1702129282475497,
+    "mean_yaw_err": 0.06531728854831156,
+    "mean_speed_ratio": 0.8706569115626507,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.04420424334226542,
+    "max_tilt": 0.15118345618247986,
+    "tilt_rms_mean": 0.0492960612964937,
+    "tilt_p95_mean": 0.07817665463493716,
+    "base_ang_vel_xy_rms_mean": 0.5279563166732628,
+    "shoulder_pitch_abs_p95_max": 0.15576577186584473,
+    "shoulder_roll_abs_p95_max": 0.15894286334514618,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.27007079180639143,
+    "linErrorRms": 0.38211173009622096,
+    "linErrorP95": 0.8527500629425049,
+    "yawErrorMean": 0.10049441570947991,
+    "yawErrorRms": 0.14941374778869052,
+    "yawErrorP95": 0.35706502199172974,
+    "tilt_mean": 0.04025241303767463,
+    "tilt_rms": 0.04563928817261899,
+    "tilt_p95": 0.07738596200942993,
+    "tilt_max": 0.12639249861240387,
+    "base_ang_vel_xy_rms": 0.44732927324803634,
+    "shoulder_pitch_abs_p95": 0.1302776038646698,
+    "shoulder_roll_abs_p95": 0.1442919224500656,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_gaitphase_signfix_down80_eval/shoulder4_gaitphase_signfix_down80_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_gaitphase_signfix_down80_eval/shoulder4_gaitphase_signfix_down80_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_gaitphase_signfix_down80_eval/shoulder4_gaitphase_signfix_down80_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_gaitphase_signfix_down80_eval/shoulder4_gaitphase_signfix_down80_random_eval.json"
+  },
+  "created_at": "2026-05-09-12-38-23"
+}

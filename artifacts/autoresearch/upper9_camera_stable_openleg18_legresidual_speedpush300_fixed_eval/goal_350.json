@@ -1,0 +1,24 @@
+{
+  "task": "T1Upper9CameraStableOfficialOpenLeg18LegResidualSpeedPush_train300",
+  "results": [
+    {
+      "checkpoint": "logs/2026-05-14-15-08-00/nn/model_350.pth",
+      "reset_events_per_env": 0.03125,
+      "lin_error_mean": 0.15982870757579803,
+      "yaw_error_mean": 0.11439407616853714,
+      "camera_tilt_p95": 0.10123775899410248,
+      "camera_ang_xy_rms": 0.45212939381599426,
+      "stand_shoulder_abs_p95": 0.051083724945783615,
+      "stand_elbow_abs_p95": 0.07429825514554977,
+      "stand_waist_abs_p95": 0.0782071053981781,
+      "pitch_abs_p95_moving": 0.21284230053424835,
+      "pitch_lr_antisym_corr": 0.9279129505157471,
+      "pitch_common_abs_p95": 0.07713188230991364,
+      "side_left_out_p95_on_right": 0.19344525039196014,
+      "side_right_out_p95_on_left": 0.19712170958518982,
+      "elbow_abs_p95_moving": 0.10475009679794312,
+      "waist_abs_p95_moving": 0.10934026539325714,
+      "residual_abs_p95": 0.018502729013562202
+    }
+  ]
+}

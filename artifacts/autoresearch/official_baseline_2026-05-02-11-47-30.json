@@ -1,0 +1,27 @@
+{
+  "kind": "official_baseline",
+  "started_at": "2026-05-02T23:59:01+08:00",
+  "finished_at": "2026-05-03T00:52:29+08:00",
+  "returncode": 143,
+  "cwd": "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official",
+  "official_commit": "da396a0",
+  "command": [
+    "/opt/conda/bin/python",
+    "-u",
+    "train.py",
+    "--task",
+    "T1",
+    "--headless",
+    "true",
+    "--num_envs",
+    "4096",
+    "--max_iterations",
+    "500"
+  ],
+  "num_envs": 4096,
+  "max_iterations": 500,
+  "wandb_mode": "disabled",
+  "latest_run": "logs/2026-05-03-00-21-58",
+  "latest_checkpoint": "",
+  "log": "artifacts/autoresearch/official_baseline_2026-05-02-11-47-30.log"
+}

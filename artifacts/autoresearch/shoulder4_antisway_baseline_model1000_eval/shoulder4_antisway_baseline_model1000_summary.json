@@ -1,0 +1,46 @@
+{
+  "label": "shoulder4_antisway_baseline_model1000",
+  "checkpoint": "logs/2026-05-07-13-32-44/nn/model_1000.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17300642600789298,
+    "mean_yaw_err": 0.06399596741157104,
+    "mean_speed_ratio": 0.8656059295703205,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.04399520304082337,
+    "max_tilt": 0.15191881358623505,
+    "tilt_rms_mean": 0.049049563697299785,
+    "tilt_p95_mean": 0.07754444054538204,
+    "base_ang_vel_xy_rms_mean": 0.5217418106080802,
+    "shoulder_pitch_abs_p95_max": 0.43748730421066284,
+    "shoulder_roll_abs_p95_max": 0.1714300960302353,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.27020066117746394,
+    "linErrorRms": 0.3812853966995817,
+    "linErrorP95": 0.8501908183097839,
+    "yawErrorMean": 0.09797483035102326,
+    "yawErrorRms": 0.14648009624930033,
+    "yawErrorP95": 0.35442230105400085,
+    "tilt_mean": 0.04037469800617867,
+    "tilt_rms": 0.045835531113994625,
+    "tilt_p95": 0.07939131557941437,
+    "tilt_max": 0.12333741039037704,
+    "base_ang_vel_xy_rms": 0.44466942060807,
+    "shoulder_pitch_abs_p95": 0.40416237711906433,
+    "shoulder_roll_abs_p95": 0.15806332230567932,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_antisway_baseline_model1000_eval/shoulder4_antisway_baseline_model1000_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_antisway_baseline_model1000_eval/shoulder4_antisway_baseline_model1000_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_antisway_baseline_model1000_eval/shoulder4_antisway_baseline_model1000_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_antisway_baseline_model1000_eval/shoulder4_antisway_baseline_model1000_random_eval.json"
+  },
+  "created_at": "2026-05-07-17-12-55"
+}

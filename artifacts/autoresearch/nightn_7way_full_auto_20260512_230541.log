@@ -1,0 +1,310 @@
+==== NIGHTN 7WAY START 2026-05-12 23:05:41 order=n1 n2 n3 n4 n5 n6 n7 ====
+==== RUN 1/7 code=n1 label=shoulder4_night_n1_zerospring300 2026-05-12 23:05:41 ====
+START run code=n1 label=shoulder4_night_n1_zerospring300 task=T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300 2026-05-12 23:05:41
+==== START train 2026-05-12 23:05:41 label=shoulder4_night_n1_zerospring300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/train_shoulder4_frozen.py", line 1, in <module>
+    import isaacgym
+ModuleNotFoundError: No module named 'isaacgym'
+==== DONE train 2026-05-12 23:05:42 elapsed=1s label=shoulder4_night_n1_zerospring300 ====
+no completed run dir found for T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300
+RUN_DIR=
+ARM_CKPT=/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-12 23:05:46 label=shoulder4_night_n1_zerospring300 ====
+SKIP fixed 2026-05-12 23:05:46 label=shoulder4_night_n1_zerospring300 reason=replay_only_visual_iteration
+START random 2026-05-12 23:05:46 label=shoulder4_night_n1_zerospring300
+artifacts/autoresearch/run_shoulder4_eval_pair.sh: line 79: /opt/conda/bin/python: No such file or directory
+==== DONE eval 2026-05-12 23:05:46 elapsed=0s label=shoulder4_night_n1_zerospring300 ====
+==== START metrics 2026-05-12 23:05:46 label=shoulder4_night_n1_zerospring300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/export_shoulder_metrics.py", line 6, in <module>
+    from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+ModuleNotFoundError: No module named 'tensorboard'
+==== DONE metrics 2026-05-12 23:05:46 elapsed=0s label=shoulder4_night_n1_zerospring300 ====
+==== START pack 2026-05-12 23:05:46 label=shoulder4_night_n1_zerospring300 ====
+tar: artifacts/autoresearch/shoulder4_night_n1_zerospring300_metrics.json: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+==== DONE pack 2026-05-12 23:05:47 elapsed=1s label=shoulder4_night_n1_zerospring300 ====
+{
+  "label": "shoulder4_night_n1_zerospring300",
+  "display_name": "T1Shoulder4 NightN1 ZeroSpring model_300",
+  "task": "T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300",
+  "run_dir": "",
+  "arm_checkpoint": "/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300_20260512_230541_full_auto.log",
+  "created_at": "2026-05-12T15:05:47+00:00"
+}
+-rwxrwxrwx 1 root root 752 May 12 23:05 artifacts/autoresearch/shoulder4_night_n1_zerospring300_full_auto_done.json
+-rwxrwxrwx 1 root root 49K May 12 23:05 artifacts/autoresearch/shoulder4_night_n1_zerospring300_web_inputs.tgz
+DONE run label=shoulder4_night_n1_zerospring300 2026-05-12 23:05:47
+==== RUN OK label=shoulder4_night_n1_zerospring300 2026-05-12 23:05:47 ====
+==== RUN 2/7 code=n2 label=shoulder4_night_n2_longfoot_deadband300 2026-05-12 23:05:47 ====
+START run code=n2 label=shoulder4_night_n2_longfoot_deadband300 task=T1Shoulder4GaitPhaseNightN2LongFootDeadband_from7000LegFrozen_train300 2026-05-12 23:05:47
+==== START train 2026-05-12 23:05:47 label=shoulder4_night_n2_longfoot_deadband300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/train_shoulder4_frozen.py", line 1, in <module>
+    import isaacgym
+ModuleNotFoundError: No module named 'isaacgym'
+==== DONE train 2026-05-12 23:05:47 elapsed=0s label=shoulder4_night_n2_longfoot_deadband300 ====
+no completed run dir found for T1Shoulder4GaitPhaseNightN2LongFootDeadband_from7000LegFrozen_train300
+RUN_DIR=
+ARM_CKPT=/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-12 23:05:52 label=shoulder4_night_n2_longfoot_deadband300 ====
+SKIP fixed 2026-05-12 23:05:52 label=shoulder4_night_n2_longfoot_deadband300 reason=replay_only_visual_iteration
+START random 2026-05-12 23:05:52 label=shoulder4_night_n2_longfoot_deadband300
+artifacts/autoresearch/run_shoulder4_eval_pair.sh: line 79: /opt/conda/bin/python: No such file or directory
+==== DONE eval 2026-05-12 23:05:52 elapsed=0s label=shoulder4_night_n2_longfoot_deadband300 ====
+==== START metrics 2026-05-12 23:05:52 label=shoulder4_night_n2_longfoot_deadband300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/export_shoulder_metrics.py", line 6, in <module>
+    from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+ModuleNotFoundError: No module named 'tensorboard'
+==== DONE metrics 2026-05-12 23:05:52 elapsed=0s label=shoulder4_night_n2_longfoot_deadband300 ====
+==== START pack 2026-05-12 23:05:52 label=shoulder4_night_n2_longfoot_deadband300 ====
+tar: artifacts/autoresearch/shoulder4_night_n2_longfoot_deadband300_metrics.json: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+==== DONE pack 2026-05-12 23:05:52 elapsed=0s label=shoulder4_night_n2_longfoot_deadband300 ====
+{
+  "label": "shoulder4_night_n2_longfoot_deadband300",
+  "display_name": "T1Shoulder4 NightN2 LongFootDeadband model_300",
+  "task": "T1Shoulder4GaitPhaseNightN2LongFootDeadband_from7000LegFrozen_train300",
+  "run_dir": "",
+  "arm_checkpoint": "/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n2_longfoot_deadband300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n2_longfoot_deadband300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n2_longfoot_deadband300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN2LongFootDeadband_from7000LegFrozen_train300_20260512_230547_full_auto.log",
+  "created_at": "2026-05-12T15:05:52+00:00"
+}
+-rwxrwxrwx 1 root root 798 May 12 23:05 artifacts/autoresearch/shoulder4_night_n2_longfoot_deadband300_full_auto_done.json
+-rwxrwxrwx 1 root root 49K May 12 23:05 artifacts/autoresearch/shoulder4_night_n2_longfoot_deadband300_web_inputs.tgz
+DONE run label=shoulder4_night_n2_longfoot_deadband300 2026-05-12 23:05:52
+==== RUN OK label=shoulder4_night_n2_longfoot_deadband300 2026-05-12 23:05:52 ====
+==== RUN 3/7 code=n3 label=shoulder4_night_n3_velocity_spark300 2026-05-12 23:05:52 ====
+START run code=n3 label=shoulder4_night_n3_velocity_spark300 task=T1Shoulder4GaitPhaseNightN3VelocitySpark_from7000LegFrozen_train300 2026-05-12 23:05:53
+==== START train 2026-05-12 23:05:53 label=shoulder4_night_n3_velocity_spark300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/train_shoulder4_frozen.py", line 1, in <module>
+    import isaacgym
+ModuleNotFoundError: No module named 'isaacgym'
+==== DONE train 2026-05-12 23:05:53 elapsed=0s label=shoulder4_night_n3_velocity_spark300 ====
+no completed run dir found for T1Shoulder4GaitPhaseNightN3VelocitySpark_from7000LegFrozen_train300
+RUN_DIR=
+ARM_CKPT=/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-12 23:05:57 label=shoulder4_night_n3_velocity_spark300 ====
+SKIP fixed 2026-05-12 23:05:57 label=shoulder4_night_n3_velocity_spark300 reason=replay_only_visual_iteration
+START random 2026-05-12 23:05:57 label=shoulder4_night_n3_velocity_spark300
+artifacts/autoresearch/run_shoulder4_eval_pair.sh: line 79: /opt/conda/bin/python: No such file or directory
+==== DONE eval 2026-05-12 23:05:58 elapsed=0s label=shoulder4_night_n3_velocity_spark300 ====
+==== START metrics 2026-05-12 23:05:58 label=shoulder4_night_n3_velocity_spark300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/export_shoulder_metrics.py", line 6, in <module>
+    from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+ModuleNotFoundError: No module named 'tensorboard'
+==== DONE metrics 2026-05-12 23:05:58 elapsed=0s label=shoulder4_night_n3_velocity_spark300 ====
+==== START pack 2026-05-12 23:05:58 label=shoulder4_night_n3_velocity_spark300 ====
+tar: artifacts/autoresearch/shoulder4_night_n3_velocity_spark300_metrics.json: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+==== DONE pack 2026-05-12 23:05:58 elapsed=0s label=shoulder4_night_n3_velocity_spark300 ====
+{
+  "label": "shoulder4_night_n3_velocity_spark300",
+  "display_name": "T1Shoulder4 NightN3 VelocitySpark model_300",
+  "task": "T1Shoulder4GaitPhaseNightN3VelocitySpark_from7000LegFrozen_train300",
+  "run_dir": "",
+  "arm_checkpoint": "/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n3_velocity_spark300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n3_velocity_spark300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n3_velocity_spark300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN3VelocitySpark_from7000LegFrozen_train300_20260512_230552_full_auto.log",
+  "created_at": "2026-05-12T15:05:58+00:00"
+}
+-rwxrwxrwx 1 root root 777 May 12 23:05 artifacts/autoresearch/shoulder4_night_n3_velocity_spark300_full_auto_done.json
+-rwxrwxrwx 1 root root 49K May 12 23:05 artifacts/autoresearch/shoulder4_night_n3_velocity_spark300_web_inputs.tgz
+DONE run label=shoulder4_night_n3_velocity_spark300 2026-05-12 23:05:58
+==== RUN OK label=shoulder4_night_n3_velocity_spark300 2026-05-12 23:05:58 ====
+==== RUN 4/7 code=n4 label=shoulder4_night_n4_pitchfirst300 2026-05-12 23:05:58 ====
+START run code=n4 label=shoulder4_night_n4_pitchfirst300 task=T1Shoulder4GaitPhaseNightN4PitchFirst_from7000LegFrozen_train300 2026-05-12 23:05:58
+==== START train 2026-05-12 23:05:58 label=shoulder4_night_n4_pitchfirst300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/train_shoulder4_frozen.py", line 1, in <module>
+    import isaacgym
+ModuleNotFoundError: No module named 'isaacgym'
+==== DONE train 2026-05-12 23:05:58 elapsed=0s label=shoulder4_night_n4_pitchfirst300 ====
+no completed run dir found for T1Shoulder4GaitPhaseNightN4PitchFirst_from7000LegFrozen_train300
+RUN_DIR=
+ARM_CKPT=/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-12 23:06:03 label=shoulder4_night_n4_pitchfirst300 ====
+SKIP fixed 2026-05-12 23:06:03 label=shoulder4_night_n4_pitchfirst300 reason=replay_only_visual_iteration
+START random 2026-05-12 23:06:03 label=shoulder4_night_n4_pitchfirst300
+artifacts/autoresearch/run_shoulder4_eval_pair.sh: line 79: /opt/conda/bin/python: No such file or directory
+==== DONE eval 2026-05-12 23:06:03 elapsed=0s label=shoulder4_night_n4_pitchfirst300 ====
+==== START metrics 2026-05-12 23:06:03 label=shoulder4_night_n4_pitchfirst300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/export_shoulder_metrics.py", line 6, in <module>
+    from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+ModuleNotFoundError: No module named 'tensorboard'
+==== DONE metrics 2026-05-12 23:06:03 elapsed=0s label=shoulder4_night_n4_pitchfirst300 ====
+==== START pack 2026-05-12 23:06:03 label=shoulder4_night_n4_pitchfirst300 ====
+tar: artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_metrics.json: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+==== DONE pack 2026-05-12 23:06:03 elapsed=0s label=shoulder4_night_n4_pitchfirst300 ====
+{
+  "label": "shoulder4_night_n4_pitchfirst300",
+  "display_name": "T1Shoulder4 NightN4 PitchFirst model_300",
+  "task": "T1Shoulder4GaitPhaseNightN4PitchFirst_from7000LegFrozen_train300",
+  "run_dir": "",
+  "arm_checkpoint": "/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN4PitchFirst_from7000LegFrozen_train300_20260512_230558_full_auto.log",
+  "created_at": "2026-05-12T15:06:03+00:00"
+}
+-rwxrwxrwx 1 root root 752 May 12 23:06 artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_full_auto_done.json
+-rwxrwxrwx 1 root root 49K May 12 23:06 artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_web_inputs.tgz
+DONE run label=shoulder4_night_n4_pitchfirst300 2026-05-12 23:06:03
+==== RUN OK label=shoulder4_night_n4_pitchfirst300 2026-05-12 23:06:03 ====
+==== RUN 5/7 code=n5 label=shoulder4_night_n5_inequality_floor300 2026-05-12 23:06:04 ====
+START run code=n5 label=shoulder4_night_n5_inequality_floor300 task=T1Shoulder4GaitPhaseNightN5InequalityFloor_from7000LegFrozen_train300 2026-05-12 23:06:04
+==== START train 2026-05-12 23:06:04 label=shoulder4_night_n5_inequality_floor300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/train_shoulder4_frozen.py", line 1, in <module>
+    import isaacgym
+ModuleNotFoundError: No module named 'isaacgym'
+==== DONE train 2026-05-12 23:06:04 elapsed=0s label=shoulder4_night_n5_inequality_floor300 ====
+no completed run dir found for T1Shoulder4GaitPhaseNightN5InequalityFloor_from7000LegFrozen_train300
+RUN_DIR=
+ARM_CKPT=/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-12 23:06:09 label=shoulder4_night_n5_inequality_floor300 ====
+SKIP fixed 2026-05-12 23:06:09 label=shoulder4_night_n5_inequality_floor300 reason=replay_only_visual_iteration
+START random 2026-05-12 23:06:09 label=shoulder4_night_n5_inequality_floor300
+artifacts/autoresearch/run_shoulder4_eval_pair.sh: line 79: /opt/conda/bin/python: No such file or directory
+==== DONE eval 2026-05-12 23:06:09 elapsed=0s label=shoulder4_night_n5_inequality_floor300 ====
+==== START metrics 2026-05-12 23:06:09 label=shoulder4_night_n5_inequality_floor300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/export_shoulder_metrics.py", line 6, in <module>
+    from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+ModuleNotFoundError: No module named 'tensorboard'
+==== DONE metrics 2026-05-12 23:06:09 elapsed=0s label=shoulder4_night_n5_inequality_floor300 ====
+==== START pack 2026-05-12 23:06:09 label=shoulder4_night_n5_inequality_floor300 ====
+tar: artifacts/autoresearch/shoulder4_night_n5_inequality_floor300_metrics.json: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+==== DONE pack 2026-05-12 23:06:09 elapsed=0s label=shoulder4_night_n5_inequality_floor300 ====
+{
+  "label": "shoulder4_night_n5_inequality_floor300",
+  "display_name": "T1Shoulder4 NightN5 InequalityFloor model_300",
+  "task": "T1Shoulder4GaitPhaseNightN5InequalityFloor_from7000LegFrozen_train300",
+  "run_dir": "",
+  "arm_checkpoint": "/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n5_inequality_floor300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n5_inequality_floor300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n5_inequality_floor300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN5InequalityFloor_from7000LegFrozen_train300_20260512_230604_full_auto.log",
+  "created_at": "2026-05-12T15:06:09+00:00"
+}
+-rwxrwxrwx 1 root root 791 May 12 23:06 artifacts/autoresearch/shoulder4_night_n5_inequality_floor300_full_auto_done.json
+-rwxrwxrwx 1 root root 49K May 12 23:06 artifacts/autoresearch/shoulder4_night_n5_inequality_floor300_web_inputs.tgz
+DONE run label=shoulder4_night_n5_inequality_floor300 2026-05-12 23:06:09
+==== RUN OK label=shoulder4_night_n5_inequality_floor300 2026-05-12 23:06:09 ====
+==== RUN 6/7 code=n6 label=shoulder4_night_n6_smooth_servo300 2026-05-12 23:06:09 ====
+START run code=n6 label=shoulder4_night_n6_smooth_servo300 task=T1Shoulder4GaitPhaseNightN6SmoothServo_from7000LegFrozen_train300 2026-05-12 23:06:09
+==== START train 2026-05-12 23:06:09 label=shoulder4_night_n6_smooth_servo300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/train_shoulder4_frozen.py", line 1, in <module>
+    import isaacgym
+ModuleNotFoundError: No module named 'isaacgym'
+==== DONE train 2026-05-12 23:06:10 elapsed=1s label=shoulder4_night_n6_smooth_servo300 ====
+no completed run dir found for T1Shoulder4GaitPhaseNightN6SmoothServo_from7000LegFrozen_train300
+RUN_DIR=
+ARM_CKPT=/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-12 23:06:14 label=shoulder4_night_n6_smooth_servo300 ====
+SKIP fixed 2026-05-12 23:06:14 label=shoulder4_night_n6_smooth_servo300 reason=replay_only_visual_iteration
+START random 2026-05-12 23:06:14 label=shoulder4_night_n6_smooth_servo300
+artifacts/autoresearch/run_shoulder4_eval_pair.sh: line 79: /opt/conda/bin/python: No such file or directory
+==== DONE eval 2026-05-12 23:06:14 elapsed=0s label=shoulder4_night_n6_smooth_servo300 ====
+==== START metrics 2026-05-12 23:06:14 label=shoulder4_night_n6_smooth_servo300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/export_shoulder_metrics.py", line 6, in <module>
+    from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+ModuleNotFoundError: No module named 'tensorboard'
+==== DONE metrics 2026-05-12 23:06:14 elapsed=0s label=shoulder4_night_n6_smooth_servo300 ====
+==== START pack 2026-05-12 23:06:14 label=shoulder4_night_n6_smooth_servo300 ====
+tar: artifacts/autoresearch/shoulder4_night_n6_smooth_servo300_metrics.json: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+==== DONE pack 2026-05-12 23:06:15 elapsed=1s label=shoulder4_night_n6_smooth_servo300 ====
+{
+  "label": "shoulder4_night_n6_smooth_servo300",
+  "display_name": "T1Shoulder4 NightN6 SmoothServo model_300",
+  "task": "T1Shoulder4GaitPhaseNightN6SmoothServo_from7000LegFrozen_train300",
+  "run_dir": "",
+  "arm_checkpoint": "/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n6_smooth_servo300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n6_smooth_servo300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n6_smooth_servo300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN6SmoothServo_from7000LegFrozen_train300_20260512_230609_full_auto.log",
+  "created_at": "2026-05-12T15:06:15+00:00"
+}
+-rwxrwxrwx 1 root root 763 May 12 23:06 artifacts/autoresearch/shoulder4_night_n6_smooth_servo300_full_auto_done.json
+-rwxrwxrwx 1 root root 49K May 12 23:06 artifacts/autoresearch/shoulder4_night_n6_smooth_servo300_web_inputs.tgz
+DONE run label=shoulder4_night_n6_smooth_servo300 2026-05-12 23:06:15
+==== RUN OK label=shoulder4_night_n6_smooth_servo300 2026-05-12 23:06:15 ====
+==== RUN 7/7 code=n7 label=shoulder4_night_n7_diagonal_decoupler300 2026-05-12 23:06:15 ====
+START run code=n7 label=shoulder4_night_n7_diagonal_decoupler300 task=T1Shoulder4GaitPhaseNightN7DiagonalDecoupler_from7000LegFrozen_train300 2026-05-12 23:06:15
+==== START train 2026-05-12 23:06:15 label=shoulder4_night_n7_diagonal_decoupler300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/train_shoulder4_frozen.py", line 1, in <module>
+    import isaacgym
+ModuleNotFoundError: No module named 'isaacgym'
+==== DONE train 2026-05-12 23:06:15 elapsed=0s label=shoulder4_night_n7_diagonal_decoupler300 ====
+no completed run dir found for T1Shoulder4GaitPhaseNightN7DiagonalDecoupler_from7000LegFrozen_train300
+RUN_DIR=
+ARM_CKPT=/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-12 23:06:20 label=shoulder4_night_n7_diagonal_decoupler300 ====
+SKIP fixed 2026-05-12 23:06:20 label=shoulder4_night_n7_diagonal_decoupler300 reason=replay_only_visual_iteration
+START random 2026-05-12 23:06:20 label=shoulder4_night_n7_diagonal_decoupler300
+artifacts/autoresearch/run_shoulder4_eval_pair.sh: line 79: /opt/conda/bin/python: No such file or directory
+==== DONE eval 2026-05-12 23:06:20 elapsed=0s label=shoulder4_night_n7_diagonal_decoupler300 ====
+==== START metrics 2026-05-12 23:06:20 label=shoulder4_night_n7_diagonal_decoupler300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/export_shoulder_metrics.py", line 6, in <module>
+    from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+ModuleNotFoundError: No module named 'tensorboard'
+==== DONE metrics 2026-05-12 23:06:20 elapsed=0s label=shoulder4_night_n7_diagonal_decoupler300 ====
+==== START pack 2026-05-12 23:06:20 label=shoulder4_night_n7_diagonal_decoupler300 ====
+tar: artifacts/autoresearch/shoulder4_night_n7_diagonal_decoupler300_metrics.json: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+==== DONE pack 2026-05-12 23:06:20 elapsed=0s label=shoulder4_night_n7_diagonal_decoupler300 ====
+{
+  "label": "shoulder4_night_n7_diagonal_decoupler300",
+  "display_name": "T1Shoulder4 NightN7 DiagonalDecoupler model_300",
+  "task": "T1Shoulder4GaitPhaseNightN7DiagonalDecoupler_from7000LegFrozen_train300",
+  "run_dir": "",
+  "arm_checkpoint": "/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n7_diagonal_decoupler300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n7_diagonal_decoupler300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n7_diagonal_decoupler300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN7DiagonalDecoupler_from7000LegFrozen_train300_20260512_230615_full_auto.log",
+  "created_at": "2026-05-12T15:06:20+00:00"
+}
+-rwxrwxrwx 1 root root 805 May 12 23:06 artifacts/autoresearch/shoulder4_night_n7_diagonal_decoupler300_full_auto_done.json
+-rwxrwxrwx 1 root root 49K May 12 23:06 artifacts/autoresearch/shoulder4_night_n7_diagonal_decoupler300_web_inputs.tgz
+DONE run label=shoulder4_night_n7_diagonal_decoupler300 2026-05-12 23:06:20
+==== RUN OK label=shoulder4_night_n7_diagonal_decoupler300 2026-05-12 23:06:20 ====
+==== NIGHTN 7WAY DONE 2026-05-12 23:06:20 ====

@@ -1,0 +1,29 @@
+[
+  {
+    "code": "m",
+    "task": "T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300",
+    "label": "shoulder4_night_m_zerobase_dynamic300",
+    "display": "T1Shoulder4 NightM ZeroBaseDynamic model_300",
+    "urdf": "T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf",
+    "command": "Night M：把运动时肩 roll 的常量基础外抬归零，只在真实横向脚步差/侧移动态出现时奖励更强侧抬。目标是走路基础关节侧抬接近0°，但侧移伸手峰值不低于 NightL。",
+    "note": "NightM ZeroBaseDynamic: remove constant moving roll baseline, foot-gate the no-lazy outward floor, and increase dynamic foot-delta roll amplitude for side steps.",
+    "params": {
+      "shoulder_static_posture": -5.2,
+      "shoulder_dynamic_target": -4.2,
+      "shoulder_no_lazy_boundary": -2.0,
+      "shoulder_balance_smoothness": -0.55,
+      "dynamic_roll_base_amp": 0.0,
+      "dynamic_roll_extra_amp": 0.30,
+      "dynamic_roll_max": 0.28,
+      "dynamic_roll_min_outward": 0.0,
+      "boundary_min_outward_foot_gated": true,
+      "boundary_dynamic_min_outward": 0.09,
+      "boundary_roll_soft_limit": 0.24,
+      "arm_action_rate": -0.045
+    },
+    "clips": {
+      "Left_Shoulder_Roll": [0.0, 0.3],
+      "Right_Shoulder_Roll": [-0.3, 0.0]
+    }
+  }
+]

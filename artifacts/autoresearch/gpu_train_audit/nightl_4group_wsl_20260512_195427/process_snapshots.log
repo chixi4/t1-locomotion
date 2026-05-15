@@ -1,0 +1,48 @@
+===== 2026-05-12T19:54:28+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+     1      0 Sl+   3.0  0.0 init(Ubuntu-20. /init
+    13     12 Ss+   2.0  0.0 timeout         timeout 20 bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    26     13 S+    1.0  0.0 bash            bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    35     26 S+    1.0  0.0 bash            bash artifacts/autoresearch/nightl_gpu_audit_wsl.sh
+    71     70 R+    1.0  0.0 python3         python3 - artifacts/autoresearch/nightm_runs.json m display
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+    10      1 Ss    0.0  0.0 SessionLeader   /init
+    12     10 S     0.0  0.0 Relay(13)       /init
+    62     26 S+    0.0  0.0 bash            bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    63     26 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nightm_zerobase300_full_auto_20260512_195427.log
+    64     62 S+    0.0  0.0 bash            bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    70     64 S+    0.0  0.0 bash            bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    73     35 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+    74     35 S+    0.0  0.0 head            head -80
+===== 2026-05-12T19:54:38+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+    89     64 Rl+   216  2.1 python3         python3 train_shoulder4_frozen.py --task T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300
+     1      0 Sl+   0.5  0.0 init(Ubuntu-20. /init
+    35     26 S+    0.2  0.0 bash            bash artifacts/autoresearch/nightl_gpu_audit_wsl.sh
+    13     12 Ss+   0.1  0.0 timeout         timeout 20 bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+    10      1 Ss    0.0  0.0 SessionLeader   /init
+    12     10 S     0.0  0.0 Relay(13)       /init
+    26     13 S+    0.0  0.0 bash            bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    62     26 S+    0.0  0.0 bash            bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    63     26 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nightm_zerobase300_full_auto_20260512_195427.log
+    64     62 S+    0.0  0.0 bash            bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    90     64 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300_20260512_195428_full_auto.log
+   278     35 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   279     35 S+    0.0  0.0 head            head -80
+===== 2026-05-12T19:54:47+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+    89     64 Rl+   155  2.6 python3         python3 train_shoulder4_frozen.py --task T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300
+     1      0 Sl+   0.2  0.0 init(Ubuntu-20. /init
+    13     12 Ss+   0.1  0.0 timeout         timeout 20 bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    35     26 S+    0.1  0.0 bash            bash artifacts/autoresearch/nightl_gpu_audit_wsl.sh
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+    10      1 Ss    0.0  0.0 SessionLeader   /init
+    12     10 S     0.0  0.0 Relay(13)       /init
+    26     13 S+    0.0  0.0 bash            bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    62     26 S+    0.0  0.0 bash            bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    63     26 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nightm_zerobase300_full_auto_20260512_195427.log
+    64     62 S+    0.0  0.0 bash            bash -x artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    90     64 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300_20260512_195428_full_auto.log
+   312     35 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   313     35 S+    0.0  0.0 head            head -80

@@ -1,0 +1,13 @@
+{
+  "label": "shoulder4_night_j_lowbase_locked_dynamic400",
+  "display_name": "T1Shoulder4 NightJ LowBaseLockedDynamic model_400",
+  "task": "T1Shoulder4GaitPhaseNightJLowBaseLockedDynamic_from7000LegFrozen_train400",
+  "run_dir": "logs/2026-05-12-14-06-21",
+  "arm_checkpoint": "logs/2026-05-12-14-06-21/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_j_lowbase_locked_dynamic400_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_j_lowbase_locked_dynamic400_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_j_lowbase_locked_dynamic400_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightJLowBaseLockedDynamic_from7000LegFrozen_train400_20260512_140532_full_auto.log",
+  "created_at": "2026-05-12T07:21:30+00:00"
+}

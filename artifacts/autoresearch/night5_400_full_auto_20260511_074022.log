@@ -1,0 +1,22 @@
+==== NIGHT5 START 2026-05-11 07:40:22 order=b c a e d ====
+==== RUN 1/5 code=b label=shoulder4_night_b_source400 2026-05-11 07:40:22 ====
+START run code=b label=shoulder4_night_b_source400 task=T1Shoulder4GaitPhaseNightBSource_from7000LegFrozen_train400 2026-05-11 07:40:22
+==== START train 2026-05-11 07:40:22 label=shoulder4_night_b_source400 ====
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled

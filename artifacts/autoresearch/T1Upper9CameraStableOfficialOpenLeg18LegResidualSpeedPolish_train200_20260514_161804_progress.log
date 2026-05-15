@@ -1,0 +1,137 @@
+==== START residual PPO 20260514_161804 label=upper9_camera_stable_openleg18_legresidual_speedpolish200 ====
+Task: T1Upper9CameraStableOfficialOpenLeg18LegResidualSpeedPolish_train200
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Using residual effect scale: {'Left_Shoulder_Pitch': 0.0, 'Left_Shoulder_Roll': 0.0, 'Left_Elbow_Pitch': 0.012, 'Left_Elbow_Yaw': 0.008, 'Right_Shoulder_Pitch': 0.0, 'Right_Shoulder_Roll': 0.0, 'Right_Elbow_Pitch': 0.012, 'Right_Elbow_Yaw': 0.008, 'Waist': 0.015, 'Left_Hip_Pitch': 0.045, 'Left_Hip_Roll': 0.07, 'Left_Hip_Yaw': 0.02, 'Left_Knee_Pitch': 0.04, 'Left_Ankle_Pitch': 0.065, 'Left_Ankle_Roll': 0.07, 'Right_Hip_Pitch': 0.045, 'Right_Hip_Roll': 0.07, 'Right_Hip_Yaw': 0.02, 'Right_Knee_Pitch': 0.04, 'Right_Ankle_Pitch': 0.065, 'Right_Ankle_Roll': 0.07}
+Using residual per-DOF mean scale: {'Left_Shoulder_Pitch': 0.0, 'Left_Shoulder_Roll': 0.0, 'Left_Elbow_Pitch': 0.35, 'Left_Elbow_Yaw': 0.25, 'Right_Shoulder_Pitch': 0.0, 'Right_Shoulder_Roll': 0.0, 'Right_Elbow_Pitch': 0.35, 'Right_Elbow_Yaw': 0.25, 'Waist': 0.35, 'Left_Hip_Pitch': 0.55, 'Left_Hip_Roll': 0.85, 'Left_Hip_Yaw': 0.35, 'Left_Knee_Pitch': 0.45, 'Left_Ankle_Pitch': 0.75, 'Left_Ankle_Roll': 0.85, 'Right_Hip_Pitch': 0.55, 'Right_Hip_Roll': 0.85, 'Right_Hip_Yaw': 0.35, 'Right_Knee_Pitch': 0.45, 'Right_Ankle_Pitch': 0.75, 'Right_Ankle_Roll': 0.85}
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading baseline leg model from logs/2026-05-05-11-09-07/nn/model_4000.pth
+Loading baseline upper model from logs/2026-05-14-08-59-29/nn/model_500.pth
+Loading residual model from logs/2026-05-14-15-08-00/nn/model_500.pth
+Loaded curriculum shape (37, 37, 31)
+Reset optimizer on resume; using configured learning rate 3e-06
+epoch: 501/700 (local 1/200) elapsed=0.2m eta=32.9m
+epoch: 502/700 (local 2/200) elapsed=0.3m eta=29.9m
+epoch: 503/700 (local 3/200) elapsed=0.4m eta=28.8m
+epoch: 504/700 (local 4/200) elapsed=0.6m eta=28.4m
+epoch: 505/700 (local 5/200) elapsed=0.7m eta=27.9m
+epoch: 506/700 (local 6/200) elapsed=0.9m eta=27.7m
+epoch: 507/700 (local 7/200) elapsed=1.0m eta=27.4m
+epoch: 508/700 (local 8/200) elapsed=1.1m eta=27.3m
+epoch: 509/700 (local 9/200) elapsed=1.3m eta=27.1m
+epoch: 510/700 (local 10/200) elapsed=1.4m eta=27.0m
+epoch: 511/700 (local 11/200) elapsed=1.6m eta=27.0m
+epoch: 512/700 (local 12/200) elapsed=1.7m eta=26.9m
+epoch: 513/700 (local 13/200) elapsed=1.9m eta=26.7m
+epoch: 514/700 (local 14/200) elapsed=2.0m eta=26.6m
+epoch: 515/700 (local 15/200) elapsed=2.2m eta=26.5m
+epoch: 516/700 (local 16/200) elapsed=2.3m eta=26.4m
+epoch: 517/700 (local 17/200) elapsed=2.4m eta=26.2m
+epoch: 518/700 (local 18/200) elapsed=2.6m eta=26.1m
+epoch: 519/700 (local 19/200) elapsed=2.7m eta=26.0m
+epoch: 520/700 (local 20/200) elapsed=2.9m eta=25.9m
+epoch: 521/700 (local 21/200) elapsed=3.0m eta=25.7m
+epoch: 522/700 (local 22/200) elapsed=3.2m eta=25.6m
+epoch: 523/700 (local 23/200) elapsed=3.3m eta=25.5m
+epoch: 524/700 (local 24/200) elapsed=3.5m eta=25.4m
+epoch: 525/700 (local 25/200) elapsed=3.6m eta=25.2m
+epoch: 526/700 (local 26/200) elapsed=3.7m eta=25.1m
+epoch: 527/700 (local 27/200) elapsed=3.9m eta=24.9m
+epoch: 528/700 (local 28/200) elapsed=4.0m eta=24.8m
+epoch: 529/700 (local 29/200) elapsed=4.2m eta=24.7m
+epoch: 530/700 (local 30/200) elapsed=4.3m eta=24.5m
+epoch: 531/700 (local 31/200) elapsed=4.5m eta=24.4m
+epoch: 532/700 (local 32/200) elapsed=4.6m eta=24.2m
+epoch: 533/700 (local 33/200) elapsed=4.8m eta=24.1m
+epoch: 534/700 (local 34/200) elapsed=4.9m eta=23.9m
+epoch: 535/700 (local 35/200) elapsed=5.0m eta=23.8m
+epoch: 536/700 (local 36/200) elapsed=5.2m eta=23.6m
+epoch: 537/700 (local 37/200) elapsed=5.3m eta=23.5m
+epoch: 538/700 (local 38/200) elapsed=5.5m eta=23.3m
+epoch: 539/700 (local 39/200) elapsed=5.6m eta=23.2m
+epoch: 540/700 (local 40/200) elapsed=5.8m eta=23.0m
+epoch: 541/700 (local 41/200) elapsed=5.9m eta=22.9m
+epoch: 542/700 (local 42/200) elapsed=6.0m eta=22.7m
+epoch: 543/700 (local 43/200) elapsed=6.2m eta=22.6m
+epoch: 544/700 (local 44/200) elapsed=6.3m eta=22.5m
+epoch: 545/700 (local 45/200) elapsed=6.5m eta=22.3m
+epoch: 546/700 (local 46/200) elapsed=6.6m eta=22.2m
+epoch: 547/700 (local 47/200) elapsed=6.8m eta=22.0m
+epoch: 548/700 (local 48/200) elapsed=6.9m eta=21.9m
+epoch: 549/700 (local 49/200) elapsed=7.1m eta=21.8m
+Saving model to logs/2026-05-14-16-18-52/nn/model_550.pth
+epoch: 550/700 (local 50/200) elapsed=7.2m eta=21.6m
+epoch: 551/700 (local 51/200) elapsed=7.4m eta=21.5m
+epoch: 552/700 (local 52/200) elapsed=7.5m eta=21.3m
+epoch: 553/700 (local 53/200) elapsed=7.6m eta=21.2m
+epoch: 554/700 (local 54/200) elapsed=7.8m eta=21.0m
+epoch: 555/700 (local 55/200) elapsed=7.9m eta=20.9m
+epoch: 556/700 (local 56/200) elapsed=8.1m eta=20.7m
+epoch: 557/700 (local 57/200) elapsed=8.2m eta=20.6m
+epoch: 558/700 (local 58/200) elapsed=8.3m eta=20.4m
+epoch: 559/700 (local 59/200) elapsed=8.5m eta=20.3m
+epoch: 560/700 (local 60/200) elapsed=8.6m eta=20.1m
+epoch: 561/700 (local 61/200) elapsed=8.8m eta=20.0m
+epoch: 562/700 (local 62/200) elapsed=8.9m eta=19.9m
+epoch: 563/700 (local 63/200) elapsed=9.5m eta=20.7m
+epoch: 564/700 (local 64/200) elapsed=9.7m eta=20.5m
+epoch: 565/700 (local 65/200) elapsed=9.8m eta=20.3m
+epoch: 566/700 (local 66/200) elapsed=9.9m eta=20.2m
+epoch: 567/700 (local 67/200) elapsed=10.1m eta=20.0m
+epoch: 568/700 (local 68/200) elapsed=10.2m eta=19.8m
+epoch: 569/700 (local 69/200) elapsed=10.4m eta=19.7m
+epoch: 570/700 (local 70/200) elapsed=10.5m eta=19.5m
+epoch: 571/700 (local 71/200) elapsed=10.7m eta=19.4m
+epoch: 572/700 (local 72/200) elapsed=10.8m eta=19.2m
+epoch: 573/700 (local 73/200) elapsed=10.9m eta=19.0m
+epoch: 574/700 (local 74/200) elapsed=11.1m eta=18.9m
+epoch: 575/700 (local 75/200) elapsed=11.2m eta=18.7m
+epoch: 576/700 (local 76/200) elapsed=11.4m eta=18.6m
+epoch: 577/700 (local 77/200) elapsed=11.5m eta=18.4m
+epoch: 578/700 (local 78/200) elapsed=11.7m eta=18.3m
+epoch: 579/700 (local 79/200) elapsed=11.8m eta=18.1m
+epoch: 580/700 (local 80/200) elapsed=12.0m eta=18.0m
+epoch: 581/700 (local 81/200) elapsed=12.1m eta=17.8m
+epoch: 582/700 (local 82/200) elapsed=12.3m eta=17.7m
+epoch: 583/700 (local 83/200) elapsed=12.4m eta=17.5m
+epoch: 584/700 (local 84/200) elapsed=12.6m eta=17.4m
+epoch: 585/700 (local 85/200) elapsed=12.7m eta=17.2m
+epoch: 586/700 (local 86/200) elapsed=12.9m eta=17.1m
+epoch: 587/700 (local 87/200) elapsed=13.0m eta=16.9m
+epoch: 588/700 (local 88/200) elapsed=13.2m eta=16.8m
+epoch: 589/700 (local 89/200) elapsed=13.3m eta=16.6m
+epoch: 590/700 (local 90/200) elapsed=13.5m eta=16.5m
+epoch: 591/700 (local 91/200) elapsed=13.6m eta=16.3m
+epoch: 592/700 (local 92/200) elapsed=13.8m eta=16.2m
+epoch: 593/700 (local 93/200) elapsed=13.9m eta=16.0m
+epoch: 594/700 (local 94/200) elapsed=14.1m eta=15.9m
+epoch: 595/700 (local 95/200) elapsed=14.2m eta=15.7m
+epoch: 596/700 (local 96/200) elapsed=14.4m eta=15.5m
+epoch: 597/700 (local 97/200) elapsed=14.5m eta=15.4m
+epoch: 598/700 (local 98/200) elapsed=14.7m eta=15.2m
+epoch: 599/700 (local 99/200) elapsed=14.8m eta=15.1m
+Saving model to logs/2026-05-14-16-18-52/nn/model_600.pth
+epoch: 600/700 (local 100/200) elapsed=14.9m eta=14.9m
+epoch: 601/700 (local 101/200) elapsed=15.1m eta=14.8m
+epoch: 602/700 (local 102/200) elapsed=15.2m eta=14.6m
+epoch: 603/700 (local 103/200) elapsed=15.4m eta=14.5m
+epoch: 604/700 (local 104/200) elapsed=15.5m eta=14.3m
+epoch: 605/700 (local 105/200) elapsed=15.7m eta=14.2m
+epoch: 606/700 (local 106/200) elapsed=15.8m eta=14.0m

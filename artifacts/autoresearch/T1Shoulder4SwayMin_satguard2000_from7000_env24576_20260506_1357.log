@@ -1,0 +1,30 @@
+*** Warning: failed to preload CUDA lib
+*** Warning: failed to preload PhysX libs
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Traceback (most recent call last):
+  File "train_shoulder4_frozen.py", line 2, in <module>
+    from utils.shoulder_runner import FrozenLegShoulderRunner
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/utils/shoulder_runner.py", line 10, in <module>
+    from envs import *
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/envs/__init__.py", line 1, in <module>
+    from envs.t1 import T1
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/envs/t1.py", line 3, in <module>
+    from isaacgym import gymtorch, gymapi
+  File "/opt/isaacgym/python/isaacgym/gymtorch.py", line 109, in <module>
+    _import_gymtorch()
+  File "/opt/isaacgym/python/isaacgym/gymtorch.py", line 45, in _import_gymtorch
+    gt = torch.utils.cpp_extension.load(name="gymtorch", sources=sources, extra_cflags=cflags, verbose=True)
+  File "/opt/conda/lib/python3.8/site-packages/torch/utils/cpp_extension.py", line 1284, in load
+    return _jit_compile(
+  File "/opt/conda/lib/python3.8/site-packages/torch/utils/cpp_extension.py", line 1509, in _jit_compile
+    _write_ninja_file_and_build_library(
+  File "/opt/conda/lib/python3.8/site-packages/torch/utils/cpp_extension.py", line 1593, in _write_ninja_file_and_build_library
+    verify_ninja_availability()
+  File "/opt/conda/lib/python3.8/site-packages/torch/utils/cpp_extension.py", line 1649, in verify_ninja_availability
+    raise RuntimeError("Ninja is required to load C++ extensions")
+RuntimeError: Ninja is required to load C++ extensions

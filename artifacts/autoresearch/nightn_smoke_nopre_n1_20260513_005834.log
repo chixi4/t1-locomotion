@@ -1,0 +1,5 @@
+==== NIGHTN 7WAY START 2026-05-13 00:58:35 order=n1 ====
+==== RUN 1/1 code=n1 label=shoulder4_night_n1_zerospring300 2026-05-13 00:58:35 ====
+START run code=n1 label=shoulder4_night_n1_zerospring300 task=T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300 2026-05-13 00:58:35
+CONFIG train_num_envs=64 train_max_iterations=1 final_iter=1 eval_num_envs=16
+==== START train 2026-05-13 00:58:35 label=shoulder4_night_n1_zerospring300 ====

@@ -1,0 +1,652 @@
+basic:
+  checkpoint: logs/2026-05-14-11-51-44/nn/model_100.pth
+  leg_checkpoint: logs/2026-05-05-11-09-07/nn/model_4000.pth
+  upper_checkpoint: logs/2026-05-14-08-59-29/nn/model_500.pth
+  curriculum_checkpoint: logs/2026-05-14-08-59-29/nn/model_500.pth
+  run_name: T1Upper9_CameraStableOfficial_OpenLeg18LegResidualCameraPriority_train300
+  headless: true
+  max_iterations: 300
+  sim_device: cuda:0
+  rl_device: cuda:0
+  seed: 42
+  description: 'Camera-priority continuation from OpenLeg18LegResidual model_100.
+    Keep the long-horizon walking recovery, shrink residual authority, penalize residual
+    magnitude harder, reduce velocity tracking pressure slightly, and prioritize camera
+    roll/pitch plus angular smoothness before pushing farther toward 1.8 m/s.'
+  task: T1Upper9CameraStableOfficialOpenLeg18LegResidualCameraPriority_train300
+  reset_optimizer_on_resume: false
+env:
+  num_envs: 24576
+  num_observations: 74
+  num_privileged_obs: 14
+  num_actions: 21
+  env_spacing: 1.0
+runner:
+  horizon_length: 24
+  mini_epochs: 6
+  save_interval: 100
+  use_wandb: false
+viewer:
+  pos:
+  - 3.0
+  - -3.0
+  - 2.0
+  lookat:
+  - 0.0
+  - 0.0
+  - 0.0
+  record_video: true
+  record_interval: 5.0
+  record_env_idx: 0
+algorithm:
+  learning_rate: 1.0e-05
+  learning_rate_min: 1.0e-05
+  learning_rate_max: 1.0e-05
+  gamma: 0.995
+  lam: 0.95
+  bound_coef: 1.0
+  entropy_coef: 0.0
+  logstd_init: -4.2
+  logstd_min: -5.0
+  logstd_max: -3.8
+  actor_mean_scale_by_dof:
+    Left_Shoulder_Pitch: 0.75
+    Left_Shoulder_Roll: 0.9
+    Right_Shoulder_Pitch: 0.75
+    Right_Shoulder_Roll: 0.9
+    Left_Elbow_Pitch: 0.42
+    Left_Elbow_Yaw: 0.25
+    Right_Elbow_Pitch: 0.42
+    Right_Elbow_Yaw: 0.25
+    Waist: 0.35
+  residual_actor_mean_scale_by_dof:
+    Left_Shoulder_Pitch: 0.0
+    Left_Shoulder_Roll: 0.0
+    Left_Elbow_Pitch: 0.018
+    Left_Elbow_Yaw: 0.010
+    Right_Shoulder_Pitch: 0.0
+    Right_Shoulder_Roll: 0.0
+    Right_Elbow_Pitch: 0.018
+    Right_Elbow_Yaw: 0.010
+    Waist: 0.018
+    Left_Hip_Pitch: 0.04
+    Left_Hip_Roll: 0.035
+    Left_Hip_Yaw: 0.035
+    Left_Knee_Pitch: 0.04
+    Left_Ankle_Pitch: 0.035
+    Left_Ankle_Roll: 0.03
+    Right_Hip_Pitch: 0.04
+    Right_Hip_Roll: 0.035
+    Right_Hip_Yaw: 0.035
+    Right_Knee_Pitch: 0.04
+    Right_Ankle_Pitch: 0.035
+    Right_Ankle_Roll: 0.03
+  residual_effect_scale_by_dof:
+    Left_Shoulder_Pitch: 0.0
+    Left_Shoulder_Roll: 0.0
+    Left_Elbow_Pitch: 0.25
+    Left_Elbow_Yaw: 0.2
+    Right_Shoulder_Pitch: 0.0
+    Right_Shoulder_Roll: 0.0
+    Right_Elbow_Pitch: 0.25
+    Right_Elbow_Yaw: 0.2
+    Waist: 0.35
+    Left_Hip_Pitch: 1.0
+    Left_Hip_Roll: 1.0
+    Left_Hip_Yaw: 1.0
+    Left_Knee_Pitch: 1.0
+    Left_Ankle_Pitch: 1.0
+    Left_Ankle_Roll: 1.0
+    Right_Hip_Pitch: 1.0
+    Right_Hip_Roll: 1.0
+    Right_Hip_Yaw: 1.0
+    Right_Knee_Pitch: 1.0
+    Right_Ankle_Pitch: 1.0
+    Right_Ankle_Roll: 1.0
+  residual_penalty: 1.6
+  upper_logstd_min: -4.0
+  upper_logstd_max: -1.0
+  log_ratio_clip: 20.0
+  nonfinite_update_limit: 16
+  max_grad_norm: 0.5
+  adaptive_lr: false
+  symmetric_coef: 10.0
+  desired_kl: 0.004
+sim:
+  dt: 0.002
+  substeps: 1
+  up_axis: z
+  gravity:
+  - 0.0
+  - 0.0
+  - -9.81
+  physics_engine: physx
+  physx:
+    num_threads: 4
+    solver_type: 1
+    num_position_iterations: 4
+    num_velocity_iterations: 1
+    contact_offset: 0.02
+    rest_offset: 0.0
+    bounce_threshold_velocity: 0.2
+    max_depenetration_velocity: 100.0
+    default_buffer_size_multiplier: 5.0
+    max_gpu_contact_pairs: 8388608
+    num_subscenes: 4
+    contact_collection: 1
+asset:
+  file: resources/T1/T1_locomotion_shoulder4_waist_elbow_softlimit.urdf
+  mujoco_file: resources/T1/T1_locomotion.xml
+  name: T1
+  base_name: Trunk
+  foot_names:
+  - left_foot_link
+  - right_foot_link
+  disable_gravity: false
+  default_dof_drive_mode: 3
+  collapse_fixed_joints: true
+  fix_base_link: false
+  self_collisions: 0
+  replace_cylinder_with_capsule: false
+  flip_visual_attachments: false
+  density: 0.001
+  angular_damping: 0.0
+  linear_damping: 0.0
+  max_angular_velocity: 1000.0
+  max_linear_velocity: 1000.0
+  armature: 0.0
+  thickness: 0.01
+  feet_edge_pos:
+  - - 0.1215
+    - 0.05
+    - -0.03
+  - - 0.1215
+    - -0.05
+    - -0.03
+  - - -0.1015
+    - 0.05
+    - -0.03
+  - - -0.1015
+    - -0.05
+    - -0.03
+init_state:
+  pos:
+  - 0.0
+  - 0.0
+  - 0.72
+  rot:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  lin_vel:
+  - 0.0
+  - 0.0
+  - 0.0
+  ang_vel:
+  - 0.0
+  - 0.0
+  - 0.0
+  default_joint_angles:
+    Shoulder: 0.0
+    Hip_Pitch: -0.2
+    Knee_Pitch: 0.4
+    Ankle_Pitch: -0.25
+    default: 0.0
+    Elbow: 0.0
+    Waist: 0.0
+control:
+  arm_dof_names:
+  - Left_Shoulder_Pitch
+  - Left_Shoulder_Roll
+  - Right_Shoulder_Pitch
+  - Right_Shoulder_Roll
+  - Left_Elbow_Pitch
+  - Left_Elbow_Yaw
+  - Right_Elbow_Pitch
+  - Right_Elbow_Yaw
+  - Waist
+  leg_dof_names:
+  - Left_Hip_Pitch
+  - Left_Hip_Roll
+  - Left_Hip_Yaw
+  - Left_Knee_Pitch
+  - Left_Ankle_Pitch
+  - Left_Ankle_Roll
+  - Right_Hip_Pitch
+  - Right_Hip_Roll
+  - Right_Hip_Yaw
+  - Right_Knee_Pitch
+  - Right_Ankle_Pitch
+  - Right_Ankle_Roll
+  stiffness:
+    Shoulder: 30.0
+    Hip: 200.0
+    Knee: 200.0
+    Ankle: 50.0
+    Elbow: 24.0
+    Waist: 55.0
+  damping:
+    Shoulder: 1.0
+    Hip: 5.0
+    Knee: 5.0
+    Ankle: 1.0
+    Elbow: 1.2
+    Waist: 3.0
+  action_scale:
+    Left_Shoulder_Pitch: 0.5
+    Left_Shoulder_Roll: 0.3
+    Right_Shoulder_Pitch: 0.5
+    Right_Shoulder_Roll: 0.3
+    Hip: 1.0
+    Knee: 1.0
+    Ankle: 1.0
+    Left_Elbow_Pitch: 0.24
+    Right_Elbow_Pitch: 0.24
+    Left_Elbow_Yaw: 0.12
+    Right_Elbow_Yaw: 0.12
+    Waist: 0.12
+  target_clip:
+    Left_Shoulder_Pitch:
+    - -0.55
+    - 0.55
+    Left_Shoulder_Roll:
+    - 0.0
+    - 0.3
+    Right_Shoulder_Pitch:
+    - -0.55
+    - 0.55
+    Right_Shoulder_Roll:
+    - -0.3
+    - 0.0
+    Left_Elbow_Pitch:
+    - -0.22
+    - 0.34
+    Right_Elbow_Pitch:
+    - -0.22
+    - 0.34
+    Left_Elbow_Yaw:
+    - -0.16
+    - 0.0
+    Right_Elbow_Yaw:
+    - 0.0
+    - 0.16
+    Waist:
+    - -0.16
+    - 0.16
+  decimation: 10
+  expected_leg_action_dim: 12
+  waist_dof_names:
+  - Waist
+  expected_arm_action_dim: 9
+  elbow_dof_names:
+  - Left_Elbow_Pitch
+  - Left_Elbow_Yaw
+  - Right_Elbow_Pitch
+  - Right_Elbow_Yaw
+  elbow_pitch_dof_names:
+  - Left_Elbow_Pitch
+  - Right_Elbow_Pitch
+  elbow_yaw_dof_names:
+  - Left_Elbow_Yaw
+  - Right_Elbow_Yaw
+terrain:
+  border_size: 5.0
+  discrete_height: 0.02
+  dynamic_friction: 1.0
+  horizontal_scale: 0.1
+  num_terrains: 8
+  random_height: 0.1
+  restitution: 0.0
+  slope: 0.1
+  slope_threshold: 2.0
+  static_friction: 1.0
+  terrain_length: 10.0
+  terrain_proportions:
+  - 0.0
+  - 0.0
+  - 0.5
+  - 0.5
+  terrain_width: 10.0
+  type: trimesh
+  vertical_scale: 0.005
+commands:
+  ang_vel_levels: 15
+  ang_vel_resolution: 0.1
+  ang_vel_yaw:
+  - -1.5
+  - 1.5
+  ang_vel_yaw_center_toler: 0.1
+  ang_vel_yaw_edge_toler: 0.1
+  ang_vel_yaw_toler: 0.1
+  curriculum: true
+  episode_length_toler: 0.1
+  gait_frequency:
+  - 1.0
+  - 2.0
+  grid3d_unlock_neighbors: face6
+  lin_vel_center_toler: 0.15
+  lin_vel_edge_toler: 0.18
+  lin_vel_levels: 18
+  lin_vel_x:
+  - -1.8
+  - 1.8
+  lin_vel_x_resolution: 0.1
+  lin_vel_x_toler: 0.15
+  lin_vel_y:
+  - -1.8
+  - 1.8
+  lin_vel_y_resolution: 0.1
+  lin_vel_y_toler: 0.15
+  linear_speed:
+  - 0.0
+  - 1.8
+  linear_speed_resolution: 0.1
+  num_commands: 3
+  radial_distribution: uniform_area
+  resampling_time_s:
+  - 8.0
+  - 12.0
+  sampling: grid3d_circle
+  still_proportion: 0.2
+  update_rate: 0.1
+normalization:
+  gravity: 1.0
+  lin_vel: 1.0
+  ang_vel: 1.0
+  dof_pos: 1.0
+  dof_vel: 0.1
+  filter_weight: 0.1
+  push_force: 0.1
+  push_torque: 0.5
+  clip_actions: 1.0
+noise:
+  ang_vel:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 0.1
+  dof_pos:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 0.01
+  dof_vel:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 0.1
+  gravity:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 0.01
+  height:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 0.02
+  lin_vel:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 0.05
+randomization:
+  base_com:
+    distribution: uniform
+    operation: additive
+    range:
+    - -0.1
+    - 0.1
+  base_mass:
+    distribution: uniform
+    operation: scaling
+    range:
+    - 0.8
+    - 1.2
+  compliance:
+    distribution: uniform
+    operation: additive
+    range:
+    - 0.5
+    - 1.5
+  dof_damping:
+    distribution: uniform
+    operation: scaling
+    range:
+    - 0.95
+    - 1.05
+  dof_friction:
+    distribution: uniform
+    operation: additive
+    range:
+    - 0.0
+    - 2.0
+  dof_stiffness:
+    distribution: uniform
+    operation: scaling
+    range:
+    - 0.95
+    - 1.05
+  friction:
+    distribution: uniform
+    operation: additive
+    range:
+    - 0.1
+    - 2.0
+  init_base_lin_vel_xy:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 0.1
+  init_base_pos_xy:
+    distribution: uniform
+    operation: additive
+    range:
+    - -1.0
+    - 1.0
+  init_dof_pos:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 0.05
+  kick_ang_vel:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 0.02
+  kick_interval_s: 2.0
+  kick_lin_vel:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 0.1
+  other_com:
+    distribution: uniform
+    operation: additive
+    range:
+    - -0.005
+    - 0.005
+  other_mass:
+    distribution: uniform
+    operation: scaling
+    range:
+    - 0.98
+    - 1.02
+  push_duration_s: 1.0
+  push_force:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 10.0
+  push_interval_s: 5.0
+  push_torque:
+    distribution: gaussian
+    operation: additive
+    range:
+    - 0.0
+    - 2.0
+  restitution:
+    distribution: uniform
+    operation: additive
+    range:
+    - 0.1
+    - 0.9
+rewards:
+  base_height_target: 0.68
+  episode_length_s: 30.0
+  feet_distance_ref: 0.2
+  only_positive_rewards: true
+  penalize_contacts_on:
+  - Trunk
+  - H1
+  - H2
+  - AL
+  - AR
+  - Waist
+  - Hip
+  - Shank
+  - Ankle
+  scales:
+    action_rate: -0.8
+    ang_vel_xy: -0.55
+    base_height: -20.0
+    collision: -1.0
+    dof_acc: -1.0e-07
+    dof_pos_limits: -1.0
+    dof_vel: -0.0001
+    dof_vel_limits: -0.0
+    feet_distance: -1.0
+    feet_roll: -0.1
+    feet_slip: -0.1
+    feet_swing: 3.0
+    feet_vel_z: -0.0
+    feet_yaw_diff: -1.0
+    feet_yaw_mean: -1.0
+    lin_vel_z: -2.0
+    orientation: -9.0
+    power: -0.002
+    root_acc: -0.00025
+    survival: 0.25
+    torque_limits: -0.0
+    torque_tiredness: -0.01
+    torques: -0.0002
+    tracking_ang_vel: 0.35
+    tracking_lin_vel_x: 0.8
+    tracking_lin_vel_y: 0.8
+    anti_sway_vs_fixed_arm: 0.0
+    arm_action_rate: 0.0
+    arm_action_high_freq: 0.0
+    arm_dof_vel: 0.0
+    arm_dof_acc: 0.0
+    arm_torques: 0.0
+    arm_power: 0.0
+    shoulder_neutral_low_speed: 0.0
+    shoulder_base_roll_target: 0.0
+    shoulder_roll: 0.0
+    shoulder_pitch_soft_limit: 0.0
+    shoulder_pair_symmetry: 0.0
+    shoulder_gait_phase_pitch: 0.0
+    shoulder_foot_phase_pitch: 0.0
+    shoulder_low_speed_same_down: 0.0
+    shoulder_pitch_magnitude_balance: 0.0
+    shoulder_roll_magnitude_balance: 0.0
+    shoulder_lateral_foot_roll: 0.0
+    shoulder_lateral_roll_outward: 0.0
+    shoulder_lateral_roll_outward_margin: 0.0
+    shoulder_lateral_roll_wrong_sign_action: 0.0
+    shoulder_lateral_pitch_down: 0.0
+    waist_soft_limit: 0.0
+    waist_neutral_low_speed: 0.0
+    shoulder_dynamic_target: 0.0
+    shoulder_no_lazy_boundary: 0.0
+    shoulder_balance_smoothness: 0.0
+    shoulder_static_posture: -9.0
+    shoulder_kinematic_motion_target: -13.0
+    camera_stability: -15.0
+    upper_body_static_posture: -5.0
+    elbow_kinematic_motion_target: -2.4
+    waist_kinematic_motion_target: -1.6
+    upper_body_smoothness: -0.05
+  soft_dof_pos_limit: 1.0
+  soft_dof_vel_limit: 1.0
+  soft_torque_limit: 1.0
+  swing_period: 0.2
+  terminate_contacts_on: []
+  terminate_height: 0.45
+  terminate_vel: 50.0
+  tracking_ang_sigma_center: 0.1
+  tracking_ang_sigma_edge: 0.1
+  tracking_lin_sigma_center: 0.15
+  tracking_lin_sigma_edge: 0.15
+  tracking_sigma: 0.25
+  tracking_sigma_curriculum: true
+  shoulder_static_full: 0.03
+  shoulder_static_off: 0.35
+  shoulder_static_yaw_weight: 0.35
+  shoulder_static_pitch: 0.0
+  shoulder_static_left_roll: 0.0
+  shoulder_static_right_roll: 0.0
+  shoulder_static_pitch_same_weight: 1.2
+  shoulder_static_roll_same_weight: 1.2
+  shoulder_static_residual_sagittal_gate: true
+  shoulder_motion_gate_start: 0.12
+  shoulder_motion_gate_full: 0.85
+  shoulder_mix_yaw_weight: 0.1
+  shoulder_kinematic_pitch_amp: 0.84
+  shoulder_kinematic_pitch_sign: -1.0
+  shoulder_kinematic_pitch_speed_norm: 0.8
+  shoulder_kinematic_pitch_stride_norm: 0.36
+  shoulder_kinematic_pitch_same_weight: 2.0
+  shoulder_kinematic_roll_amp: 0.3
+  shoulder_kinematic_roll_max: 0.32
+  shoulder_kinematic_roll_speed_norm: 0.7
+  shoulder_kinematic_roll_foot_norm: 0.08
+  shoulder_kinematic_roll_left_sign: 1.0
+  shoulder_kinematic_roll_right_sign: -1.0
+  shoulder_kinematic_roll_cross_lateral: false
+  shoulder_kinematic_roll_cross_delta: false
+  shoulder_kinematic_roll_cross_velocity: false
+  shoulder_kinematic_roll_commanded_cross_velocity: true
+  shoulder_kinematic_roll_command_norm: 0.7
+  shoulder_kinematic_roll_velocity_norm: 0.75
+  shoulder_kinematic_roll_delta_weight: 6.0
+  camera_tilt_weight: 1.0
+  camera_ang_vel_xy_weight: 0.85
+  camera_tilt_rate_weight: 0.003
+  camera_ang_acc_weight: 3.5e-05
+  upper_body_motion_yaw_weight: 0.35
+  upper_body_motion_gate_start: 0.08
+  upper_body_motion_gate_full: 0.8
+  upper_static_full: 0.03
+  upper_static_off: 0.35
+  upper_static_yaw_weight: 0.35
+  upper_static_residual: 0.04
+  upper_static_elbow_weight: 1.0
+  upper_static_waist_weight: 1.4
+  elbow_kinematic_pitch_amp: 0.16
+  elbow_kinematic_pitch_speed_norm: 0.8
+  elbow_kinematic_stride_norm: 0.36
+  elbow_kinematic_same_weight: 1.0
+  elbow_kinematic_yaw_neutral_weight: 0.6
+  waist_kinematic_yaw_norm: 1.0
+  waist_kinematic_side_norm: 1.0
+  waist_kinematic_foot_norm: 0.12
+  waist_kinematic_yaw_amp: 0.07
+  waist_kinematic_side_amp: 0.03
+  waist_kinematic_foot_amp: 0.025
+  waist_kinematic_sign: -1.0
+  waist_kinematic_neutral_weight: 0.15
+  upper_smooth_dof_vel_weight: 0.002
+  upper_smooth_action_rate_weight: 0.4

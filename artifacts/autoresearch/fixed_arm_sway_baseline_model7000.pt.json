@@ -1,0 +1,10 @@
+{
+  "cells": 19496,
+  "seconds": 10.0,
+  "warmup_s": 1.0,
+  "mean": 0.0938563123345375,
+  "p50": 0.08495712280273438,
+  "p95": 0.19408540427684784,
+  "max": 0.37929871678352356,
+  "output": "artifacts/autoresearch/fixed_arm_sway_baseline_model7000.pt"
+}

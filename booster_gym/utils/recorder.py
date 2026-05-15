@@ -1,22 +1,16 @@
 import torch
 from torch.utils.tensorboard import SummaryWriter
 import os
-import re
 import time
 import wandb
 import yaml
-
-
-MAX_RUN_NAME_CHARS = 96
-RAW_NAME_PATTERN = re.compile(r"[^A-Za-z0-9_.-]+")
-PASSTHROUGH_PREFIXES = ("Metrics/", "Episode_", "Command/", "Symmetry/")
 
 
 class Recorder:
 
     def __init__(self, cfg):
         self.cfg = cfg
-        name = self._make_log_name()
+        name = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
         self.dir = os.path.join("logs", name)
         os.makedirs(self.dir)
         self.model_dir = os.path.join(self.dir, "nn")
@@ -59,12 +53,18 @@ class Recorder:
             self.episode_statistics[key][done] = 0
 
         if write_record:
+            done_count = len(self.last_episode["steps"])
+            self.writer.add_scalar("episode/done_count", done_count, it)
+            if self.cfg["runner"]["use_wandb"]:
+                wandb.log({"episode/done_count": done_count}, step=it)
+
             for key in self.last_episode.keys():
-                path = self._tensorboard_path(key)
+                path = ("" if key == "steps" or key == "reward" else "episode/") + key
                 value = self._mean(self.last_episode[key])
-                self.writer.add_scalar(path, value, it)
-                if self.cfg["runner"]["use_wandb"]:
-                    wandb.log({path: value}, step=it)
+                if value is not None:
+                    self.writer.add_scalar(path, value, it)
+                    if self.cfg["runner"]["use_wandb"]:
+                        wandb.log({path: value}, step=it)
                 self.last_episode[key].clear()
 
     def record_statistics(self, statistics, it):
@@ -80,21 +80,6 @@ class Recorder:
 
     def _mean(self, data):
         if len(data) == 0:
-            return 0.0
+            return None
         else:
             return sum(data) / len(data)
-
-    def _make_log_name(self):
-        timestamp = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
-        raw_name = self.cfg["basic"].get("run_name")
-        if not raw_name:
-            return timestamp
-        clean_name = RAW_NAME_PATTERN.sub("_", raw_name).strip("._-")
-        if not clean_name:
-            raise ValueError("run_name must contain at least one filesystem-safe character")
-        return f"{timestamp}_{clean_name[:MAX_RUN_NAME_CHARS]}"
-
-    def _tensorboard_path(self, key):
-        if key in {"steps", "reward"} or key.startswith(PASSTHROUGH_PREFIXES):
-            return key
-        return "episode/" + key

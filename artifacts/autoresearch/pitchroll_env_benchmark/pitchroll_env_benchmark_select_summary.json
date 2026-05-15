@@ -1,0 +1,106 @@
+{
+  "candidates": [
+    28672,
+    30720,
+    31744,
+    32768
+  ],
+  "results": [
+    {
+      "num_envs": 28672,
+      "iterations_requested": 12,
+      "epochs_completed": 12,
+      "status": "ok",
+      "return_code": 0,
+      "elapsed_s": 136.94690501800005,
+      "mean_epoch_s": 6.985191634888881,
+      "env_steps_per_s": 98512.40108617958,
+      "ppo_iters_per_hour": 515.3759822449406,
+      "gpu": {
+        "gpu_util_avg": 35.58461538461538,
+        "gpu_util_max": 93.0,
+        "memory_used_mb_max": 15356.0,
+        "power_w_avg": 107.55015384615386,
+        "power_w_max": 224.23
+      },
+      "log": "artifacts/autoresearch/pitchroll_env_benchmark/env28672_iters12.log"
+    },
+    {
+      "num_envs": 30720,
+      "iterations_requested": 12,
+      "epochs_completed": 12,
+      "status": "ok",
+      "return_code": 0,
+      "elapsed_s": 142.28473574300006,
+      "mean_epoch_s": 7.418044876888896,
+      "env_steps_per_s": 99390.07005700575,
+      "ppo_iters_per_hour": 485.30307645022344,
+      "gpu": {
+        "gpu_util_avg": 37.74814814814815,
+        "gpu_util_max": 96.0,
+        "memory_used_mb_max": 16090.0,
+        "power_w_avg": 114.09088888888891,
+        "power_w_max": 235.86
+      },
+      "log": "artifacts/autoresearch/pitchroll_env_benchmark/env30720_iters12.log"
+    },
+    {
+      "num_envs": 31744,
+      "iterations_requested": 12,
+      "epochs_completed": 12,
+      "status": "ok",
+      "return_code": 0,
+      "elapsed_s": 148.7540219509999,
+      "mean_epoch_s": 7.77956812333332,
+      "env_steps_per_s": 97930.37195920417,
+      "ppo_iters_per_hour": 462.75062354714674,
+      "gpu": {
+        "gpu_util_avg": 37.3758865248227,
+        "gpu_util_max": 85.0,
+        "memory_used_mb_max": 16608.0,
+        "power_w_avg": 113.43404255319152,
+        "power_w_max": 237.12
+      },
+      "log": "artifacts/autoresearch/pitchroll_env_benchmark/env31744_iters12.log"
+    },
+    {
+      "num_envs": 32768,
+      "iterations_requested": 12,
+      "epochs_completed": 12,
+      "status": "ok",
+      "return_code": 0,
+      "elapsed_s": 149.83026571599999,
+      "mean_epoch_s": 7.870946067777772,
+      "env_steps_per_s": 99915.81612018791,
+      "ppo_iters_per_hour": 457.37830865564536,
+      "gpu": {
+        "gpu_util_avg": 38.20422535211268,
+        "gpu_util_max": 84.0,
+        "memory_used_mb_max": 17196.0,
+        "power_w_avg": 115.41021126760563,
+        "power_w_max": 248.1
+      },
+      "log": "artifacts/autoresearch/pitchroll_env_benchmark/env32768_iters12.log"
+    }
+  ],
+  "best_by_env_steps_per_s": {
+    "num_envs": 32768,
+    "iterations_requested": 12,
+    "epochs_completed": 12,
+    "status": "ok",
+    "return_code": 0,
+    "elapsed_s": 149.83026571599999,
+    "mean_epoch_s": 7.870946067777772,
+    "env_steps_per_s": 99915.81612018791,
+    "ppo_iters_per_hour": 457.37830865564536,
+    "gpu": {
+      "gpu_util_avg": 38.20422535211268,
+      "gpu_util_max": 84.0,
+      "memory_used_mb_max": 17196.0,
+      "power_w_avg": 115.41021126760563,
+      "power_w_max": 248.1
+    },
+    "log": "artifacts/autoresearch/pitchroll_env_benchmark/env32768_iters12.log"
+  },
+  "created_at": "2026-05-07 09:00:52"
+}

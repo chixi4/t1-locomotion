@@ -1,0 +1,2 @@
+== benchmark num_envs=8192 iters=12 log=artifacts/autoresearch/bench_env8192_20260502_115302.log ==
+bash: /opt/conda/lib/libtinfo.so.6: no version information available (required by bash)

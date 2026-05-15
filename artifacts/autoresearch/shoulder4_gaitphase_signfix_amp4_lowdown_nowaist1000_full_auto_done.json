@@ -1,0 +1,13 @@
+{
+  "label": "shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000",
+  "display_name": "T1Shoulder4 SignFix Amp4LowDown NoWaist model_1000",
+  "task": "T1Shoulder4GaitPhaseSignFixAmp4LowDown_from7000LegFrozen_train1000",
+  "run_dir": "logs/2026-05-10-04-11-55",
+  "arm_checkpoint": "logs/2026-05-10-04-11-55/nn/model_1000.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseSignFixAmp4LowDown_from7000LegFrozen_train1000_20260510_041107_full_auto.log",
+  "created_at": "2026-05-09T23:35:51+00:00"
+}

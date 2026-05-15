@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import yaml
+
+
+def main() -> None:
+    runs = json.loads(Path("artifacts/autoresearch/nightj_runs.json").read_text(encoding="utf-8"))
+    for run in runs:
+        cfg = yaml.safe_load(Path("envs", f"{run['task']}.yaml").read_text(encoding="utf-8"))
+        assert cfg["basic"]["task"] == run["task"]
+        assert cfg["basic"]["max_iterations"] == 400
+        assert cfg["basic"]["leg_checkpoint"] == "logs/2026-05-05-11-09-07/nn/model_4000.pth"
+        assert cfg["rewards"]["scales"]["anti_sway_vs_fixed_arm"] == 0.0
+        assert cfg["rewards"]["scales"]["shoulder_base_roll_target"] < 0.0
+        assert cfg["rewards"]["shoulder_base_roll_left"] == 0.0
+        assert cfg["rewards"]["shoulder_base_roll_right"] == 0.0
+        assert cfg["rewards"]["scales"]["shoulder_roll"] == -3.0
+        assert cfg["rewards"]["shoulder_roll_soft_limit"] == 0.10
+        assert cfg["rewards"]["shoulder_roll_lateral_gated"] is False
+        assert cfg["rewards"]["shoulder_lateral_roll_amp"] <= 0.025
+        assert cfg["rewards"]["shoulder_lateral_roll_extra_amp"] >= 0.25
+        assert cfg["rewards"]["shoulder_lateral_roll_max"] <= 0.24
+        assert cfg["rewards"]["shoulder_lateral_roll_min_outward"] <= 0.01
+        assert cfg["rewards"]["shoulder_lateral_foot_out_norm"] <= 0.09
+        assert cfg["control"]["target_clip"]["Left_Shoulder_Roll"][0] == 0.0
+        assert cfg["control"]["target_clip"]["Right_Shoulder_Roll"][1] == 0.0
+        asset = Path(cfg["asset"]["file"])
+        assert asset.exists(), str(asset)
+        print(
+            run["code"],
+            run["label"],
+            cfg["control"]["target_clip"]["Left_Shoulder_Roll"],
+            cfg["control"]["target_clip"]["Right_Shoulder_Roll"],
+        )
+    print("validation_ok")
+
+
+if __name__ == "__main__":
+    main()

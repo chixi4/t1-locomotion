@@ -1,0 +1,20 @@
+1777694478.021679850 Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+1777694478.222347320 Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+1777694480.706482916 PyTorch version 2.0.1+cu118
+1777694480.779399338 Device count 1
+1777694480.783883386 /opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+1777694480.788276304 Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+1777694480.897533517 Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+1777694480.902390338 Building extension module gymtorch...
+1777694480.906598755 Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+1777694480.946758962 ninja: no work to do.
+1777694480.952253179 Loading extension module gymtorch...
+1777694481.197752546 Setting seed: 42
+1777694481.519635354 [Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+1777694481.524741301 Not connected to PVD
+1777694481.528819954 +++ Using GPU PhysX
+1777694485.000394727 Physics Engine: PhysX
+1777694485.004755980 Physics Device: cuda:0
+1777694485.009151132 GPU Pipeline: enabled
+1777694519.982551520 /buildAgent/work/99bede84aa0a52c2/source/physx/src/NpPhysics.cpp (616) : invalid parameter : PxPhysics::createMaterial: limit of 64K materials reached.
+1777694519.986653629 

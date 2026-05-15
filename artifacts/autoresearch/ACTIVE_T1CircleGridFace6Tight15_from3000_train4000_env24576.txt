@@ -1,0 +1,13 @@
+session=t1_face6_15_from3000_4000
+log=artifacts/autoresearch/T1CircleGridFace6Tight15_from3000_train4000_env24576_20260505_1112.log
+script=artifacts/autoresearch/run_T1CircleGridFace6Tight15_from3000_train4000_env24576_20260505_1112.sh
+start=2026-05-05 11:08:29 CST
+checkpoint=logs/2026-05-04-21-58-46/nn/model_3000.pth
+additional_iterations=4000
+total_training_semantics=3000+4000
+num_envs=24576
+task=T1CircleGridFace6Tight15
+max_linear_speed=1.5
+max_yaw_speed=1.5
+grid_shape=31x31x31
+unlock=face6

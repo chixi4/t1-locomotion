@@ -1,0 +1,16 @@
+{
+  "status": "done",
+  "failure_phase": "",
+  "failure_reason": "",
+  "label": "shoulder4_night_n4_pitchfirst300",
+  "display_name": "T1Shoulder4 NightN4 PitchFirst model_300",
+  "task": "T1Shoulder4GaitPhaseNightN4PitchFirst_from7000LegFrozen_train300",
+  "run_dir": "logs/2026-05-14-02-34-48",
+  "arm_checkpoint": "logs/2026-05-14-02-34-48/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN4PitchFirst_from7000LegFrozen_train300_20260514_023401_full_auto.log",
+  "created_at": "2026-05-13T19:26:42+00:00"
+}

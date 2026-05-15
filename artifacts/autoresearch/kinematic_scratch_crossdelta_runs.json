@@ -1,0 +1,15 @@
+{
+  "label": "shoulder4_kinematic_scratch_crossdelta300",
+  "display_name": "T1Shoulder4 Kinematic Scratch CrossDelta model_300",
+  "task": "T1Shoulder4KinematicScratchCrossDelta_from7000LegFrozen_train300",
+  "previous_failed_label": "shoulder4_kinematic_scratch_crossside300",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "created_at": "2026-05-13T07:32:07+00:00",
+  "hypothesis": "Independent cross-side drives made both arms lift; dominant-foot delta should select only the opposite arm.",
+  "changes": {
+    "arm_checkpoint": "null / scratch",
+    "roll_drive": "right_out-left_out -> left arm, left_out-right_out -> right arm",
+    "shoulder_kinematic_motion_target": "-8.0 -> -10.0",
+    "roll_foot_norm": "0.07 -> 0.06"
+  }
+}

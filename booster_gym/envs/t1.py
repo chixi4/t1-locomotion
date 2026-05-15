@@ -17,12 +17,8 @@ import torch
 
 import numpy as np
 from .base_task import BaseTask
-from .t1_omni_metrics import T1OmniMetrics
 
 from utils.utils import apply_randomization
-
-
-ACTION_SYMMETRY_EPS = 1.0e-6
 
 
 class T1(BaseTask):
@@ -69,6 +65,8 @@ class T1(BaseTask):
             self.dof_pos_limits[i, 1] = dof_props_asset["upper"][i].item()
             self.dof_vel_limits[i] = dof_props_asset["velocity"][i].item()
             self.torque_limits[i] = dof_props_asset["effort"][i].item()
+        self.action_scale = self._make_dof_vector(self.cfg["control"].get("action_scale", 1.0), "action_scale").unsqueeze(0)
+        self.dof_target_lower, self.dof_target_upper = self._make_dof_target_clip()
 
         self.dof_stiffness = torch.zeros(self.num_envs, self.num_dofs, dtype=torch.float, device=self.device)
         self.dof_damping = torch.zeros(self.num_envs, self.num_dofs, dtype=torch.float, device=self.device)
@@ -140,6 +138,40 @@ class T1(BaseTask):
             self.envs.append(env_handle)
             self.actor_handles.append(actor_handle)
 
+    def _make_dof_vector(self, spec, label):
+        if isinstance(spec, (int, float)):
+            return torch.full((self.num_dofs,), float(spec), dtype=torch.float, device=self.device)
+        if not isinstance(spec, dict):
+            raise TypeError(f"{label} must be a scalar or dict")
+        values = torch.zeros(self.num_dofs, dtype=torch.float, device=self.device)
+        for i, dof_name in enumerate(self.dof_names):
+            found = False
+            for key, value in spec.items():
+                if key == "default":
+                    continue
+                if key == dof_name or key in dof_name:
+                    values[i] = float(value)
+                    found = True
+                    break
+            if not found:
+                if "default" not in spec:
+                    raise ValueError(f"{label} of joint {dof_name} was not defined")
+                values[i] = float(spec["default"])
+        return values
+
+    def _make_dof_target_clip(self):
+        lower = torch.full((1, self.num_dofs), -torch.inf, dtype=torch.float, device=self.device)
+        upper = torch.full((1, self.num_dofs), torch.inf, dtype=torch.float, device=self.device)
+        clip_cfg = self.cfg["control"].get("target_clip", {})
+        for name, limits in clip_cfg.items():
+            idx = self.dof_names.index(name)
+            lower[:, idx] = float(limits[0])
+            upper[:, idx] = float(limits[1])
+        return lower, upper
+
+    def _resolve_dof_indices(self, names):
+        return torch.tensor([self.dof_names.index(name) for name in names], dtype=torch.long, device=self.device)
+
     def _process_rigid_body_props(self, props, i):
         for j in range(self.num_bodies):
             if j == self.base_indice:
@@ -192,6 +224,8 @@ class T1(BaseTask):
         self.num_obs = self.cfg["env"]["num_observations"]
         self.num_privileged_obs = self.cfg["env"]["num_privileged_obs"]
         self.num_actions = self.cfg["env"]["num_actions"]
+        if self.num_actions != self.num_dofs:
+            raise ValueError(f"num_actions ({self.num_actions}) must match loaded asset DOFs ({self.num_dofs})")
         self.dt = self.cfg["control"]["decimation"] * self.cfg["sim"]["dt"]
 
         self.obs_buf = torch.zeros(self.num_envs, self.num_obs, dtype=torch.float, device=self.device)
@@ -226,6 +260,8 @@ class T1(BaseTask):
         self.base_quat = self.root_states[:, 3:7]
         self.feet_pos = self.body_states[:, self.feet_indices, 0:3]
         self.feet_quat = self.body_states[:, self.feet_indices, 3:7]
+        self.feet_pos_body = torch.zeros(self.num_envs, len(self.feet_indices), 3, dtype=torch.float, device=self.device)
+        self.feet_vel_body = torch.zeros_like(self.feet_pos_body)
 
         # initialize some data used later on
         self.common_step_counter = 0
@@ -246,14 +282,31 @@ class T1(BaseTask):
         self.projected_gravity = quat_rotate_inverse(self.base_quat, self.gravity_vec)
         self.filtered_lin_vel = self.base_lin_vel.clone()
         self.filtered_ang_vel = self.base_ang_vel.clone()
-        self.curriculum_prob = torch.zeros(
-            1 + 2 * self.cfg["commands"]["lin_vel_levels"],
-            1 + 2 * self.cfg["commands"]["ang_vel_levels"],
-            dtype=torch.float,
-            device=self.device,
-        )
-        self.curriculum_prob[self.cfg["commands"]["lin_vel_levels"], self.cfg["commands"]["ang_vel_levels"]] = 1.0
-        self.env_curriculum_level = torch.zeros(self.num_envs, 2, dtype=torch.long, device=self.device)
+        self.tilt_sq_sum = torch.zeros(self.num_envs, dtype=torch.float, device=self.device)
+        self.tilt_bad_count = torch.zeros(self.num_envs, dtype=torch.float, device=self.device)
+        self.tilt_count = torch.zeros(self.num_envs, dtype=torch.float, device=self.device)
+        self.arm_saturation_sum = torch.zeros(self.num_envs, dtype=torch.float, device=self.device)
+        self.last_tilt = torch.sqrt(torch.sum(torch.square(self.projected_gravity[:, :2]), dim=1))
+        if self.cfg["commands"].get("sampling", "box") == "grid3d_circle" and self.cfg["commands"].get("curriculum", False):
+            self._init_grid3d_curriculum()
+        elif self.cfg["commands"].get("sampling", "box") == "circle" and self.cfg["commands"].get("curriculum", False):
+            self.curriculum_prob = torch.zeros(
+                1 + self.cfg["commands"]["lin_vel_levels"],
+                1 + 2 * self.cfg["commands"]["ang_vel_levels"],
+                dtype=torch.float,
+                device=self.device,
+            )
+            self.curriculum_prob[0, self.cfg["commands"]["ang_vel_levels"]] = 1.0
+        else:
+            self.curriculum_prob = torch.zeros(
+                1 + 2 * self.cfg["commands"]["lin_vel_levels"],
+                1 + 2 * self.cfg["commands"]["ang_vel_levels"],
+                dtype=torch.float,
+                device=self.device,
+            )
+            self.curriculum_prob[self.cfg["commands"]["lin_vel_levels"], self.cfg["commands"]["ang_vel_levels"]] = 1.0
+        if not hasattr(self, "env_curriculum_level"):
+            self.env_curriculum_level = torch.zeros(self.num_envs, 2, dtype=torch.long, device=self.device)
         self.mean_lin_vel_level = 0.0
         self.mean_ang_vel_level = 0.0
         self.max_lin_vel_level = 0.0
@@ -274,7 +327,62 @@ class T1(BaseTask):
                     found = True
             if not found:
                 self.default_dof_pos[:, i] = self.cfg["init_state"]["default_joint_angles"]["default"]
-        self.omni_metrics = T1OmniMetrics(self)
+        self.arm_indices = self._resolve_dof_indices(self.cfg["control"].get("arm_dof_names", []))
+        self.leg_indices = self._resolve_dof_indices(self.cfg["control"].get("leg_dof_names", []))
+        self.waist_indices = self._resolve_dof_indices(self.cfg["control"].get("waist_dof_names", []))
+        self.elbow_indices = self._resolve_dof_indices(self.cfg["control"].get("elbow_dof_names", []))
+        self.elbow_pitch_indices = self._resolve_dof_indices(self.cfg["control"].get("elbow_pitch_dof_names", []))
+        self.elbow_yaw_indices = self._resolve_dof_indices(self.cfg["control"].get("elbow_yaw_dof_names", []))
+        self.arm_action_ema = torch.zeros(self.num_envs, len(self.arm_indices), dtype=torch.float, device=self.device)
+        self.fixed_arm_sway_baseline = self._load_fixed_arm_sway_baseline()
+        self.last_projected_gravity_xy = self.projected_gravity[:, :2].clone()
+
+    def _init_grid3d_curriculum(self):
+        lin_levels = self.cfg["commands"]["lin_vel_levels"]
+        yaw_levels = self.cfg["commands"]["ang_vel_levels"]
+        lin_axis = torch.arange(-lin_levels, lin_levels + 1, dtype=torch.long, device=self.device)
+        lx, ly = torch.meshgrid(lin_axis, lin_axis, indexing="ij")
+        self.curriculum_mask = (lx.square() + ly.square()) <= lin_levels * lin_levels
+        self.curriculum_mask = self.curriculum_mask.unsqueeze(-1).expand(-1, -1, 1 + 2 * yaw_levels)
+        self.original_curriculum_mask = self.curriculum_mask.clone()
+        allowed_checkpoint = self.cfg["commands"].get("allowed_curriculum_checkpoint")
+        if allowed_checkpoint:
+            checkpoint = torch.load(allowed_checkpoint, map_location=self.device, weights_only=True)
+            allowed = checkpoint["curriculum"].to(device=self.device) > 0.5
+            if tuple(allowed.shape) != (1 + 2 * lin_levels, 1 + 2 * lin_levels, 1 + 2 * yaw_levels):
+                raise ValueError(f"Allowed curriculum shape {tuple(allowed.shape)} does not match this grid")
+            self.curriculum_mask = self.curriculum_mask & allowed
+        self.curriculum_prob = torch.zeros(
+            1 + 2 * lin_levels,
+            1 + 2 * lin_levels,
+            1 + 2 * yaw_levels,
+            dtype=torch.float,
+            device=self.device,
+        )
+        self.curriculum_prob[lin_levels, lin_levels, yaw_levels] = 1.0
+        self.curriculum_prob *= self.curriculum_mask.float()
+        if self.curriculum_prob[lin_levels, lin_levels, yaw_levels] == 0:
+            raise ValueError("Center curriculum cell is not allowed by the allowed mask")
+        self.env_curriculum_level = torch.zeros(self.num_envs, 3, dtype=torch.long, device=self.device)
+
+    def _load_fixed_arm_sway_baseline(self):
+        baseline_path = self.cfg["rewards"].get("fixed_arm_sway_baseline")
+        if not baseline_path:
+            return None
+        if not os.path.exists(baseline_path):
+            print(f"Fixed-arm sway baseline not found at {baseline_path}; using current sway penalty only.", flush=True)
+            return None
+        baseline_data = torch.load(baseline_path, map_location=self.device, weights_only=True)
+        baseline = baseline_data["sway"] if isinstance(baseline_data, dict) else baseline_data
+        baseline = baseline.to(device=self.device, dtype=torch.float)
+        expected_shape = (
+            1 + 2 * self.cfg["commands"]["lin_vel_levels"],
+            1 + 2 * self.cfg["commands"]["lin_vel_levels"],
+            1 + 2 * self.cfg["commands"]["ang_vel_levels"],
+        )
+        if tuple(baseline.shape) != expected_shape:
+            raise ValueError(f"Fixed-arm sway baseline shape {tuple(baseline.shape)} does not match {expected_shape}")
+        return torch.nan_to_num(baseline, nan=0.0, posinf=0.0, neginf=0.0)
 
     def _prepare_reward_function(self):
         """Prepares a list of reward functions, whcih will be called to compute the total reward.
@@ -313,6 +421,18 @@ class T1(BaseTask):
 
         self.last_dof_targets[env_ids] = self.dof_pos[env_ids]
         self.last_root_vel[env_ids] = self.root_states[env_ids, 7:13]
+        self.actions[env_ids] = 0.0
+        self.last_actions[env_ids] = 0.0
+        self.feet_pos_body[env_ids] = 0.0
+        self.feet_vel_body[env_ids] = 0.0
+        reset_gravity = quat_rotate_inverse(self.root_states[env_ids, 3:7], self.gravity_vec[env_ids])
+        self.last_tilt[env_ids] = torch.sqrt(torch.sum(torch.square(reset_gravity[:, :2]), dim=1))
+        self.last_projected_gravity_xy[env_ids] = reset_gravity[:, :2]
+        self.arm_action_ema[env_ids] = 0.0
+        self.tilt_sq_sum[env_ids] = 0.0
+        self.tilt_bad_count[env_ids] = 0.0
+        self.tilt_count[env_ids] = 0.0
+        self.arm_saturation_sum[env_ids] = 0.0
         self.episode_length_buf[env_ids] = 0
         self.filtered_lin_vel[env_ids] = 0.0
         self.filtered_ang_vel[env_ids] = 0.0
@@ -320,7 +440,6 @@ class T1(BaseTask):
 
         self.delay_steps[env_ids] = torch.randint(0, self.cfg["control"]["decimation"], (len(env_ids),), device=self.device)
         self.extras["time_outs"] = self.time_out_buf
-        self.omni_metrics.reset(env_ids)
 
     def _reset_dofs(self, env_ids):
         self.dof_pos[env_ids] = apply_randomization(self.default_dof_pos, self.cfg["randomization"].get("init_dof_pos"))
@@ -371,6 +490,8 @@ class T1(BaseTask):
             return
         if self.cfg["commands"]["curriculum"]:
             self._resample_curriculum_commands(env_ids)
+        elif self.cfg["commands"].get("sampling", "box") == "circle":
+            self._resample_circle_commands(env_ids)
         else:
             self.commands[env_ids, 0] = torch_rand_float(
                 self.cfg["commands"]["lin_vel_x"][0], self.cfg["commands"]["lin_vel_x"][1], (len(env_ids), 1), device=self.device
@@ -387,15 +508,39 @@ class T1(BaseTask):
         still_envs = env_ids[torch.randperm(len(env_ids))[: int(self.cfg["commands"]["still_proportion"] * len(env_ids))]]
         self.commands[still_envs, :] = 0.0
         self.gait_frequency[still_envs] = 0.0
-        self.cmd_resample_time[env_ids] += torch.randint(
-            int(self.cfg["commands"]["resampling_time_s"][0] / self.dt),
-            int(self.cfg["commands"]["resampling_time_s"][1] / self.dt),
-            (len(env_ids),),
-            device=self.device,
+        if self.cfg["commands"].get("sampling", "box") == "grid3d_circle" and self.cfg["commands"].get("curriculum", False):
+            self.env_curriculum_level[still_envs, :] = 0
+        resample_min = int(self.cfg["commands"]["resampling_time_s"][0] / self.dt)
+        resample_max = int(self.cfg["commands"]["resampling_time_s"][1] / self.dt)
+        if resample_max <= resample_min:
+            resample_steps = torch.full((len(env_ids),), resample_min, dtype=torch.long, device=self.device)
+        else:
+            resample_steps = torch.randint(resample_min, resample_max, (len(env_ids),), device=self.device)
+        self.cmd_resample_time[env_ids] += resample_steps
+
+    def _resample_circle_commands(self, env_ids):
+        speed_range = self.cfg["commands"].get(
+            "linear_speed",
+            [0.0, max(abs(self.cfg["commands"]["lin_vel_x"][0]), abs(self.cfg["commands"]["lin_vel_x"][1]), abs(self.cfg["commands"]["lin_vel_y"][0]), abs(self.cfg["commands"]["lin_vel_y"][1]))],
         )
+        speed_min, speed_max = float(speed_range[0]), float(speed_range[1])
+        if self.cfg["commands"].get("radial_distribution", "uniform_area") == "uniform_area":
+            u = torch.rand(len(env_ids), dtype=torch.float, device=self.device)
+            speed = torch.sqrt(speed_min * speed_min + (speed_max * speed_max - speed_min * speed_min) * u)
+        else:
+            speed = torch_rand_float(speed_min, speed_max, (len(env_ids), 1), device=self.device).squeeze(1)
+        theta = torch_rand_float(-torch.pi, torch.pi, (len(env_ids), 1), device=self.device).squeeze(1)
+        self.commands[env_ids, 0] = speed * torch.cos(theta)
+        self.commands[env_ids, 1] = speed * torch.sin(theta)
+        self.commands[env_ids, 2] = torch_rand_float(
+            self.cfg["commands"]["ang_vel_yaw"][0], self.cfg["commands"]["ang_vel_yaw"][1], (len(env_ids), 1), device=self.device
+        ).squeeze(1)
 
     def _update_curriculum(self, env_ids):
         if not self.cfg["commands"]["curriculum"]:
+            return
+        if self.cfg["commands"].get("sampling", "box") == "grid3d_circle":
+            self._update_grid3d_curriculum(env_ids)
             return
         success = self.episode_length_buf[env_ids] > np.ceil(self.cfg["rewards"]["episode_length_s"] / self.dt) * (
             1 - self.cfg["commands"]["episode_length_toler"]
@@ -405,8 +550,12 @@ class T1(BaseTask):
         success &= torch.abs(self.filtered_ang_vel[env_ids, 2] - self.commands[env_ids, 2]) < self.cfg["commands"]["ang_vel_yaw_toler"]
         for i in range(len(env_ids)):
             if success[i]:
-                x = self.env_curriculum_level[env_ids[i], 0] + self.cfg["commands"]["lin_vel_levels"]
-                y = self.env_curriculum_level[env_ids[i], 1] + self.cfg["commands"]["ang_vel_levels"]
+                if self.cfg["commands"].get("sampling", "box") == "circle":
+                    x = self.env_curriculum_level[env_ids[i], 0]
+                    y = self.env_curriculum_level[env_ids[i], 1] + self.cfg["commands"]["ang_vel_levels"]
+                else:
+                    x = self.env_curriculum_level[env_ids[i], 0] + self.cfg["commands"]["lin_vel_levels"]
+                    y = self.env_curriculum_level[env_ids[i], 1] + self.cfg["commands"]["ang_vel_levels"]
                 self.curriculum_prob[x, y] += self.cfg["commands"]["update_rate"]
                 if x > 0:
                     self.curriculum_prob[x - 1, y] += self.cfg["commands"]["update_rate"]
@@ -418,7 +567,137 @@ class T1(BaseTask):
                     self.curriculum_prob[x, y + 1] += self.cfg["commands"]["update_rate"]
         self.curriculum_prob.clamp_(max=1.0)
 
+    def _grid3d_radius_ratio(self, levels):
+        lin_levels = float(self.cfg["commands"]["lin_vel_levels"])
+        yaw_levels = float(self.cfg["commands"]["ang_vel_levels"])
+        max_radius = np.sqrt(lin_levels * lin_levels + yaw_levels * yaw_levels)
+        radius = torch.sqrt(torch.sum(levels[:, :2].float().square(), dim=1) + levels[:, 2].float().square())
+        return torch.clamp(radius / max_radius, min=0.0, max=1.0)
+
+    def _grid3d_tolerances(self, levels):
+        radius_ratio = self._grid3d_radius_ratio(levels)
+        lin_center = float(self.cfg["commands"].get("lin_vel_center_toler", self.cfg["commands"]["lin_vel_x_toler"]))
+        lin_edge = float(self.cfg["commands"].get("lin_vel_edge_toler", lin_center))
+        yaw_center = float(self.cfg["commands"].get("ang_vel_yaw_center_toler", self.cfg["commands"]["ang_vel_yaw_toler"]))
+        yaw_edge = float(self.cfg["commands"].get("ang_vel_yaw_edge_toler", yaw_center))
+        lin_toler = lin_center + radius_ratio * (lin_edge - lin_center)
+        yaw_toler = yaw_center + radius_ratio * (yaw_edge - yaw_center)
+        return lin_toler, yaw_toler
+
+    def _grid3d_tracking_sigmas(self):
+        if not (
+            self.cfg["commands"].get("sampling", "box") == "grid3d_circle"
+            and self.cfg["rewards"].get("tracking_sigma_curriculum", False)
+        ):
+            sigma = self.cfg["rewards"]["tracking_sigma"]
+            return sigma, sigma
+        lin_center = float(self.cfg["rewards"].get("tracking_lin_sigma_center", self.cfg["rewards"]["tracking_sigma"]))
+        lin_edge = float(self.cfg["rewards"].get("tracking_lin_sigma_edge", lin_center))
+        yaw_center = float(self.cfg["rewards"].get("tracking_ang_sigma_center", self.cfg["rewards"]["tracking_sigma"]))
+        yaw_edge = float(self.cfg["rewards"].get("tracking_ang_sigma_edge", yaw_center))
+        if lin_center == lin_edge and yaw_center == yaw_edge:
+            return lin_center, yaw_center
+        radius_ratio = self._grid3d_radius_ratio(self.env_curriculum_level)
+        lin_sigma = lin_center + radius_ratio * (lin_edge - lin_center)
+        yaw_sigma = yaw_center + radius_ratio * (yaw_edge - yaw_center)
+        return lin_sigma, yaw_sigma
+
+    def _grid3d_sway_rho(self, levels):
+        lin_level = torch.linalg.norm(levels[:, :2].float(), dim=1) / float(self.cfg["commands"]["lin_vel_levels"])
+        yaw_level = torch.abs(levels[:, 2].float()) / float(self.cfg["commands"]["ang_vel_levels"])
+        return torch.clamp(torch.maximum(lin_level, yaw_level), min=0.0, max=1.0)
+
+    def _grid3d_sway_limits(self, levels):
+        rho = self._grid3d_sway_rho(levels)
+        tilt_rms_limit = 0.042 + 0.023 * rho
+        tilt_bad_limit = 0.085 + 0.040 * rho
+        return rho, tilt_rms_limit, tilt_bad_limit
+
+    def _update_sway_episode_stats(self):
+        if not self.cfg["commands"].get("sway_curriculum", False):
+            return
+        valid = self.episode_length_buf > int(1.0 / self.dt)
+        if not torch.any(valid):
+            return
+        tilt = torch.sqrt(self.projected_gravity[:, 0].square() + self.projected_gravity[:, 1].square())
+        _, _, tilt_bad_limit = self._grid3d_sway_limits(self.env_curriculum_level)
+        if len(self.arm_indices) > 0:
+            saturation_threshold = float(self.cfg["commands"].get("arm_action_saturation_threshold", 0.98))
+            arm_saturation = (torch.abs(self.actions[:, self.arm_indices]) > saturation_threshold).float().mean(dim=1)
+        else:
+            arm_saturation = torch.zeros_like(tilt)
+        valid_float = valid.float()
+        self.tilt_sq_sum += tilt.square() * valid_float
+        self.tilt_bad_count += ((tilt > tilt_bad_limit) & valid).float()
+        self.arm_saturation_sum += arm_saturation * valid_float
+        self.tilt_count += valid_float
+
+    def _grid3d_sway_success(self, env_ids):
+        levels = self.env_curriculum_level[env_ids]
+        rho, tilt_rms_limit, _ = self._grid3d_sway_limits(levels)
+        count = torch.clamp(self.tilt_count[env_ids], min=1.0)
+        tilt_rms = torch.sqrt(self.tilt_sq_sum[env_ids] / count)
+        tilt_bad_frac = self.tilt_bad_count[env_ids] / count
+        arm_saturation_frac = self.arm_saturation_sum[env_ids] / count
+        lin_error = torch.linalg.norm(self.filtered_lin_vel[env_ids, :2] - self.commands[env_ids, :2], dim=1)
+        yaw_error = torch.abs(self.filtered_ang_vel[env_ids, 2] - self.commands[env_ids, 2])
+        success = self.episode_length_buf[env_ids] > np.ceil(self.cfg["rewards"]["episode_length_s"] / self.dt) * (
+            1 - self.cfg["commands"]["episode_length_toler"]
+        )
+        success &= self.tilt_count[env_ids] > 0
+        success &= tilt_rms < tilt_rms_limit
+        success &= tilt_bad_frac < float(self.cfg["commands"].get("tilt_bad_frac_limit", 0.03))
+        success &= arm_saturation_frac < float(self.cfg["commands"].get("arm_action_saturation_frac_toler", 1.0))
+        success &= lin_error < (0.30 + 0.25 * rho)
+        success &= yaw_error < (0.15 + 0.10 * rho)
+        return success
+
+    def _update_grid3d_curriculum(self, env_ids):
+        if self.cfg["commands"].get("sway_curriculum", False):
+            success = self._grid3d_sway_success(env_ids)
+        else:
+            success = self.episode_length_buf[env_ids] > np.ceil(self.cfg["rewards"]["episode_length_s"] / self.dt) * (
+                1 - self.cfg["commands"]["episode_length_toler"]
+            )
+            levels = self.env_curriculum_level[env_ids]
+            lin_toler, yaw_toler = self._grid3d_tolerances(levels)
+            lin_error = torch.linalg.norm(self.filtered_lin_vel[env_ids, :2] - self.commands[env_ids, :2], dim=1)
+            yaw_error = torch.abs(self.filtered_ang_vel[env_ids, 2] - self.commands[env_ids, 2])
+            success &= lin_error < lin_toler
+            success &= yaw_error < yaw_toler
+
+        lin_levels = self.cfg["commands"]["lin_vel_levels"]
+        yaw_levels = self.cfg["commands"]["ang_vel_levels"]
+        if not torch.any(success):
+            return
+        center = self.env_curriculum_level[env_ids[success]].clone()
+        center[:, 0] += lin_levels
+        center[:, 1] += lin_levels
+        center[:, 2] += yaw_levels
+        if self.cfg["commands"].get("grid3d_unlock_neighbors", "full26") == "face6":
+            offsets = ((-1, 0, 0), (1, 0, 0), (0, -1, 0), (0, 1, 0), (0, 0, -1), (0, 0, 1))
+        else:
+            offsets = tuple((dx, dy, dz) for dx in (-1, 0, 1) for dy in (-1, 0, 1) for dz in (-1, 0, 1))
+        for offset in offsets:
+            neighbor = center + torch.tensor(offset, dtype=torch.long, device=self.device)
+            valid = (neighbor[:, 0] >= 0) & (neighbor[:, 0] < self.curriculum_prob.shape[0])
+            valid &= (neighbor[:, 1] >= 0) & (neighbor[:, 1] < self.curriculum_prob.shape[1])
+            valid &= (neighbor[:, 2] >= 0) & (neighbor[:, 2] < self.curriculum_prob.shape[2])
+            if not torch.any(valid):
+                continue
+            candidate = neighbor[valid]
+            valid_mask = self.curriculum_mask[candidate[:, 0], candidate[:, 1], candidate[:, 2]]
+            candidate = candidate[valid_mask]
+            if len(candidate) > 0:
+                self.curriculum_prob[candidate[:, 0], candidate[:, 1], candidate[:, 2]] = 1.0
+
     def _resample_curriculum_commands(self, env_ids):
+        if self.cfg["commands"].get("sampling", "box") == "grid3d_circle":
+            self._resample_grid3d_curriculum_commands(env_ids)
+            return
+        if self.cfg["commands"].get("sampling", "box") == "circle":
+            self._resample_circle_curriculum_commands(env_ids)
+            return
         grid_idx = torch.multinomial(self.curriculum_prob.flatten(), len(env_ids), replacement=True)
         lin_vel_level = grid_idx % self.curriculum_prob.shape[1] - self.cfg["commands"]["lin_vel_levels"]
         ang_vel_level = grid_idx // self.curriculum_prob.shape[1] - self.cfg["commands"]["ang_vel_levels"]
@@ -440,10 +719,79 @@ class T1(BaseTask):
             ang_vel_level + torch_rand_float(-0.5, 0.5, (len(env_ids), 1), device=self.device).squeeze(1)
         ) * self.cfg["commands"]["ang_vel_resolution"]
 
+    def _resample_grid3d_curriculum_commands(self, env_ids):
+        unlocked = (self.curriculum_prob > 0.5) & self.curriculum_mask
+        grid_idx = torch.multinomial(unlocked.flatten().float(), len(env_ids), replacement=True)
+
+        lin_bins = 1 + 2 * self.cfg["commands"]["lin_vel_levels"]
+        yaw_bins = 1 + 2 * self.cfg["commands"]["ang_vel_levels"]
+        lx_idx = grid_idx // (lin_bins * yaw_bins)
+        rem = grid_idx % (lin_bins * yaw_bins)
+        ly_idx = rem // yaw_bins
+        yaw_idx = rem % yaw_bins
+
+        lin_vel_level_x = lx_idx - self.cfg["commands"]["lin_vel_levels"]
+        lin_vel_level_y = ly_idx - self.cfg["commands"]["lin_vel_levels"]
+        ang_vel_level = yaw_idx - self.cfg["commands"]["ang_vel_levels"]
+
+        self.env_curriculum_level[env_ids, 0] = lin_vel_level_x
+        self.env_curriculum_level[env_ids, 1] = lin_vel_level_y
+        self.env_curriculum_level[env_ids, 2] = ang_vel_level
+
+        lin_levels = self.cfg["commands"]["lin_vel_levels"]
+        yaw_levels = self.cfg["commands"]["ang_vel_levels"]
+        lin_radius = torch.linalg.norm(self.env_curriculum_level[:, :2].float(), dim=1)
+        self.mean_lin_vel_level = torch.mean(lin_radius)
+        self.mean_ang_vel_level = torch.mean(torch.abs(self.env_curriculum_level[:, 2]).float())
+        self.max_lin_vel_level = torch.max(lin_radius)
+        self.max_ang_vel_level = torch.max(torch.abs(self.env_curriculum_level[:, 2]))
+
+        speed_max = float(self.cfg["commands"].get("linear_speed", [0.0, 1.0])[1])
+        lin_resolution = float(self.cfg["commands"].get("linear_speed_resolution", speed_max / max(1, lin_levels)))
+        x = (lin_vel_level_x.float() + torch_rand_float(-0.5, 0.5, (len(env_ids), 1), device=self.device).squeeze(1)) * lin_resolution
+        y = (lin_vel_level_y.float() + torch_rand_float(-0.5, 0.5, (len(env_ids), 1), device=self.device).squeeze(1)) * lin_resolution
+        speed = torch.sqrt(x.square() + y.square())
+        scale = torch.clamp(speed_max / torch.clamp(speed, min=1.0e-6), max=1.0)
+        self.commands[env_ids, 0] = x * scale
+        self.commands[env_ids, 1] = y * scale
+
+        yaw_resolution = float(self.cfg["commands"].get("ang_vel_resolution", 1.0 / max(1, yaw_levels)))
+        yaw = (ang_vel_level.float() + torch_rand_float(-0.5, 0.5, (len(env_ids), 1), device=self.device).squeeze(1)) * yaw_resolution
+        self.commands[env_ids, 2] = torch.clamp(yaw, self.cfg["commands"]["ang_vel_yaw"][0], self.cfg["commands"]["ang_vel_yaw"][1])
+
+    def _resample_circle_curriculum_commands(self, env_ids):
+        yaw_bins = self.curriculum_prob.shape[1]
+        grid_idx = torch.multinomial(self.curriculum_prob.flatten(), len(env_ids), replacement=True)
+        speed_level = grid_idx // yaw_bins
+        ang_vel_level = grid_idx % yaw_bins - self.cfg["commands"]["ang_vel_levels"]
+        self.env_curriculum_level[env_ids, 0] = speed_level
+        self.env_curriculum_level[env_ids, 1] = ang_vel_level
+        self.mean_lin_vel_level = torch.mean(self.env_curriculum_level[:, 0].float())
+        self.mean_ang_vel_level = torch.mean(torch.abs(self.env_curriculum_level[:, 1]).float())
+        self.max_lin_vel_level = torch.max(self.env_curriculum_level[:, 0])
+        self.max_ang_vel_level = torch.max(torch.abs(self.env_curriculum_level[:, 1]))
+
+        speed_max = float(self.cfg["commands"].get("linear_speed", [0.0, 1.0])[1])
+        speed_resolution = float(
+            self.cfg["commands"].get("linear_speed_resolution", speed_max / max(1, self.cfg["commands"]["lin_vel_levels"]))
+        )
+        speed = torch.clamp(
+            (speed_level.float() + torch_rand_float(-0.5, 0.5, (len(env_ids), 1), device=self.device).squeeze(1)) * speed_resolution,
+            min=0.0,
+            max=speed_max,
+        )
+        theta = torch_rand_float(-torch.pi, torch.pi, (len(env_ids), 1), device=self.device).squeeze(1)
+        self.commands[env_ids, 0] = speed * torch.cos(theta)
+        self.commands[env_ids, 1] = speed * torch.sin(theta)
+        self.commands[env_ids, 2] = (
+            ang_vel_level.float() + torch_rand_float(-0.5, 0.5, (len(env_ids), 1), device=self.device).squeeze(1)
+        ) * self.cfg["commands"].get("ang_vel_resolution", 0.1)
+
     def step(self, actions):
         # pre physics step
         self.actions[:] = torch.clip(actions, -self.cfg["normalization"]["clip_actions"], self.cfg["normalization"]["clip_actions"])
-        dof_targets = self.default_dof_pos + self.cfg["control"]["action_scale"] * self.actions
+        dof_targets = self.default_dof_pos + self.action_scale * self.actions
+        dof_targets = torch.maximum(torch.minimum(dof_targets, self.dof_target_upper), self.dof_target_lower)
 
         # perform physics step
         self.torques.zero_()
@@ -482,18 +830,14 @@ class T1(BaseTask):
         self.episode_length_buf += 1
         self.common_step_counter += 1
         self.gait_process[:] = torch.fmod(self.gait_process + self.dt * self.gait_frequency, 1.0)
+        self._update_sway_episode_stats()
 
         self._kick_robots()
         self._push_robots()
         self._check_termination()
         self._compute_reward()
-        self.extras["episode_metrics"] = {}
-        self.omni_metrics.update()
-        self.extras["step_metrics"] = self.omni_metrics.step_metrics()
 
         env_ids = self.reset_buf.nonzero(as_tuple=False).flatten()
-        if len(env_ids) > 0:
-            self.extras["episode_metrics"] = self.omni_metrics.pop_episode_metrics(env_ids)
         self._reset_idx(env_ids)
         self._teleport_robot()
         self._resample_commands()
@@ -503,6 +847,8 @@ class T1(BaseTask):
         self.last_actions[:] = self.actions
         self.last_dof_vel[:] = self.dof_vel
         self.last_root_vel[:] = self.root_states[:, 7:13]
+        self.last_tilt[:] = torch.sqrt(torch.sum(torch.square(self.projected_gravity[:, :2]), dim=1))
+        self.last_projected_gravity_xy[:] = self.projected_gravity[:, :2]
         self.last_feet_pos[:] = self.feet_pos
 
         return self.obs_buf, self.rew_buf, self.reset_buf, self.extras
@@ -540,6 +886,7 @@ class T1(BaseTask):
     def _refresh_feet_state(self):
         self.feet_pos[:] = self.body_states[:, self.feet_indices, 0:3]
         self.feet_quat[:] = self.body_states[:, self.feet_indices, 3:7]
+        self._refresh_feet_body_state()
         roll, _, yaw = get_euler_xyz(self.feet_quat.reshape(-1, 4))
         self.feet_roll[:] = (roll.reshape(self.num_envs, len(self.feet_indices)) + torch.pi) % (2 * torch.pi) - torch.pi
         self.feet_yaw[:] = (yaw.reshape(self.num_envs, len(self.feet_indices)) + torch.pi) % (2 * torch.pi) - torch.pi
@@ -559,6 +906,14 @@ class T1(BaseTask):
             dim=2,
         )
 
+    def _refresh_feet_body_state(self):
+        nfeet = len(self.feet_indices)
+        base_quat = self.base_quat.unsqueeze(1).expand(-1, nfeet, -1).reshape(-1, 4)
+        rel_pos = (self.feet_pos - self.base_pos.unsqueeze(1)).reshape(-1, 3)
+        world_vel = ((self.feet_pos - self.last_feet_pos) / self.dt).reshape(-1, 3)
+        self.feet_pos_body[:] = quat_rotate_inverse(base_quat, rel_pos).view(self.num_envs, nfeet, 3)
+        self.feet_vel_body[:] = quat_rotate_inverse(base_quat, world_vel).view(self.num_envs, nfeet, 3)
+
     def _check_termination(self):
         """Check if environments need to be reset"""
         self.reset_buf = torch.any(torch.norm(self.contact_forces[:, self.termination_contact_indices, :], dim=-1) > 1.0, dim=1)
@@ -574,6 +929,7 @@ class T1(BaseTask):
         adds each terms to the episode sums and to the total reward
         """
         self.rew_buf[:] = 0.0
+        self._tracking_lin_sigma, self._tracking_yaw_sigma = self._grid3d_tracking_sigmas()
         for i in range(len(self.reward_functions)):
             name = self.reward_names[i]
             rew = self.reward_functions[i]() * self.reward_scales[name]
@@ -588,19 +944,26 @@ class T1(BaseTask):
             [self.cfg["normalization"]["lin_vel"], self.cfg["normalization"]["lin_vel"], self.cfg["normalization"]["ang_vel"]],
             device=self.device,
         )
-        self.obs_buf = torch.cat(
-            (
-                apply_randomization(self.projected_gravity, self.cfg["noise"].get("gravity")) * self.cfg["normalization"]["gravity"],
-                apply_randomization(self.base_ang_vel, self.cfg["noise"].get("ang_vel")) * self.cfg["normalization"]["ang_vel"],
-                self.commands[:, :3] * commands_scale,
-                (torch.cos(2 * torch.pi * self.gait_process) * (self.gait_frequency > 1.0e-8).float()).unsqueeze(-1),
-                (torch.sin(2 * torch.pi * self.gait_process) * (self.gait_frequency > 1.0e-8).float()).unsqueeze(-1),
-                apply_randomization(self.dof_pos - self.default_dof_pos, self.cfg["noise"].get("dof_pos")) * self.cfg["normalization"]["dof_pos"],
-                apply_randomization(self.dof_vel, self.cfg["noise"].get("dof_vel")) * self.cfg["normalization"]["dof_vel"],
-                self.actions,
-            ),
-            dim=-1,
-        )
+        obs_parts = [
+            apply_randomization(self.projected_gravity, self.cfg["noise"].get("gravity")) * self.cfg["normalization"]["gravity"],
+            apply_randomization(self.base_ang_vel, self.cfg["noise"].get("ang_vel")) * self.cfg["normalization"]["ang_vel"],
+            self.commands[:, :3] * commands_scale,
+            (torch.cos(2 * torch.pi * self.gait_process) * (self.gait_frequency > 1.0e-8).float()).unsqueeze(-1),
+            (torch.sin(2 * torch.pi * self.gait_process) * (self.gait_frequency > 1.0e-8).float()).unsqueeze(-1),
+            apply_randomization(self.dof_pos - self.default_dof_pos, self.cfg["noise"].get("dof_pos")) * self.cfg["normalization"]["dof_pos"],
+            apply_randomization(self.dof_vel, self.cfg["noise"].get("dof_vel")) * self.cfg["normalization"]["dof_vel"],
+            self.actions,
+        ]
+        if self.cfg["env"].get("include_foot_body_obs", False):
+            foot_pos_scale = float(self.cfg["normalization"].get("foot_pos_body", 2.0))
+            foot_vel_scale = float(self.cfg["normalization"].get("foot_vel_body", 0.25))
+            obs_parts.extend(
+                [
+                    torch.clamp(self.feet_pos_body[:, :, :2].reshape(self.num_envs, -1) * foot_pos_scale, -3.0, 3.0),
+                    torch.clamp(self.feet_vel_body[:, :, :2].reshape(self.num_envs, -1) * foot_vel_scale, -3.0, 3.0),
+                ]
+            )
+        self.obs_buf = torch.cat(obs_parts, dim=-1)
         self.privileged_obs_buf = torch.cat(
             (
                 self.base_mass_scaled,
@@ -620,15 +983,15 @@ class T1(BaseTask):
 
     def _reward_tracking_lin_vel_x(self):
         # Tracking of linear velocity commands (x axes)
-        return torch.exp(-torch.square(self.commands[:, 0] - self.filtered_lin_vel[:, 0]) / self.cfg["rewards"]["tracking_sigma"])
+        return torch.exp(torch.neg(torch.square(self.commands[:, 0] - self.filtered_lin_vel[:, 0]) / self._tracking_lin_sigma))
 
     def _reward_tracking_lin_vel_y(self):
         # Tracking of linear velocity commands (y axes)
-        return torch.exp(-torch.square(self.commands[:, 1] - self.filtered_lin_vel[:, 1]) / self.cfg["rewards"]["tracking_sigma"])
+        return torch.exp(torch.neg(torch.square(self.commands[:, 1] - self.filtered_lin_vel[:, 1]) / self._tracking_lin_sigma))
 
     def _reward_tracking_ang_vel(self):
         # Tracking of angular velocity commands (yaw)
-        return torch.exp(-torch.square(self.commands[:, 2] - self.filtered_ang_vel[:, 2]) / self.cfg["rewards"]["tracking_sigma"])
+        return torch.exp(torch.neg(torch.square(self.commands[:, 2] - self.filtered_ang_vel[:, 2]) / self._tracking_yaw_sigma))
 
     def _reward_base_height(self):
         # Tracking of base height
@@ -671,30 +1034,6 @@ class T1(BaseTask):
         # Penalize changes in actions
         return torch.sum(torch.square(self.last_actions - self.actions), dim=-1)
 
-    def _reward_leg_action_magnitude_symmetry(self):
-        left_ids = self.omni_metrics.left_action_ids
-        right_ids = self.omni_metrics.right_action_ids
-        left_mag = torch.mean(torch.abs(self.actions[:, left_ids]), dim=1)
-        right_mag = torch.mean(torch.abs(self.actions[:, right_ids]), dim=1)
-        total_mag = torch.clamp(left_mag + right_mag, min=ACTION_SYMMETRY_EPS)
-        return torch.abs(left_mag - right_mag) / total_mag
-
-    def _reward_foot_slip_symmetry(self):
-        foot_velocity = torch.norm((self.last_feet_pos - self.feet_pos)[:, :, :2] / self.dt, dim=-1)
-        slip = foot_velocity * self.feet_contact.float()
-        total_slip = torch.clamp(slip[:, 0] + slip[:, 1], min=ACTION_SYMMETRY_EPS)
-        return torch.abs(slip[:, 0] - slip[:, 1]) / total_slip
-
-    def _reward_foot_slip_asymmetry(self):
-        slip = self.omni_metrics.slip_sum / torch.clamp(self.omni_metrics.slip_steps, min=ACTION_SYMMETRY_EPS)
-        total_slip = torch.clamp(torch.abs(slip[:, 0]) + torch.abs(slip[:, 1]), min=ACTION_SYMMETRY_EPS)
-        return torch.abs(slip[:, 0] - slip[:, 1]) / total_slip
-
-    def _reward_foot_clearance_asymmetry(self):
-        clearance = self.omni_metrics.clearance_sum / torch.clamp(self.omni_metrics.clearance_steps, min=ACTION_SYMMETRY_EPS)
-        total_clearance = torch.clamp(torch.abs(clearance[:, 0]) + torch.abs(clearance[:, 1]), min=ACTION_SYMMETRY_EPS)
-        return torch.abs(clearance[:, 0] - clearance[:, 1]) / total_clearance
-
     def _reward_dof_pos_limits(self):
         # Penalize dof positions too close to the limit
         lower = self.dof_pos_limits[:, 0] + 0.5 * (1 - self.cfg["rewards"]["soft_dof_pos_limit"]) * (
@@ -727,6 +1066,622 @@ class T1(BaseTask):
     def _reward_power(self):
         # Penalize power
         return torch.sum((self.torques * self.dof_vel).clip(min=0.0), dim=-1)
+
+    def _reward_arm_action_rate(self):
+        return torch.sum(torch.square(self.actions[:, self.arm_indices] - self.last_actions[:, self.arm_indices]), dim=-1)
+
+    def _sway_score(self):
+        tilt = torch.sqrt(torch.sum(torch.square(self.projected_gravity[:, :2]), dim=1))
+        tilt_rate = (tilt - self.last_tilt) / self.dt
+        ang_vel_xy = torch.linalg.norm(self.base_ang_vel[:, :2], dim=1)
+        tilt_weight = float(self.cfg["rewards"].get("sway_tilt_weight", 1.0))
+        ang_vel_weight = float(self.cfg["rewards"].get("sway_ang_vel_xy_weight", 0.25))
+        tilt_rate_weight = float(self.cfg["rewards"].get("sway_tilt_rate_weight", 0.01))
+        score = tilt_weight * tilt.square() + ang_vel_weight * ang_vel_xy.square() + tilt_rate_weight * tilt_rate.square()
+        return torch.nan_to_num(score, nan=0.0, posinf=1.0e6, neginf=0.0)
+
+    def _reward_anti_sway_vs_fixed_arm(self):
+        current_sway = self._sway_score()
+        if self.fixed_arm_sway_baseline is None or not hasattr(self, "env_curriculum_level") or self.env_curriculum_level.shape[1] < 3:
+            return -current_sway
+        lin_levels = self.cfg["commands"]["lin_vel_levels"]
+        yaw_levels = self.cfg["commands"]["ang_vel_levels"]
+        idx = self.env_curriculum_level.to(torch.long).clone()
+        idx[:, 0] = torch.clamp(idx[:, 0] + lin_levels, 0, 2 * lin_levels)
+        idx[:, 1] = torch.clamp(idx[:, 1] + lin_levels, 0, 2 * lin_levels)
+        idx[:, 2] = torch.clamp(idx[:, 2] + yaw_levels, 0, 2 * yaw_levels)
+        baseline = self.fixed_arm_sway_baseline[idx[:, 0], idx[:, 1], idx[:, 2]]
+        return baseline - current_sway
+
+    def _reward_arm_action_high_freq(self):
+        actions = self.actions[:, self.arm_indices]
+        high_freq = actions - self.arm_action_ema
+        alpha = float(self.cfg["rewards"].get("arm_action_ema_alpha", 0.9))
+        self.arm_action_ema[:] = alpha * self.arm_action_ema + (1.0 - alpha) * actions
+        return torch.sum(torch.square(high_freq), dim=-1)
+
+    def _reward_arm_dof_vel(self):
+        return torch.sum(torch.square(self.dof_vel[:, self.arm_indices]), dim=-1)
+
+    def _reward_arm_dof_acc(self):
+        acc = (self.last_dof_vel[:, self.arm_indices] - self.dof_vel[:, self.arm_indices]) / self.dt
+        return torch.sum(torch.square(acc), dim=-1)
+
+    def _reward_arm_torques(self):
+        return torch.sum(torch.square(self.torques[:, self.arm_indices]), dim=-1)
+
+    def _reward_arm_power(self):
+        power = self.torques[:, self.arm_indices] * self.dof_vel[:, self.arm_indices]
+        return torch.sum(torch.abs(power), dim=-1)
+
+    def _reward_shoulder_neutral_low_speed(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        cmd_speed = torch.linalg.norm(self.commands[:, :2], dim=1)
+        cmd_yaw = torch.abs(self.commands[:, 2])
+        cmd_mag = cmd_speed + 0.5 * cmd_yaw
+        low_speed_gate = torch.clamp(1.0 - cmd_mag / 0.60, min=0.0, max=1.0)
+        return low_speed_gate * torch.sum(torch.square(q), dim=1)
+
+    def _reward_shoulder_roll(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_roll = q[:, 1]
+        right_roll = q[:, 3]
+        soft_limit = float(self.cfg["rewards"].get("shoulder_roll_soft_limit", 0.0))
+        left_excess = torch.relu(torch.abs(left_roll) - soft_limit)
+        right_excess = torch.relu(torch.abs(right_roll) - soft_limit)
+        reward = left_excess.square() + right_excess.square()
+        inward_extra = float(self.cfg["rewards"].get("shoulder_roll_inward_extra_penalty", 0.0))
+        if inward_extra > 0.0:
+            left_inward = torch.relu(-left_roll)
+            right_inward = torch.relu(right_roll)
+            reward = reward + inward_extra * (left_inward.square() + right_inward.square())
+        if self.cfg["rewards"].get("shoulder_roll_lateral_gated", False):
+            _, lateral_gate, _ = self._shoulder_command_gates()
+            reward = reward * (1.0 - lateral_gate)
+        return reward
+
+    def _reward_shoulder_pitch_soft_limit(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_pitch = q[:, 0]
+        right_pitch = q[:, 2]
+        soft_limit = float(self.cfg["rewards"].get("shoulder_pitch_soft_limit", 0.42))
+        left_excess = torch.relu(torch.abs(left_pitch) - soft_limit)
+        right_excess = torch.relu(torch.abs(right_pitch) - soft_limit)
+        return left_excess.square() + right_excess.square()
+
+    def _shoulder_gate(self, value, start_key, full_key, default_start, default_full):
+        start = float(self.cfg["rewards"].get(start_key, default_start))
+        full = float(self.cfg["rewards"].get(full_key, default_full))
+        gate = torch.clamp((value - start) / max(1.0e-6, full - start), min=0.0, max=1.0)
+        return gate * gate * (3.0 - 2.0 * gate)
+
+    def _shoulder_command_gates(self):
+        yaw_weight = float(self.cfg["rewards"].get("shoulder_mix_yaw_weight", 0.35))
+        sagittal_cmd = torch.abs(self.commands[:, 0]) + yaw_weight * torch.abs(self.commands[:, 2])
+        lateral_cmd = torch.abs(self.commands[:, 1])
+        total_cmd = sagittal_cmd + lateral_cmd
+        total_gate = self._shoulder_gate(
+            total_cmd,
+            "shoulder_motion_gate_start",
+            "shoulder_motion_gate_full",
+            0.08,
+            0.65,
+        )
+        eps = float(self.cfg["rewards"].get("shoulder_mix_eps", 1.0e-4))
+        sagittal_ratio = sagittal_cmd / (total_cmd + eps)
+        lateral_ratio = lateral_cmd / (total_cmd + eps)
+        return total_gate * sagittal_ratio, total_gate * lateral_ratio, total_gate
+
+    def _reward_shoulder_pair_symmetry(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_pitch = q[:, 0]
+        left_roll = q[:, 1]
+        right_pitch = q[:, 2]
+        right_roll = q[:, 3]
+        if self.cfg["rewards"].get("shoulder_pair_symmetry_normalized", False):
+            eps = float(self.cfg["rewards"].get("shoulder_pair_symmetry_eps", 1.0e-3))
+            pitch_pair = torch.abs(left_pitch + right_pitch) / (torch.abs(left_pitch) + torch.abs(right_pitch) + eps)
+            roll_pair = torch.abs(left_roll + right_roll) / (torch.abs(left_roll) + torch.abs(right_roll) + eps)
+            if self.cfg["rewards"].get("shoulder_pair_symmetry_motion_gated", False):
+                if self.cfg["rewards"].get("shoulder_pair_symmetry_pitch_sagittal_only", True):
+                    pitch_gate, _, roll_gate = self._shoulder_command_gates()
+                    return pitch_gate * pitch_pair + 2.0 * roll_gate * roll_pair
+                cmd_speed = torch.linalg.norm(self.commands[:, :2], dim=1)
+                cmd_yaw = torch.abs(self.commands[:, 2])
+                yaw_weight = float(self.cfg["rewards"].get("shoulder_pair_symmetry_gate_yaw_weight", 0.35))
+                cmd_mag = cmd_speed + yaw_weight * cmd_yaw
+                start = float(self.cfg["rewards"].get("shoulder_pair_symmetry_gate_start", 0.18))
+                full = float(self.cfg["rewards"].get("shoulder_pair_symmetry_gate_full", 0.55))
+                gate = torch.clamp((cmd_mag - start) / max(1.0e-6, full - start), min=0.0, max=1.0)
+                return gate * (pitch_pair + 2.0 * roll_pair)
+            return pitch_pair + 2.0 * roll_pair
+        pitch_pair = left_pitch + right_pitch
+        roll_pair = left_roll + right_roll
+        return pitch_pair.square() + 2.0 * roll_pair.square()
+
+    def _reward_shoulder_low_speed_same_down(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_pitch = q[:, 0]
+        left_roll = q[:, 1]
+        right_pitch = q[:, 2]
+        right_roll = q[:, 3]
+        cmd_speed = torch.linalg.norm(self.commands[:, :2], dim=1)
+        cmd_yaw = torch.abs(self.commands[:, 2])
+        yaw_weight = float(self.cfg["rewards"].get("shoulder_low_speed_same_down_yaw_weight", 0.35))
+        cmd_mag = cmd_speed + yaw_weight * cmd_yaw
+        full = float(self.cfg["rewards"].get("shoulder_low_speed_same_down_full", 0.015))
+        off = float(self.cfg["rewards"].get("shoulder_low_speed_same_down_off", 0.05))
+        gate = torch.clamp((off - cmd_mag) / max(1.0e-6, off - full), min=0.0, max=1.0)
+        gate = gate.square()
+        target_pitch = float(self.cfg["rewards"].get("shoulder_low_speed_down_pitch", 0.0))
+        target_roll = float(self.cfg["rewards"].get("shoulder_low_speed_down_roll", 0.0))
+        target_left_roll = float(self.cfg["rewards"].get("shoulder_low_speed_down_left_roll", target_roll))
+        target_right_roll = float(self.cfg["rewards"].get("shoulder_low_speed_down_right_roll", target_roll))
+        same_weight = float(self.cfg["rewards"].get("shoulder_low_speed_same_angle_weight", 1.0))
+        roll_weight = float(self.cfg["rewards"].get("shoulder_low_speed_roll_weight", 1.0))
+        roll_same_weight = float(self.cfg["rewards"].get("shoulder_low_speed_roll_same_weight", same_weight))
+        pitch_down = (left_pitch - target_pitch).square() + (right_pitch - target_pitch).square()
+        roll_down = (left_roll - target_left_roll).square() + (right_roll - target_right_roll).square()
+        pitch_same = (left_pitch - right_pitch).square()
+        roll_same = (left_roll - right_roll).square()
+        return gate * (pitch_down + same_weight * pitch_same + roll_weight * (roll_down + roll_same_weight * roll_same))
+
+    def _reward_shoulder_base_roll_target(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_roll = q[:, 1]
+        right_roll = q[:, 3]
+        left_target = float(self.cfg["rewards"].get("shoulder_base_roll_left", 0.0))
+        right_target = float(self.cfg["rewards"].get("shoulder_base_roll_right", 0.0))
+        _, lateral_gate, _ = self._shoulder_command_gates()
+        gate = 1.0 - lateral_gate
+        return gate * ((left_roll - left_target).square() + (right_roll - right_target).square())
+
+    def _shoulder_motion_gate(self):
+        cmd_speed = torch.linalg.norm(self.commands[:, :2], dim=1)
+        cmd_yaw = torch.abs(self.commands[:, 2])
+        cmd_mag = cmd_speed + 0.35 * cmd_yaw
+        start = float(self.cfg["rewards"].get("shoulder_motion_gate_start", 0.08))
+        full = float(self.cfg["rewards"].get("shoulder_motion_gate_full", 0.65))
+        return torch.clamp((cmd_mag - start) / max(1.0e-6, full - start), min=0.0, max=1.0)
+
+    def _reward_shoulder_foot_phase_pitch(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_pitch = q[:, 0]
+        right_pitch = q[:, 2]
+        stride_norm = float(self.cfg["rewards"].get("shoulder_foot_phase_stride_norm", 0.36))
+        sign = float(self.cfg["rewards"].get("shoulder_foot_phase_pitch_sign", 1.0))
+        amp = float(self.cfg["rewards"].get("shoulder_foot_phase_pitch_amp", 0.20))
+        foot_sag = torch.clamp((self.feet_pos_body[:, 0, 0] - self.feet_pos_body[:, 1, 0]) / stride_norm, -1.0, 1.0)
+        forward_gate = torch.clamp((torch.abs(self.commands[:, 0]) - 0.05) / 0.55, min=0.0, max=1.0)
+        yaw_gate = 0.35 * torch.clamp(torch.abs(self.commands[:, 2]) / 1.0, min=0.0, max=1.0)
+        gate = torch.clamp(torch.maximum(forward_gate, yaw_gate), min=0.0, max=1.0)
+        if self.cfg["rewards"].get("shoulder_foot_phase_lateral_suppression", True):
+            yaw_weight = float(self.cfg["rewards"].get("shoulder_mix_yaw_weight", 0.35))
+            sagittal_cmd = torch.abs(self.commands[:, 0]) + yaw_weight * torch.abs(self.commands[:, 2])
+            lateral_cmd = torch.abs(self.commands[:, 1])
+            eps = float(self.cfg["rewards"].get("shoulder_mix_eps", 1.0e-4))
+            gate = gate * sagittal_cmd / (sagittal_cmd + lateral_cmd + eps)
+        target_left = -sign * amp * gate * foot_sag
+        target_right = sign * amp * gate * foot_sag
+        return (left_pitch - target_left).square() + (right_pitch - target_right).square()
+
+    def _reward_shoulder_pitch_magnitude_balance(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_pitch = q[:, 0]
+        right_pitch = q[:, 2]
+        gate = self._shoulder_motion_gate()
+        return gate * torch.square(torch.abs(left_pitch) - torch.abs(right_pitch))
+
+    def _reward_shoulder_lateral_foot_roll(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_roll = q[:, 1]
+        right_roll = q[:, 3]
+        side_cmd_gate = torch.clamp((torch.abs(self.commands[:, 1]) - 0.08) / 0.65, min=0.0, max=1.0)
+        side_foot_vel = torch.abs(self.feet_vel_body[:, 0, 1] - self.feet_vel_body[:, 1, 1])
+        side_foot_gate = torch.clamp(side_foot_vel / float(self.cfg["rewards"].get("shoulder_lateral_foot_vel_norm", 1.2)), min=0.0, max=1.0)
+        gate = torch.clamp(torch.maximum(side_cmd_gate, side_foot_gate), min=0.0, max=1.0)
+        amp = float(self.cfg["rewards"].get("shoulder_lateral_roll_amp", 0.09))
+        return gate * ((torch.abs(left_roll) - amp).square() + (torch.abs(right_roll) - amp).square())
+
+    def _reward_shoulder_lateral_roll_outward(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_roll = q[:, 1]
+        right_roll = q[:, 3]
+        _, lateral_gate, _ = self._shoulder_command_gates()
+        base_amp = float(self.cfg["rewards"].get("shoulder_lateral_roll_amp", 0.14))
+        extra_amp = float(self.cfg["rewards"].get("shoulder_lateral_roll_extra_amp", 0.03))
+        max_amp = float(self.cfg["rewards"].get("shoulder_lateral_roll_max", 0.18))
+        left_sign = float(self.cfg["rewards"].get("shoulder_lateral_roll_left_sign", -1.0))
+        right_sign = float(self.cfg["rewards"].get("shoulder_lateral_roll_right_sign", 1.0))
+        foot_norm = float(self.cfg["rewards"].get("shoulder_lateral_foot_out_norm", 0.12))
+
+        left_out = torch.clamp(self.feet_pos_body[:, 0, 1], min=0.0)
+        right_out = torch.clamp(-self.feet_pos_body[:, 1, 1], min=0.0)
+        foot_delta = left_out - right_out
+        left_extra = torch.clamp(foot_delta / max(1.0e-6, foot_norm), min=0.0, max=1.0)
+        right_extra = torch.clamp(-foot_delta / max(1.0e-6, foot_norm), min=0.0, max=1.0)
+
+        left_base = float(self.cfg["rewards"].get("shoulder_base_roll_left", 0.0))
+        right_base = float(self.cfg["rewards"].get("shoulder_base_roll_right", 0.0))
+        left_delta = lateral_gate * torch.clamp(base_amp + extra_amp * left_extra, max=max_amp)
+        right_delta = lateral_gate * torch.clamp(base_amp + extra_amp * right_extra, max=max_amp)
+        left_target = left_base + left_sign * left_delta
+        right_target = right_base + right_sign * right_delta
+        return lateral_gate * ((left_roll - left_target).square() + (right_roll - right_target).square())
+
+    def _reward_shoulder_lateral_roll_outward_margin(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_roll = q[:, 1]
+        right_roll = q[:, 3]
+        _, lateral_gate, _ = self._shoulder_command_gates()
+        min_outward = float(self.cfg["rewards"].get("shoulder_lateral_roll_min_outward", 0.06))
+        left_short = torch.relu(min_outward - left_roll)
+        right_short = torch.relu(min_outward + right_roll)
+        return lateral_gate * (left_short.square() + right_short.square())
+
+    def _reward_shoulder_lateral_roll_wrong_sign_action(self):
+        actions = self.actions[:, self.arm_indices]
+        left_roll_action = actions[:, 1]
+        right_roll_action = actions[:, 3]
+        _, lateral_gate, _ = self._shoulder_command_gates()
+        return lateral_gate * (torch.relu(-left_roll_action).square() + torch.relu(right_roll_action).square())
+
+    def _reward_shoulder_lateral_pitch_down(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_pitch = q[:, 0]
+        right_pitch = q[:, 2]
+        _, lateral_gate, _ = self._shoulder_command_gates()
+        target_pitch = float(self.cfg["rewards"].get("shoulder_lateral_down_pitch", -0.2))
+        same_weight = float(self.cfg["rewards"].get("shoulder_lateral_pitch_same_weight", 1.0))
+        return lateral_gate * (
+            (left_pitch - target_pitch).square()
+            + (right_pitch - target_pitch).square()
+            + same_weight * (left_pitch - right_pitch).square()
+        )
+
+    def _reward_shoulder_roll_magnitude_balance(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_roll = q[:, 1]
+        right_roll = q[:, 3]
+        gate = self._shoulder_motion_gate()
+        return gate * torch.square(torch.abs(left_roll) - torch.abs(right_roll))
+
+    def _reward_shoulder_gait_phase_pitch(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        left_pitch = q[:, 0]
+        right_pitch = q[:, 2]
+
+        cmd_speed = torch.linalg.norm(self.commands[:, :2], dim=1)
+        cmd_yaw = torch.abs(self.commands[:, 2])
+        yaw_weight = float(self.cfg["rewards"].get("shoulder_pitch_phase_yaw_weight", 0.35))
+        cmd_mag = cmd_speed + yaw_weight * cmd_yaw
+
+        gate_start = float(self.cfg["rewards"].get("shoulder_pitch_phase_gate_start", 0.25))
+        gate_full = float(self.cfg["rewards"].get("shoulder_pitch_phase_gate_full", 1.0))
+        gate = torch.clamp((cmd_mag - gate_start) / max(1.0e-6, gate_full - gate_start), min=0.0, max=1.0)
+        amp = float(self.cfg["rewards"].get("shoulder_pitch_phase_amp", 0.14)) * gate
+
+        phase = torch.sin(2.0 * torch.pi * self.gait_process)
+        target_left = amp * phase
+        target_right = -amp * phase
+        return (left_pitch - target_left).square() + (right_pitch - target_right).square()
+
+    def _shoulder_four_group_state(self):
+        q = self.dof_pos[:, self.arm_indices] - self.default_dof_pos[:, self.arm_indices]
+        actions = self.actions[:, self.arm_indices]
+        pitch_gate, lateral_gate, total_gate = self._shoulder_command_gates()
+        left_pitch = q[:, 0]
+        left_roll = q[:, 1]
+        right_pitch = q[:, 2]
+        right_roll = q[:, 3]
+        return q, actions, pitch_gate, lateral_gate, total_gate, left_pitch, left_roll, right_pitch, right_roll
+
+    def _shoulder_lateral_step_extras(self):
+        foot_norm = float(self.cfg["rewards"].get("shoulder_dynamic_roll_foot_norm", 0.10))
+        left_out = torch.clamp(self.feet_pos_body[:, 0, 1], min=0.0)
+        right_out = torch.clamp(-self.feet_pos_body[:, 1, 1], min=0.0)
+        foot_delta = left_out - right_out
+        left_extra = torch.clamp(foot_delta / max(1.0e-6, foot_norm), min=0.0, max=1.0)
+        right_extra = torch.clamp(-foot_delta / max(1.0e-6, foot_norm), min=0.0, max=1.0)
+        return left_extra, right_extra
+
+    def _reward_shoulder_kinematic_motion_target(self):
+        _, _, _, _, _, left_pitch, left_roll, right_pitch, right_roll = self._shoulder_four_group_state()
+
+        pitch_speed_norm = float(self.cfg["rewards"].get("shoulder_kinematic_pitch_speed_norm", 1.0))
+        roll_speed_norm = float(self.cfg["rewards"].get("shoulder_kinematic_roll_speed_norm", 1.0))
+        pitch_weight = torch.clamp(torch.abs(self.commands[:, 0]) / max(1.0e-6, pitch_speed_norm), min=0.0, max=1.0)
+        roll_weight = torch.clamp(torch.abs(self.commands[:, 1]) / max(1.0e-6, roll_speed_norm), min=0.0, max=1.0)
+
+        stride_norm = float(self.cfg["rewards"].get("shoulder_kinematic_pitch_stride_norm", 0.36))
+        pitch_amp = float(self.cfg["rewards"].get("shoulder_kinematic_pitch_amp", 0.72))
+        pitch_sign = float(self.cfg["rewards"].get("shoulder_kinematic_pitch_sign", -1.0))
+        foot_sag = torch.clamp((self.feet_pos_body[:, 0, 0] - self.feet_pos_body[:, 1, 0]) / max(1.0e-6, stride_norm), -1.0, 1.0)
+        target_left_pitch = -pitch_sign * pitch_amp * pitch_weight * foot_sag
+        target_right_pitch = pitch_sign * pitch_amp * pitch_weight * foot_sag
+        pitch_loss = pitch_weight * ((left_pitch - target_left_pitch).square() + (right_pitch - target_right_pitch).square())
+        same_weight = float(self.cfg["rewards"].get("shoulder_kinematic_pitch_same_weight", 0.0))
+        if same_weight > 0.0:
+            pitch_loss = pitch_loss + same_weight * pitch_weight * (left_pitch + right_pitch).square()
+
+        foot_norm = float(self.cfg["rewards"].get("shoulder_kinematic_roll_foot_norm", 0.10))
+        left_out = torch.clamp(self.feet_pos_body[:, 0, 1], min=0.0)
+        right_out = torch.clamp(-self.feet_pos_body[:, 1, 1], min=0.0)
+        if self.cfg["rewards"].get("shoulder_kinematic_roll_commanded_cross_velocity", False):
+            vel_norm = float(self.cfg["rewards"].get("shoulder_kinematic_roll_velocity_norm", 1.2))
+            cmd_norm = float(self.cfg["rewards"].get("shoulder_kinematic_roll_command_norm", roll_speed_norm))
+            left_cmd_gate = torch.clamp(torch.relu(self.commands[:, 1]) / max(1.0e-6, cmd_norm), min=0.0, max=1.0)
+            right_cmd_gate = torch.clamp(torch.relu(-self.commands[:, 1]) / max(1.0e-6, cmd_norm), min=0.0, max=1.0)
+            left_out_vel = torch.relu(self.feet_vel_body[:, 0, 1])
+            right_out_vel = torch.relu(-self.feet_vel_body[:, 1, 1])
+            left_drive = torch.clamp(right_cmd_gate * right_out_vel / max(1.0e-6, vel_norm), min=0.0, max=1.0)
+            right_drive = torch.clamp(left_cmd_gate * left_out_vel / max(1.0e-6, vel_norm), min=0.0, max=1.0)
+        elif self.cfg["rewards"].get("shoulder_kinematic_roll_cross_velocity", False):
+            vel_norm = float(self.cfg["rewards"].get("shoulder_kinematic_roll_velocity_norm", 1.2))
+            left_out_vel = torch.relu(self.feet_vel_body[:, 0, 1])
+            right_out_vel = torch.relu(-self.feet_vel_body[:, 1, 1])
+            cross_delta = torch.clamp((right_out_vel - left_out_vel) / max(1.0e-6, vel_norm), min=-1.0, max=1.0)
+            left_drive = torch.relu(cross_delta)
+            right_drive = torch.relu(-cross_delta)
+        elif self.cfg["rewards"].get("shoulder_kinematic_roll_cross_delta", False):
+            cross_delta = torch.clamp((right_out - left_out) / max(1.0e-6, foot_norm), min=-1.0, max=1.0)
+            left_drive = torch.relu(cross_delta)
+            right_drive = torch.relu(-cross_delta)
+        elif self.cfg["rewards"].get("shoulder_kinematic_roll_cross_lateral", False):
+            left_drive = torch.clamp(right_out / max(1.0e-6, foot_norm), min=0.0, max=1.0)
+            right_drive = torch.clamp(left_out / max(1.0e-6, foot_norm), min=0.0, max=1.0)
+        else:
+            left_drive = torch.clamp(left_out / max(1.0e-6, foot_norm), min=0.0, max=1.0)
+            right_drive = torch.clamp(right_out / max(1.0e-6, foot_norm), min=0.0, max=1.0)
+        roll_amp = float(self.cfg["rewards"].get("shoulder_kinematic_roll_amp", 0.22))
+        roll_max = float(self.cfg["rewards"].get("shoulder_kinematic_roll_max", roll_amp))
+        left_sign = float(self.cfg["rewards"].get("shoulder_kinematic_roll_left_sign", 1.0))
+        right_sign = float(self.cfg["rewards"].get("shoulder_kinematic_roll_right_sign", -1.0))
+        target_left_roll = left_sign * torch.clamp(roll_amp * roll_weight * left_drive, max=roll_max)
+        target_right_roll = right_sign * torch.clamp(roll_amp * roll_weight * right_drive, max=roll_max)
+        roll_loss = roll_weight * ((left_roll - target_left_roll).square() + (right_roll - target_right_roll).square())
+        delta_weight = float(self.cfg["rewards"].get("shoulder_kinematic_roll_delta_weight", 0.0))
+        if delta_weight > 0.0:
+            # left_roll is outward-positive and right_roll is outward-negative, so
+            # left_roll + right_roll is the signed opposite-hand dominance.
+            target_delta = target_left_roll + target_right_roll
+            actual_delta = left_roll + right_roll
+            roll_loss = roll_loss + delta_weight * roll_weight * (actual_delta - target_delta).square()
+        return pitch_loss + roll_loss
+
+    def _reward_shoulder_static_posture(self):
+        _, _, pitch_gate, lateral_gate, _, left_pitch, left_roll, right_pitch, right_roll = self._shoulder_four_group_state()
+        cmd_speed = torch.linalg.norm(self.commands[:, :2], dim=1)
+        cmd_yaw = torch.abs(self.commands[:, 2])
+        yaw_weight = float(self.cfg["rewards"].get("shoulder_static_yaw_weight", 0.35))
+        cmd_mag = cmd_speed + yaw_weight * cmd_yaw
+        full = float(self.cfg["rewards"].get("shoulder_static_full", 0.015))
+        off = float(self.cfg["rewards"].get("shoulder_static_off", 0.075))
+        gate = torch.clamp((off - cmd_mag) / max(1.0e-6, off - full), min=0.0, max=1.0).square()
+        residual_gate = 0.15 * (1.0 - lateral_gate)
+        if self.cfg["rewards"].get("shoulder_static_residual_sagittal_gate", False):
+            residual_gate = residual_gate * (1.0 - pitch_gate)
+        gate = torch.maximum(gate, residual_gate)
+        target_pitch = float(self.cfg["rewards"].get("shoulder_static_pitch", -0.20))
+        target_left_roll = float(self.cfg["rewards"].get("shoulder_static_left_roll", 0.0))
+        target_right_roll = float(self.cfg["rewards"].get("shoulder_static_right_roll", 0.0))
+        pitch_same_weight = float(self.cfg["rewards"].get("shoulder_static_pitch_same_weight", 0.7))
+        roll_same_weight = float(self.cfg["rewards"].get("shoulder_static_roll_same_weight", 1.0))
+        pitch_term = (left_pitch - target_pitch).square() + (right_pitch - target_pitch).square()
+        roll_term = (left_roll - target_left_roll).square() + (right_roll - target_right_roll).square()
+        pair_term = pitch_same_weight * (left_pitch - right_pitch).square() + roll_same_weight * (left_roll - right_roll).square()
+        return gate * (pitch_term + roll_term + pair_term)
+
+    def _reward_shoulder_dynamic_target(self):
+        _, _, pitch_gate, lateral_gate, _, left_pitch, left_roll, right_pitch, right_roll = self._shoulder_four_group_state()
+        stride_norm = float(self.cfg["rewards"].get("shoulder_dynamic_pitch_stride_norm", 0.36))
+        pitch_sign = float(self.cfg["rewards"].get("shoulder_dynamic_pitch_sign", -1.0))
+        pitch_amp = float(self.cfg["rewards"].get("shoulder_dynamic_pitch_amp", 0.72))
+        foot_sag = torch.clamp((self.feet_pos_body[:, 0, 0] - self.feet_pos_body[:, 1, 0]) / stride_norm, -1.0, 1.0)
+        target_left_pitch = -pitch_sign * pitch_amp * pitch_gate * foot_sag
+        target_right_pitch = pitch_sign * pitch_amp * pitch_gate * foot_sag
+
+        lateral_down = float(self.cfg["rewards"].get("shoulder_dynamic_lateral_down_pitch", -0.08))
+        lateral_pitch_same_weight = float(self.cfg["rewards"].get("shoulder_dynamic_lateral_pitch_same_weight", 0.8))
+        pitch_target_term = (
+            pitch_gate * ((left_pitch - target_left_pitch).square() + (right_pitch - target_right_pitch).square())
+            + lateral_gate
+            * (
+                (left_pitch - lateral_down).square()
+                + (right_pitch - lateral_down).square()
+                + lateral_pitch_same_weight * (left_pitch - right_pitch).square()
+            )
+        )
+
+        base_amp = float(self.cfg["rewards"].get("shoulder_dynamic_roll_base_amp", 0.13))
+        extra_amp = float(self.cfg["rewards"].get("shoulder_dynamic_roll_extra_amp", 0.16))
+        max_amp = float(self.cfg["rewards"].get("shoulder_dynamic_roll_max", 0.22))
+        left_sign = float(self.cfg["rewards"].get("shoulder_dynamic_roll_left_sign", 1.0))
+        right_sign = float(self.cfg["rewards"].get("shoulder_dynamic_roll_right_sign", -1.0))
+        left_extra, right_extra = self._shoulder_lateral_step_extras()
+        left_target = left_sign * lateral_gate * torch.clamp(base_amp + extra_amp * left_extra, max=max_amp)
+        right_target = right_sign * lateral_gate * torch.clamp(base_amp + extra_amp * right_extra, max=max_amp)
+        roll_target_term = lateral_gate * ((left_roll - left_target).square() + (right_roll - right_target).square())
+        return pitch_target_term + roll_target_term
+
+    def _reward_shoulder_no_lazy_boundary(self):
+        _, actions, _, lateral_gate, _, left_pitch, left_roll, right_pitch, right_roll = self._shoulder_four_group_state()
+        min_outward = float(self.cfg["rewards"].get("shoulder_dynamic_roll_min_outward", 0.055))
+        if self.cfg["rewards"].get("shoulder_boundary_min_outward_foot_gated", False):
+            dynamic_min = float(self.cfg["rewards"].get("shoulder_boundary_dynamic_min_outward", min_outward))
+            left_extra, right_extra = self._shoulder_lateral_step_extras()
+            left_min = dynamic_min * left_extra
+            right_min = dynamic_min * right_extra
+        else:
+            left_min = min_outward
+            right_min = min_outward
+        left_short = torch.relu(left_min - left_roll)
+        right_short = torch.relu(right_min + right_roll)
+        short_weight = float(self.cfg["rewards"].get("shoulder_boundary_roll_short_weight", 1.5))
+
+        left_roll_action = actions[:, 1]
+        right_roll_action = actions[:, 3]
+        wrong_sign_weight = float(self.cfg["rewards"].get("shoulder_boundary_wrong_sign_action_weight", 0.35))
+        wrong_sign = torch.relu(-left_roll_action).square() + torch.relu(right_roll_action).square()
+
+        roll_margin = float(self.cfg["rewards"].get("shoulder_boundary_roll_hard_margin", 0.275))
+        pitch_margin = float(self.cfg["rewards"].get("shoulder_boundary_pitch_hard_margin", 0.52))
+        roll_soft = float(self.cfg["rewards"].get("shoulder_boundary_roll_soft_limit", 0.22))
+        pitch_soft = float(self.cfg["rewards"].get("shoulder_boundary_pitch_soft_limit", 0.42))
+        near_clip_weight = float(self.cfg["rewards"].get("shoulder_boundary_near_clip_weight", 1.0))
+        pitch_limit_weight = float(self.cfg["rewards"].get("shoulder_boundary_pitch_limit_weight", 0.45))
+        near_roll_clip = torch.relu(torch.abs(left_roll) - roll_margin).square() + torch.relu(torch.abs(right_roll) - roll_margin).square()
+        roll_over_soft = torch.relu(torch.abs(left_roll) - roll_soft).square() + torch.relu(torch.abs(right_roll) - roll_soft).square()
+        near_pitch_clip = torch.relu(torch.abs(left_pitch) - pitch_margin).square() + torch.relu(torch.abs(right_pitch) - pitch_margin).square()
+        pitch_over_soft = torch.relu(torch.abs(left_pitch) - pitch_soft).square() + torch.relu(torch.abs(right_pitch) - pitch_soft).square()
+        return (
+            lateral_gate * (short_weight * (left_short.square() + right_short.square()) + wrong_sign_weight * wrong_sign)
+            + near_clip_weight * (near_roll_clip + roll_over_soft)
+            + pitch_limit_weight * (near_pitch_clip + pitch_over_soft)
+        )
+
+    def _reward_shoulder_balance_smoothness(self):
+        _, actions, pitch_gate, lateral_gate, total_gate, left_pitch, left_roll, right_pitch, right_roll = self._shoulder_four_group_state()
+        eps = float(self.cfg["rewards"].get("shoulder_pair_symmetry_eps", 1.0e-3))
+        pair_weight = float(self.cfg["rewards"].get("shoulder_balance_pair_weight", 0.55))
+        roll_mag_weight = float(self.cfg["rewards"].get("shoulder_balance_roll_mag_weight", 0.75))
+        pitch_mag_weight = float(self.cfg["rewards"].get("shoulder_balance_pitch_mag_weight", 0.35))
+        action_rate_weight = float(self.cfg["rewards"].get("shoulder_balance_action_rate_weight", 0.18))
+        lateral_pitch_weight = float(self.cfg["rewards"].get("shoulder_balance_lateral_pitch_weight", 0.20))
+        pitch_pair = torch.abs(left_pitch + right_pitch) / (torch.abs(left_pitch) + torch.abs(right_pitch) + eps)
+        roll_pair = torch.abs(left_roll + right_roll) / (torch.abs(left_roll) + torch.abs(right_roll) + eps)
+        mag_term = roll_mag_weight * lateral_gate * torch.square(torch.abs(left_roll) - torch.abs(right_roll))
+        mag_term = mag_term + pitch_mag_weight * pitch_gate * torch.square(torch.abs(left_pitch) - torch.abs(right_pitch))
+        pair_term = pair_weight * (pitch_gate * pitch_pair + 2.0 * lateral_gate * roll_pair)
+        action_rate = torch.sum(torch.square(actions - self.last_actions[:, self.arm_indices]), dim=-1)
+        lateral_pitch = lateral_pitch_weight * lateral_gate * (left_pitch - right_pitch).square()
+        return pair_term + mag_term + action_rate_weight * total_gate * action_rate + lateral_pitch
+
+    def _reward_waist_soft_limit(self):
+        if len(self.waist_indices) == 0:
+            return torch.zeros(self.num_envs, dtype=torch.float, device=self.device)
+        q = self.dof_pos[:, self.waist_indices] - self.default_dof_pos[:, self.waist_indices]
+        soft_limit = float(self.cfg["rewards"].get("waist_soft_limit", 0.12))
+        return torch.sum(torch.relu(torch.abs(q) - soft_limit).square(), dim=-1)
+
+    def _reward_waist_neutral_low_speed(self):
+        if len(self.waist_indices) == 0:
+            return torch.zeros(self.num_envs, dtype=torch.float, device=self.device)
+        q = self.dof_pos[:, self.waist_indices] - self.default_dof_pos[:, self.waist_indices]
+        cmd_speed = torch.linalg.norm(self.commands[:, :2], dim=1)
+        cmd_yaw = torch.abs(self.commands[:, 2])
+        yaw_weight = float(self.cfg["rewards"].get("waist_low_speed_yaw_weight", 0.35))
+        cmd_mag = cmd_speed + yaw_weight * cmd_yaw
+        full = float(self.cfg["rewards"].get("shoulder_low_speed_same_down_full", 0.015))
+        off = float(self.cfg["rewards"].get("shoulder_low_speed_same_down_off", 0.05))
+        gate = torch.clamp((off - cmd_mag) / max(1.0e-6, off - full), min=0.0, max=1.0)
+        return gate.square() * torch.sum(torch.square(q), dim=-1)
+
+    def _reward_camera_stability(self):
+        # The head is fixed to Trunk in this asset, so Trunk roll/pitch is the camera platform.
+        tilt_xy = self.projected_gravity[:, :2]
+        tilt_loss = torch.sum(torch.square(tilt_xy), dim=-1)
+        ang_vel_loss = torch.sum(torch.square(self.base_ang_vel[:, :2]), dim=-1)
+        tilt_rate = (tilt_xy - self.last_projected_gravity_xy) / self.dt
+        tilt_rate_loss = torch.sum(torch.square(tilt_rate), dim=-1)
+        ang_acc = (self.root_states[:, 10:12] - self.last_root_vel[:, 3:5]) / self.dt
+        ang_acc_loss = torch.sum(torch.square(ang_acc), dim=-1)
+        tilt_weight = float(self.cfg["rewards"].get("camera_tilt_weight", 1.0))
+        ang_vel_weight = float(self.cfg["rewards"].get("camera_ang_vel_xy_weight", 0.35))
+        tilt_rate_weight = float(self.cfg["rewards"].get("camera_tilt_rate_weight", 0.001))
+        ang_acc_weight = float(self.cfg["rewards"].get("camera_ang_acc_weight", 0.00002))
+        return (
+            tilt_weight * tilt_loss
+            + ang_vel_weight * ang_vel_loss
+            + tilt_rate_weight * tilt_rate_loss
+            + ang_acc_weight * ang_acc_loss
+        )
+
+    def _upper_motion_gate(self):
+        cmd_speed = torch.linalg.norm(self.commands[:, :2], dim=1)
+        cmd_yaw = torch.abs(self.commands[:, 2])
+        yaw_weight = float(self.cfg["rewards"].get("upper_body_motion_yaw_weight", 0.35))
+        start = float(self.cfg["rewards"].get("upper_body_motion_gate_start", 0.08))
+        full = float(self.cfg["rewards"].get("upper_body_motion_gate_full", 0.8))
+        cmd_mag = cmd_speed + yaw_weight * cmd_yaw
+        return torch.clamp((cmd_mag - start) / max(1.0e-6, full - start), min=0.0, max=1.0)
+
+    def _reward_upper_body_static_posture(self):
+        pieces = []
+        if len(self.elbow_indices) > 0:
+            elbow_q = self.dof_pos[:, self.elbow_indices] - self.default_dof_pos[:, self.elbow_indices]
+            pieces.append(float(self.cfg["rewards"].get("upper_static_elbow_weight", 1.0)) * torch.sum(torch.square(elbow_q), dim=-1))
+        if len(self.waist_indices) > 0:
+            waist_q = self.dof_pos[:, self.waist_indices] - self.default_dof_pos[:, self.waist_indices]
+            pieces.append(float(self.cfg["rewards"].get("upper_static_waist_weight", 1.4)) * torch.sum(torch.square(waist_q), dim=-1))
+        if not pieces:
+            return torch.zeros(self.num_envs, dtype=torch.float, device=self.device)
+        cmd_speed = torch.linalg.norm(self.commands[:, :2], dim=1)
+        cmd_yaw = torch.abs(self.commands[:, 2])
+        yaw_weight = float(self.cfg["rewards"].get("upper_static_yaw_weight", 0.35))
+        full = float(self.cfg["rewards"].get("upper_static_full", 0.03))
+        off = float(self.cfg["rewards"].get("upper_static_off", 0.35))
+        residual = float(self.cfg["rewards"].get("upper_static_residual", 0.04))
+        cmd_mag = cmd_speed + yaw_weight * cmd_yaw
+        gate = torch.clamp((off - cmd_mag) / max(1.0e-6, off - full), min=0.0, max=1.0).square()
+        return (gate + residual) * sum(pieces)
+
+    def _reward_elbow_kinematic_motion_target(self):
+        if len(self.elbow_pitch_indices) < 2:
+            return torch.zeros(self.num_envs, dtype=torch.float, device=self.device)
+        q = self.dof_pos - self.default_dof_pos
+        left_elbow = q[:, self.elbow_pitch_indices[0]]
+        right_elbow = q[:, self.elbow_pitch_indices[1]]
+        pitch_speed_norm = float(self.cfg["rewards"].get("elbow_kinematic_pitch_speed_norm", 0.8))
+        stride_norm = float(self.cfg["rewards"].get("elbow_kinematic_stride_norm", 0.36))
+        amp = float(self.cfg["rewards"].get("elbow_kinematic_pitch_amp", 0.16))
+        cmd_weight = torch.clamp(torch.abs(self.commands[:, 0]) / max(1.0e-6, pitch_speed_norm), min=0.0, max=1.0)
+        foot_sag = torch.clamp(
+            torch.abs(self.feet_pos_body[:, 0, 0] - self.feet_pos_body[:, 1, 0]) / max(1.0e-6, stride_norm),
+            min=0.0,
+            max=1.0,
+        )
+        target = amp * cmd_weight * foot_sag
+        loss = (left_elbow - target).square() + (right_elbow - target).square()
+        same_weight = float(self.cfg["rewards"].get("elbow_kinematic_same_weight", 1.0))
+        loss = loss + same_weight * cmd_weight * (left_elbow - right_elbow).square()
+        if len(self.elbow_yaw_indices) > 0:
+            yaw_q = q[:, self.elbow_yaw_indices]
+            yaw_weight = float(self.cfg["rewards"].get("elbow_kinematic_yaw_neutral_weight", 0.6))
+            loss = loss + yaw_weight * torch.sum(torch.square(yaw_q), dim=-1)
+        return loss
+
+    def _reward_waist_kinematic_motion_target(self):
+        if len(self.waist_indices) == 0:
+            return torch.zeros(self.num_envs, dtype=torch.float, device=self.device)
+        waist = self.dof_pos[:, self.waist_indices[0]] - self.default_dof_pos[:, self.waist_indices[0]]
+        motion_gate = self._upper_motion_gate()
+        yaw_norm = float(self.cfg["rewards"].get("waist_kinematic_yaw_norm", 1.0))
+        side_norm = float(self.cfg["rewards"].get("waist_kinematic_side_norm", 1.0))
+        foot_norm = float(self.cfg["rewards"].get("waist_kinematic_foot_norm", 0.12))
+        yaw_drive = torch.clamp(self.commands[:, 2] / max(1.0e-6, yaw_norm), min=-1.0, max=1.0)
+        side_drive = torch.clamp(self.commands[:, 1] / max(1.0e-6, side_norm), min=-1.0, max=1.0)
+        foot_lat = torch.clamp(
+            (self.feet_pos_body[:, 0, 1] + self.feet_pos_body[:, 1, 1]) / max(1.0e-6, foot_norm),
+            min=-1.0,
+            max=1.0,
+        )
+        yaw_amp = float(self.cfg["rewards"].get("waist_kinematic_yaw_amp", 0.06))
+        side_amp = float(self.cfg["rewards"].get("waist_kinematic_side_amp", 0.025))
+        foot_amp = float(self.cfg["rewards"].get("waist_kinematic_foot_amp", 0.02))
+        sign = float(self.cfg["rewards"].get("waist_kinematic_sign", -1.0))
+        target = sign * motion_gate * (yaw_amp * yaw_drive + side_amp * side_drive + foot_amp * foot_lat)
+        neutral_weight = float(self.cfg["rewards"].get("waist_kinematic_neutral_weight", 0.15))
+        return (waist - target).square() + neutral_weight * (1.0 - motion_gate) * waist.square()
+
+    def _reward_upper_body_smoothness(self):
+        if len(self.arm_indices) == 0:
+            return torch.zeros(self.num_envs, dtype=torch.float, device=self.device)
+        qvel = self.dof_vel[:, self.arm_indices]
+        action_rate = self.actions[:, self.arm_indices] - self.last_actions[:, self.arm_indices]
+        vel_weight = float(self.cfg["rewards"].get("upper_smooth_dof_vel_weight", 0.002))
+        action_weight = float(self.cfg["rewards"].get("upper_smooth_action_rate_weight", 0.4))
+        return vel_weight * torch.sum(torch.square(qvel), dim=-1) + action_weight * torch.sum(torch.square(action_rate), dim=-1)
 
     def _reward_feet_slip(self):
         # Penalize feet velocities when contact

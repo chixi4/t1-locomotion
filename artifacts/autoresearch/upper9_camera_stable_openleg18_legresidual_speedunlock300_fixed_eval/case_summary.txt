@@ -1,0 +1,30 @@
+checkpoint 550
+ 550 stand        reset=0.0000 lin=0.0208 yaw=0.0245 camTilt=0.1160 camAng=0.0697 shoulder=NA pitch=NA anti=NA sideL=NA sideR=NA resid=0.0120
+ 550 left_08      reset=0.0000 lin=0.1454 yaw=0.1197 camTilt=0.0989 camAng=0.4311 shoulder=NA pitch=NA anti=0.6072 sideL=NA sideR=0.2036 resid=0.0373
+ 550 right_08     reset=0.0000 lin=0.1495 yaw=0.1109 camTilt=0.0748 camAng=0.3877 shoulder=NA pitch=NA anti=0.7894 sideL=0.1940 sideR=NA resid=0.0334
+ 550 forward_18   reset=0.0208 lin=0.3254 yaw=0.2214 camTilt=0.1186 camAng=0.5657 shoulder=NA pitch=NA anti=0.9703 sideL=NA sideR=NA resid=0.0352
+checkpoint 600
+ 600 stand        reset=0.0000 lin=0.0222 yaw=0.0252 camTilt=0.1181 camAng=0.0706 shoulder=NA pitch=NA anti=NA sideL=NA sideR=NA resid=0.0161
+ 600 left_08      reset=0.0000 lin=0.1466 yaw=0.1210 camTilt=0.1056 camAng=0.4436 shoulder=NA pitch=NA anti=0.6146 sideL=NA sideR=0.2056 resid=0.0431
+ 600 right_08     reset=0.0000 lin=0.1494 yaw=0.1151 camTilt=0.0767 camAng=0.3889 shoulder=NA pitch=NA anti=0.7964 sideL=0.1945 sideR=NA resid=0.0369
+ 600 forward_18   reset=0.0417 lin=0.3335 yaw=0.2189 camTilt=0.1151 camAng=0.5594 shoulder=NA pitch=NA anti=0.9696 sideL=NA sideR=NA resid=0.0389
+checkpoint 650
+ 650 stand        reset=0.0208 lin=0.0299 yaw=0.0286 camTilt=0.1139 camAng=0.1810 shoulder=NA pitch=NA anti=NA sideL=NA sideR=NA resid=0.0220
+ 650 left_08      reset=0.0104 lin=0.1486 yaw=0.1254 camTilt=0.1191 camAng=0.4619 shoulder=NA pitch=NA anti=0.6160 sideL=NA sideR=0.2060 resid=0.0470
+ 650 right_08     reset=0.0000 lin=0.1497 yaw=0.1229 camTilt=0.0761 camAng=0.3995 shoulder=NA pitch=NA anti=0.7898 sideL=0.1939 sideR=NA resid=0.0408
+ 650 forward_18   reset=0.0104 lin=0.3355 yaw=0.2212 camTilt=0.1111 camAng=0.5394 shoulder=NA pitch=NA anti=0.9718 sideL=NA sideR=NA resid=0.0427
+checkpoint 700
+ 700 stand        reset=0.0312 lin=0.0309 yaw=0.0302 camTilt=0.1225 camAng=0.1733 shoulder=NA pitch=NA anti=NA sideL=NA sideR=NA resid=0.0286
+ 700 left_08      reset=0.0312 lin=0.1447 yaw=0.1309 camTilt=0.1195 camAng=0.4688 shoulder=NA pitch=NA anti=0.6437 sideL=NA sideR=0.2067 resid=0.0496
+ 700 right_08     reset=0.0000 lin=0.1548 yaw=0.1260 camTilt=0.0823 camAng=0.4093 shoulder=NA pitch=NA anti=0.7830 sideL=0.1942 sideR=NA resid=0.0451
+ 700 forward_18   reset=0.0417 lin=0.3393 yaw=0.2063 camTilt=0.1094 camAng=0.5606 shoulder=NA pitch=NA anti=0.9684 sideL=NA sideR=NA resid=0.0453
+checkpoint 750
+ 750 stand        reset=0.0417 lin=0.0326 yaw=0.0307 camTilt=0.1255 camAng=0.1712 shoulder=NA pitch=NA anti=NA sideL=NA sideR=NA resid=0.0373
+ 750 left_08      reset=0.0312 lin=0.1515 yaw=0.1411 camTilt=0.1237 camAng=0.4883 shoulder=NA pitch=NA anti=0.6047 sideL=NA sideR=0.2081 resid=0.0510
+ 750 right_08     reset=0.0104 lin=0.1604 yaw=0.1383 camTilt=0.0917 camAng=0.4244 shoulder=NA pitch=NA anti=0.7965 sideL=0.1960 sideR=NA resid=0.0490
+ 750 forward_18   reset=0.0312 lin=0.3335 yaw=0.2034 camTilt=0.1069 camAng=0.5738 shoulder=NA pitch=NA anti=0.9687 sideL=NA sideR=NA resid=0.0482
+checkpoint 800
+ 800 stand        reset=0.1146 lin=0.0479 yaw=0.0408 camTilt=0.1429 camAng=0.2992 shoulder=NA pitch=NA anti=NA sideL=NA sideR=NA resid=0.0444
+ 800 left_08      reset=0.0104 lin=0.1478 yaw=0.1434 camTilt=0.1145 camAng=0.4856 shoulder=NA pitch=NA anti=0.6123 sideL=NA sideR=0.2082 resid=0.0520
+ 800 right_08     reset=0.0000 lin=0.1639 yaw=0.1463 camTilt=0.0915 camAng=0.4274 shoulder=NA pitch=NA anti=0.7750 sideL=0.1963 sideR=NA resid=0.0522
+ 800 forward_18   reset=0.0312 lin=0.3422 yaw=0.2066 camTilt=0.1097 camAng=0.5826 shoulder=NA pitch=NA anti=0.9684 sideL=NA sideR=NA resid=0.0514

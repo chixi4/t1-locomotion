@@ -1,0 +1,50 @@
+{
+  "label": "shoulder4_night_f_bstable_sidelift400",
+  "checkpoint": "logs/2026-05-11-16-36-41/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17095632943888964,
+    "mean_yaw_err": 0.07148017722100578,
+    "mean_speed_ratio": 0.8700961673641815,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.04419949668866969,
+    "max_tilt": 0.1481103003025055,
+    "tilt_rms_mean": 0.049155808469061896,
+    "tilt_p95_mean": 0.07764531768137409,
+    "base_ang_vel_xy_rms_mean": 0.518350560202756,
+    "shoulder_pitch_abs_p95_max": 0.2754172086715698,
+    "shoulder_roll_abs_p95_max": 0.2205304205417633,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.2700655608373124,
+    "linErrorRms": 0.3817409593463241,
+    "linErrorP95": 0.8515452146530151,
+    "yawErrorMean": 0.10483244128695866,
+    "yawErrorRms": 0.15225290045126108,
+    "yawErrorP95": 0.3520216941833496,
+    "tilt_mean": 0.04026497718769704,
+    "tilt_rms": 0.04561095984755811,
+    "tilt_p95": 0.07833266258239746,
+    "tilt_max": 0.127810537815094,
+    "base_ang_vel_xy_rms": 0.4394763804593302,
+    "shoulder_pitch_abs_p95": 0.16633997857570648,
+    "shoulder_roll_abs_p95": 0.1975867748260498,
+    "left_shoulder_pitch_mean": -0.033613421731705125,
+    "left_shoulder_roll_mean": 0.1491733297736237,
+    "right_shoulder_pitch_mean": -0.021208852184572607,
+    "right_shoulder_roll_mean": -0.14908211563383603,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_night_f_bstable_sidelift400_eval/shoulder4_night_f_bstable_sidelift400_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_night_f_bstable_sidelift400_eval/shoulder4_night_f_bstable_sidelift400_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_night_f_bstable_sidelift400_eval/shoulder4_night_f_bstable_sidelift400_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_night_f_bstable_sidelift400_eval/shoulder4_night_f_bstable_sidelift400_random_eval.json"
+  },
+  "created_at": "2026-05-11-18-08-29"
+}

@@ -1,0 +1,142 @@
+== fixed eval ==
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Creating fixed eval env envs=256
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Fixed eval DOFs ['Left_Hip_Pitch', 'Left_Hip_Roll', 'Left_Hip_Yaw', 'Left_Knee_Pitch', 'Left_Ankle_Pitch', 'Left_Ankle_Roll', 'Left_Shoulder_Pitch', 'Left_Shoulder_Roll', 'Right_Hip_Pitch', 'Right_Hip_Roll', 'Right_Hip_Yaw', 'Right_Knee_Pitch', 'Right_Ankle_Pitch', 'Right_Ankle_Roll', 'Right_Shoulder_Pitch', 'Right_Shoulder_Roll']
+Fixed eval bodies ['Trunk', 'Hip_Pitch_Left', 'Hip_Roll_Left', 'Hip_Yaw_Left', 'Shank_Left', 'Ankle_Cross_Left', 'left_foot_link', 'AL1', 'AL2', 'Hip_Pitch_Right', 'Hip_Roll_Right', 'Hip_Yaw_Right', 'Shank_Right', 'Ankle_Cross_Right', 'right_foot_link', 'AR1', 'AR2']
+stand                    xy=0.001 yaw=0.004 tilt=0.0294/0.0419 reset=0.000 sat=0.0000
+forward_0.5              xy=0.062 yaw=0.035 tilt=0.0324/0.0624 reset=0.000 sat=0.0000
+forward_1.0              xy=0.094 yaw=0.042 tilt=0.0414/0.0879 reset=0.000 sat=0.0000
+forward_1.5              xy=0.214 yaw=0.077 tilt=0.0536/0.1230 reset=0.000 sat=0.0000
+backward_0.5             xy=0.077 yaw=0.046 tilt=0.0349/0.0590 reset=0.000 sat=0.0000
+backward_1.0             xy=0.094 yaw=0.040 tilt=0.0531/0.1216 reset=0.000 sat=0.0000
+backward_1.5             xy=0.204 yaw=0.082 tilt=0.0713/0.1548 reset=0.000 sat=0.0000
+left_0.5                 xy=0.082 yaw=0.050 tilt=0.0261/0.0708 reset=0.000 sat=0.0000
+left_1.0                 xy=0.207 yaw=0.043 tilt=0.0319/0.0667 reset=0.000 sat=0.0000
+left_1.5                 xy=0.525 yaw=0.078 tilt=0.0469/0.0818 reset=0.000 sat=0.0000
+right_0.5                xy=0.083 yaw=0.031 tilt=0.0269/0.0529 reset=0.000 sat=0.0000
+right_1.0                xy=0.215 yaw=0.054 tilt=0.0437/0.1062 reset=0.000 sat=0.0000
+right_1.5                xy=0.534 yaw=0.124 tilt=0.0530/0.1277 reset=0.000 sat=0.0000
+diag_fl_1.0              xy=0.095 yaw=0.077 tilt=0.0425/0.1069 reset=0.000 sat=0.0000
+diag_fr_1.0              xy=0.097 yaw=0.049 tilt=0.0441/0.0849 reset=0.000 sat=0.0000
+diag_bl_1.0              xy=0.133 yaw=0.038 tilt=0.0398/0.0764 reset=0.000 sat=0.0000
+diag_br_1.0              xy=0.117 yaw=0.055 tilt=0.0484/0.0998 reset=0.000 sat=0.0000
+diag_fl_1.5              xy=0.295 yaw=0.094 tilt=0.0564/0.1357 reset=0.000 sat=0.0000
+diag_fr_1.5              xy=0.280 yaw=0.108 tilt=0.0585/0.1140 reset=0.000 sat=0.0000
+diag_bl_1.5              xy=0.294 yaw=0.108 tilt=0.0569/0.1144 reset=0.000 sat=0.0000
+diag_br_1.5              xy=0.332 yaw=0.078 tilt=0.0647/0.1373 reset=0.000 sat=0.0000
+yaw_l_0.75               xy=0.079 yaw=0.068 tilt=0.0226/0.0575 reset=0.000 sat=0.0000
+yaw_l_1.5                xy=0.085 yaw=0.087 tilt=0.0258/0.0563 reset=0.000 sat=0.0000
+yaw_r_0.75               xy=0.076 yaw=0.040 tilt=0.0284/0.0633 reset=0.000 sat=0.0000
+yaw_r_1.5                xy=0.105 yaw=0.071 tilt=0.0318/0.0706 reset=0.000 sat=0.0000
+fwd1.0_yaw_l0.75         xy=0.110 yaw=0.072 tilt=0.0550/0.1085 reset=0.000 sat=0.0000
+fwd1.0_yaw_r0.75         xy=0.081 yaw=0.058 tilt=0.0390/0.0747 reset=0.000 sat=0.0000
+left1.0_yaw_l0.75        xy=0.257 yaw=0.056 tilt=0.0420/0.0860 reset=0.000 sat=0.0000
+right1.0_yaw_r0.75       xy=0.272 yaw=0.062 tilt=0.0475/0.1040 reset=0.000 sat=0.0000
+diag_fl1.0_yaw_l0.75     xy=0.128 yaw=0.085 tilt=0.0622/0.1156 reset=0.000 sat=0.0000
+diag_br1.0_yaw_r0.75     xy=0.122 yaw=0.078 tilt=0.0544/0.1157 reset=0.000 sat=0.0000
+{
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17253287694497282,
+    "mean_yaw_err": 0.06422260497466843,
+    "mean_speed_ratio": 0.8662439627066637,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.04402601991017321,
+    "max_tilt": 0.1547672599554062,
+    "tilt_rms_mean": 0.04909989241122421,
+    "tilt_p95_mean": 0.07768949277458652,
+    "base_ang_vel_xy_rms_mean": 0.522013882000776,
+    "shoulder_pitch_abs_p95_max": 0.431517630815506,
+    "shoulder_roll_abs_p95_max": 0.179475337266922,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_model900_eval/shoulder4_pitch09roll08_model1000_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_model900_eval/shoulder4_pitch09roll08_model1000_fixed_eval.csv"
+  }
+}
+== random replay eval ==
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Creating random replay env
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+{
+  "label": "shoulder4_pitch09roll08_model1000",
+  "checkpoint": "logs/2026-05-07-09-14-53/nn/model_1000.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17253287694497282,
+    "mean_yaw_err": 0.06422260497466843,
+    "mean_speed_ratio": 0.8662439627066637,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.04402601991017321,
+    "max_tilt": 0.1547672599554062,
+    "tilt_rms_mean": 0.04909989241122421,
+    "tilt_p95_mean": 0.07768949277458652,
+    "base_ang_vel_xy_rms_mean": 0.522013882000776,
+    "shoulder_pitch_abs_p95_max": 0.431517630815506,
+    "shoulder_roll_abs_p95_max": 0.179475337266922,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.27086039798536965,
+    "linErrorRms": 0.38233806632892303,
+    "linErrorP95": 0.8538323640823364,
+    "yawErrorMean": 0.09810514740734201,
+    "yawErrorRms": 0.14618485295696937,
+    "yawErrorP95": 0.34633535146713257,
+    "tilt_mean": 0.04019640419571981,
+    "tilt_rms": 0.04566482987339348,
+    "tilt_p95": 0.07956899702548981,
+    "tilt_max": 0.12254786491394043,
+    "base_ang_vel_xy_rms": 0.44247582521600526,
+    "shoulder_pitch_abs_p95": 0.40486055612564087,
+    "shoulder_roll_abs_p95": 0.17529399693012238,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_model900_eval/shoulder4_pitch09roll08_model1000_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_model900_eval/shoulder4_pitch09roll08_model1000_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_model900_eval/shoulder4_pitch09roll08_model1000_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_model900_eval/shoulder4_pitch09roll08_model1000_random_eval.json"
+  },
+  "created_at": "2026-05-07-12-35-18"
+}

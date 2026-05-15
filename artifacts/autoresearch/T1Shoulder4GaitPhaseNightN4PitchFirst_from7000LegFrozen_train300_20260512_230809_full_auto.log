@@ -1,0 +1,26 @@
+START run code=n4 label=shoulder4_night_n4_pitchfirst300 task=T1Shoulder4GaitPhaseNightN4PitchFirst_from7000LegFrozen_train300 2026-05-12 23:08:09
+==== START train 2026-05-12 23:08:09 label=shoulder4_night_n4_pitchfirst300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/train_shoulder4_frozen.py", line 1, in <module>
+    import isaacgym
+ModuleNotFoundError: No module named 'isaacgym'
+==== DONE train 2026-05-12 23:08:09 elapsed=0s label=shoulder4_night_n4_pitchfirst300 ====
+RUN_DIR=
+ARM_CKPT=/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-12 23:08:14 label=shoulder4_night_n4_pitchfirst300 ====
+SKIP fixed 2026-05-12 23:08:14 label=shoulder4_night_n4_pitchfirst300 reason=replay_only_visual_iteration
+START random 2026-05-12 23:08:14 label=shoulder4_night_n4_pitchfirst300
+artifacts/autoresearch/run_shoulder4_eval_pair.sh: line 79: /opt/conda/bin/python: No such file or directory
+==== DONE eval 2026-05-12 23:08:14 elapsed=0s label=shoulder4_night_n4_pitchfirst300 ====
+==== START metrics 2026-05-12 23:08:14 label=shoulder4_night_n4_pitchfirst300 ====
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/export_shoulder_metrics.py", line 6, in <module>
+    from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+ModuleNotFoundError: No module named 'tensorboard'
+==== DONE metrics 2026-05-12 23:08:14 elapsed=0s label=shoulder4_night_n4_pitchfirst300 ====
+==== START pack 2026-05-12 23:08:14 label=shoulder4_night_n4_pitchfirst300 ====
+==== DONE pack 2026-05-12 23:08:14 elapsed=0s label=shoulder4_night_n4_pitchfirst300 ====
+-rwxrwxrwx 1 root root 752 May 12 23:08 artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_full_auto_done.json
+-rwxrwxrwx 1 root root 49K May 12 23:08 artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_web_inputs.tgz
+DONE run label=shoulder4_night_n4_pitchfirst300 2026-05-12 23:08:14

@@ -1,0 +1,50 @@
+{
+  "label": "shoulder4_night_h_no_inward_boundary400",
+  "checkpoint": "logs/2026-05-11-21-41-28/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17090011251519358,
+    "mean_yaw_err": 0.0731634141149018,
+    "mean_speed_ratio": 0.8700711449904319,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.04427914876134694,
+    "max_tilt": 0.1468420922756195,
+    "tilt_rms_mean": 0.04924344867311018,
+    "tilt_p95_mean": 0.0779343253422168,
+    "base_ang_vel_xy_rms_mean": 0.5181257605899099,
+    "shoulder_pitch_abs_p95_max": 0.30051079392433167,
+    "shoulder_roll_abs_p95_max": 0.25136837363243103,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.27040540090077636,
+    "linErrorRms": 0.38194356077500763,
+    "linErrorP95": 0.8464258909225464,
+    "yawErrorMean": 0.10534323976190504,
+    "yawErrorRms": 0.15244800927195462,
+    "yawErrorP95": 0.3549295663833618,
+    "tilt_mean": 0.040264638318110196,
+    "tilt_rms": 0.04552963521008571,
+    "tilt_p95": 0.0780651867389679,
+    "tilt_max": 0.12226349115371704,
+    "base_ang_vel_xy_rms": 0.44070537396848214,
+    "shoulder_pitch_abs_p95": 0.18237866461277008,
+    "shoulder_roll_abs_p95": 0.22848042845726013,
+    "left_shoulder_pitch_mean": -0.021499053434721145,
+    "left_shoulder_roll_mean": 0.17031789583243714,
+    "right_shoulder_pitch_mean": -0.05182163978849938,
+    "right_shoulder_roll_mean": -0.1817612272017085,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_night_h_no_inward_boundary400_eval/shoulder4_night_h_no_inward_boundary400_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_night_h_no_inward_boundary400_eval/shoulder4_night_h_no_inward_boundary400_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_night_h_no_inward_boundary400_eval/shoulder4_night_h_no_inward_boundary400_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_night_h_no_inward_boundary400_eval/shoulder4_night_h_no_inward_boundary400_random_eval.json"
+  },
+  "created_at": "2026-05-11-23-14-35"
+}

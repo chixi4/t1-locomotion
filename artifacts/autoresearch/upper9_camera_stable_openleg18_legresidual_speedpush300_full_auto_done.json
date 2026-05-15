@@ -1,0 +1,1 @@
+{"label":"upper9_camera_stable_openleg18_legresidual_speedpush300","task":"T1Upper9CameraStableOfficialOpenLeg18LegResidualSpeedPush_train300","run_dir":"logs/2026-05-14-15-08-00","checkpoint":"logs/2026-05-14-15-08-00/nn/model_300.pth","completed_at":"2026-05-14 15:53:50"}

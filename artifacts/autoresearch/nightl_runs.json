@@ -1,0 +1,33 @@
+[
+  {
+    "code": "l",
+    "task": "T1Shoulder4GaitPhaseNightLFourGroupClean_from7000LegFrozen_train400",
+    "label": "shoulder4_night_l_4group_clean400",
+    "display": "T1Shoulder4 NightL FourGroupClean model_400",
+    "urdf": "T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf",
+    "command": "Night L：把肩部奖励收束成4组：静止下垂、动态侧移伸手、防贴边偷懒、左右平衡平滑。目标是在保留 NightK 稳定和不饱和的基础上，把侧移 roll p95 从约0.08拉回0.14-0.18 rad。",
+    "note": "NightL FourGroupClean: four shoulder reward groups replace the old micro-term stack. The lateral dynamic target is stronger than NightK while boundary protection remains explicit, aiming for visible side reach without raising the static baseline.",
+    "params": {
+      "shoulder_static_posture": -5.2,
+      "shoulder_dynamic_target": -3.4,
+      "shoulder_no_lazy_boundary": -1.6,
+      "shoulder_balance_smoothness": -0.55,
+      "dynamic_roll_base_amp": 0.13,
+      "dynamic_roll_extra_amp": 0.16,
+      "dynamic_roll_max": 0.22,
+      "dynamic_roll_min_outward": 0.055,
+      "boundary_roll_soft_limit": 0.22,
+      "arm_action_rate": -0.045
+    },
+    "clips": {
+      "Left_Shoulder_Roll": [
+        0.0,
+        0.3
+      ],
+      "Right_Shoulder_Roll": [
+        -0.3,
+        0.0
+      ]
+    }
+  }
+]

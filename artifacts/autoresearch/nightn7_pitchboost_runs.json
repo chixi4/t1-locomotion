@@ -1,0 +1,14 @@
+[
+  {
+    "code": "n7p",
+    "task": "T1Shoulder4GaitPhaseNightN7PitchBoost_from7000LegFrozen_train300",
+    "label": "shoulder4_night_n7_pitchboost300",
+    "display": "T1Shoulder4 NightN7 PitchBoost model_300",
+    "command": "Night N7 PitchBoost：完全保留 N7 的 roll 解耦和侧移门控，只把 shoulder_dynamic_pitch_amp 从 0.72 提到 0.84，用于补前后走摆手偏小。",
+    "note": "Conservative N7 pitch-only tune. Roll gate/zero spring/lateral dynamic parameters unchanged; only shoulder_dynamic_pitch_amp is raised to 0.84.",
+    "params": {
+      "shoulder_dynamic_pitch_amp": 0.84,
+      "base": "N7 unchanged otherwise"
+    }
+  }
+]

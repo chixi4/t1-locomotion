@@ -1,0 +1,90 @@
+START 2026-05-02T23:59:01+08:00
+PWD=/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official
+OFFICIAL_COMMIT=da396a0
+WANDB_MODE=disabled
+COMMAND=/opt/conda/bin/python -u train.py --task T1 --headless true --num_envs 28672 --max_iterations 500
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Terminated
+o work to do.
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Terminated
+{
+  "kind": "official_highthroughput_baseline",
+  "started_at": "2026-05-02T23:59:01+08:00",
+  "finished_at": "2026-05-03T00:52:35+08:00",
+  "returncode": 143,
+  "cwd": "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official",
+  "official_commit": "da396a0",
+  "command": [
+    "/opt/conda/bin/python",
+    "-u",
+    "train.py",
+    "--task",
+    "T1",
+    "--headless",
+    "true",
+    "--num_envs",
+    "28672",
+    "--max_iterations",
+    "500"
+  ],
+  "num_envs": 28672,
+  "max_iterations": 500,
+  "wandb_mode": "disabled",
+  "selection_reason": "best measured short-run throughput below PhysX 64K material limit",
+  "latest_run": "logs/2026-05-03-00-21-58",
+  "latest_checkpoint": "",
+  "log": "artifacts/autoresearch/official_highthroughput_2026-05-02-12-15-00.log",
+  "gpu_log": "artifacts/autoresearch/official_highthroughput_2026-05-02-12-15-00_gpu.csv"
+}
+DONE 2026-05-03T00:52:35+08:00 rc=143 latest_run=logs/2026-05-03-00-21-58 latest_ckpt=
+{
+  "kind": "official_highthroughput_baseline",
+  "started_at": "2026-05-02T23:59:01+08:00",
+  "finished_at": "2026-05-03T00:52:37+08:00",
+  "returncode": 143,
+  "cwd": "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official",
+  "official_commit": "da396a0",
+  "command": [
+    "/opt/conda/bin/python",
+    "-u",
+    "train.py",
+    "--task",
+    "T1",
+    "--headless",
+    "true",
+    "--num_envs",
+    "28672",
+    "--max_iterations",
+    "500"
+  ],
+  "num_envs": 28672,
+  "max_iterations": 500,
+  "wandb_mode": "disabled",
+  "selection_reason": "best measured short-run throughput below PhysX 64K material limit",
+  "latest_run": "logs/2026-05-03-00-21-58",
+  "latest_checkpoint": "",
+  "log": "artifacts/autoresearch/official_highthroughput_2026-05-02-12-15-00.log",
+  "gpu_log": "artifacts/autoresearch/official_highthroughput_2026-05-02-12-15-00_gpu.csv"
+}
+DONE 2026-05-03T00:52:37+08:00 rc=143 latest_run=logs/2026-05-03-00-21-58 latest_ckpt=

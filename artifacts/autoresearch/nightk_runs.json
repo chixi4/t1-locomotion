@@ -1,0 +1,48 @@
+[
+  {
+    "code": "k",
+    "task": "T1Shoulder4GaitPhaseNightKNoLazyRoll_from7000LegFrozen_train400",
+    "label": "shoulder4_night_k_no_lazy_roll400",
+    "display": "T1Shoulder4 NightK NoLazyRoll model_400",
+    "urdf": "T1_locomotion_shoulder4_night_k_no_lazy_roll_no_inward_limit.urdf",
+    "command": "Night K：基于 NightJ 低基础方案，堵住右走 roll 躺平解。恢复一点最小外展和 outward margin，并新增 lateral roll wrong-sign action 惩罚，防止策略把动作打进 no-inward hard clip 吃掉的方向。",
+    "note": "NightK NoLazyRoll: keep no-inward roll clips and low baseline, but add wrong-sign lateral roll action penalty plus nonzero minimum outward margin so both left/right lateral commands keep live outward roll instead of collapsing to clipped zero.",
+    "params": {
+      "shoulder_roll_lateral_gated": false,
+      "shoulder_low_speed_down_pitch": -0.2,
+      "shoulder_low_speed_down_left_roll": 0.0,
+      "shoulder_low_speed_down_right_roll": 0.0,
+      "shoulder_low_speed_roll_same_weight": 1.0,
+      "shoulder_base_roll_target": -3.0,
+      "shoulder_base_roll_left": 0.0,
+      "shoulder_base_roll_right": 0.0,
+      "shoulder_roll": -3.0,
+      "shoulder_roll_soft_limit": 0.10,
+      "shoulder_lateral_down_pitch": -0.08,
+      "shoulder_lateral_pitch_down": -1.6,
+      "shoulder_lateral_pitch_same_weight": 1.1,
+      "shoulder_lateral_roll_amp": 0.045,
+      "shoulder_lateral_roll_extra_amp": 0.26,
+      "shoulder_lateral_roll_max": 0.24,
+      "shoulder_lateral_roll_min_outward": 0.025,
+      "shoulder_lateral_roll_outward": -2.6,
+      "shoulder_lateral_roll_outward_margin": -1.2,
+      "shoulder_lateral_roll_wrong_sign_action": -0.12,
+      "shoulder_lateral_foot_out_norm": 0.085,
+      "shoulder_pair_symmetry": -0.12,
+      "shoulder_roll_magnitude_balance": -0.02,
+      "shoulder_pitch_magnitude_balance": -0.6,
+      "arm_action_rate": -0.05
+    },
+    "clips": {
+      "Left_Shoulder_Roll": [
+        0.0,
+        0.3
+      ],
+      "Right_Shoulder_Roll": [
+        -0.3,
+        0.0
+      ]
+    }
+  }
+]

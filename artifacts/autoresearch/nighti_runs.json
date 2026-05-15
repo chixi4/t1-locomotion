@@ -1,0 +1,44 @@
+[
+  {
+    "code": "i",
+    "task": "T1Shoulder4GaitPhaseNightILowBaseHighDynamic_from7000LegFrozen_train400",
+    "label": "shoulder4_night_i_lowbase_highdynamic400",
+    "display": "T1Shoulder4 NightI LowBaseHighDynamic model_400",
+    "urdf": "T1_locomotion_shoulder4_night_i_lowbase_dynamic_no_inward_limit.urdf",
+    "command": "Night I：回到 NightH NoInwardBoundary 的 400 轮冻结腿基线；保持 roll 不内收边界，把侧移基础外展从 0.11 降到 0.06、min margin 从 0.07 降到 0.035，同时保留更大的脚步 extra，让侧走时呈现低基础、高动态外展摆动。",
+    "note": "NightI LowBaseHighDynamic: keep NightH no-inward clips and URDF, lower lateral base/margin, keep strong foot-dependent outward extra, and relax roll symmetry/pitch-down constraints so lateral walking can show more dynamic arm motion.",
+    "params": {
+      "shoulder_roll_lateral_gated": true,
+      "shoulder_low_speed_down_pitch": -0.2,
+      "shoulder_low_speed_down_left_roll": 0.0,
+      "shoulder_low_speed_down_right_roll": 0.0,
+      "shoulder_low_speed_roll_same_weight": 1.0,
+      "shoulder_base_roll_target": -1.6,
+      "shoulder_base_roll_left": 0.0,
+      "shoulder_base_roll_right": 0.0,
+      "shoulder_lateral_down_pitch": -0.08,
+      "shoulder_lateral_pitch_down": -1.2,
+      "shoulder_lateral_pitch_same_weight": 0.8,
+      "shoulder_lateral_roll_amp": 0.06,
+      "shoulder_lateral_roll_extra_amp": 0.30,
+      "shoulder_lateral_roll_max": 0.30,
+      "shoulder_lateral_roll_min_outward": 0.035,
+      "shoulder_lateral_roll_outward": -3.0,
+      "shoulder_lateral_roll_outward_margin": -2.0,
+      "shoulder_pair_symmetry": -0.12,
+      "shoulder_roll_magnitude_balance": -0.02,
+      "shoulder_pitch_magnitude_balance": -0.6,
+      "arm_action_rate": -0.06
+    },
+    "clips": {
+      "Left_Shoulder_Roll": [
+        0.0,
+        0.3
+      ],
+      "Right_Shoulder_Roll": [
+        -0.3,
+        0.0
+      ]
+    }
+  }
+]

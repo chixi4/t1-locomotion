@@ -1,0 +1,16 @@
+{
+  "status": "failed",
+  "failure_phase": "pack",
+  "failure_reason": "tar packaging failed",
+  "label": "shoulder4_kinematic_scratch_legopp300",
+  "display_name": "T1Shoulder4 Kinematic Scratch LegOpp model_300",
+  "task": "T1Shoulder4KinematicScratchLegOpp_from7000LegFrozen_train300",
+  "run_dir": "logs/2026-05-13-17-13-41",
+  "arm_checkpoint": "logs/2026-05-13-17-13-41/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_kinematic_scratch_legopp300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_kinematic_scratch_legopp300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_kinematic_scratch_legopp300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4KinematicScratchLegOpp_from7000LegFrozen_train300_20260513_171251_progress.log",
+  "created_at": "2026-05-13T09:57:47+00:00"
+}

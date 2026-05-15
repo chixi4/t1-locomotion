@@ -1,0 +1,7 @@
+   PID   PPID COMMAND
+     1      0 /init
+     5      1 plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+     8      1 /init
+     9      8 /init
+    10      9 bash -lc cd /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official; ps -eo pid,ppid,args > artifacts/autoresearch/nightm_ps_snapshot.txt; ls -lt artifacts/autoresearch/nightm_zerobase300_launcher.out artifacts/autoresearch/nightm_zerobase300_launcher.pid artifacts/autoresearch/nightm_zerobase300_full_auto_*.log artifacts/autoresearch/T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300_*_full_auto.log 2>/dev/null > artifacts/autoresearch/nightm_ls_snapshot.txt; tail -n 120 artifacts/autoresearch/nightm_zerobase300_launcher.out > artifacts/autoresearch/nightm_launcher_tail.txt
+    17     10 ps -eo pid,ppid,args

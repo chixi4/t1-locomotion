@@ -1,0 +1,24 @@
+{
+  "task": "T1Upper9CameraStableOfficialOpenLeg18LegResidualBalanceCap_train300",
+  "results": [
+    {
+      "checkpoint": "logs/2026-05-14-14-07-34/nn/model_50.pth",
+      "reset_events_per_env": 0.015625,
+      "lin_error_mean": 0.15928219258785248,
+      "yaw_error_mean": 0.09938929975032806,
+      "camera_tilt_p95": 0.10941264033317566,
+      "camera_ang_xy_rms": 0.5523707270622253,
+      "stand_shoulder_abs_p95": 0.05419996753334999,
+      "stand_elbow_abs_p95": 0.07301031053066254,
+      "stand_waist_abs_p95": 0.08128321170806885,
+      "pitch_abs_p95_moving": 0.20819073915481567,
+      "pitch_lr_antisym_corr": 0.9261623620986938,
+      "pitch_common_abs_p95": 0.07822483032941818,
+      "side_left_out_p95_on_right": 0.19844871759414673,
+      "side_right_out_p95_on_left": 0.19060887396335602,
+      "elbow_abs_p95_moving": 0.10562480986118317,
+      "waist_abs_p95_moving": 0.11271663010120392,
+      "residual_abs_p95": 0.0007324023172259331
+    }
+  ]
+}

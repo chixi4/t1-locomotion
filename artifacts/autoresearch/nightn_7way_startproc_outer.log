@@ -1,0 +1,244 @@
+bash: /opt/conda/lib/libtinfo.so.6: no version information available (required by bash)
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PRECHECK python=/opt/conda/bin/python3
+==== NIGHTN 7WAY START 2026-05-13 23:59:01 order=n1 n2 n3 n4 n5 n6 n7 ====
+==== RUN 1/7 code=n1 label=shoulder4_night_n1_zerospring300 2026-05-13 23:59:01 ====
+START run code=n1 label=shoulder4_night_n1_zerospring300 task=T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300 2026-05-13 23:59:01
+CONFIG train_num_envs=28672 train_max_iterations=300 final_iter=300 eval_num_envs=256
+==== START train 2026-05-13 23:59:01 label=shoulder4_night_n1_zerospring300 ====
+==== DONE train 2026-05-14 00:45:28 elapsed=2787s label=shoulder4_night_n1_zerospring300 ====
+RUN_DIR=logs/2026-05-13-23-59-50
+ARM_CKPT=logs/2026-05-13-23-59-50/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-14 00:45:36 label=shoulder4_night_n1_zerospring300 ====
+==== DONE eval 2026-05-14 00:50:17 elapsed=281s label=shoulder4_night_n1_zerospring300 ====
+==== START metrics 2026-05-14 00:50:17 label=shoulder4_night_n1_zerospring300 ====
+==== DONE metrics 2026-05-14 00:50:17 elapsed=0s label=shoulder4_night_n1_zerospring300 ====
+==== START pack 2026-05-14 00:50:17 label=shoulder4_night_n1_zerospring300 ====
+==== DONE pack 2026-05-14 00:50:18 elapsed=1s label=shoulder4_night_n1_zerospring300 ====
+{
+  "status": "done",
+  "failure_phase": "",
+  "failure_reason": "",
+  "label": "shoulder4_night_n1_zerospring300",
+  "display_name": "T1Shoulder4 NightN1 ZeroSpring model_300",
+  "task": "T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300",
+  "run_dir": "logs/2026-05-13-23-59-50",
+  "arm_checkpoint": "logs/2026-05-13-23-59-50/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300_20260513_235901_full_auto.log",
+  "created_at": "2026-05-13T16:50:18+00:00"
+}
+-rwxrwxrwx 1 root root  867 May 14 00:50 artifacts/autoresearch/shoulder4_night_n1_zerospring300_full_auto_done.json
+-rwxrwxrwx 1 root root 3.1M May 14 00:50 artifacts/autoresearch/shoulder4_night_n1_zerospring300_web_inputs.tgz
+DONE run label=shoulder4_night_n1_zerospring300 2026-05-14 00:50:18
+==== RUN OK label=shoulder4_night_n1_zerospring300 2026-05-14 00:50:18 ====
+==== RUN 2/7 code=n2 label=shoulder4_night_n2_longfoot_deadband300 2026-05-14 00:50:18 ====
+START run code=n2 label=shoulder4_night_n2_longfoot_deadband300 task=T1Shoulder4GaitPhaseNightN2LongFootDeadband_from7000LegFrozen_train300 2026-05-14 00:50:18
+CONFIG train_num_envs=28672 train_max_iterations=300 final_iter=300 eval_num_envs=256
+==== START train 2026-05-14 00:50:18 label=shoulder4_night_n2_longfoot_deadband300 ====
+==== DONE train 2026-05-14 01:37:03 elapsed=2805s label=shoulder4_night_n2_longfoot_deadband300 ====
+RUN_DIR=logs/2026-05-14-00-51-04
+ARM_CKPT=logs/2026-05-14-00-51-04/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-14 01:37:12 label=shoulder4_night_n2_longfoot_deadband300 ====
+==== DONE eval 2026-05-14 01:41:49 elapsed=277s label=shoulder4_night_n2_longfoot_deadband300 ====
+==== START metrics 2026-05-14 01:41:49 label=shoulder4_night_n2_longfoot_deadband300 ====
+==== DONE metrics 2026-05-14 01:41:50 elapsed=1s label=shoulder4_night_n2_longfoot_deadband300 ====
+==== START pack 2026-05-14 01:41:50 label=shoulder4_night_n2_longfoot_deadband300 ====
+==== DONE pack 2026-05-14 01:41:50 elapsed=0s label=shoulder4_night_n2_longfoot_deadband300 ====
+{
+  "status": "done",
+  "failure_phase": "",
+  "failure_reason": "",
+  "label": "shoulder4_night_n2_longfoot_deadband300",
+  "display_name": "T1Shoulder4 NightN2 LongFootDeadband model_300",
+  "task": "T1Shoulder4GaitPhaseNightN2LongFootDeadband_from7000LegFrozen_train300",
+  "run_dir": "logs/2026-05-14-00-51-04",
+  "arm_checkpoint": "logs/2026-05-14-00-51-04/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n2_longfoot_deadband300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n2_longfoot_deadband300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n2_longfoot_deadband300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN2LongFootDeadband_from7000LegFrozen_train300_20260514_005018_full_auto.log",
+  "created_at": "2026-05-13T17:41:50+00:00"
+}
+-rwxrwxrwx 1 root root  913 May 14 01:41 artifacts/autoresearch/shoulder4_night_n2_longfoot_deadband300_full_auto_done.json
+-rwxrwxrwx 1 root root 3.1M May 14 01:41 artifacts/autoresearch/shoulder4_night_n2_longfoot_deadband300_web_inputs.tgz
+DONE run label=shoulder4_night_n2_longfoot_deadband300 2026-05-14 01:41:50
+==== RUN OK label=shoulder4_night_n2_longfoot_deadband300 2026-05-14 01:41:50 ====
+==== RUN 3/7 code=n3 label=shoulder4_night_n3_velocity_spark300 2026-05-14 01:41:50 ====
+START run code=n3 label=shoulder4_night_n3_velocity_spark300 task=T1Shoulder4GaitPhaseNightN3VelocitySpark_from7000LegFrozen_train300 2026-05-14 01:41:51
+CONFIG train_num_envs=28672 train_max_iterations=300 final_iter=300 eval_num_envs=256
+==== START train 2026-05-14 01:41:51 label=shoulder4_night_n3_velocity_spark300 ====
+==== DONE train 2026-05-14 02:29:14 elapsed=2843s label=shoulder4_night_n3_velocity_spark300 ====
+RUN_DIR=logs/2026-05-14-01-42-38
+ARM_CKPT=logs/2026-05-14-01-42-38/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-14 02:29:21 label=shoulder4_night_n3_velocity_spark300 ====
+==== DONE eval 2026-05-14 02:33:59 elapsed=278s label=shoulder4_night_n3_velocity_spark300 ====
+==== START metrics 2026-05-14 02:33:59 label=shoulder4_night_n3_velocity_spark300 ====
+==== DONE metrics 2026-05-14 02:34:00 elapsed=1s label=shoulder4_night_n3_velocity_spark300 ====
+==== START pack 2026-05-14 02:34:00 label=shoulder4_night_n3_velocity_spark300 ====
+==== DONE pack 2026-05-14 02:34:00 elapsed=0s label=shoulder4_night_n3_velocity_spark300 ====
+{
+  "status": "done",
+  "failure_phase": "",
+  "failure_reason": "",
+  "label": "shoulder4_night_n3_velocity_spark300",
+  "display_name": "T1Shoulder4 NightN3 VelocitySpark model_300",
+  "task": "T1Shoulder4GaitPhaseNightN3VelocitySpark_from7000LegFrozen_train300",
+  "run_dir": "logs/2026-05-14-01-42-38",
+  "arm_checkpoint": "logs/2026-05-14-01-42-38/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n3_velocity_spark300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n3_velocity_spark300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n3_velocity_spark300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN3VelocitySpark_from7000LegFrozen_train300_20260514_014151_full_auto.log",
+  "created_at": "2026-05-13T18:34:00+00:00"
+}
+-rwxrwxrwx 1 root root  892 May 14 02:34 artifacts/autoresearch/shoulder4_night_n3_velocity_spark300_full_auto_done.json
+-rwxrwxrwx 1 root root 3.1M May 14 02:34 artifacts/autoresearch/shoulder4_night_n3_velocity_spark300_web_inputs.tgz
+DONE run label=shoulder4_night_n3_velocity_spark300 2026-05-14 02:34:00
+==== RUN OK label=shoulder4_night_n3_velocity_spark300 2026-05-14 02:34:00 ====
+==== RUN 4/7 code=n4 label=shoulder4_night_n4_pitchfirst300 2026-05-14 02:34:00 ====
+START run code=n4 label=shoulder4_night_n4_pitchfirst300 task=T1Shoulder4GaitPhaseNightN4PitchFirst_from7000LegFrozen_train300 2026-05-14 02:34:01
+CONFIG train_num_envs=28672 train_max_iterations=300 final_iter=300 eval_num_envs=256
+==== START train 2026-05-14 02:34:01 label=shoulder4_night_n4_pitchfirst300 ====
+==== DONE train 2026-05-14 03:21:49 elapsed=2868s label=shoulder4_night_n4_pitchfirst300 ====
+RUN_DIR=logs/2026-05-14-02-34-48
+ARM_CKPT=logs/2026-05-14-02-34-48/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-14 03:21:57 label=shoulder4_night_n4_pitchfirst300 ====
+==== DONE eval 2026-05-14 03:26:41 elapsed=284s label=shoulder4_night_n4_pitchfirst300 ====
+==== START metrics 2026-05-14 03:26:41 label=shoulder4_night_n4_pitchfirst300 ====
+==== DONE metrics 2026-05-14 03:26:41 elapsed=0s label=shoulder4_night_n4_pitchfirst300 ====
+==== START pack 2026-05-14 03:26:41 label=shoulder4_night_n4_pitchfirst300 ====
+==== DONE pack 2026-05-14 03:26:42 elapsed=1s label=shoulder4_night_n4_pitchfirst300 ====
+{
+  "status": "done",
+  "failure_phase": "",
+  "failure_reason": "",
+  "label": "shoulder4_night_n4_pitchfirst300",
+  "display_name": "T1Shoulder4 NightN4 PitchFirst model_300",
+  "task": "T1Shoulder4GaitPhaseNightN4PitchFirst_from7000LegFrozen_train300",
+  "run_dir": "logs/2026-05-14-02-34-48",
+  "arm_checkpoint": "logs/2026-05-14-02-34-48/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN4PitchFirst_from7000LegFrozen_train300_20260514_023401_full_auto.log",
+  "created_at": "2026-05-13T19:26:42+00:00"
+}
+-rwxrwxrwx 1 root root  867 May 14 03:26 artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_full_auto_done.json
+-rwxrwxrwx 1 root root 3.1M May 14 03:26 artifacts/autoresearch/shoulder4_night_n4_pitchfirst300_web_inputs.tgz
+DONE run label=shoulder4_night_n4_pitchfirst300 2026-05-14 03:26:42
+==== RUN OK label=shoulder4_night_n4_pitchfirst300 2026-05-14 03:26:42 ====
+==== RUN 5/7 code=n5 label=shoulder4_night_n5_inequality_floor300 2026-05-14 03:26:42 ====
+START run code=n5 label=shoulder4_night_n5_inequality_floor300 task=T1Shoulder4GaitPhaseNightN5InequalityFloor_from7000LegFrozen_train300 2026-05-14 03:26:42
+CONFIG train_num_envs=28672 train_max_iterations=300 final_iter=300 eval_num_envs=256
+==== START train 2026-05-14 03:26:42 label=shoulder4_night_n5_inequality_floor300 ====
+==== DONE train 2026-05-14 04:13:29 elapsed=2807s label=shoulder4_night_n5_inequality_floor300 ====
+RUN_DIR=logs/2026-05-14-03-27-28
+ARM_CKPT=logs/2026-05-14-03-27-28/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-14 04:13:37 label=shoulder4_night_n5_inequality_floor300 ====
+==== DONE eval 2026-05-14 04:18:17 elapsed=280s label=shoulder4_night_n5_inequality_floor300 ====
+==== START metrics 2026-05-14 04:18:17 label=shoulder4_night_n5_inequality_floor300 ====
+==== DONE metrics 2026-05-14 04:18:18 elapsed=1s label=shoulder4_night_n5_inequality_floor300 ====
+==== START pack 2026-05-14 04:18:18 label=shoulder4_night_n5_inequality_floor300 ====
+==== DONE pack 2026-05-14 04:18:18 elapsed=0s label=shoulder4_night_n5_inequality_floor300 ====
+{
+  "status": "done",
+  "failure_phase": "",
+  "failure_reason": "",
+  "label": "shoulder4_night_n5_inequality_floor300",
+  "display_name": "T1Shoulder4 NightN5 InequalityFloor model_300",
+  "task": "T1Shoulder4GaitPhaseNightN5InequalityFloor_from7000LegFrozen_train300",
+  "run_dir": "logs/2026-05-14-03-27-28",
+  "arm_checkpoint": "logs/2026-05-14-03-27-28/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n5_inequality_floor300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n5_inequality_floor300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n5_inequality_floor300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN5InequalityFloor_from7000LegFrozen_train300_20260514_032642_full_auto.log",
+  "created_at": "2026-05-13T20:18:18+00:00"
+}
+-rwxrwxrwx 1 root root  906 May 14 04:18 artifacts/autoresearch/shoulder4_night_n5_inequality_floor300_full_auto_done.json
+-rwxrwxrwx 1 root root 3.1M May 14 04:18 artifacts/autoresearch/shoulder4_night_n5_inequality_floor300_web_inputs.tgz
+DONE run label=shoulder4_night_n5_inequality_floor300 2026-05-14 04:18:18
+==== RUN OK label=shoulder4_night_n5_inequality_floor300 2026-05-14 04:18:18 ====
+==== RUN 6/7 code=n6 label=shoulder4_night_n6_smooth_servo300 2026-05-14 04:18:18 ====
+START run code=n6 label=shoulder4_night_n6_smooth_servo300 task=T1Shoulder4GaitPhaseNightN6SmoothServo_from7000LegFrozen_train300 2026-05-14 04:18:18
+CONFIG train_num_envs=28672 train_max_iterations=300 final_iter=300 eval_num_envs=256
+==== START train 2026-05-14 04:18:18 label=shoulder4_night_n6_smooth_servo300 ====
+==== DONE train 2026-05-14 05:05:36 elapsed=2838s label=shoulder4_night_n6_smooth_servo300 ====
+RUN_DIR=logs/2026-05-14-04-19-05
+ARM_CKPT=logs/2026-05-14-04-19-05/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-14 05:05:43 label=shoulder4_night_n6_smooth_servo300 ====
+==== DONE eval 2026-05-14 05:10:23 elapsed=280s label=shoulder4_night_n6_smooth_servo300 ====
+==== START metrics 2026-05-14 05:10:23 label=shoulder4_night_n6_smooth_servo300 ====
+==== DONE metrics 2026-05-14 05:10:24 elapsed=1s label=shoulder4_night_n6_smooth_servo300 ====
+==== START pack 2026-05-14 05:10:24 label=shoulder4_night_n6_smooth_servo300 ====
+==== DONE pack 2026-05-14 05:10:24 elapsed=0s label=shoulder4_night_n6_smooth_servo300 ====
+{
+  "status": "done",
+  "failure_phase": "",
+  "failure_reason": "",
+  "label": "shoulder4_night_n6_smooth_servo300",
+  "display_name": "T1Shoulder4 NightN6 SmoothServo model_300",
+  "task": "T1Shoulder4GaitPhaseNightN6SmoothServo_from7000LegFrozen_train300",
+  "run_dir": "logs/2026-05-14-04-19-05",
+  "arm_checkpoint": "logs/2026-05-14-04-19-05/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n6_smooth_servo300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n6_smooth_servo300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n6_smooth_servo300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN6SmoothServo_from7000LegFrozen_train300_20260514_041818_full_auto.log",
+  "created_at": "2026-05-13T21:10:24+00:00"
+}
+-rwxrwxrwx 1 root root  878 May 14 05:10 artifacts/autoresearch/shoulder4_night_n6_smooth_servo300_full_auto_done.json
+-rwxrwxrwx 1 root root 3.1M May 14 05:10 artifacts/autoresearch/shoulder4_night_n6_smooth_servo300_web_inputs.tgz
+DONE run label=shoulder4_night_n6_smooth_servo300 2026-05-14 05:10:24
+==== RUN OK label=shoulder4_night_n6_smooth_servo300 2026-05-14 05:10:24 ====
+==== RUN 7/7 code=n7 label=shoulder4_night_n7_diagonal_decoupler300 2026-05-14 05:10:24 ====
+START run code=n7 label=shoulder4_night_n7_diagonal_decoupler300 task=T1Shoulder4GaitPhaseNightN7DiagonalDecoupler_from7000LegFrozen_train300 2026-05-14 05:10:25
+CONFIG train_num_envs=28672 train_max_iterations=300 final_iter=300 eval_num_envs=256
+==== START train 2026-05-14 05:10:25 label=shoulder4_night_n7_diagonal_decoupler300 ====
+==== DONE train 2026-05-14 05:57:28 elapsed=2823s label=shoulder4_night_n7_diagonal_decoupler300 ====
+RUN_DIR=logs/2026-05-14-05-11-12
+ARM_CKPT=logs/2026-05-14-05-11-12/nn/model_300.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-14 05:57:35 label=shoulder4_night_n7_diagonal_decoupler300 ====
+==== DONE eval 2026-05-14 06:02:16 elapsed=281s label=shoulder4_night_n7_diagonal_decoupler300 ====
+==== START metrics 2026-05-14 06:02:16 label=shoulder4_night_n7_diagonal_decoupler300 ====
+==== DONE metrics 2026-05-14 06:02:17 elapsed=1s label=shoulder4_night_n7_diagonal_decoupler300 ====
+==== START pack 2026-05-14 06:02:17 label=shoulder4_night_n7_diagonal_decoupler300 ====
+==== DONE pack 2026-05-14 06:02:17 elapsed=0s label=shoulder4_night_n7_diagonal_decoupler300 ====
+{
+  "status": "done",
+  "failure_phase": "",
+  "failure_reason": "",
+  "label": "shoulder4_night_n7_diagonal_decoupler300",
+  "display_name": "T1Shoulder4 NightN7 DiagonalDecoupler model_300",
+  "task": "T1Shoulder4GaitPhaseNightN7DiagonalDecoupler_from7000LegFrozen_train300",
+  "run_dir": "logs/2026-05-14-05-11-12",
+  "arm_checkpoint": "logs/2026-05-14-05-11-12/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n7_diagonal_decoupler300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n7_diagonal_decoupler300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n7_diagonal_decoupler300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN7DiagonalDecoupler_from7000LegFrozen_train300_20260514_051025_full_auto.log",
+  "created_at": "2026-05-13T22:02:17+00:00"
+}
+-rwxrwxrwx 1 root root  920 May 14 06:02 artifacts/autoresearch/shoulder4_night_n7_diagonal_decoupler300_full_auto_done.json
+-rwxrwxrwx 1 root root 3.1M May 14 06:02 artifacts/autoresearch/shoulder4_night_n7_diagonal_decoupler300_web_inputs.tgz
+DONE run label=shoulder4_night_n7_diagonal_decoupler300 2026-05-14 06:02:18
+==== RUN OK label=shoulder4_night_n7_diagonal_decoupler300 2026-05-14 06:02:18 ====
+==== NIGHTN 7WAY DONE 2026-05-14 06:02:18 ====

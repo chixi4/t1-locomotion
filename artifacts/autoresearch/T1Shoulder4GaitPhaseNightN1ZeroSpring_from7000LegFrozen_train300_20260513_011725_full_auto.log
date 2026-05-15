@@ -1,0 +1,215 @@
+START run code=n1 label=shoulder4_night_n1_zerospring300 task=T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300 2026-05-13 01:17:25
+CONFIG train_num_envs=64 train_max_iterations=1 final_iter=1 eval_num_envs=16
+==== START train 2026-05-13 01:17:25 label=shoulder4_night_n1_zerospring300 ====
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using per-DOF actor mean scale: {'Left_Shoulder_Pitch': 0.75, 'Left_Shoulder_Roll': 0.9, 'Right_Shoulder_Pitch': 0.75, 'Right_Shoulder_Roll': 0.9}
+Loading frozen leg model from logs/2026-05-05-11-09-07/nn/model_4000.pth
+Saving model to logs/2026-05-13-01-17-39/nn/model_1.pth
+epoch: 1/1 (local 1/1) elapsed=0.1m eta=0.0m
+==== DONE train 2026-05-13 01:17:47 elapsed=22s label=shoulder4_night_n1_zerospring300 ====
+RUN_DIR=logs/2026-05-13-01-17-39
+ARM_CKPT=logs/2026-05-13-01-17-39/nn/model_1.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-13 01:17:53 label=shoulder4_night_n1_zerospring300 ====
+bash: /opt/conda/lib/libtinfo.so.6: no version information available (required by bash)
+SKIP fixed 2026-05-13 01:17:53 label=shoulder4_night_n1_zerospring300 reason=replay_only_visual_iteration
+START random 2026-05-13 01:17:53 label=shoulder4_night_n1_zerospring300
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Creating random replay env
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+random replay progress 0/200 (0%)
+random replay progress 10/200 (5%)
+random replay progress 20/200 (10%)
+random replay progress 30/200 (15%)
+random replay progress 40/200 (20%)
+random replay progress 50/200 (25%)
+random replay progress 60/200 (30%)
+random replay progress 70/200 (35%)
+random replay progress 80/200 (40%)
+random replay progress 90/200 (45%)
+random replay progress 100/200 (50%)
+random replay progress 110/200 (55%)
+random replay progress 120/200 (60%)
+random replay progress 130/200 (65%)
+random replay progress 140/200 (70%)
+random replay progress 150/200 (75%)
+random replay progress 160/200 (80%)
+random replay progress 170/200 (85%)
+random replay progress 180/200 (90%)
+random replay progress 190/200 (95%)
+random replay progress 200/200 (100%)
+{
+  "label": "shoulder4_night_n1_zerospring300",
+  "checkpoint": "logs/2026-05-13-01-17-39/nn/model_1.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": null,
+  "random_replay_60s": {
+    "seconds": 4.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.36279518107146336,
+    "linErrorRms": 0.5036631603289728,
+    "linErrorP95": 0.9782087206840515,
+    "yawErrorMean": 0.08320018448983318,
+    "yawErrorRms": 0.12321452201026063,
+    "yawErrorP95": 0.29305773973464966,
+    "tilt_mean": 0.046864415475477775,
+    "tilt_rms": 0.05023419006004954,
+    "tilt_p95": 0.08212249726057053,
+    "tilt_max": 0.08756836503744125,
+    "base_ang_vel_xy_rms": 0.5341680366116378,
+    "shoulder_pitch_abs_p95": 0.049682315438985825,
+    "shoulder_roll_abs_p95": 0.00956408865749836,
+    "left_shoulder_pitch_mean": -0.015871581906297554,
+    "left_shoulder_roll_mean": 0.0016558019672206605,
+    "right_shoulder_pitch_mean": -0.02263648864891972,
+    "right_shoulder_roll_mean": -0.0018316108949147747,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval/shoulder4_night_n1_zerospring300_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval/shoulder4_night_n1_zerospring300_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval/shoulder4_night_n1_zerospring300_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval/shoulder4_night_n1_zerospring300_random_eval.json"
+  },
+  "created_at": "2026-05-13-01-18-20"
+}
+DONE random 2026-05-13 01:18:22 label=shoulder4_night_n1_zerospring300 elapsed=29s
+DONE 2026-05-13 01:18:23 label=shoulder4_night_n1_zerospring300
+{
+  "label": "shoulder4_night_n1_zerospring300",
+  "checkpoint": "logs/2026-05-13-01-17-39/nn/model_1.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": null,
+  "random_replay_60s": {
+    "seconds": 4.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.36279518107146336,
+    "linErrorRms": 0.5036631603289728,
+    "linErrorP95": 0.9782087206840515,
+    "yawErrorMean": 0.08320018448983318,
+    "yawErrorRms": 0.12321452201026063,
+    "yawErrorP95": 0.29305773973464966,
+    "tilt_mean": 0.046864415475477775,
+    "tilt_rms": 0.05023419006004954,
+    "tilt_p95": 0.08212249726057053,
+    "tilt_max": 0.08756836503744125,
+    "base_ang_vel_xy_rms": 0.5341680366116378,
+    "shoulder_pitch_abs_p95": 0.049682315438985825,
+    "shoulder_roll_abs_p95": 0.00956408865749836,
+    "left_shoulder_pitch_mean": -0.015871581906297554,
+    "left_shoulder_roll_mean": 0.0016558019672206605,
+    "right_shoulder_pitch_mean": -0.02263648864891972,
+    "right_shoulder_roll_mean": -0.0018316108949147747,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval/shoulder4_night_n1_zerospring300_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval/shoulder4_night_n1_zerospring300_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval/shoulder4_night_n1_zerospring300_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval/shoulder4_night_n1_zerospring300_random_eval.json"
+  },
+  "created_at": "2026-05-13-01-18-20"
+}==== DONE eval 2026-05-13 01:18:23 elapsed=30s label=shoulder4_night_n1_zerospring300 ====
+==== START metrics 2026-05-13 01:18:23 label=shoulder4_night_n1_zerospring300 ====
+{
+  "out": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_metrics.json",
+  "emptyPolicy": "drop_zero",
+  "diagnostics": {
+    "value_loss": {
+      "tag": "value_loss",
+      "raw_count": 1,
+      "zero_count": 0,
+      "kept_count": 1
+    },
+    "steps": {
+      "tag": null,
+      "raw_count": 0,
+      "zero_count": 0,
+      "kept_count": 0
+    },
+    "reward": {
+      "tag": null,
+      "raw_count": 0,
+      "zero_count": 0,
+      "kept_count": 0
+    },
+    "lr": {
+      "tag": "lr",
+      "raw_count": 1,
+      "zero_count": 0,
+      "kept_count": 1
+    },
+    "kl_mean": {
+      "tag": "kl_mean",
+      "raw_count": 1,
+      "zero_count": 0,
+      "kept_count": 1
+    },
+    "entropy": {
+      "tag": "entropy",
+      "raw_count": 1,
+      "zero_count": 0,
+      "kept_count": 1
+    }
+  }
+}
+==== DONE metrics 2026-05-13 01:18:23 elapsed=0s label=shoulder4_night_n1_zerospring300 ====
+==== START pack 2026-05-13 01:18:23 label=shoulder4_night_n1_zerospring300 ====
+==== DONE pack 2026-05-13 01:18:24 elapsed=1s label=shoulder4_night_n1_zerospring300 ====
+{
+  "status": "done",
+  "failure_phase": "",
+  "failure_reason": "",
+  "label": "shoulder4_night_n1_zerospring300",
+  "display_name": "T1Shoulder4 NightN1 ZeroSpring model_300",
+  "task": "T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300",
+  "run_dir": "logs/2026-05-13-01-17-39",
+  "arm_checkpoint": "logs/2026-05-13-01-17-39/nn/model_1.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300_20260513_011725_full_auto.log",
+  "created_at": "2026-05-12T17:18:24+00:00"
+}
+-rwxrwxrwx 1 root root 865 May 13 01:18 artifacts/autoresearch/shoulder4_night_n1_zerospring300_full_auto_done.json
+-rwxrwxrwx 1 root root 93K May 13 01:18 artifacts/autoresearch/shoulder4_night_n1_zerospring300_web_inputs.tgz
+DONE run label=shoulder4_night_n1_zerospring300 2026-05-13 01:18:24

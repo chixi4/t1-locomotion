@@ -1,0 +1,8 @@
+===== 2026-05-12T19:54:28+08:00 nvidia-smi compute apps =====
+pid, process_name, used_gpu_memory [MiB]
+===== 2026-05-12T19:54:38+08:00 nvidia-smi compute apps =====
+pid, process_name, used_gpu_memory [MiB]
+89, [Not Found], [N/A]
+===== 2026-05-12T19:54:47+08:00 nvidia-smi compute apps =====
+pid, process_name, used_gpu_memory [MiB]
+89, [Not Found], [N/A]

@@ -1,0 +1,35 @@
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Fixed-arm sway baseline not found at artifacts/autoresearch/fixed_arm_sway_baseline_model7000.pt; using current sway penalty only.
+baseline cells 4096/19496
+baseline cells 8192/19496
+baseline cells 12288/19496
+baseline cells 16384/19496
+baseline cells 19496/19496
+{
+  "cells": 19496,
+  "seconds": 10.0,
+  "warmup_s": 1.0,
+  "mean": 0.0938563123345375,
+  "p50": 0.08495712280273438,
+  "p95": 0.19408540427684784,
+  "max": 0.37929871678352356,
+  "output": "artifacts/autoresearch/fixed_arm_sway_baseline_model7000.pt"
+}
+Loading extension module gymtorch...
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()

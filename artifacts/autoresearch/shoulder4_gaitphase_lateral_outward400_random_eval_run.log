@@ -1,0 +1,67 @@
+START random 2026-05-10 12:04:17 label=shoulder4_gaitphase_lateral_outward400
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Creating random replay env
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+{
+  "label": "shoulder4_gaitphase_lateral_outward400",
+  "checkpoint": "logs/2026-05-10-10-35-55/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17042675634208204,
+    "mean_yaw_err": 0.07054370832642755,
+    "mean_speed_ratio": 0.8704496037272306,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.044147131630322994,
+    "max_tilt": 0.16187606751918793,
+    "tilt_rms_mean": 0.049183704004047125,
+    "tilt_p95_mean": 0.07782506882663696,
+    "base_ang_vel_xy_rms_mean": 0.5258904111466883,
+    "shoulder_pitch_abs_p95_max": 0.31578585505485535,
+    "shoulder_roll_abs_p95_max": 0.5088265538215637,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.2705666056927093,
+    "linErrorRms": 0.3827012482996717,
+    "linErrorP95": 0.85135418176651,
+    "yawErrorMean": 0.10271325294735263,
+    "yawErrorRms": 0.15053723787089746,
+    "yawErrorP95": 0.3581222593784332,
+    "tilt_mean": 0.04017959206809635,
+    "tilt_rms": 0.0455667200593529,
+    "tilt_p95": 0.07766709476709366,
+    "tilt_max": 0.12320544570684433,
+    "base_ang_vel_xy_rms": 0.4459451561240642,
+    "shoulder_pitch_abs_p95": 0.20478849112987518,
+    "shoulder_roll_abs_p95": 0.47728365659713745,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_gaitphase_lateral_outward400_eval/shoulder4_gaitphase_lateral_outward400_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_gaitphase_lateral_outward400_eval/shoulder4_gaitphase_lateral_outward400_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_gaitphase_lateral_outward400_eval/shoulder4_gaitphase_lateral_outward400_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_gaitphase_lateral_outward400_eval/shoulder4_gaitphase_lateral_outward400_random_eval.json"
+  },
+  "created_at": "2026-05-10-12-08-38"
+}

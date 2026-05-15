@@ -1,0 +1,4 @@
+timestamp	num_envs	iterations	rc	epochs_seen	epoch_sec_tail	transitions_per_sec_tail	max_mem_mb	max_gpu_util	log
+2026-05-02T12:08:02+08:00	28672	6	0	6	21.394433	32163.881	15220	87	artifacts/autoresearch/upperbench_env28672_20260502_120513.log
+2026-05-02T12:11:07+08:00	30720	6	0	6	23.130778	31874.415	15988	99	artifacts/autoresearch/upperbench_env30720_20260502_120809.log
+2026-05-02T12:12:38+08:00	31744	6	143	1	0.000000	0.000	16470	82	artifacts/autoresearch/upperbench_env31744_20260502_121113.log

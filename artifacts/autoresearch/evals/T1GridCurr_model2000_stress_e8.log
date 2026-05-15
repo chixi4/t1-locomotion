@@ -1,0 +1,60 @@
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Preparing batched eval task=T1CircleGridCurriculum checkpoint=logs/2026-05-04-12-54-43/nn/model_2000.pth commands=31 envs_per_command=8 total_envs=248
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Environment/model ready dt=0.02
+Resetting env
+Reset complete
+step 0/400
+step 100/400
+step 200/400
+step 300/400
+stand                  cmd=(+0.000,+0.000,+0.000) actual=(-0.001,-0.001,-0.002) xy_err=0.026 yaw_err=0.024 fall=0.000 ratio=nan
+forward_0.3            cmd=(+0.300,+0.000,+0.000) actual=(+0.221,-0.002,-0.038) xy_err=0.131 yaw_err=0.077 fall=0.000 ratio=0.738
+forward_0.6            cmd=(+0.600,+0.000,+0.000) actual=(+0.386,-0.010,-0.007) xy_err=0.242 yaw_err=0.113 fall=0.000 ratio=0.644
+forward_1.0            cmd=(+1.000,+0.000,+0.000) actual=(+0.417,+0.000,-0.041) xy_err=0.593 yaw_err=0.296 fall=0.125 ratio=0.417
+backward_0.3           cmd=(-0.300,+0.000,+0.000) actual=(-0.237,-0.025,-0.048) xy_err=0.119 yaw_err=0.088 fall=0.000 ratio=0.791
+backward_0.6           cmd=(-0.600,+0.000,+0.000) actual=(-0.452,-0.022,-0.045) xy_err=0.182 yaw_err=0.103 fall=0.000 ratio=0.754
+backward_1.0           cmd=(-1.000,+0.000,+0.000) actual=(-0.654,+0.022,-0.017) xy_err=0.365 yaw_err=0.144 fall=0.000 ratio=0.654
+left_0.3               cmd=(+0.000,+0.300,+0.000) actual=(+0.027,+0.148,-0.005) xy_err=0.195 yaw_err=0.068 fall=0.000 ratio=0.495
+left_0.6               cmd=(+0.000,+0.600,+0.000) actual=(-0.000,+0.380,-0.044) xy_err=0.228 yaw_err=0.091 fall=0.000 ratio=0.634
+left_1.0               cmd=(+0.000,+1.000,+0.000) actual=(+0.002,+0.496,-0.154) xy_err=0.509 yaw_err=0.277 fall=0.125 ratio=0.496
+right_0.3              cmd=(+0.000,-0.300,+0.000) actual=(+0.016,-0.169,-0.050) xy_err=0.168 yaw_err=0.092 fall=0.000 ratio=0.565
+right_0.6              cmd=(+0.000,-0.600,+0.000) actual=(-0.041,-0.382,-0.005) xy_err=0.233 yaw_err=0.080 fall=0.000 ratio=0.637
+right_1.0              cmd=(+0.000,-1.000,+0.000) actual=(-0.066,-0.441,+0.018) xy_err=0.578 yaw_err=0.175 fall=0.125 ratio=0.441
+diag_fl_0.7            cmd=(+0.500,+0.500,+0.000) actual=(+0.323,+0.248,-0.042) xy_err=0.321 yaw_err=0.114 fall=0.000 ratio=0.571
+diag_fr_0.7            cmd=(+0.500,-0.500,+0.000) actual=(+0.343,-0.259,+0.042) xy_err=0.304 yaw_err=0.107 fall=0.000 ratio=0.602
+diag_bl_0.7            cmd=(-0.500,+0.500,+0.000) actual=(-0.367,+0.349,-0.054) xy_err=0.220 yaw_err=0.102 fall=0.000 ratio=0.715
+diag_br_0.7            cmd=(-0.500,-0.500,+0.000) actual=(-0.410,-0.410,-0.049) xy_err=0.156 yaw_err=0.081 fall=0.000 ratio=0.820
+diag_fl_1.0            cmd=(+0.707,+0.707,+0.000) actual=(+0.372,+0.321,-0.130) xy_err=0.514 yaw_err=0.149 fall=0.000 ratio=0.490
+diag_fr_1.0            cmd=(+0.707,-0.707,+0.000) actual=(+0.438,-0.299,+0.092) xy_err=0.496 yaw_err=0.126 fall=0.000 ratio=0.521
+diag_bl_1.0            cmd=(-0.707,+0.707,+0.000) actual=(-0.501,+0.426,-0.081) xy_err=0.360 yaw_err=0.119 fall=0.000 ratio=0.655
+diag_br_1.0            cmd=(-0.707,-0.707,+0.000) actual=(-0.502,-0.488,-0.041) xy_err=0.310 yaw_err=0.082 fall=0.000 ratio=0.700
+yaw_l_0.5              cmd=(+0.000,+0.000,+0.500) actual=(+0.045,-0.010,+0.443) xy_err=0.109 yaw_err=0.071 fall=0.000 ratio=nan
+yaw_l_1.0              cmd=(+0.000,+0.000,+1.000) actual=(+0.022,-0.041,+0.872) xy_err=0.107 yaw_err=0.134 fall=0.000 ratio=nan
+yaw_r_0.5              cmd=(+0.000,+0.000,-0.500) actual=(-0.040,+0.041,-0.550) xy_err=0.100 yaw_err=0.073 fall=0.000 ratio=nan
+yaw_r_1.0              cmd=(+0.000,+0.000,-1.000) actual=(-0.019,+0.066,-0.987) xy_err=0.109 yaw_err=0.079 fall=0.000 ratio=nan
+fwd0.6_yaw_l0.5        cmd=(+0.600,+0.000,+0.500) actual=(+0.460,-0.057,+0.436) xy_err=0.180 yaw_err=0.092 fall=0.000 ratio=0.767
+fwd0.6_yaw_r0.5        cmd=(+0.600,+0.000,-0.500) actual=(+0.413,+0.059,-0.485) xy_err=0.225 yaw_err=0.098 fall=0.000 ratio=0.688
+left0.6_yaw_l0.5       cmd=(+0.000,+0.600,+0.500) actual=(+0.042,+0.337,+0.350) xy_err=0.272 yaw_err=0.159 fall=0.000 ratio=0.561
+right0.6_yaw_r0.5      cmd=(+0.000,-0.600,-0.500) actual=(-0.012,-0.373,-0.475) xy_err=0.239 yaw_err=0.079 fall=0.000 ratio=0.622
+diag_fl0.7_yaw_l0.5    cmd=(+0.500,+0.500,+0.500) actual=(+0.418,+0.198,+0.304) xy_err=0.320 yaw_err=0.198 fall=0.000 ratio=0.616
+diag_br0.7_yaw_r0.5    cmd=(-0.500,-0.500,-0.500) actual=(-0.341,-0.352,-0.376) xy_err=0.246 yaw_err=0.250 fall=0.125 ratio=0.693
+JSON artifacts/autoresearch/evals/T1GridCurr_model2000_stress_e8_default_batched_2026-05-04-17-55-32.json
+CSV artifacts/autoresearch/evals/T1GridCurr_model2000_stress_e8_default_batched_2026-05-04-17-55-32.csv

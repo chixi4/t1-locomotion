@@ -1,0 +1,6 @@
+timestamp	num_envs	iterations	rc	epochs_seen	epoch_sec_tail	transitions_per_sec_tail	max_mem_mb	max_gpu_util	log
+2026-05-02T11:56:46+08:00	8192	6	0	6	8.070969	24359.900	0	0	artifacts/autoresearch/fastbench_env8192_20260502_115528.log
+2026-05-02T11:58:40+08:00	16384	6	0	6	12.676833	31018.472	0	0	artifacts/autoresearch/fastbench_env16384_20260502_115652.log
+2026-05-02T12:01:11+08:00	24576	6	0	6	18.452451	31964.534	0	0	artifacts/autoresearch/fastbench_env24576_20260502_115847.log
+2026-05-02T12:02:46+08:00	32768	6	139	0	0.000000	0.000	0	0	artifacts/autoresearch/fastbench_env32768_20260502_120117.log
+2026-05-02T12:04:23+08:00	40960	6	139	0	0.000000	0.000	0	0	artifacts/autoresearch/fastbench_env40960_20260502_120252.log

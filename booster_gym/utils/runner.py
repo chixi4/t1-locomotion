@@ -11,38 +11,9 @@ import torch
 import torch.nn.functional as F
 from utils.model import *
 from utils.buffer import ExperienceBuffer
-from utils.t1_symmetry import mirror_t1_action, mirror_t1_observation
 from utils.utils import discount_values, surrogate_loss
 from utils.recorder import Recorder
 from envs import *
-from envs.t1_omni_stages import apply_omni_stage
-
-
-BASIC_ARGS = {
-    "task",
-    "checkpoint",
-    "headless",
-    "sim_device",
-    "rl_device",
-    "seed",
-    "max_iterations",
-    "run_name",
-    "load_optimizer",
-    "reset_logstd",
-}
-RUNNER_ARGS = {"use_wandb"}
-ENV_ARGS = {"num_envs"}
-
-
-def str_to_bool(value):
-    if isinstance(value, bool):
-        return value
-    value = value.lower()
-    if value in {"true", "1", "yes"}:
-        return True
-    if value in {"false", "0", "no"}:
-        return False
-    raise argparse.ArgumentTypeError(f"Invalid boolean value: {value}")
 
 
 class Runner:
@@ -73,39 +44,25 @@ class Runner:
     def _get_args(self):
         parser = argparse.ArgumentParser()
         parser.add_argument("--task", required=True, type=str, help="Name of the task to run.")
-        parser.add_argument("--config", type=str, help="Optional config file path. Defaults to envs/<task>.yaml.")
-        parser.add_argument("--curriculum_stage", type=str, help="Named T1 omnidirectional curriculum stage to apply.")
-        parser.add_argument("--run_name", type=str, help="Run name appended to the log directory.")
         parser.add_argument("--checkpoint", type=str, help="Path of the model checkpoint to load. Overrides config file if provided.")
         parser.add_argument("--num_envs", type=int, help="Number of environments to create. Overrides config file if provided.")
-        parser.add_argument("--headless", type=str_to_bool, help="Run headless without creating a viewer window. Overrides config file if provided.")
+        parser.add_argument("--headless", type=bool, help="Run headless without creating a viewer window. Overrides config file if provided.")
         parser.add_argument("--sim_device", type=str, help="Device for physics simulation. Overrides config file if provided.")
         parser.add_argument("--rl_device", type=str, help="Device for the RL algorithm. Overrides config file if provided.")
         parser.add_argument("--seed", type=int, help="Random seed. Overrides config file if provided.")
         parser.add_argument("--max_iterations", type=int, help="Maximum number of training iterations. Overrides config file if provided.")
-        parser.add_argument("--use_wandb", type=str_to_bool, help="Enable or disable Weights and Biases logging.")
-        parser.add_argument("--load_optimizer", type=str_to_bool, help="Load optimizer state from checkpoint.")
-        parser.add_argument("--reset_logstd", type=float, help="Reset policy log standard deviation after loading checkpoint.")
         self.args = parser.parse_args()
 
     # Override config file with args if needed
     def _update_cfg_from_args(self):
-        cfg_file = self.args.config or os.path.join("envs", "{}.yaml".format(self.args.task))
+        cfg_file = os.path.join("envs", "{}.yaml".format(self.args.task))
         with open(cfg_file, "r", encoding="utf-8") as f:
             self.cfg = yaml.load(f.read(), Loader=yaml.FullLoader)
-        if self.args.curriculum_stage is not None:
-            apply_omni_stage(self.cfg, self.args.curriculum_stage)
-            self.cfg["basic"]["curriculum_stage"] = self.args.curriculum_stage
-        self.cfg["basic"]["config"] = cfg_file
         for arg in vars(self.args):
             if getattr(self.args, arg) is not None:
-                if arg in {"config", "curriculum_stage"}:
-                    continue
-                if arg in ENV_ARGS:
+                if arg == "num_envs":
                     self.cfg["env"][arg] = getattr(self.args, arg)
-                elif arg in RUNNER_ARGS:
-                    self.cfg["runner"][arg] = getattr(self.args, arg)
-                elif arg in BASIC_ARGS:
+                else:
                     self.cfg["basic"][arg] = getattr(self.args, arg)
         if not self.test:
             self.cfg["viewer"]["record_video"] = False
@@ -129,18 +86,55 @@ class Runner:
             self.cfg["basic"]["checkpoint"] = sorted(glob.glob(os.path.join("logs", "**/*.pth"), recursive=True), key=os.path.getmtime)[-1]
         print("Loading model from {}".format(self.cfg["basic"]["checkpoint"]))
         model_dict = torch.load(self.cfg["basic"]["checkpoint"], map_location=self.device, weights_only=True)
-        if self.cfg["basic"].get("reset_logstd") is not None:
-            model_dict["model"]["logstd"][:] = self.cfg["basic"]["reset_logstd"]
         self.model.load_state_dict(model_dict["model"], strict=False)
         try:
-            self.env.curriculum_prob = model_dict["curriculum"]
+            self._load_curriculum(model_dict["curriculum"])
         except Exception as e:
             print(f"Failed to load curriculum: {e}")
-        if self.cfg["basic"].get("load_optimizer", True):
-            try:
-                self.optimizer.load_state_dict(model_dict["optimizer"])
-            except Exception as e:
-                print(f"Failed to load optimizer: {e}")
+        try:
+            self.optimizer.load_state_dict(model_dict["optimizer"])
+            self.learning_rate = self.optimizer.param_groups[0]["lr"]
+            print(f"Loaded optimizer learning rate {self.learning_rate}")
+        except Exception as e:
+            print(f"Failed to load optimizer: {e}")
+
+    def _load_curriculum(self, curriculum):
+        if not hasattr(self.env, "curriculum_prob"):
+            print("Checkpoint has curriculum, but environment has no curriculum_prob; ignoring it.")
+            return
+        target = self.env.curriculum_prob
+        curriculum = curriculum.to(device=target.device, dtype=target.dtype)
+        if tuple(curriculum.shape) == tuple(target.shape):
+            self.env.curriculum_prob = curriculum
+            print(f"Loaded curriculum shape {tuple(curriculum.shape)}")
+            return
+        if curriculum.dim() != target.dim():
+            print(f"Curriculum shape mismatch {tuple(curriculum.shape)} -> {tuple(target.shape)}; keeping fresh curriculum.")
+            return
+
+        expanded = torch.zeros_like(target)
+        src_slices = []
+        dst_slices = []
+        for src_size, dst_size in zip(curriculum.shape, target.shape):
+            copy_size = min(src_size, dst_size)
+            src_start = (src_size - copy_size) // 2
+            dst_start = (dst_size - copy_size) // 2
+            src_slices.append(slice(src_start, src_start + copy_size))
+            dst_slices.append(slice(dst_start, dst_start + copy_size))
+        expanded[tuple(dst_slices)] = curriculum[tuple(src_slices)]
+        if hasattr(self.env, "curriculum_mask") and tuple(self.env.curriculum_mask.shape) == tuple(expanded.shape):
+            expanded *= self.env.curriculum_mask.to(device=expanded.device, dtype=expanded.dtype)
+        center = tuple(size // 2 for size in expanded.shape)
+        if torch.count_nonzero(expanded > 0.5) == 0:
+            expanded[center] = 1.0
+        self.env.curriculum_prob = expanded
+        print(
+            "Loaded curriculum shape {} into {} using centered copy; unlocked {} cells.".format(
+                tuple(curriculum.shape),
+                tuple(target.shape),
+                int(torch.count_nonzero(expanded > 0.5).item()),
+            )
+        )
 
     def train(self):
         self.recorder = Recorder(self.cfg)
@@ -164,7 +158,6 @@ class Runner:
                 self.buffer.update_data("time_outs", n, infos["time_outs"].to(self.device))
                 ep_info = {"reward": rew}
                 ep_info.update(infos["rew_terms"])
-                ep_info.update(infos.get("episode_metrics", {}))
                 self.recorder.record_episode_statistics(done, ep_info, it, n == (self.cfg["runner"]["horizon_length"] - 1))
 
             with torch.no_grad():
@@ -175,7 +168,6 @@ class Runner:
             mean_actor_loss = 0
             mean_bound_loss = 0
             mean_entropy = 0
-            mean_mirror_loss = 0
             for n in range(self.cfg["runner"]["mini_epochs"]):
                 values = self.model.est_value(self.buffer["obses"], self.buffer["privileged_obses"])
                 last_values = self.model.est_value(obs, privileged_obs)
@@ -200,14 +192,12 @@ class Runner:
                 bound_loss = torch.clip(dist.loc - 1.0, min=0.0).square().mean() + torch.clip(dist.loc + 1.0, max=0.0).square().mean()
 
                 entropy = dist.entropy().sum(dim=-1)
-                mirror_loss = self._compute_mirror_loss(self.buffer["obses"], dist.loc)
 
                 loss = (
                     value_loss
                     + actor_loss
                     + self.cfg["algorithm"]["bound_coef"] * bound_loss
                     + self.cfg["algorithm"]["entropy_coef"] * entropy.mean()
-                    + mirror_loss
                 )
                 self.optimizer.zero_grad()
                 loss.backward()
@@ -233,27 +223,25 @@ class Runner:
                 mean_actor_loss += actor_loss.item()
                 mean_bound_loss += bound_loss.item()
                 mean_entropy += entropy.mean()
-                mean_mirror_loss += mirror_loss.item()
             mean_value_loss /= self.cfg["runner"]["mini_epochs"]
             mean_actor_loss /= self.cfg["runner"]["mini_epochs"]
             mean_bound_loss /= self.cfg["runner"]["mini_epochs"]
             mean_entropy /= self.cfg["runner"]["mini_epochs"]
-            mean_mirror_loss /= self.cfg["runner"]["mini_epochs"]
-            statistics = {
-                "value_loss": mean_value_loss,
-                "actor_loss": mean_actor_loss,
-                "bound_loss": mean_bound_loss,
-                "entropy": mean_entropy,
-                "mirror_loss": mean_mirror_loss,
-                "kl_mean": kl_mean,
-                "lr": self.learning_rate,
-                "curriculum/mean_lin_vel_level": self.env.mean_lin_vel_level,
-                "curriculum/mean_ang_vel_level": self.env.mean_ang_vel_level,
-                "curriculum/max_lin_vel_level": self.env.max_lin_vel_level,
-                "curriculum/max_ang_vel_level": self.env.max_ang_vel_level,
-            }
-            statistics.update(self._mean_step_metrics(infos.get("step_metrics", {})))
-            self.recorder.record_statistics(statistics, it)
+            self.recorder.record_statistics(
+                {
+                    "value_loss": mean_value_loss,
+                    "actor_loss": mean_actor_loss,
+                    "bound_loss": mean_bound_loss,
+                    "entropy": mean_entropy,
+                    "kl_mean": kl_mean,
+                    "lr": self.learning_rate,
+                    "curriculum/mean_lin_vel_level": self.env.mean_lin_vel_level,
+                    "curriculum/mean_ang_vel_level": self.env.mean_ang_vel_level,
+                    "curriculum/max_lin_vel_level": self.env.max_lin_vel_level,
+                    "curriculum/max_ang_vel_level": self.env.max_ang_vel_level,
+                },
+                it,
+            )
 
             if (it + 1) % self.cfg["runner"]["save_interval"] == 0:
                 self.recorder.save(
@@ -295,19 +283,3 @@ class Runner:
     def interrupt_handler(self, signal, frame):
         print("\nInterrupt received, waiting for video to finish...")
         self.interrupt = True
-
-    def _mean_step_metrics(self, metrics):
-        statistics = {}
-        for key, value in metrics.items():
-            path = key.replace("Metrics/", "StepMetrics/", 1)
-            statistics[path] = torch.mean(value).item() if torch.is_tensor(value) else value
-        return statistics
-
-    def _compute_mirror_loss(self, obs, action_loc):
-        coeff = self.cfg["algorithm"].get("mirror_loss_coef", 0.0)
-        if coeff <= 0.0:
-            return torch.zeros((), device=self.device)
-        mirrored_obs = mirror_t1_observation(obs)
-        mirrored_action_loc = self.model.act(mirrored_obs).loc
-        mirrored_target = mirror_t1_action(action_loc.detach())
-        return coeff * F.mse_loss(mirrored_action_loc, mirrored_target)

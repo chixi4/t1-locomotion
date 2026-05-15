@@ -1,0 +1,1194 @@
+===== 2026-05-12T00:49:08+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   265    256 S+    0.0  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   303    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   304    265 S+    0.0  0.0 head            head -80
+   305    292 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   306    305 R+    0.0  0.0 python3         python3 - artifacts/autoresearch/nighth_fullbody_runs.json scratch5000 note
+===== 2026-05-12T00:49:18+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   214  2.1 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+   520    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   521    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:49:27+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   164  2.9 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+   567    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   568    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:49:37+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   138  3.7 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+   608    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   609    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:49:48+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   130  4.6 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+   649    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   650    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:49:58+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   124  6.0 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+   691    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   692    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:50:07+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Sl+   163  6.0 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+   788    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   789    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:50:17+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   186  6.2 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+   830    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   831    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:50:28+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   186  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+   880    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   881    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:50:38+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   180  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+   937    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   938    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:50:47+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   178  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1001    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1002    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:50:57+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   173  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1042    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1043    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:51:08+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   171  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1097    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1098    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:51:19+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Sl+   177  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1147    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1148    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:51:27+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   183  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1191    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1192    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:51:37+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   185  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1232    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1233    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:51:48+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   184  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1317    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1318    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:51:59+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   183  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1358    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1359    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:52:07+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   181  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1392    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1393    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:52:18+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   181  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1433    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1434    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:52:28+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Sl+   182  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1483    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1484    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:52:39+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   186  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1535    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1536    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:52:47+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   187  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1569    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1570    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:52:57+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   187  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1610    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1611    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:53:08+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   186  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1651    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1652    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:53:18+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   186  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1692    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1693    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:53:27+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Sl+   186  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1735    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1736    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:53:37+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Sl+   186  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1790    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1791    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:53:48+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Sl+   187  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1831    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1832    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:53:58+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Sl+   188  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+  1869   1853 R+   11.8  0.0 grep            grep -R -n -E envs=|num_envs|epoch: [0-9]+/[0-9]+ elapsed_s|NIGHTH|NightH|Shoulder4|CircleGridFace6Tight15|model_7000 artifacts/autoresearch
+  1870   1853 R+    4.0  0.0 tail            tail -n 200
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1850      1 Ss    0.0  0.0 SessionLeader   /init
+  1852   1850 S     0.0  0.0 Relay(1853)     /init
+  1853   1852 Ss+   0.0  0.0 bash            bash -lc cd /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official && grep -R -n -E 'envs=|num_envs|epoch: [0-9]+/[0-9]+ elapsed_s|NIGHTH|NightH|Shoulder4|CircleGridFace6Tight15|model_7000' artifacts/autoresearch 2>/dev/null | tail -n 200
+  1895    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1896    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:54:07+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   188  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1929    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1930    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:54:17+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Sl+   188  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  1970    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  1971    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:54:28+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   188  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  2020    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2021    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:54:39+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   188  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  2061    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2062    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:54:47+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Sl+   188  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  2118    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2119    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:54:57+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   189  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  2159    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2160    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:55:08+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   190  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  2230    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2231    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:55:18+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   190  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  2271    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2272    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:55:27+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Sl+   189  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  2314    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2315    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:55:38+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   190  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  2355    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2356    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:55:48+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   322    292 Rl+   190  6.3 python3         python3 artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 32768 --max_iterations 5000 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto --headless true
+   265    256 S+    0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   254      1 Ss    0.0  0.0 SessionLeader   /init
+   255    254 S     0.0  0.0 Relay(256)      /init
+   256    255 Ss+   0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   290    256 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   291    256 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nighth_fullbody5000_full_auto_20260512_004907.log
+   292    290 S+    0.0  0.0 bash            bash /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_nighth_fullbody5000_full_auto.sh
+   323    292 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_env32768_20260512_004908_full_auto.log
+  2396    265 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2397    265 S+    0.0  0.0 head            head -80
+===== 2026-05-12T00:55:58+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2440    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2441    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:56:17+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2522    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2523    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:56:28+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2572    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2573    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:56:47+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2641    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2642    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:56:58+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2682    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2683    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:57:17+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2751    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2752    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:57:28+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2792    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  2793    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:57:47+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   206  2.1 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3025    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3026    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:57:58+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   152  2.9 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3066    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3067    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:58:08+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   131  3.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3107    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3108    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:58:27+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Sl+   135  5.6 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3240    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3241    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:58:38+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   178  5.7 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3282    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3283    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:58:48+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Sl+   186  5.7 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3323    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3324    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:58:57+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   184  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3357    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3358    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:59:07+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Sl+   178  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3398    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3399    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:59:18+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Sl+   176  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3439    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3440    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:59:28+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   176  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3480    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3481    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:59:37+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   183  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3514    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3515    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:59:47+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Sl+   189  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3555    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3556    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T00:59:58+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   190  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3596    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3597    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:00:08+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   188  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3637    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3638    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:00:17+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Sl+   187  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3671    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3672    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:00:27+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Sl+   186  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3712    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3713    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:00:38+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   189  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3753    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3754    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:00:48+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   192  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3794    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3795    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:00:57+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  2836   2825 Rl+   193  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 28672 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  2837   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env28672_20260512_005738.log
+  3828    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3829    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:01:08+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 R+    271  0.2 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  3937    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  3938    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:01:18+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   168  2.3 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4063    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4064    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:01:27+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   144  2.9 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4097    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4098    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:01:37+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   127  3.7 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4138    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4139    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:01:48+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   122  4.6 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4179    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4180    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:01:58+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Sl+   132  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4284    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4285    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:02:07+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   163  5.8 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4319    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4320    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:02:17+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Sl+   181  5.9 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4360    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4361    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:02:28+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   177  6.0 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4401    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4402    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:02:39+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   175  6.0 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4442    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4443    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:02:47+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   171  6.0 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4476    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4477    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:02:58+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   171  6.0 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4517    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4518    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:03:08+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   173  6.0 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4558    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4559    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:03:27+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   184  6.0 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4627    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4628    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:03:38+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Sl+   184  6.0 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4668    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4669    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:03:48+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   182  6.0 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4709    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4710    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:04:07+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   181  6.0 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4778    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4779    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:04:18+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   184  6.0 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4819    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4820    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:04:28+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+  3861   2825 Rl+   187  6.0 python          /opt/conda/bin/python -u artifacts/autoresearch/train_fullbody.py --task T1Shoulder4NightHFullBodyGrid15Scratch_train5000 --num_envs 30720 --max_iterations 6 --run_name T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106 --headless true
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  2823      1 Ss    0.0  0.0 SessionLeader   /init
+  2824   2823 S     0.0  0.0 Relay(2825)     /init
+  2825   2824 Ss+   0.0  0.0 bash            bash artifacts/autoresearch/benchmark_nighth_fullbody_envs.sh 28672 30720
+  3862   2825 S+    0.0  0.0 tee             tee artifacts/autoresearch/T1Shoulder4NightHFullBodyGrid15Scratch_train5000_bench_env30720_20260512_010106.log
+  4860    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4861    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:04:48+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  4931    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4932    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:04:59+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  4972    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  4973    265 S     0.0  0.0 head            head -80
+===== 2026-05-12T01:05:07+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+   265    255 S     0.1  0.0 bash            bash artifacts/autoresearch/nighth_fullbody_gpu_audit_wsl.sh
+     1      0 Sl+   0.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+   255      1 S     0.0  0.0 Relay(256)      /init
+  5006    265 R     0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+  5007    265 S     0.0  0.0 head            head -80

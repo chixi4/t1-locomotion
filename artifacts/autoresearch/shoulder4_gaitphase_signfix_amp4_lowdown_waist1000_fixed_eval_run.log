@@ -1,0 +1,75 @@
+START fixed 2026-05-10 03:49:01 label=shoulder4_gaitphase_signfix_amp4_lowdown_waist1000
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Creating fixed eval env envs=256
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Fixed eval DOFs ['Left_Shoulder_Pitch', 'Left_Shoulder_Roll', 'Right_Shoulder_Pitch', 'Right_Shoulder_Roll', 'Waist', 'Left_Hip_Pitch', 'Left_Hip_Roll', 'Left_Hip_Yaw', 'Left_Knee_Pitch', 'Left_Ankle_Pitch', 'Left_Ankle_Roll', 'Right_Hip_Pitch', 'Right_Hip_Roll', 'Right_Hip_Yaw', 'Right_Knee_Pitch', 'Right_Ankle_Pitch', 'Right_Ankle_Roll']
+Fixed eval bodies ['Trunk', 'AL1', 'AL2', 'AR1', 'AR2', 'Waist', 'Hip_Pitch_Left', 'Hip_Roll_Left', 'Hip_Yaw_Left', 'Shank_Left', 'Ankle_Cross_Left', 'left_foot_link', 'Hip_Pitch_Right', 'Hip_Roll_Right', 'Hip_Yaw_Right', 'Shank_Right', 'Ankle_Cross_Right', 'right_foot_link']
+stand                    xy=0.005 yaw=0.002 tilt=0.0488/0.0769 reset=0.000 sat=0.0000
+forward_0.5              xy=0.070 yaw=0.054 tilt=0.0328/0.0592 reset=0.000 sat=0.0000
+forward_1.0              xy=0.093 yaw=0.103 tilt=0.0374/0.0823 reset=0.000 sat=0.0000
+forward_1.5              xy=0.213 yaw=0.140 tilt=0.0476/0.1127 reset=0.000 sat=0.0000
+backward_0.5             xy=0.066 yaw=0.054 tilt=0.0264/0.0503 reset=0.000 sat=0.0000
+backward_1.0             xy=0.064 yaw=0.117 tilt=0.0385/0.0773 reset=0.000 sat=0.0000
+backward_1.5             xy=0.145 yaw=0.212 tilt=0.0594/0.1130 reset=0.000 sat=0.0000
+left_0.5                 xy=0.095 yaw=0.048 tilt=0.0265/0.0702 reset=0.000 sat=0.0000
+left_1.0                 xy=0.202 yaw=0.078 tilt=0.0350/0.0777 reset=0.000 sat=0.0000
+left_1.5                 xy=0.589 yaw=0.182 tilt=0.0586/0.1202 reset=0.000 sat=0.0000
+right_0.5                xy=0.084 yaw=0.028 tilt=0.0241/0.0524 reset=0.000 sat=0.0000
+right_1.0                xy=0.220 yaw=0.062 tilt=0.0427/0.0957 reset=0.000 sat=0.0000
+right_1.5                xy=0.537 yaw=0.169 tilt=0.0531/0.1301 reset=0.000 sat=0.0000
+diag_fl_1.0              xy=0.102 yaw=0.123 tilt=0.0423/0.1034 reset=0.000 sat=0.0000
+diag_fr_1.0              xy=0.097 yaw=0.107 tilt=0.0424/0.0832 reset=0.000 sat=0.0000
+diag_bl_1.0              xy=0.095 yaw=0.095 tilt=0.0331/0.0741 reset=0.000 sat=0.0000
+diag_br_1.0              xy=0.108 yaw=0.117 tilt=0.0412/0.0960 reset=0.000 sat=0.0000
+diag_fl_1.5              xy=0.285 yaw=0.177 tilt=0.0611/0.1434 reset=0.000 sat=0.0000
+diag_fr_1.5              xy=0.293 yaw=0.188 tilt=0.0565/0.1145 reset=0.000 sat=0.0000
+diag_bl_1.5              xy=0.201 yaw=0.158 tilt=0.0459/0.1107 reset=0.000 sat=0.0000
+diag_br_1.5              xy=0.274 yaw=0.190 tilt=0.0548/0.1363 reset=0.000 sat=0.0000
+yaw_l_0.75               xy=0.073 yaw=0.054 tilt=0.0204/0.0525 reset=0.000 sat=0.0000
+yaw_l_1.5                xy=0.083 yaw=0.076 tilt=0.0269/0.0568 reset=0.000 sat=0.0000
+yaw_r_0.75               xy=0.069 yaw=0.043 tilt=0.0241/0.0568 reset=0.000 sat=0.0000
+yaw_r_1.5                xy=0.078 yaw=0.090 tilt=0.0268/0.0570 reset=0.000 sat=0.0000
+fwd1.0_yaw_l0.75         xy=0.096 yaw=0.135 tilt=0.0467/0.1034 reset=0.000 sat=0.0000
+fwd1.0_yaw_r0.75         xy=0.087 yaw=0.105 tilt=0.0376/0.0674 reset=0.000 sat=0.0000
+left1.0_yaw_l0.75        xy=0.258 yaw=0.075 tilt=0.0470/0.1021 reset=0.000 sat=0.0000
+right1.0_yaw_r0.75       xy=0.258 yaw=0.086 tilt=0.0516/0.1017 reset=0.000 sat=0.0000
+diag_fl1.0_yaw_l0.75     xy=0.135 yaw=0.143 tilt=0.0614/0.1064 reset=0.000 sat=0.0000
+diag_br1.0_yaw_r0.75     xy=0.106 yaw=0.139 tilt=0.0554/0.1093 reset=0.000 sat=0.0000
+{
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.1638514694998522,
+    "mean_yaw_err": 0.10804054508513303,
+    "mean_speed_ratio": 0.8861846740505634,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.0421297028237044,
+    "max_tilt": 0.1434311866760254,
+    "tilt_rms_mean": 0.04672318232705825,
+    "tilt_p95_mean": 0.07439530412516286,
+    "base_ang_vel_xy_rms_mean": 0.5147589325661519,
+    "shoulder_pitch_abs_p95_max": 0.49477988481521606,
+    "shoulder_roll_abs_p95_max": 0.1779053807258606,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_gaitphase_signfix_amp4_lowdown_waist1000_eval/shoulder4_gaitphase_signfix_amp4_lowdown_waist1000_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_gaitphase_signfix_amp4_lowdown_waist1000_eval/shoulder4_gaitphase_signfix_amp4_lowdown_waist1000_fixed_eval.csv"
+  }
+}

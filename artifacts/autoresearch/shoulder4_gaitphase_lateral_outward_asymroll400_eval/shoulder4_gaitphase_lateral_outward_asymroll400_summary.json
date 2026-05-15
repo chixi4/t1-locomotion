@@ -1,0 +1,46 @@
+{
+  "label": "shoulder4_gaitphase_lateral_outward_asymroll400",
+  "checkpoint": "logs/2026-05-10-14-54-47/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17092557000246428,
+    "mean_yaw_err": 0.071667442852691,
+    "mean_speed_ratio": 0.8696155393964206,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.043974192810476445,
+    "max_tilt": 0.15209363400936127,
+    "tilt_rms_mean": 0.048987539180575426,
+    "tilt_p95_mean": 0.07757264543925563,
+    "base_ang_vel_xy_rms_mean": 0.5203057908400359,
+    "shoulder_pitch_abs_p95_max": 0.3242976665496826,
+    "shoulder_roll_abs_p95_max": 0.4264550507068634,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.271750108301198,
+    "linErrorRms": 0.3834571836509745,
+    "linErrorP95": 0.8553672432899475,
+    "yawErrorMean": 0.1037413209182981,
+    "yawErrorRms": 0.15096986134074497,
+    "yawErrorP95": 0.35447031259536743,
+    "tilt_mean": 0.03993929763876528,
+    "tilt_rms": 0.045366442451340465,
+    "tilt_p95": 0.07834465801715851,
+    "tilt_max": 0.12230078130960464,
+    "base_ang_vel_xy_rms": 0.43998791416162314,
+    "shoulder_pitch_abs_p95": 0.19476616382598877,
+    "shoulder_roll_abs_p95": 0.42263180017471313,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_gaitphase_lateral_outward_asymroll400_eval/shoulder4_gaitphase_lateral_outward_asymroll400_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_gaitphase_lateral_outward_asymroll400_eval/shoulder4_gaitphase_lateral_outward_asymroll400_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_gaitphase_lateral_outward_asymroll400_eval/shoulder4_gaitphase_lateral_outward_asymroll400_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_gaitphase_lateral_outward_asymroll400_eval/shoulder4_gaitphase_lateral_outward_asymroll400_random_eval.json"
+  },
+  "created_at": "2026-05-10-16-27-19"
+}

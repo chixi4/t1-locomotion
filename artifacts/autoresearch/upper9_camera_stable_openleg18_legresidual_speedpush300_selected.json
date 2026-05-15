@@ -1,0 +1,10 @@
+{
+  "label": "upper9_camera_stable_openleg18_legresidual_speedpush300_selected_model500",
+  "task": "T1Upper9CameraStableOfficialOpenLeg18LegResidualSpeedPush_train300",
+  "run_dir": "logs/2026-05-14-15-08-00",
+  "checkpoint": "logs/2026-05-14-15-08-00/nn/model_500.pth",
+  "status": "selected",
+  "reason": "Best camera/head stability while preserving 1.8m/s forward case and arm motion; SpeedPolish did not improve it.",
+  "confirm_json": "artifacts/autoresearch/speedpush_model500_confirm128_cases.json",
+  "selected_at": "2026-05-14 16:53:49"
+}

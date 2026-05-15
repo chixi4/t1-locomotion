@@ -1,0 +1,213 @@
+==== START fullbody warmstart 20260514_110014 label=upper9_camera_stable_openleg18_dagger500 ====
+Task: T1Upper9CameraStableOfficialOpenLeg18_fromBC_train500
+BC:   logs/warmstarts/upper9_camera_stable_openleg18_bc_dagger_model.pth
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+bc_step: 1/2400 loss=12.729216 ema=12.729216 blend=0.00 elapsed=0.0m
+bc_step: 50/2400 loss=0.228356 ema=5.275392 blend=0.00 elapsed=0.2m
+bc_step: 100/2400 loss=0.042452 ema=1.975519 blend=0.00 elapsed=0.3m
+bc_step: 150/2400 loss=0.024135 ema=0.738896 blend=0.00 elapsed=0.4m
+bc_step: 200/2400 loss=0.019879 ema=0.282692 blend=0.00 elapsed=0.5m
+bc_step: 250/2400 loss=0.017705 ema=0.115679 blend=0.00 elapsed=0.7m
+bc_step: 300/2400 loss=0.015666 ema=0.052623 blend=0.00 elapsed=0.8m
+bc_step: 350/2400 loss=0.013795 ema=0.029194 blend=0.00 elapsed=0.9m
+bc_step: 400/2400 loss=0.012123 ema=0.018782 blend=0.00 elapsed=1.1m
+bc_step: 450/2400 loss=0.011479 ema=0.015060 blend=0.00 elapsed=1.2m
+bc_step: 500/2400 loss=0.010241 ema=0.012353 blend=0.00 elapsed=1.3m
+bc_step: 550/2400 loss=0.009526 ema=0.011238 blend=0.00 elapsed=1.5m
+bc_step: 600/2400 loss=0.008516 ema=0.009686 blend=0.00 elapsed=1.6m
+bc_step: 650/2400 loss=0.007204 ema=0.008796 blend=0.00 elapsed=1.7m
+bc_step: 700/2400 loss=0.006533 ema=0.007508 blend=0.00 elapsed=1.9m
+bc_step: 750/2400 loss=0.006027 ema=0.007057 blend=0.00 elapsed=2.0m
+bc_step: 800/2400 loss=0.005625 ema=0.006301 blend=0.00 elapsed=2.1m
+bc_step: 850/2400 loss=0.005493 ema=0.006139 blend=0.00 elapsed=2.3m
+bc_step: 900/2400 loss=0.005269 ema=0.005587 blend=0.03 elapsed=2.4m
+bc_step: 950/2400 loss=0.004979 ema=0.005556 blend=0.05 elapsed=2.5m
+bc_step: 1000/2400 loss=0.004950 ema=0.005149 blend=0.08 elapsed=2.6m
+bc_step: 1050/2400 loss=0.004683 ema=0.005161 blend=0.10 elapsed=2.8m
+bc_step: 1100/2400 loss=0.004269 ema=0.004688 blend=0.12 elapsed=2.9m
+bc_step: 1150/2400 loss=0.004107 ema=0.004586 blend=0.15 elapsed=3.0m
+bc_step: 1200/2400 loss=0.003680 ema=0.004102 blend=0.17 elapsed=3.2m
+bc_step: 1250/2400 loss=0.003553 ema=0.004037 blend=0.20 elapsed=3.3m
+bc_step: 1300/2400 loss=0.003594 ema=0.003759 blend=0.22 elapsed=3.4m
+bc_step: 1350/2400 loss=0.003553 ema=0.003855 blend=0.25 elapsed=3.6m
+bc_step: 1400/2400 loss=0.003592 ema=0.003687 blend=0.27 elapsed=3.7m
+bc_step: 1450/2400 loss=0.003825 ema=0.003914 blend=0.29 elapsed=3.8m
+bc_step: 1500/2400 loss=0.003691 ema=0.003820 blend=0.32 elapsed=4.0m
+bc_step: 1550/2400 loss=0.007759 ema=0.009292 blend=0.34 elapsed=4.1m
+bc_step: 1600/2400 loss=0.004336 ema=0.006775 blend=0.37 elapsed=4.2m
+bc_step: 1650/2400 loss=0.004224 ema=0.005333 blend=0.39 elapsed=4.4m
+bc_step: 1700/2400 loss=0.004113 ema=0.004566 blend=0.41 elapsed=4.5m
+bc_step: 1750/2400 loss=0.004776 ema=0.004640 blend=0.44 elapsed=4.6m
+bc_step: 1800/2400 loss=0.004719 ema=0.004837 blend=0.46 elapsed=4.8m
+bc_step: 1850/2400 loss=0.005634 ema=0.005670 blend=0.49 elapsed=4.9m
+bc_step: 1900/2400 loss=0.005744 ema=0.005511 blend=0.51 elapsed=5.0m
+bc_step: 1950/2400 loss=0.005811 ema=0.005725 blend=0.53 elapsed=5.2m
+bc_step: 2000/2400 loss=0.006820 ema=0.005944 blend=0.56 elapsed=5.3m
+bc_step: 2050/2400 loss=0.010279 ema=0.008060 blend=0.58 elapsed=5.4m
+bc_step: 2100/2400 loss=0.008287 ema=0.008516 blend=0.61 elapsed=5.6m
+bc_step: 2150/2400 loss=0.010799 ema=0.008902 blend=0.63 elapsed=5.7m
+bc_step: 2200/2400 loss=0.008384 ema=0.009291 blend=0.65 elapsed=5.8m
+bc_step: 2250/2400 loss=0.011289 ema=0.010217 blend=0.68 elapsed=6.0m
+bc_step: 2300/2400 loss=0.013177 ema=0.011563 blend=0.70 elapsed=6.1m
+bc_step: 2350/2400 loss=0.015442 ema=0.014313 blend=0.73 elapsed=6.2m
+bc_step: 2400/2400 loss=0.020422 ema=0.016902 blend=0.75 elapsed=6.4m
+saved_fullbody_bc: logs/warmstarts/upper9_camera_stable_openleg18_bc_dagger_model.pth
+==== START BC probe 2026-05-14 11:07:03 label=upper9_camera_stable_openleg18_dagger500 ====
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+{
+  "task": "T1Upper9CameraStableOfficialOpenLeg18_fromBC_train500",
+  "checkpoint": "logs/warmstarts/upper9_camera_stable_openleg18_bc_dagger_model.pth",
+  "results": [
+    {
+      "case": "stand",
+      "cmd": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reset_events_per_env": 2.2083334922790527,
+      "camera_tilt": {
+        "mean": 0.2405179738998413,
+        "p95": 0.700611412525177,
+        "max": 0.944208025932312
+      },
+      "shoulder_abs": {
+        "mean": 0.03229610249400139,
+        "p95": 0.08186253160238266,
+        "max": 0.30101561546325684
+      }
+    },
+    {
+      "case": "forward_10",
+      "cmd": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "reset_events_per_env": 2.921875,
+      "camera_tilt": {
+        "mean": 0.27819550037384033,
+        "p95": 0.7162205576896667,
+        "max": 0.9729120135307312
+      },
+      "shoulder_abs": {
+        "mean": 0.06583548337221146,
+        "p95": 0.16026423871517181,
+        "max": 0.361310750246048
+      }
+    },
+    {
+      "case": "backward_08",
+      "cmd": [
+        -0.8,
+        0.0,
+        0.0
+      ],
+      "reset_events_per_env": 2.8645834922790527,
+      "camera_tilt": {
+        "mean": 0.2574916481971741,
+        "p95": 0.6995099782943726,
+        "max": 0.9732100367546082
+      },
+      "shoulder_abs": {
+        "mean": 0.05003344267606735,
+        "p95": 0.12905852496623993,
+        "max": 0.3002545237541199
+      }
+    },
+    {
+      "case": "left_08",
+      "cmd": [
+        0.0,
+        0.8,
+        0.0
+      ],
+      "reset_events_per_env": 3.015625,
+      "camera_tilt": {
+        "mean": 0.2517983317375183,
+        "p95": 0.6868094205856323,
+        "max": 0.9820649027824402
+      },
+      "shoulder_abs": {
+        "mean": 0.0558212473988533,
+        "p95": 0.15103523433208466,
+        "max": 0.30104711651802063
+      }
+    },
+    {
+      "case": "right_08",
+      "cmd": [
+        0.0,
+        -0.8,
+        0.0
+      ],
+      "reset_events_per_env": 2.7083334922790527,
+      "camera_tilt": {
+        "mean": 0.2689661383628845,
+        "p95": 0.7062540054321289,
+        "max": 0.9736336469650269
+      },
+      "shoulder_abs": {
+        "mean": 0.05890224128961563,
+        "p95": 0.15748366713523865,
+        "max": 0.3003852665424347
+      }
+    },
+    {
+      "case": "forward_15",
+      "cmd": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "reset_events_per_env": 3.015625,
+      "camera_tilt": {
+        "mean": 0.28898462653160095,
+        "p95": 0.7054618000984192,
+        "max": 0.9825486540794373
+      },
+      "shoulder_abs": {
+        "mean": 0.07175752520561218,
+        "p95": 0.17514047026634216,
+        "max": 0.3358239233493805
+      }
+    }
+  ]
+}
+BC probe failed: stand reset=2.208, forward_10 reset=2.922, backward_08 reset=2.865, left_08 reset=3.016, right_08 reset=2.708, forward_15 reset=3.016

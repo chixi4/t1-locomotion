@@ -1,0 +1,1 @@
+timestamp	num_envs	iterations	rc	epochs_seen	epoch_sec_mean	epoch_sec_tail	transitions_per_sec_tail	max_mem_mb	max_gpu_util	log	notes

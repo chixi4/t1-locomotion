@@ -1,0 +1,12 @@
+{
+  "tilt_rms": 0.06456085294485092,
+  "tilt_p95": 0.12794066965579987,
+  "tilt_max": 0.16683551669120789,
+  "linErrorRms": 0.3385774493217468,
+  "yawErrorRms": 0.19154512882232666,
+  "shoulder_pitch_abs_p95": 0.22786801084876063,
+  "shoulder_roll_abs_p95": 0.164639101177454,
+  "arm_action_saturation_frac": 0.0,
+  "reset_steps": [],
+  "reset_count": 0
+}

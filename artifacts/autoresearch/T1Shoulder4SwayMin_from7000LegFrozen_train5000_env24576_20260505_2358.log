@@ -1,0 +1,34 @@
+++ date +%Y-%m-%d_%H:%M:%S_%Z
++ echo train_start=2026-05-05_23:52:39_CST
+train_start=2026-05-05_23:52:39_CST
++ echo task=T1Shoulder4SwayMin_from7000LegFrozen_train5000
+task=T1Shoulder4SwayMin_from7000LegFrozen_train5000
++ echo leg_checkpoint=logs/2026-05-05-11-09-07/nn/model_4000.pth
+leg_checkpoint=logs/2026-05-05-11-09-07/nn/model_4000.pth
++ echo num_envs=24576
+num_envs=24576
++ echo max_iterations=5000
+max_iterations=5000
++ echo 'note=frozen model7000 12D leg actor; train new 4D shoulder actor; allowed curriculum mask from model7000; sway-based face6 unlock'
+note=frozen model7000 12D leg actor; train new 4D shoulder actor; allowed curriculum mask from model7000; sway-based face6 unlock
++ nvidia-smi --query-gpu=name,memory.used,memory.total,utilization.gpu --format=csv,noheader,nounits
+NVIDIA GeForce RTX 4090 D, 344, 24564, 1
++ /opt/conda/bin/python -u train_shoulder4_frozen.py --task T1Shoulder4SwayMin_from7000LegFrozen_train5000 --leg_checkpoint logs/2026-05-05-11-09-07/nn/model_4000.pth --num_envs 24576 --max_iterations 5000 --headless True
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled

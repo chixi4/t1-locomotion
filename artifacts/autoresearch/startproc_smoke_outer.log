@@ -1,0 +1,40 @@
+bash: /opt/conda/lib/libtinfo.so.6: no version information available (required by bash)
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PRECHECK python=/opt/conda/bin/python3
+==== NIGHTN 7WAY START 2026-05-13 01:17:25 order=n1 ====
+==== RUN 1/1 code=n1 label=shoulder4_night_n1_zerospring300 2026-05-13 01:17:25 ====
+START run code=n1 label=shoulder4_night_n1_zerospring300 task=T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300 2026-05-13 01:17:25
+CONFIG train_num_envs=64 train_max_iterations=1 final_iter=1 eval_num_envs=16
+==== START train 2026-05-13 01:17:25 label=shoulder4_night_n1_zerospring300 ====
+==== DONE train 2026-05-13 01:17:47 elapsed=22s label=shoulder4_night_n1_zerospring300 ====
+RUN_DIR=logs/2026-05-13-01-17-39
+ARM_CKPT=logs/2026-05-13-01-17-39/nn/model_1.pth
+URDF_FILE=resources/T1/T1_locomotion_shoulder4_night_l_4group_no_inward_limit.urdf
+==== START eval 2026-05-13 01:17:53 label=shoulder4_night_n1_zerospring300 ====
+==== DONE eval 2026-05-13 01:18:23 elapsed=30s label=shoulder4_night_n1_zerospring300 ====
+==== START metrics 2026-05-13 01:18:23 label=shoulder4_night_n1_zerospring300 ====
+==== DONE metrics 2026-05-13 01:18:23 elapsed=0s label=shoulder4_night_n1_zerospring300 ====
+==== START pack 2026-05-13 01:18:23 label=shoulder4_night_n1_zerospring300 ====
+==== DONE pack 2026-05-13 01:18:24 elapsed=1s label=shoulder4_night_n1_zerospring300 ====
+{
+  "status": "done",
+  "failure_phase": "",
+  "failure_reason": "",
+  "label": "shoulder4_night_n1_zerospring300",
+  "display_name": "T1Shoulder4 NightN1 ZeroSpring model_300",
+  "task": "T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300",
+  "run_dir": "logs/2026-05-13-01-17-39",
+  "arm_checkpoint": "logs/2026-05-13-01-17-39/nn/model_1.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_n1_zerospring300_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300_20260513_011725_full_auto.log",
+  "created_at": "2026-05-12T17:18:24+00:00"
+}
+-rwxrwxrwx 1 root root 865 May 13 01:18 artifacts/autoresearch/shoulder4_night_n1_zerospring300_full_auto_done.json
+-rwxrwxrwx 1 root root 93K May 13 01:18 artifacts/autoresearch/shoulder4_night_n1_zerospring300_web_inputs.tgz
+DONE run label=shoulder4_night_n1_zerospring300 2026-05-13 01:18:24
+==== RUN OK label=shoulder4_night_n1_zerospring300 2026-05-13 01:18:24 ====
+==== NIGHTN 7WAY DONE 2026-05-13 01:18:24 ====

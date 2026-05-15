@@ -1,0 +1,37 @@
+==== START residual PPO 20260514_111338 label=upper9_camera_stable_openleg18_residual500 ====
+Task: T1Upper9CameraStableOfficialOpenLeg18Residual_train500
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Using residual per-DOF mean scale: {'Left_Shoulder_Pitch': 0.12, 'Left_Shoulder_Roll': 0.1, 'Left_Elbow_Pitch': 0.08, 'Left_Elbow_Yaw': 0.05, 'Right_Shoulder_Pitch': 0.12, 'Right_Shoulder_Roll': 0.1, 'Right_Elbow_Pitch': 0.08, 'Right_Elbow_Yaw': 0.05, 'Waist': 0.05, 'Left_Hip_Pitch': 0.16, 'Left_Hip_Roll': 0.12, 'Left_Hip_Yaw': 0.12, 'Left_Knee_Pitch': 0.16, 'Left_Ankle_Pitch': 0.12, 'Left_Ankle_Roll': 0.1, 'Right_Hip_Pitch': 0.16, 'Right_Hip_Roll': 0.12, 'Right_Hip_Yaw': 0.12, 'Right_Knee_Pitch': 0.16, 'Right_Ankle_Pitch': 0.12, 'Right_Ankle_Roll': 0.1}
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading baseline leg model from logs/2026-05-05-11-09-07/nn/model_4000.pth
+Loading baseline upper model from logs/2026-05-14-08-59-29/nn/model_500.pth
+Initialized residual actor head to zero.
+Loading initial curriculum from logs/2026-05-14-08-59-29/nn/model_500.pth
+Loaded curriculum shape (31, 31, 31) into (37, 37, 31); unlocked 2352.
+epoch: 1/500 (local 1/500) elapsed=0.2m eta=81.7m
+epoch: 2/500 (local 2/500) elapsed=0.3m eta=74.0m
+epoch: 3/500 (local 3/500) elapsed=0.4m eta=71.7m
+epoch: 4/500 (local 4/500) elapsed=0.6m eta=70.0m
+epoch: 5/500 (local 5/500) elapsed=0.7m eta=68.8m
+epoch: 6/500 (local 6/500) elapsed=0.8m eta=67.7m
+epoch: 7/500 (local 7/500) elapsed=1.0m eta=67.2m
+epoch: 8/500 (local 8/500) elapsed=1.1m eta=66.6m
+Terminated

@@ -1,0 +1,16 @@
+{
+  "status": "done",
+  "failure_phase": "",
+  "failure_reason": "",
+  "label": "shoulder4_official_zero_swing_velopp400",
+  "display_name": "T1Shoulder4 Official ZeroSwing VelOpp model_400",
+  "task": "T1Shoulder4OfficialZeroSwingVelOpp_from7000LegFrozen_train400",
+  "run_dir": "logs/2026-05-13-19-47-28",
+  "arm_checkpoint": "logs/2026-05-13-19-47-28/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_official_zero_swing_velopp400_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_official_zero_swing_velopp400_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_official_zero_swing_velopp400_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4OfficialZeroSwingVelOpp_from7000LegFrozen_train400_20260513_194642_progress.log",
+  "created_at": "2026-05-13T12:45:37+00:00"
+}

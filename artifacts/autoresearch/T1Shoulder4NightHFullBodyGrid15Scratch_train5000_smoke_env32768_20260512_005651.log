@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "artifacts/autoresearch/train_fullbody.py", line 15, in <module>
+    from envs import *  # noqa: F401,F403
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/envs/__init__.py", line 1, in <module>
+    from envs.t1 import T1
+  File "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/envs/t1.py", line 3, in <module>
+    from isaacgym import gymtorch, gymapi
+  File "/opt/isaacgym/python/isaacgym/__init__.py", line 5, in <module>
+    from isaacgym import gymapi
+  File "/opt/isaacgym/python/isaacgym/gymapi.py", line 21, in <module>
+    from . import gymdeps
+  File "/opt/isaacgym/python/isaacgym/gymdeps.py", line 63, in <module>
+    _import_deps()
+  File "/opt/isaacgym/python/isaacgym/gymdeps.py", line 21, in _import_deps
+    raise ImportError("PyTorch was imported before isaacgym modules.  Please import torch after isaacgym modules.")
+ImportError: PyTorch was imported before isaacgym modules.  Please import torch after isaacgym modules.

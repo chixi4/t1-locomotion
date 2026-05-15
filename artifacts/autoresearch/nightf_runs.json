@@ -1,0 +1,35 @@
+[
+  {
+    "code": "f",
+    "task": "T1Shoulder4GaitPhaseNightFBStableSideLift_from7000LegFrozen_train400",
+    "label": "shoulder4_night_f_bstable_sidelift400",
+    "display": "T1Shoulder4 NightF BStableSideLift model_400",
+    "urdf": "T1_locomotion_shoulder4_night_f_bstable_sidelift_limit.urdf",
+    "command": "Night F：以 NightB 的静止/走路 pitch 姿态为基准；继承 D 的禁止内收 roll 限位；侧移时 roll 外展且 shoulder_roll 软限位惩罚按 lateral gate 淡出，侧移 pitch 比 NightB 略抬。",
+    "note": "NightF BStableSideLift: preserve NightB-like pitch height across still/sagittal movement, hard-block inward roll like NightD, and gate shoulder_roll penalty off during lateral commands so signed outward roll can open further.",
+    "params": {
+      "shoulder_roll_lateral_gated": true,
+      "shoulder_low_speed_down_pitch": -0.2,
+      "shoulder_lateral_down_pitch": -0.08,
+      "shoulder_lateral_pitch_down": -2.5,
+      "shoulder_lateral_pitch_same_weight": 2.0,
+      "shoulder_lateral_roll_amp": 0.11,
+      "shoulder_lateral_roll_extra_amp": 0.2,
+      "shoulder_lateral_roll_max": 0.3,
+      "shoulder_lateral_roll_outward": -2.0,
+      "shoulder_roll": -2.3,
+      "shoulder_roll_soft_limit": 0.12,
+      "shoulder_lateral_foot_roll": 0.0
+    },
+    "clips": {
+      "Left_Shoulder_Roll": [
+        0.0,
+        0.3
+      ],
+      "Right_Shoulder_Roll": [
+        -0.3,
+        0.0
+      ]
+    }
+  }
+]

@@ -1,0 +1,70 @@
+==== START fullbody warmstart 20260514_104542 label=upper9_camera_stable_openleg18_frombc500 ====
+Task: T1Upper9CameraStableOfficialOpenLeg18_fromBC_train500
+BC:   logs/warmstarts/upper9_camera_stable_openleg18_bc_model.pth
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+bc_step: 1/900 loss=12.857420 ema=12.857420 elapsed=0.0m
+bc_step: 50/900 loss=0.228669 ema=5.323352 elapsed=0.2m
+bc_step: 100/900 loss=0.042653 ema=1.993074 elapsed=0.3m
+bc_step: 150/900 loss=0.024309 ema=0.745373 elapsed=0.4m
+bc_step: 200/900 loss=0.019949 ema=0.285111 elapsed=0.6m
+bc_step: 250/900 loss=0.017523 ema=0.116581 elapsed=0.7m
+bc_step: 300/900 loss=0.015517 ema=0.052912 elapsed=0.8m
+bc_step: 350/900 loss=0.013716 ema=0.029269 elapsed=0.9m
+bc_step: 400/900 loss=0.012145 ema=0.018800 elapsed=1.1m
+bc_step: 450/900 loss=0.011585 ema=0.015096 elapsed=1.2m
+bc_step: 500/900 loss=0.010221 ema=0.012360 elapsed=1.3m
+bc_step: 550/900 loss=0.009368 ema=0.011241 elapsed=1.5m
+bc_step: 600/900 loss=0.008513 ema=0.009703 elapsed=1.6m
+bc_step: 650/900 loss=0.007129 ema=0.008814 elapsed=1.7m
+bc_step: 700/900 loss=0.006529 ema=0.007567 elapsed=1.9m
+bc_step: 750/900 loss=0.006116 ema=0.007147 elapsed=2.0m
+bc_step: 800/900 loss=0.005657 ema=0.006318 elapsed=2.1m
+bc_step: 850/900 loss=0.005432 ema=0.006121 elapsed=2.2m
+bc_step: 900/900 loss=0.005173 ema=0.005596 elapsed=2.4m
+saved_fullbody_bc: logs/warmstarts/upper9_camera_stable_openleg18_bc_model.pth
+==== START PPO 2026-05-14 10:48:32 label=upper9_camera_stable_openleg18_frombc500 ====
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading model from logs/warmstarts/upper9_camera_stable_openleg18_bc_model.pth
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loaded curriculum shape (31, 31, 31) into (37, 37, 31) using centered copy; unlocked 2352 cells.
+Failed to load optimizer: 'optimizer'
+epoch: 1/500
+epoch: 2/500
+epoch: 3/500
+Terminated

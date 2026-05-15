@@ -1,0 +1,242 @@
+==== START residual PPO 20260514_111625 label=upper9_camera_stable_openleg18_residual_lownoise500 ====
+Task: T1Upper9CameraStableOfficialOpenLeg18Residual_train500
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Using residual per-DOF mean scale: {'Left_Shoulder_Pitch': 0.07, 'Left_Shoulder_Roll': 0.06, 'Left_Elbow_Pitch': 0.05, 'Left_Elbow_Yaw': 0.03, 'Right_Shoulder_Pitch': 0.07, 'Right_Shoulder_Roll': 0.06, 'Right_Elbow_Pitch': 0.05, 'Right_Elbow_Yaw': 0.03, 'Waist': 0.035, 'Left_Hip_Pitch': 0.08, 'Left_Hip_Roll': 0.06, 'Left_Hip_Yaw': 0.06, 'Left_Knee_Pitch': 0.08, 'Left_Ankle_Pitch': 0.06, 'Left_Ankle_Roll': 0.05, 'Right_Hip_Pitch': 0.08, 'Right_Hip_Roll': 0.06, 'Right_Hip_Yaw': 0.06, 'Right_Knee_Pitch': 0.08, 'Right_Ankle_Pitch': 0.06, 'Right_Ankle_Roll': 0.05}
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading baseline leg model from logs/2026-05-05-11-09-07/nn/model_4000.pth
+Loading baseline upper model from logs/2026-05-14-08-59-29/nn/model_500.pth
+Initialized residual actor head to zero.
+Loading initial curriculum from logs/2026-05-14-08-59-29/nn/model_500.pth
+Loaded curriculum shape (31, 31, 31) into (37, 37, 31); unlocked 2352.
+epoch: 1/500 (local 1/500) elapsed=0.2m eta=86.8m
+epoch: 2/500 (local 2/500) elapsed=0.3m eta=75.1m
+epoch: 3/500 (local 3/500) elapsed=0.4m eta=72.0m
+epoch: 4/500 (local 4/500) elapsed=0.6m eta=69.6m
+epoch: 5/500 (local 5/500) elapsed=0.7m eta=67.9m
+epoch: 6/500 (local 6/500) elapsed=0.8m eta=66.5m
+epoch: 7/500 (local 7/500) elapsed=0.9m eta=65.6m
+epoch: 8/500 (local 8/500) elapsed=1.1m eta=64.7m
+epoch: 9/500 (local 9/500) elapsed=1.2m eta=64.1m
+epoch: 10/500 (local 10/500) elapsed=1.3m eta=63.6m
+epoch: 11/500 (local 11/500) elapsed=1.4m eta=63.5m
+epoch: 12/500 (local 12/500) elapsed=1.6m eta=63.2m
+epoch: 13/500 (local 13/500) elapsed=1.7m eta=63.2m
+epoch: 14/500 (local 14/500) elapsed=1.8m eta=62.9m
+epoch: 15/500 (local 15/500) elapsed=1.9m eta=62.7m
+epoch: 16/500 (local 16/500) elapsed=2.1m eta=62.7m
+epoch: 17/500 (local 17/500) elapsed=2.2m eta=62.7m
+epoch: 18/500 (local 18/500) elapsed=2.3m eta=62.6m
+epoch: 19/500 (local 19/500) elapsed=2.5m eta=62.4m
+epoch: 20/500 (local 20/500) elapsed=2.6m eta=62.4m
+epoch: 21/500 (local 21/500) elapsed=2.7m eta=62.2m
+epoch: 22/500 (local 22/500) elapsed=2.9m eta=62.2m
+epoch: 23/500 (local 23/500) elapsed=3.0m eta=62.0m
+epoch: 24/500 (local 24/500) elapsed=3.1m eta=62.0m
+epoch: 25/500 (local 25/500) elapsed=3.3m eta=61.9m
+epoch: 26/500 (local 26/500) elapsed=3.4m eta=61.8m
+epoch: 27/500 (local 27/500) elapsed=3.5m eta=61.7m
+epoch: 28/500 (local 28/500) elapsed=3.6m eta=61.5m
+epoch: 29/500 (local 29/500) elapsed=3.8m eta=61.4m
+epoch: 30/500 (local 30/500) elapsed=3.9m eta=61.2m
+epoch: 31/500 (local 31/500) elapsed=4.0m eta=61.1m
+epoch: 32/500 (local 32/500) elapsed=4.2m eta=61.0m
+epoch: 33/500 (local 33/500) elapsed=4.3m eta=60.8m
+epoch: 34/500 (local 34/500) elapsed=4.4m eta=60.6m
+epoch: 35/500 (local 35/500) elapsed=4.6m eta=60.5m
+epoch: 36/500 (local 36/500) elapsed=4.7m eta=60.4m
+epoch: 37/500 (local 37/500) elapsed=4.8m eta=60.2m
+epoch: 38/500 (local 38/500) elapsed=4.9m eta=60.1m
+epoch: 39/500 (local 39/500) elapsed=5.1m eta=60.0m
+epoch: 40/500 (local 40/500) elapsed=5.2m eta=59.9m
+epoch: 41/500 (local 41/500) elapsed=5.3m eta=59.7m
+epoch: 42/500 (local 42/500) elapsed=5.5m eta=59.6m
+epoch: 43/500 (local 43/500) elapsed=5.6m eta=59.5m
+epoch: 44/500 (local 44/500) elapsed=5.7m eta=59.4m
+epoch: 45/500 (local 45/500) elapsed=5.9m eta=59.3m
+epoch: 46/500 (local 46/500) elapsed=6.0m eta=59.1m
+epoch: 47/500 (local 47/500) elapsed=6.1m eta=59.0m
+epoch: 48/500 (local 48/500) elapsed=6.3m eta=58.9m
+epoch: 49/500 (local 49/500) elapsed=6.4m eta=58.7m
+epoch: 50/500 (local 50/500) elapsed=6.5m eta=58.6m
+epoch: 51/500 (local 51/500) elapsed=6.6m eta=58.5m
+epoch: 52/500 (local 52/500) elapsed=6.8m eta=58.3m
+epoch: 53/500 (local 53/500) elapsed=6.9m eta=58.2m
+epoch: 54/500 (local 54/500) elapsed=7.0m eta=58.0m
+epoch: 55/500 (local 55/500) elapsed=7.2m eta=57.9m
+epoch: 56/500 (local 56/500) elapsed=7.3m eta=57.8m
+epoch: 57/500 (local 57/500) elapsed=7.4m eta=57.6m
+epoch: 58/500 (local 58/500) elapsed=7.5m eta=57.5m
+epoch: 59/500 (local 59/500) elapsed=7.7m eta=57.4m
+epoch: 60/500 (local 60/500) elapsed=7.8m eta=57.3m
+epoch: 61/500 (local 61/500) elapsed=7.9m eta=57.2m
+epoch: 62/500 (local 62/500) elapsed=8.1m eta=57.1m
+epoch: 63/500 (local 63/500) elapsed=8.7m eta=60.3m
+epoch: 64/500 (local 64/500) elapsed=8.8m eta=60.1m
+epoch: 65/500 (local 65/500) elapsed=9.0m eta=60.0m
+epoch: 66/500 (local 66/500) elapsed=9.1m eta=59.8m
+epoch: 67/500 (local 67/500) elapsed=9.2m eta=59.6m
+epoch: 68/500 (local 68/500) elapsed=9.3m eta=59.4m
+epoch: 69/500 (local 69/500) elapsed=9.5m eta=59.2m
+epoch: 70/500 (local 70/500) elapsed=9.6m eta=59.0m
+epoch: 71/500 (local 71/500) elapsed=9.7m eta=58.8m
+epoch: 72/500 (local 72/500) elapsed=9.9m eta=58.6m
+epoch: 73/500 (local 73/500) elapsed=10.0m eta=58.4m
+epoch: 74/500 (local 74/500) elapsed=10.1m eta=58.3m
+epoch: 75/500 (local 75/500) elapsed=10.3m eta=58.2m
+epoch: 76/500 (local 76/500) elapsed=10.4m eta=58.0m
+epoch: 77/500 (local 77/500) elapsed=10.5m eta=57.8m
+epoch: 78/500 (local 78/500) elapsed=10.7m eta=57.7m
+epoch: 79/500 (local 79/500) elapsed=10.8m eta=57.6m
+epoch: 80/500 (local 80/500) elapsed=10.9m eta=57.4m
+epoch: 81/500 (local 81/500) elapsed=11.1m eta=57.3m
+epoch: 82/500 (local 82/500) elapsed=11.2m eta=57.2m
+epoch: 83/500 (local 83/500) elapsed=11.3m eta=57.0m
+epoch: 84/500 (local 84/500) elapsed=11.5m eta=56.9m
+epoch: 85/500 (local 85/500) elapsed=11.6m eta=56.7m
+epoch: 86/500 (local 86/500) elapsed=11.8m eta=56.6m
+epoch: 87/500 (local 87/500) elapsed=11.9m eta=56.4m
+epoch: 88/500 (local 88/500) elapsed=12.0m eta=56.3m
+epoch: 89/500 (local 89/500) elapsed=12.2m eta=56.1m
+epoch: 90/500 (local 90/500) elapsed=12.3m eta=56.0m
+epoch: 91/500 (local 91/500) elapsed=12.4m eta=55.8m
+epoch: 92/500 (local 92/500) elapsed=12.6m eta=55.7m
+epoch: 93/500 (local 93/500) elapsed=12.7m eta=55.5m
+epoch: 94/500 (local 94/500) elapsed=12.8m eta=55.4m
+epoch: 95/500 (local 95/500) elapsed=13.0m eta=55.2m
+epoch: 96/500 (local 96/500) elapsed=13.1m eta=55.1m
+epoch: 97/500 (local 97/500) elapsed=13.2m eta=54.9m
+epoch: 98/500 (local 98/500) elapsed=13.4m eta=54.8m
+epoch: 99/500 (local 99/500) elapsed=13.5m eta=54.7m
+Saving model to logs/2026-05-14-11-17-13/nn/model_100.pth
+epoch: 100/500 (local 100/500) elapsed=13.6m eta=54.5m
+epoch: 101/500 (local 101/500) elapsed=13.8m eta=54.4m
+epoch: 102/500 (local 102/500) elapsed=13.9m eta=54.3m
+epoch: 103/500 (local 103/500) elapsed=14.0m eta=54.1m
+epoch: 104/500 (local 104/500) elapsed=14.2m eta=54.0m
+epoch: 105/500 (local 105/500) elapsed=14.3m eta=53.8m
+epoch: 106/500 (local 106/500) elapsed=14.4m eta=53.7m
+epoch: 107/500 (local 107/500) elapsed=14.6m eta=53.6m
+epoch: 108/500 (local 108/500) elapsed=14.7m eta=53.5m
+epoch: 109/500 (local 109/500) elapsed=14.9m eta=53.4m
+epoch: 110/500 (local 110/500) elapsed=15.0m eta=53.2m
+epoch: 111/500 (local 111/500) elapsed=15.2m eta=53.1m
+epoch: 112/500 (local 112/500) elapsed=15.3m eta=53.0m
+epoch: 113/500 (local 113/500) elapsed=15.4m eta=52.8m
+epoch: 114/500 (local 114/500) elapsed=15.6m eta=52.7m
+epoch: 115/500 (local 115/500) elapsed=15.7m eta=52.6m
+epoch: 116/500 (local 116/500) elapsed=15.9m eta=52.5m
+epoch: 117/500 (local 117/500) elapsed=16.0m eta=52.4m
+epoch: 118/500 (local 118/500) elapsed=16.1m eta=52.2m
+epoch: 119/500 (local 119/500) elapsed=16.3m eta=52.1m
+epoch: 120/500 (local 120/500) elapsed=16.4m eta=52.0m
+epoch: 121/500 (local 121/500) elapsed=16.6m eta=51.9m
+epoch: 122/500 (local 122/500) elapsed=16.7m eta=51.8m
+epoch: 123/500 (local 123/500) elapsed=16.9m eta=51.7m
+epoch: 124/500 (local 124/500) elapsed=17.0m eta=51.6m
+epoch: 125/500 (local 125/500) elapsed=17.1m eta=51.4m
+epoch: 126/500 (local 126/500) elapsed=17.7m eta=52.7m
+epoch: 127/500 (local 127/500) elapsed=17.9m eta=52.5m
+epoch: 128/500 (local 128/500) elapsed=18.0m eta=52.4m
+epoch: 129/500 (local 129/500) elapsed=18.2m eta=52.3m
+epoch: 130/500 (local 130/500) elapsed=18.3m eta=52.2m
+epoch: 131/500 (local 131/500) elapsed=18.5m eta=52.1m
+epoch: 132/500 (local 132/500) elapsed=18.6m eta=52.0m
+epoch: 133/500 (local 133/500) elapsed=18.8m eta=51.8m
+epoch: 134/500 (local 134/500) elapsed=18.9m eta=51.7m
+epoch: 135/500 (local 135/500) elapsed=19.1m eta=51.6m
+epoch: 136/500 (local 136/500) elapsed=19.3m eta=51.5m
+epoch: 137/500 (local 137/500) elapsed=19.4m eta=51.4m
+epoch: 138/500 (local 138/500) elapsed=19.6m eta=51.3m
+epoch: 139/500 (local 139/500) elapsed=19.7m eta=51.2m
+epoch: 140/500 (local 140/500) elapsed=19.9m eta=51.1m
+epoch: 141/500 (local 141/500) elapsed=20.0m eta=51.0m
+epoch: 142/500 (local 142/500) elapsed=20.2m eta=50.9m
+epoch: 143/500 (local 143/500) elapsed=20.3m eta=50.8m
+epoch: 144/500 (local 144/500) elapsed=20.5m eta=50.7m
+epoch: 145/500 (local 145/500) elapsed=20.7m eta=50.6m
+epoch: 146/500 (local 146/500) elapsed=20.8m eta=50.5m
+epoch: 147/500 (local 147/500) elapsed=21.0m eta=50.4m
+epoch: 148/500 (local 148/500) elapsed=21.2m eta=50.3m
+epoch: 149/500 (local 149/500) elapsed=21.3m eta=50.2m
+epoch: 150/500 (local 150/500) elapsed=21.5m eta=50.1m
+epoch: 151/500 (local 151/500) elapsed=21.7m eta=50.0m
+epoch: 152/500 (local 152/500) elapsed=21.8m eta=50.0m
+epoch: 153/500 (local 153/500) elapsed=22.0m eta=49.9m
+epoch: 154/500 (local 154/500) elapsed=22.2m eta=49.8m
+epoch: 155/500 (local 155/500) elapsed=22.3m eta=49.7m
+epoch: 156/500 (local 156/500) elapsed=22.5m eta=49.6m
+epoch: 157/500 (local 157/500) elapsed=22.6m eta=49.5m
+epoch: 158/500 (local 158/500) elapsed=22.8m eta=49.4m
+epoch: 159/500 (local 159/500) elapsed=23.0m eta=49.3m
+epoch: 160/500 (local 160/500) elapsed=23.1m eta=49.2m
+epoch: 161/500 (local 161/500) elapsed=23.3m eta=49.1m
+epoch: 162/500 (local 162/500) elapsed=23.5m eta=49.0m
+epoch: 163/500 (local 163/500) elapsed=23.6m eta=48.9m
+epoch: 164/500 (local 164/500) elapsed=23.8m eta=48.8m
+epoch: 165/500 (local 165/500) elapsed=24.0m eta=48.7m
+epoch: 166/500 (local 166/500) elapsed=24.2m eta=48.6m
+epoch: 167/500 (local 167/500) elapsed=24.3m eta=48.5m
+epoch: 168/500 (local 168/500) elapsed=24.5m eta=48.4m
+epoch: 169/500 (local 169/500) elapsed=24.7m eta=48.3m
+epoch: 170/500 (local 170/500) elapsed=24.8m eta=48.2m
+epoch: 171/500 (local 171/500) elapsed=25.0m eta=48.1m
+epoch: 172/500 (local 172/500) elapsed=25.2m eta=48.0m
+epoch: 173/500 (local 173/500) elapsed=25.3m eta=47.9m
+epoch: 174/500 (local 174/500) elapsed=25.5m eta=47.8m
+epoch: 175/500 (local 175/500) elapsed=25.7m eta=47.7m
+epoch: 176/500 (local 176/500) elapsed=25.9m eta=47.6m
+epoch: 177/500 (local 177/500) elapsed=26.0m eta=47.5m
+epoch: 178/500 (local 178/500) elapsed=26.2m eta=47.4m
+epoch: 179/500 (local 179/500) elapsed=26.4m eta=47.3m
+epoch: 180/500 (local 180/500) elapsed=26.5m eta=47.2m
+epoch: 181/500 (local 181/500) elapsed=26.7m eta=47.1m
+epoch: 182/500 (local 182/500) elapsed=26.9m eta=47.0m
+epoch: 183/500 (local 183/500) elapsed=27.0m eta=46.8m
+epoch: 184/500 (local 184/500) elapsed=27.2m eta=46.7m
+epoch: 185/500 (local 185/500) elapsed=27.4m eta=46.6m
+epoch: 186/500 (local 186/500) elapsed=27.5m eta=46.5m
+epoch: 187/500 (local 187/500) elapsed=27.7m eta=46.4m
+epoch: 188/500 (local 188/500) elapsed=28.0m eta=46.5m
+epoch: 189/500 (local 189/500) elapsed=28.2m eta=46.3m
+epoch: 190/500 (local 190/500) elapsed=28.3m eta=46.2m
+epoch: 191/500 (local 191/500) elapsed=28.5m eta=46.1m
+epoch: 192/500 (local 192/500) elapsed=28.7m eta=46.0m
+epoch: 193/500 (local 193/500) elapsed=28.9m eta=45.9m
+epoch: 194/500 (local 194/500) elapsed=29.0m eta=45.8m
+epoch: 195/500 (local 195/500) elapsed=29.2m eta=45.7m
+epoch: 196/500 (local 196/500) elapsed=29.4m eta=45.6m
+epoch: 197/500 (local 197/500) elapsed=29.6m eta=45.5m
+epoch: 198/500 (local 198/500) elapsed=29.7m eta=45.3m
+epoch: 199/500 (local 199/500) elapsed=29.9m eta=45.2m
+Saving model to logs/2026-05-14-11-17-13/nn/model_200.pth
+epoch: 200/500 (local 200/500) elapsed=30.1m eta=45.1m
+epoch: 201/500 (local 201/500) elapsed=30.2m eta=45.0m
+epoch: 202/500 (local 202/500) elapsed=30.4m eta=44.9m
+epoch: 203/500 (local 203/500) elapsed=30.6m eta=44.7m
+epoch: 204/500 (local 204/500) elapsed=30.7m eta=44.6m
+epoch: 205/500 (local 205/500) elapsed=30.9m eta=44.5m
+epoch: 206/500 (local 206/500) elapsed=31.1m eta=44.4m
+epoch: 207/500 (local 207/500) elapsed=31.3m eta=44.3m
+epoch: 208/500 (local 208/500) elapsed=31.4m eta=44.1m
+epoch: 209/500 (local 209/500) elapsed=31.6m eta=44.0m
+epoch: 210/500 (local 210/500) elapsed=31.8m eta=43.9m
+epoch: 211/500 (local 211/500) elapsed=32.0m eta=43.8m
+Terminated

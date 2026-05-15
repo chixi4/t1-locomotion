@@ -1,0 +1,126 @@
+START 2026-05-02T23:59:01+08:00
+PWD=/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official
+OFFICIAL_COMMIT=da396a0
+WANDB_MODE=disabled
+COMMAND=/opt/conda/bin/python -u train.py --task T1 --headless true --num_envs 4096 --max_iterations 500
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+epoch: 1/500
+epoch: 2/500
+epoch: 3/500
+epoch: 4/500
+epoch: 5/500
+epoch: 6/500
+epoch: 7/500
+epoch: 8/500
+epoch: 9/500
+epoch: 10/500
+epoch: 11/500
+epoch: 12/500
+epoch: 13/500
+epoch: 14/500
+epoch: 15/500
+epoch: 16/500
+epoch: 17/500
+epoch: 18/500
+epoch: 19/500
+epoch: 20/500
+epoch: 21/500
+epoch: 22/500
+epoch: 23/500
+epoch: 24/500
+epoch: 25/500
+epoch: 26/500
+epoch: 27/500
+epoch: 28/500
+epoch: 29/500
+epoch: 30/500
+epoch: 31/500
+epoch: 32/500
+epoch: 33/500
+epoch: 34/500
+epoch: 35/500
+epoch: 36/500
+epoch: 37/500
+epoch: 38/500
+epoch: 39/500
+epoch: 40/500
+epoch: 41/500
+epoch: 42/500
+epoch: 43/500
+epoch: 44/500
+epoch: 45/500
+epoch: 46/500
+epoch: 47/500
+epoch: 48/500
+epoch: 49/500
+epoch: 50/500
+epoch: 51/500
+epoch: 52/500
+epoch: 53/500
+epoch: 54/500
+epoch: 55/500
+epoch: 56/500
+epoch: 57/500
+epoch: 58/500
+epoch: 59/500
+epoch: 60/500
+epoch: 61/500
+epoch: 62/500
+epoch: 63/500
+epoch: 64/500
+epoch: 65/500
+epoch: 66/500
+epoch: 67/500
+epoch: 68/500
+epoch: 69/500
+epoch: 70/500
+epoch: 71/500
+epoch: 72/500
+epoch: 73/500
+epoch: 74/500
+epoch: 75/500
+epoch: 76/500
+epoch: 77/500
+epoch: 78/500
+Terminated
+{
+  "kind": "official_baseline",
+  "started_at": "2026-05-02T23:59:01+08:00",
+  "finished_at": "2026-05-03T00:52:29+08:00",
+  "returncode": 143,
+  "cwd": "/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official",
+  "official_commit": "da396a0",
+  "command": [
+    "/opt/conda/bin/python",
+    "-u",
+    "train.py",
+    "--task",
+    "T1",
+    "--headless",
+    "true",
+    "--num_envs",
+    "4096",
+    "--max_iterations",
+    "500"
+  ],
+  "num_envs": 4096,
+  "max_iterations": 500,
+  "wandb_mode": "disabled",
+  "latest_run": "logs/2026-05-03-00-21-58",
+  "latest_checkpoint": "",
+  "log": "artifacts/autoresearch/official_baseline_2026-05-02-11-47-30.log"
+}
+DONE 2026-05-03T00:52:29+08:00 rc=143 latest_run=logs/2026-05-03-00-21-58 latest_ckpt=

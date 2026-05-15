@@ -1,0 +1,32 @@
+===== 2026-05-12T19:55:47+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+     1      0 Sl+   4.0  0.0 init(Ubuntu-20. /init
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+     9      1 S     0.0  0.0 Relay(10)       /init
+    15      9 Ss    0.0  0.0 tmux: server    tmux new-session -d -s nightm_zerobase300 cd /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official && bash artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh > artifacts/autoresearch/nightm_zerobase300_tmux.out 2>&1
+    16     15 Ss+   0.0  0.0 bash            bash -c cd /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official && bash artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh > artifacts/autoresearch/nightm_zerobase300_tmux.out 2>&1
+    20     16 S+    0.0  0.0 bash            bash artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    29     20 S+    0.0  0.0 bash            bash artifacts/autoresearch/nightl_gpu_audit_wsl.sh
+    56     20 S+    0.0  0.0 bash            bash artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    57     20 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nightm_zerobase300_full_auto_20260512_195546.log
+    58     56 S+    0.0  0.0 bash            bash artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    65     58 S+    0.0  0.0 bash            bash artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    66     65 R+    0.0  0.0 python3         python3 - artifacts/autoresearch/nightm_runs.json m display
+    67     29 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+    68     29 S+    0.0  0.0 head            head -80
+===== 2026-05-12T19:55:57+08:00 ps =====
+   PID   PPID STAT %CPU %MEM COMMAND         COMMAND
+    83     58 Rl+   206  2.0 python3         python3 train_shoulder4_frozen.py --task T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300
+     1      0 Sl+   0.3  0.0 init(Ubuntu-20. /init
+    29     20 S+    0.2  0.0 bash            bash artifacts/autoresearch/nightl_gpu_audit_wsl.sh
+     5      1 Sl+   0.0  0.0 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate
+     9      1 S     0.0  0.0 Relay(10)       /init
+    15      9 Ss    0.0  0.0 tmux: server    tmux new-session -d -s nightm_zerobase300 cd /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official && bash artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh > artifacts/autoresearch/nightm_zerobase300_tmux.out 2>&1
+    16     15 Ss+   0.0  0.0 bash            bash -c cd /mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official && bash artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh > artifacts/autoresearch/nightm_zerobase300_tmux.out 2>&1
+    20     16 S+    0.0  0.0 bash            bash artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    56     20 S+    0.0  0.0 bash            bash artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    57     20 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/nightm_zerobase300_full_auto_20260512_195546.log
+    58     56 S+    0.0  0.0 bash            bash artifacts/autoresearch/run_nightm_zerobase300_full_auto.sh
+    84     58 S+    0.0  0.0 tee             tee -a artifacts/autoresearch/T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300_20260512_195547_full_auto.log
+   272     29 R+    0.0  0.0 ps              ps -eo pid,ppid,stat,pcpu,pmem,comm,args --sort=-pcpu
+   273     29 S+    0.0  0.0 head            head -80

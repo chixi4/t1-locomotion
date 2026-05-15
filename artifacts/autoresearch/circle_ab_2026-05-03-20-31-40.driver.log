@@ -1,0 +1,7 @@
+bash: /opt/conda/lib/libtinfo.so.6: no version information available (required by bash)
+CIRCLE_AB_START 2026-05-03T20:31:40+08:00 run_id=2026-05-03-20-31-40 cwd=/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official
+RUN_ROOT=/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/circle_ab_2026-05-03-20-31-40
+GPU_LOG=/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/circle_ab_2026-05-03-20-31-40/gpu.csv
+START circle_full 2026-05-03T20:31:40+08:00 task=T1Circle num_envs=28672 max_iterations=1000 commit=da396a0
+COMMAND=/opt/conda/bin/python -u train.py --task T1Circle --headless true --num_envs 28672 --max_iterations 1000
+relaunch_detached_windows 2026-05-03T20:34:34+08:00

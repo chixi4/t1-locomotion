@@ -1,0 +1,67 @@
+START random 2026-05-07 19:58:54
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Creating random replay env
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+{
+  "label": "shoulder4_freearm_logstd17_model200",
+  "checkpoint": "logs/2026-05-07-18-57-33/nn/model_200.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17281990517100818,
+    "mean_yaw_err": 0.07161073178425525,
+    "mean_speed_ratio": 0.8787645456933568,
+    "max_reset_frac": 0.00390625,
+    "mean_tilt": 0.04771239966339068,
+    "max_tilt": 0.7616618871688843,
+    "tilt_rms_mean": 0.05374680460633317,
+    "tilt_p95_mean": 0.08890592282818209,
+    "base_ang_vel_xy_rms_mean": 0.5468809038830108,
+    "shoulder_pitch_abs_p95_max": 0.435931533575058,
+    "shoulder_roll_abs_p95_max": 0.17870014905929565,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.2667533325950489,
+    "linErrorRms": 0.37947963411069213,
+    "linErrorP95": 0.8615595102310181,
+    "yawErrorMean": 0.10081836294171684,
+    "yawErrorRms": 0.1552063703042701,
+    "yawErrorP95": 0.3836926817893982,
+    "tilt_mean": 0.04264529966402965,
+    "tilt_rms": 0.048052103945220116,
+    "tilt_p95": 0.07979623228311539,
+    "tilt_max": 0.11484644562005997,
+    "base_ang_vel_xy_rms": 0.45665280039680817,
+    "shoulder_pitch_abs_p95": 0.39525729417800903,
+    "shoulder_roll_abs_p95": 0.17111638188362122,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_freearm_logstd17_model200_eval/shoulder4_freearm_logstd17_model200_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_freearm_logstd17_model200_eval/shoulder4_freearm_logstd17_model200_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_freearm_logstd17_model200_eval/shoulder4_freearm_logstd17_model200_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_freearm_logstd17_model200_eval/shoulder4_freearm_logstd17_model200_random_eval.json"
+  },
+  "created_at": "2026-05-07-20-02-57"
+}

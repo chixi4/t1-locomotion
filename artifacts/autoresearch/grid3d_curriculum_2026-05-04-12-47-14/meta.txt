@@ -1,0 +1,6 @@
+run_id=grid3d_curriculum_2026-05-04-12-47-14
+task=T1CircleGridCurriculum
+checkpoint=from_scratch
+num_envs=28672
+max_iterations=2000
+started_at=2026-05-04T12:47:14+08:00

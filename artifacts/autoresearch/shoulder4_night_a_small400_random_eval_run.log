@@ -1,0 +1,93 @@
+START random 2026-05-11 12:14:53 label=shoulder4_night_a_small400
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Creating random replay env
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+random replay progress 0/3000 (0%)
+random replay progress 150/3000 (5%)
+random replay progress 300/3000 (10%)
+random replay progress 450/3000 (15%)
+random replay progress 600/3000 (20%)
+random replay progress 750/3000 (25%)
+random replay progress 900/3000 (30%)
+random replay progress 1050/3000 (35%)
+random replay progress 1200/3000 (40%)
+random replay progress 1350/3000 (45%)
+random replay progress 1500/3000 (50%)
+random replay progress 1650/3000 (55%)
+random replay progress 1800/3000 (60%)
+random replay progress 1950/3000 (65%)
+random replay progress 2100/3000 (70%)
+random replay progress 2250/3000 (75%)
+random replay progress 2400/3000 (80%)
+random replay progress 2550/3000 (85%)
+random replay progress 2700/3000 (90%)
+random replay progress 2850/3000 (95%)
+random replay progress 3000/3000 (100%)
+{
+  "label": "shoulder4_night_a_small400",
+  "checkpoint": "logs/2026-05-11-10-47-05/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17073039464529866,
+    "mean_yaw_err": 0.07183238341270756,
+    "mean_speed_ratio": 0.8699055081911576,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.04405691172564361,
+    "max_tilt": 0.1523314118385315,
+    "tilt_rms_mean": 0.04901637194769775,
+    "tilt_p95_mean": 0.07739964223677112,
+    "base_ang_vel_xy_rms_mean": 0.5198259863369539,
+    "shoulder_pitch_abs_p95_max": 0.338629812002182,
+    "shoulder_roll_abs_p95_max": 0.08000439405441284,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.27108480550863595,
+    "linErrorRms": 0.3826673182966363,
+    "linErrorP95": 0.8498567938804626,
+    "yawErrorMean": 0.10405656059264559,
+    "yawErrorRms": 0.15183157884134033,
+    "yawErrorP95": 0.35832616686820984,
+    "tilt_mean": 0.039904188208587085,
+    "tilt_rms": 0.0452286441354637,
+    "tilt_p95": 0.07795882225036621,
+    "tilt_max": 0.12166208028793335,
+    "base_ang_vel_xy_rms": 0.438853772615341,
+    "shoulder_pitch_abs_p95": 0.20581208169460297,
+    "shoulder_roll_abs_p95": 0.08000165969133377,
+    "left_shoulder_pitch_mean": 0.03696149739009782,
+    "left_shoulder_roll_mean": -0.06939117006576923,
+    "right_shoulder_pitch_mean": -0.060453950531489935,
+    "right_shoulder_roll_mean": 0.06910265122708896,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_night_a_small400_eval/shoulder4_night_a_small400_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_night_a_small400_eval/shoulder4_night_a_small400_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_night_a_small400_eval/shoulder4_night_a_small400_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_night_a_small400_eval/shoulder4_night_a_small400_random_eval.json"
+  },
+  "created_at": "2026-05-11-12-19-12"
+}
+DONE random 2026-05-11 12:19:14 label=shoulder4_night_a_small400 elapsed=261s

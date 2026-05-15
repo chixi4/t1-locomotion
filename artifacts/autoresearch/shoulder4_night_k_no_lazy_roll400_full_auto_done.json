@@ -1,0 +1,13 @@
+{
+  "label": "shoulder4_night_k_no_lazy_roll400",
+  "display_name": "T1Shoulder4 NightK NoLazyRoll model_400",
+  "task": "T1Shoulder4GaitPhaseNightKNoLazyRoll_from7000LegFrozen_train400",
+  "run_dir": "logs/2026-05-12-16-08-37",
+  "arm_checkpoint": "logs/2026-05-12-16-08-37/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/shoulder4_night_k_no_lazy_roll400_eval",
+  "metrics_json": "artifacts/autoresearch/shoulder4_night_k_no_lazy_roll400_metrics.json",
+  "web_inputs": "artifacts/autoresearch/shoulder4_night_k_no_lazy_roll400_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Shoulder4GaitPhaseNightKNoLazyRoll_from7000LegFrozen_train400_20260512_160745_full_auto.log",
+  "created_at": "2026-05-12T09:24:13+00:00"
+}

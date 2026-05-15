@@ -1,0 +1,21 @@
+1777694041.504314531 Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+1777694042.088268848 Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+1777694046.631813874 PyTorch version 2.0.1+cu118
+1777694046.718099803 Device count 1
+1777694046.722256495 /opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+1777694046.726314486 Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+1777694046.842457846 Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+1777694046.846357186 Building extension module gymtorch...
+1777694046.850384811 Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+1777694046.889598805 ninja: no work to do.
+1777694046.894545554 Loading extension module gymtorch...
+1777694047.404465587 Setting seed: 42
+1777694047.778870925 [Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+1777694047.783041016 Not connected to PVD
+1777694047.791265282 +++ Using GPU PhysX
+1777694051.432954556 Physics Engine: PhysX
+1777694051.436959864 Physics Device: cuda:0
+1777694051.441229511 GPU Pipeline: enabled
+1777694071.148775418 epoch: 1/3
+1777694079.654609923 epoch: 2/3
+1777694087.074804155 epoch: 3/3

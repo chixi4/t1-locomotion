@@ -1,0 +1,7 @@
+{
+  "label": "upper9_camera_stable_openleg18_legresidual_speedunlock300",
+  "task": "T1Upper9CameraStableOfficialOpenLeg18LegResidualSpeedUnlock_train300",
+  "run_dir": "logs/2026-05-15-01-16-01",
+  "checkpoint": "logs/2026-05-15-01-16-01/nn/model_800.pth",
+  "completed_at": "2026-05-15 02:00:26"
+}

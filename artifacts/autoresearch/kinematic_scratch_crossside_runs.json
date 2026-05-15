@@ -1,0 +1,17 @@
+{
+  "label": "shoulder4_kinematic_scratch_crossside300",
+  "display_name": "T1Shoulder4 Kinematic Scratch CrossSide model_300",
+  "task": "T1Shoulder4KinematicScratchCrossSide_from7000LegFrozen_train300",
+  "base_task": "T1Shoulder4GaitPhaseNightN7PitchBoostSideAmpConservative_from7000LegFrozen_train300",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "created_at": "2026-05-13T06:32:19+00:00",
+  "hypothesis": "A single continuous kinematic reward can teach scratch arms without explicit standing posture or low-speed still thresholds.",
+  "changes": {
+    "arm_checkpoint": "null / scratch",
+    "old shoulder style rewards": "disabled",
+    "arm energy/smoothness penalties": "disabled",
+    "new reward": "shoulder_kinematic_motion_target",
+    "pitch": "abs(command x) * left-right foot sagittal distance gives opposite shoulder pitch targets",
+    "roll": "abs(command y) * cross-lateral outward foot distance; right leg outward raises left arm, left leg outward raises right arm"
+  }
+}

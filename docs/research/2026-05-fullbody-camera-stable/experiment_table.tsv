@@ -1,0 +1,18 @@
+date	label	baseline	changed_knobs	why	it_result	next
+2026-05-05	T1CircleGridFace6Tight15 model_7000	T1CircleGridFace6Tight model_3000	+4000 iters, speed/turn upper bound 1.5	established the leg base used later	winner for leg curriculum	freeze this as the leg anchor
+2026-05-07	T1Shoulder4 Pitch09/Roll08 model_1000	7000 frozen legs	shoulder pitch 0.9, roll 0.8	first stable shoulder-only attempt	too generic, not enough behavior separation	separate stand base from moving style
+2026-05-07	T1Shoulder4 AntiSwayBaseline model_1000	Pitch09/Roll08	fixed-arm baseline plus anti-sway reward	showed that anti-sway alone can dominate the reward	over-smoothed arms	lower the static bias
+2026-05-07	T1Shoulder4 FreeArm Logstd1.7 model_200	AntiSwayBaseline	remove arm penalties, raise stochasticity	probed the raw shoulder policy too far	run was informative but unstable	add structure back, not more noise
+2026-05-07	T1Shoulder4 SoftLimitBalanced model_500	FreeArm	soft limit + speed/acc/torque penalties	kept arms safer but not expressive enough	better safety, weak shape	need phase-aware reward
+2026-05-08	T1Shoulder4 GaitPhaseSoft model_400	SoftLimitBalanced	soft phase prior and lower symmetry weight	began the gait-phase family	helped, but too soft	tighten sign and gate
+2026-05-10	T1Shoulder4 NightF BStableSideLift model_400	NightE	standing base from NightB, side lift from NightD	created the later side-lift branch	informative branch	decouple base and side delta
+2026-05-11	T1Shoulder4 NightH NoInwardBoundary model_400	NightG	remove inward roll boundary	critical fix for lazy inward behavior	key turning point	keep outward margin explicit
+2026-05-12	T1Shoulder4 NightL FourGroupClean model_400	NightK	four reward groups: stand, side, anti-lazy, balance	cleaner reward decomposition	best shoulder-only pre-final model	keep the groups, then zero the base
+2026-05-12	T1Shoulder4 NightM ZeroBaseDynamic model_300	NightL	zero standing base, only reward true side dynamic	confirmed that static base and dynamic lift can be separated	dynamic goal clearer	need a spring for stand and a gate for motion
+2026-05-13	T1Shoulder4 NightN7 PitchBoost SideAmp model_300	NightN7	boost pitch, then boost side amplitude	kept forward/back swing and stronger lateral move	best pre-cleanup shoulder variant	resume from here for LegLikeClean
+2026-05-13	T1Shoulder4 NightN7P SideAmp LegLikeClean model_300	SideAmp	model with leg-like training cleanup	remove survival/tracking pressure to focus on arm shape	first full arm-shape clean run	inspect if forward/back swing survives
+2026-05-13	T1Shoulder4 Official StrongZero VelOpp model_500	LegLikeClean	zero-base, anti-phase pitch, contralateral side lift, official style	most satisfying shoulder-only result	shoulder winner	lock as shoulder reference
+2026-05-14	T1Upper9 CameraStable Official OpenLeg18 FromBC model_500	shoulder winner	open leg, camera-first full-body residual	begin full-body coordination	frozen-leg prelude for residual search	open residual legs cautiously
+2026-05-14	T1Upper9 CameraStable OpenLeg18 LegResidual SpeedPush model_300	open-leg residual	speed push to 1.8 m/s	best full-body speed/camera tradeoff	selected as final full-body winner	do not overreact to ugly training curves
+2026-05-15	T1Upper9 CameraStable OpenLeg18 LegResidual SpeedUnlock model_300	SpeedPush	expand the command grid further	useful probe, but resets rose and the tradeoff got worse	not selected	keep as a failed probe record
+

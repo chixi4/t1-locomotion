@@ -1,0 +1,2 @@
+started=2026-05-12T20:04:48+08:00 pid=19 interval=2s max=36000s
+finished=2026-05-12T21:29:59+08:00 reason=quiet last_busy=2026-05-12T21:14:58+08:00

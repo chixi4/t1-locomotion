@@ -44,8 +44,12 @@ def discount_values(rewards, dones, values, last_values, gamma, lam):
     return advantages
 
 
-def surrogate_loss(old_actions_log_prob, actions_log_prob, advantages, e_clip=0.2):
-    ratio = torch.exp(actions_log_prob - old_actions_log_prob)
+def surrogate_loss(old_actions_log_prob, actions_log_prob, advantages, e_clip=0.2, log_ratio_clip=20.0):
+    log_ratio = actions_log_prob - old_actions_log_prob
+    if log_ratio_clip is not None:
+        log_ratio = torch.nan_to_num(log_ratio, nan=0.0, posinf=log_ratio_clip, neginf=-log_ratio_clip)
+        log_ratio = torch.clamp(log_ratio, -log_ratio_clip, log_ratio_clip)
+    ratio = torch.exp(log_ratio)
     surrogate = -advantages * ratio
     surrogate_clipped = -advantages * torch.clamp(ratio, 1.0 - e_clip, 1.0 + e_clip)
     surrogate_loss = torch.max(surrogate, surrogate_clipped).mean()

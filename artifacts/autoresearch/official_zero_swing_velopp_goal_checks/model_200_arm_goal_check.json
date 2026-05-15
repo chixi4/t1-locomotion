@@ -1,0 +1,26 @@
+{
+  "checkpoint": "logs/2026-05-13-19-47-28/nn/model_200.pth",
+  "event_vel": 0.18,
+  "seconds": 5.0,
+  "warmup_s": 1.0,
+  "summary": {
+    "max_reset_events_per_env": 0.0,
+    "stand_abs_mean": 0.2920345366001129,
+    "stand_abs_p95": 0.35637248158454893,
+    "stand_pitch_mean": -0.006143300328403711,
+    "stand_roll_abs_p95": 0.23875168934464455,
+    "pitch_abs_p95": 0.38719071447849274,
+    "pitch_lr_antisym_corr": -0.14837084403645667,
+    "pitch_foot_left_corr": -0.060505099635126555,
+    "pitch_foot_right_corr": 0.02563254339734662,
+    "pitch_common_abs_p95": 0.0822274520993232,
+    "side_outward_abs_p95": 0.2818030595779419,
+    "side_vel_to_arm_delta_corr": 0.2740167236623874,
+    "right_foot_event_frames": 28286,
+    "right_foot_event_left_arm_match": 0.6347663154917627,
+    "left_foot_event_frames": 27219,
+    "left_foot_event_right_arm_match": 0.5559351923288879,
+    "side_left_outward_mean": 0.23525337874889374,
+    "side_right_outward_mean": 0.22812514007091522
+  }
+}

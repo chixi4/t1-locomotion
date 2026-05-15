@@ -1,0 +1,46 @@
+{
+  "label": "shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000",
+  "checkpoint": "logs/2026-05-10-04-11-55/nn/model_1000.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.16978975598026874,
+    "mean_yaw_err": 0.08328543961834635,
+    "mean_speed_ratio": 0.8716482533781955,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.04393613231992659,
+    "max_tilt": 0.14870089292526245,
+    "tilt_rms_mean": 0.0489463627917627,
+    "tilt_p95_mean": 0.07746893383802907,
+    "base_ang_vel_xy_rms_mean": 0.5169049358343057,
+    "shoulder_pitch_abs_p95_max": 0.49218037724494934,
+    "shoulder_roll_abs_p95_max": 0.18015454709529877,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.2696330415931177,
+    "linErrorRms": 0.38108384775974685,
+    "linErrorP95": 0.8501031994819641,
+    "yawErrorMean": 0.10977031005863581,
+    "yawErrorRms": 0.1568454425888789,
+    "yawErrorP95": 0.3646695613861084,
+    "tilt_mean": 0.04026108614848485,
+    "tilt_rms": 0.045490580628292865,
+    "tilt_p95": 0.07732199132442474,
+    "tilt_max": 0.11457712948322296,
+    "base_ang_vel_xy_rms": 0.4407985749886175,
+    "shoulder_pitch_abs_p95": 0.3686319887638092,
+    "shoulder_roll_abs_p95": 0.15938590466976166,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000_eval/shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000_eval/shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000_eval/shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000_eval/shoulder4_gaitphase_signfix_amp4_lowdown_nowaist1000_random_eval.json"
+  },
+  "created_at": "2026-05-10-07-35-46"
+}

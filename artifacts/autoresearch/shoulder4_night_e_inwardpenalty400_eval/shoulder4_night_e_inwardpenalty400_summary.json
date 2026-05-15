@@ -1,0 +1,50 @@
+{
+  "label": "shoulder4_night_e_inwardpenalty400",
+  "checkpoint": "logs/2026-05-11-12-20-04/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17130162677575503,
+    "mean_yaw_err": 0.07328044140120107,
+    "mean_speed_ratio": 0.8694360055831764,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.044034507249657615,
+    "max_tilt": 0.14908477663993835,
+    "tilt_rms_mean": 0.04899664499609515,
+    "tilt_p95_mean": 0.07740457980863509,
+    "base_ang_vel_xy_rms_mean": 0.517747243172275,
+    "shoulder_pitch_abs_p95_max": 0.35918694734573364,
+    "shoulder_roll_abs_p95_max": 0.06000429391860962,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.2713477361266068,
+    "linErrorRms": 0.3837102440879717,
+    "linErrorP95": 0.8548201322555542,
+    "yawErrorMean": 0.10400321283024447,
+    "yawErrorRms": 0.15138048156934059,
+    "yawErrorP95": 0.35474589467048645,
+    "tilt_mean": 0.04001397778659433,
+    "tilt_rms": 0.045410817535637325,
+    "tilt_p95": 0.07802756875753403,
+    "tilt_max": 0.12915077805519104,
+    "base_ang_vel_xy_rms": 0.4384496544028128,
+    "shoulder_pitch_abs_p95": 0.22856950759887695,
+    "shoulder_roll_abs_p95": 0.06000208854675293,
+    "left_shoulder_pitch_mean": -0.0012153366659286206,
+    "left_shoulder_roll_mean": -0.04872992097207442,
+    "right_shoulder_pitch_mean": -0.08848550878523634,
+    "right_shoulder_roll_mean": 0.0544913259708997,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_night_e_inwardpenalty400_eval/shoulder4_night_e_inwardpenalty400_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_night_e_inwardpenalty400_eval/shoulder4_night_e_inwardpenalty400_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_night_e_inwardpenalty400_eval/shoulder4_night_e_inwardpenalty400_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_night_e_inwardpenalty400_eval/shoulder4_night_e_inwardpenalty400_random_eval.json"
+  },
+  "created_at": "2026-05-11-13-52-56"
+}

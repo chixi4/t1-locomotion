@@ -1,0 +1,50 @@
+{
+  "label": "shoulder4_night_b_source400",
+  "checkpoint": "logs/2026-05-11-07-43-39/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17078623129770454,
+    "mean_yaw_err": 0.0734138969974137,
+    "mean_speed_ratio": 0.8702233005563419,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.043945481022501794,
+    "max_tilt": 0.14928151667118073,
+    "tilt_rms_mean": 0.048955811512792324,
+    "tilt_p95_mean": 0.07742306926558094,
+    "base_ang_vel_xy_rms_mean": 0.5176687400736395,
+    "shoulder_pitch_abs_p95_max": 0.32416480779647827,
+    "shoulder_roll_abs_p95_max": 0.04000559821724892,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.2712383107529102,
+    "linErrorRms": 0.38356375073381377,
+    "linErrorP95": 0.8581600785255432,
+    "yawErrorMean": 0.1052423976643557,
+    "yawErrorRms": 0.15276490154196476,
+    "yawErrorP95": 0.36008718609809875,
+    "tilt_mean": 0.039894098288134734,
+    "tilt_rms": 0.04527879398082665,
+    "tilt_p95": 0.07792388647794724,
+    "tilt_max": 0.12346246093511581,
+    "base_ang_vel_xy_rms": 0.43745177558986503,
+    "shoulder_pitch_abs_p95": 0.20503336191177368,
+    "shoulder_roll_abs_p95": 0.04000357165932655,
+    "left_shoulder_pitch_mean": -0.03514322631960787,
+    "left_shoulder_roll_mean": -0.036971141054648264,
+    "right_shoulder_pitch_mean": -0.009629132323096609,
+    "right_shoulder_roll_mean": 0.03719688122803024,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_night_b_source400_eval/shoulder4_night_b_source400_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_night_b_source400_eval/shoulder4_night_b_source400_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_night_b_source400_eval/shoulder4_night_b_source400_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_night_b_source400_eval/shoulder4_night_b_source400_random_eval.json"
+  },
+  "created_at": "2026-05-11-09-14-16"
+}

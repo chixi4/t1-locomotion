@@ -1,0 +1,1 @@
+{"label":"upper9_camera_stable_openleg18_legresidual_balancecap300","task":"T1Upper9CameraStableOfficialOpenLeg18LegResidualBalanceCap_train300","run_dir":"logs/2026-05-14-14-07-34","checkpoint":"logs/2026-05-14-14-07-34/nn/model_300.pth","completed_at":"2026-05-14 14:48:18"}

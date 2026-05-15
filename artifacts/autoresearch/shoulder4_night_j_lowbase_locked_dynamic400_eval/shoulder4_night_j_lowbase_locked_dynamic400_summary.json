@@ -1,0 +1,36 @@
+{
+  "label": "shoulder4_night_j_lowbase_locked_dynamic400",
+  "checkpoint": "logs/2026-05-12-14-06-21/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": null,
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.2713374375939321,
+    "linErrorRms": 0.3820891688583664,
+    "linErrorP95": 0.8502572178840637,
+    "yawErrorMean": 0.10374711623505674,
+    "yawErrorRms": 0.15106545058333187,
+    "yawErrorP95": 0.3552626371383667,
+    "tilt_mean": 0.04053858667796734,
+    "tilt_rms": 0.04587734703265377,
+    "tilt_p95": 0.07891818135976791,
+    "tilt_max": 0.12087250500917435,
+    "base_ang_vel_xy_rms": 0.43732478400775887,
+    "shoulder_pitch_abs_p95": 0.3003365397453308,
+    "shoulder_roll_abs_p95": 0.09013219177722931,
+    "left_shoulder_pitch_mean": -0.13355112684508766,
+    "left_shoulder_roll_mean": 0.008917363136743097,
+    "right_shoulder_pitch_mean": -0.1863504214926446,
+    "right_shoulder_roll_mean": -0.010959295776941755,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_night_j_lowbase_locked_dynamic400_eval/shoulder4_night_j_lowbase_locked_dynamic400_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_night_j_lowbase_locked_dynamic400_eval/shoulder4_night_j_lowbase_locked_dynamic400_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_night_j_lowbase_locked_dynamic400_eval/shoulder4_night_j_lowbase_locked_dynamic400_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_night_j_lowbase_locked_dynamic400_eval/shoulder4_night_j_lowbase_locked_dynamic400_random_eval.json"
+  },
+  "created_at": "2026-05-12-15-21-26"
+}

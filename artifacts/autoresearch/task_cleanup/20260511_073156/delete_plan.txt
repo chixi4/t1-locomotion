@@ -1,0 +1,49 @@
+﻿Tasks deleted by cleanup on 2026-05-11T07:32:03.4495813+08:00
+Reason: prevent old one-shot T1/Gemma jobs from re-triggering and colliding with current Night5 training.
+
+\Gemma4 vLLM Watchdog
+\GemmaContextProbe
+\GemmaContextRefine
+\GemmaContextSingle
+\GemmaGridHigh
+\GemmaGridRefine15
+\GemmaSleepTest
+\T1Shoulder4GaitPhaseSoft500
+\T1Shoulder4GaitPhaseSwing400
+\T1Shoulder4LateralOutward400_20260510
+\T1Shoulder4LateralOutwardAsymRoll400_20260510
+\T1Shoulder4LateralOutwardLightFoot400_20260510
+\T1Shoulder4LateralOutwardNoSwayStatic400_20260510
+\T1Shoulder4LateralOutwardSignFix400_20260510
+\T1Shoulder4Night5_400_20260510
+\T1Shoulder4SignFixAmp2StaticDown400_20260509
+\T1Shoulder4SignFixDown80_20260509
+\T1Shoulder4SoftLimitBalanced500
+\T1Shoulder4SwayMin6144
+\T1Shoulder4SwayMinScratch5000OfficialStyle
+\T1Shoulder4SymFix400
+\T1Shoulder4SymFixFoot2Norm400_20260509
+\T1Shoulder4WaistThenNoWaist1000_20260510
+deleted \Gemma4 vLLM Watchdog
+deleted \GemmaContextProbe
+deleted \GemmaContextRefine
+deleted \GemmaContextSingle
+deleted \GemmaGridHigh
+deleted \GemmaGridRefine15
+deleted \GemmaSleepTest
+deleted \T1Shoulder4GaitPhaseSoft500
+deleted \T1Shoulder4GaitPhaseSwing400
+deleted \T1Shoulder4LateralOutward400_20260510
+deleted \T1Shoulder4LateralOutwardAsymRoll400_20260510
+deleted \T1Shoulder4LateralOutwardLightFoot400_20260510
+deleted \T1Shoulder4LateralOutwardNoSwayStatic400_20260510
+deleted \T1Shoulder4LateralOutwardSignFix400_20260510
+deleted \T1Shoulder4Night5_400_20260510
+deleted \T1Shoulder4SignFixAmp2StaticDown400_20260509
+deleted \T1Shoulder4SignFixDown80_20260509
+deleted \T1Shoulder4SoftLimitBalanced500
+deleted \T1Shoulder4SwayMin6144
+deleted \T1Shoulder4SwayMinScratch5000OfficialStyle
+deleted \T1Shoulder4SymFix400
+deleted \T1Shoulder4SymFixFoot2Norm400_20260509
+deleted \T1Shoulder4WaistThenNoWaist1000_20260510

@@ -1,0 +1,19 @@
+START 2026-05-07 23:59:01 RUN_ID=T1Shoulder4Pitch09Roll08_train1000_env32768_20260507_0920_winproc_e
+*** Warning: failed to preload CUDA lib
+*** Warning: failed to preload PhysX libs
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
+/buildAgent/work/99bede84aa0a52c2/source/physx/src/gpu/PxPhysXGpuModuleLoader.cpp (148) : internal error : libcuda.so!
+
+[Warning] [carb.gym.plugin] Failed to create a PhysX CUDA Context Manager. Falling back to CPU.
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled

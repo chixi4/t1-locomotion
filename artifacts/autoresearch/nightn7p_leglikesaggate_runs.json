@@ -1,0 +1,16 @@
+{
+  "label": "shoulder4_night_n7p_sideamp_leglikesaggate300",
+  "display_name": "T1Shoulder4 NightN7P SideAmp LegLikeSagGate model_300",
+  "task": "T1Shoulder4GaitPhaseNightN7PSideAmpLegLikeSagGate_from7000LegFrozen_train300",
+  "base_task": "T1Shoulder4GaitPhaseNightN7PitchBoostSideAmpLegLikeClean_from7000LegFrozen_train300",
+  "base_arm_checkpoint": "logs/2026-05-13-10-37-59/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "created_at": "2026-05-13T05:30:21+00:00",
+  "hypothesis": "Forward/backward pitch swing disappeared because LegLikeClean weakened dynamic pitch target and left static same-pitch residual active during sagittal commands.",
+  "changes": {
+    "shoulder_dynamic_target": "-2.0 -> -4.0",
+    "shoulder_static_residual_sagittal_gate": "false/default -> true for this task",
+    "warm_start": "SideAmp model_300, reset optimizer",
+    "kept_from_leglikeclean": "30s episode, 8-12s command resampling, direct survival/tracking rewards at zero"
+  }
+}

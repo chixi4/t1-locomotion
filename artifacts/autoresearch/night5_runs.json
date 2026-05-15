@@ -1,0 +1,143 @@
+[
+  {
+    "code": "a",
+    "task": "T1Shoulder4GaitPhaseNightASmall_from7000LegFrozen_train400",
+    "label": "shoulder4_night_a_small400",
+    "display": "T1Shoulder4 NightA SmallFix model_400",
+    "urdf": "T1_locomotion_shoulder4_night_a_small_limit.urdf",
+    "command": "Night A 小改版：静止 pitch -0.12，侧移 pitch -0.08，轻微收紧内收 roll 限位，侧移展开保持温和。",
+    "note": "Small conservative fix: lower still pitch modestly, keep lateral pitch only slightly down, mildly tighten inward roll target/hard limits, and keep lateral opening close to current settings.",
+    "params": {
+      "shoulder_low_speed_down_pitch": -0.12,
+      "shoulder_lateral_down_pitch": -0.08,
+      "shoulder_lateral_roll_amp": 0.1,
+      "shoulder_lateral_roll_extra_amp": 0.2,
+      "shoulder_lateral_roll_max": 0.3,
+      "shoulder_roll_inward_extra_penalty": 0.0
+    },
+    "clips": {
+      "Left_Shoulder_Roll": [
+        -0.08,
+        0.3
+      ],
+      "Right_Shoulder_Roll": [
+        -0.3,
+        0.08
+      ]
+    }
+  },
+  {
+    "code": "b",
+    "task": "T1Shoulder4GaitPhaseNightBSource_from7000LegFrozen_train400",
+    "label": "shoulder4_night_b_source400",
+    "display": "T1Shoulder4 NightB SourceFix model_400",
+    "urdf": "T1_locomotion_shoulder4_night_b_source_limit.urdf",
+    "command": "Night B 中改有效版：静止 pitch -0.20，侧移 pitch -0.14，堵住内收作弊，侧移展开到约 20 度上限。",
+    "note": "Main source-fix candidate: explicit down pitch for still/lateral commands, strong asymmetric inward roll clamp, and a moderate outward lateral target.",
+    "params": {
+      "shoulder_low_speed_down_pitch": -0.2,
+      "shoulder_lateral_down_pitch": -0.14,
+      "shoulder_lateral_roll_amp": 0.13,
+      "shoulder_lateral_roll_extra_amp": 0.22,
+      "shoulder_lateral_roll_max": 0.35,
+      "shoulder_roll_inward_extra_penalty": 0.0
+    },
+    "clips": {
+      "Left_Shoulder_Roll": [
+        -0.04,
+        0.35
+      ],
+      "Right_Shoulder_Roll": [
+        -0.35,
+        0.04
+      ]
+    }
+  },
+  {
+    "code": "c",
+    "task": "T1Shoulder4GaitPhaseNightCMirrorLike_from7000LegFrozen_train400",
+    "label": "shoulder4_night_c_mirrorlike400",
+    "display": "T1Shoulder4 NightC MirrorLike model_400",
+    "urdf": "T1_locomotion_shoulder4_night_c_mirrorlike_limit.urdf",
+    "command": "Night C 复刻 RollMirrorIn15 观感：小外展、小额外侧脚影响、几乎禁止内收，目标接近用户满意的轻微外展姿态。",
+    "note": "MirrorIn15-inspired visual target: small outward roll, small foot extra, very tight inward roll permission, and down pitch close to the accepted visual posture.",
+    "params": {
+      "shoulder_low_speed_down_pitch": -0.18,
+      "shoulder_lateral_down_pitch": -0.12,
+      "shoulder_lateral_roll_amp": 0.08,
+      "shoulder_lateral_roll_extra_amp": 0.08,
+      "shoulder_lateral_roll_max": 0.22,
+      "shoulder_roll_soft_limit": 0.22,
+      "shoulder_roll_inward_extra_penalty": 0.0
+    },
+    "clips": {
+      "Left_Shoulder_Roll": [
+        -0.02,
+        0.25
+      ],
+      "Right_Shoulder_Roll": [
+        -0.25,
+        0.02
+      ]
+    }
+  },
+  {
+    "code": "d",
+    "task": "T1Shoulder4GaitPhaseNightDSurface_from7000LegFrozen_train400",
+    "label": "shoulder4_night_d_surface400",
+    "display": "T1Shoulder4 NightD SurfaceStop model_400",
+    "urdf": "T1_locomotion_shoulder4_night_d_surface_limit.urdf",
+    "command": "Night D 表面止血版：直接禁止内收、降低 pitch 摆幅和软限位，尽量让手别穿腿，可能更僵。",
+    "note": "Surface-level stopgap: hard-block inward roll, reduce sagittal pitch amplitude and soft limit, and force a visibly lower arm posture.",
+    "params": {
+      "shoulder_low_speed_down_pitch": -0.22,
+      "shoulder_lateral_down_pitch": -0.18,
+      "shoulder_pitch_soft_limit": 0.3,
+      "shoulder_foot_phase_pitch_amp": 0.55,
+      "shoulder_lateral_roll_amp": 0.12,
+      "shoulder_lateral_roll_extra_amp": 0.18,
+      "shoulder_lateral_roll_max": 0.3,
+      "shoulder_roll_inward_extra_penalty": 0.0
+    },
+    "clips": {
+      "Left_Shoulder_Roll": [
+        0.0,
+        0.3
+      ],
+      "Right_Shoulder_Roll": [
+        -0.3,
+        0.0
+      ]
+    }
+  },
+  {
+    "code": "e",
+    "task": "T1Shoulder4GaitPhaseNightEInwardPenalty_from7000LegFrozen_train400",
+    "label": "shoulder4_night_e_inwardpenalty400",
+    "display": "T1Shoulder4 NightE InwardPenalty model_400",
+    "urdf": "T1_locomotion_shoulder4_night_e_inwardpenalty_limit.urdf",
+    "command": "Night E 根源/天马行空版：保留一点内收自由，但对内收方向 roll 额外 3x 惩罚，让策略自己学外展而不是夹臂稳定。",
+    "note": "Root-cause candidate: add configurable inward-roll penalty, reduce generic shoulder_roll weight, preserve some inward freedom, and strengthen lateral foot-conditioned opening.",
+    "params": {
+      "shoulder_low_speed_down_pitch": -0.2,
+      "shoulder_lateral_down_pitch": -0.14,
+      "shoulder_lateral_roll_amp": 0.11,
+      "shoulder_lateral_roll_extra_amp": 0.24,
+      "shoulder_lateral_roll_max": 0.36,
+      "shoulder_lateral_roll_outward": -1.6,
+      "shoulder_roll": -1.0,
+      "shoulder_roll_soft_limit": 0.34,
+      "shoulder_roll_inward_extra_penalty": 3.0
+    },
+    "clips": {
+      "Left_Shoulder_Roll": [
+        -0.06,
+        0.36
+      ],
+      "Right_Shoulder_Roll": [
+        -0.36,
+        0.06
+      ]
+    }
+  }
+]

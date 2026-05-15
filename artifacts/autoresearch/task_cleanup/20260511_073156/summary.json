@@ -1,0 +1,30 @@
+﻿{
+    "SnapshotDir":  "C:\\Users\\Administrator\\Documents\\dev\\official_baselines\\booster_gym_official\\artifacts\\autoresearch\\task_cleanup\\20260511_073156",
+    "DeletedTaskCount":  23,
+    "DeletedTasks":  [
+                         "\\Gemma4 vLLM Watchdog",
+                         "\\GemmaContextProbe",
+                         "\\GemmaContextRefine",
+                         "\\GemmaContextSingle",
+                         "\\GemmaGridHigh",
+                         "\\GemmaGridRefine15",
+                         "\\GemmaSleepTest",
+                         "\\T1Shoulder4GaitPhaseSoft500",
+                         "\\T1Shoulder4GaitPhaseSwing400",
+                         "\\T1Shoulder4LateralOutward400_20260510",
+                         "\\T1Shoulder4LateralOutwardAsymRoll400_20260510",
+                         "\\T1Shoulder4LateralOutwardLightFoot400_20260510",
+                         "\\T1Shoulder4LateralOutwardNoSwayStatic400_20260510",
+                         "\\T1Shoulder4LateralOutwardSignFix400_20260510",
+                         "\\T1Shoulder4Night5_400_20260510",
+                         "\\T1Shoulder4SignFixAmp2StaticDown400_20260509",
+                         "\\T1Shoulder4SignFixDown80_20260509",
+                         "\\T1Shoulder4SoftLimitBalanced500",
+                         "\\T1Shoulder4SwayMin6144",
+                         "\\T1Shoulder4SwayMinScratch5000OfficialStyle",
+                         "\\T1Shoulder4SymFix400",
+                         "\\T1Shoulder4SymFixFoot2Norm400_20260509",
+                         "\\T1Shoulder4WaistThenNoWaist1000_20260510"
+                     ],
+    "CreatedAt":  "2026-05-11T07:32:30.4818434+08:00"
+}

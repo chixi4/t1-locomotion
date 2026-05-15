@@ -1,0 +1,6 @@
+@echo off
+set TASK=T1Shoulder4SymFixFoot2Norm400_20260509
+set SCRIPT=/mnt/c/Users/Administrator/Documents/dev/official_baselines/booster_gym_official/artifacts/autoresearch/run_symfix_foot2_norm400_full_auto.sh
+
+schtasks /Create /TN "%TASK%" /SC ONCE /ST 23:59 /TR "C:\Windows\System32\wsl.exe -e bash %SCRIPT%" /F /RL HIGHEST
+schtasks /Run /TN "%TASK%"

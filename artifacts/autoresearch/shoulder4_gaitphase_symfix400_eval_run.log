@@ -1,0 +1,54 @@
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Creating fixed eval env envs=256
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Fixed eval DOFs ['Left_Hip_Pitch', 'Left_Hip_Roll', 'Left_Hip_Yaw', 'Left_Knee_Pitch', 'Left_Ankle_Pitch', 'Left_Ankle_Roll', 'Left_Shoulder_Pitch', 'Left_Shoulder_Roll', 'Right_Hip_Pitch', 'Right_Hip_Roll', 'Right_Hip_Yaw', 'Right_Knee_Pitch', 'Right_Ankle_Pitch', 'Right_Ankle_Roll', 'Right_Shoulder_Pitch', 'Right_Shoulder_Roll']
+Fixed eval bodies ['Trunk', 'Hip_Pitch_Left', 'Hip_Roll_Left', 'Hip_Yaw_Left', 'Shank_Left', 'Ankle_Cross_Left', 'left_foot_link', 'AL1', 'AL2', 'Hip_Pitch_Right', 'Hip_Roll_Right', 'Hip_Yaw_Right', 'Shank_Right', 'Ankle_Cross_Right', 'right_foot_link', 'AR1', 'AR2']
+stand                    xy=0.001 yaw=0.004 tilt=0.0362/0.0580 reset=0.000 sat=0.0000
+forward_0.5              xy=0.060 yaw=0.037 tilt=0.0313/0.0622 reset=0.000 sat=0.0000
+forward_1.0              xy=0.087 yaw=0.039 tilt=0.0418/0.0899 reset=0.000 sat=0.0000
+forward_1.5              xy=0.218 yaw=0.063 tilt=0.0546/0.1245 reset=0.000 sat=0.0000
+backward_0.5             xy=0.081 yaw=0.046 tilt=0.0361/0.0655 reset=0.000 sat=0.0000
+backward_1.0             xy=0.089 yaw=0.040 tilt=0.0560/0.1222 reset=0.000 sat=0.0000
+backward_1.5             xy=0.194 yaw=0.080 tilt=0.0705/0.1496 reset=0.000 sat=0.0000
+left_0.5                 xy=0.084 yaw=0.044 tilt=0.0260/0.0696 reset=0.000 sat=0.0000
+left_1.0                 xy=0.212 yaw=0.036 tilt=0.0319/0.0656 reset=0.000 sat=0.0000
+left_1.5                 xy=0.528 yaw=0.091 tilt=0.0469/0.0799 reset=0.000 sat=0.0000
+right_0.5                xy=0.085 yaw=0.035 tilt=0.0272/0.0518 reset=0.000 sat=0.0000
+right_1.0                xy=0.215 yaw=0.057 tilt=0.0438/0.1043 reset=0.000 sat=0.0000
+right_1.5                xy=0.534 yaw=0.125 tilt=0.0527/0.1217 reset=0.000 sat=0.0000
+diag_fl_1.0              xy=0.094 yaw=0.072 tilt=0.0449/0.1111 reset=0.000 sat=0.0000
+diag_fr_1.0              xy=0.093 yaw=0.047 tilt=0.0436/0.0858 reset=0.000 sat=0.0000
+diag_bl_1.0              xy=0.135 yaw=0.038 tilt=0.0401/0.0744 reset=0.000 sat=0.0000
+diag_br_1.0              xy=0.120 yaw=0.056 tilt=0.0491/0.0991 reset=0.000 sat=0.0000
+diag_fl_1.5              xy=0.298 yaw=0.092 tilt=0.0590/0.1438 reset=0.000 sat=0.0000
+diag_fr_1.5              xy=0.286 yaw=0.110 tilt=0.0586/0.1198 reset=0.000 sat=0.0000
+diag_bl_1.5              xy=0.300 yaw=0.105 tilt=0.0566/0.1090 reset=0.000 sat=0.0000
+diag_br_1.5              xy=0.337 yaw=0.080 tilt=0.0650/0.1270 reset=0.000 sat=0.0000
+yaw_l_0.75               xy=0.085 yaw=0.072 tilt=0.0229/0.0570 reset=0.000 sat=0.0000
+yaw_l_1.5                xy=0.089 yaw=0.088 tilt=0.0254/0.0564 reset=0.000 sat=0.0000
+yaw_r_0.75               xy=0.081 yaw=0.044 tilt=0.0293/0.0634 reset=0.000 sat=0.0000
+yaw_r_1.5                xy=0.112 yaw=0.070 tilt=0.0330/0.0703 reset=0.000 sat=0.0000
+fwd1.0_yaw_l0.75         xy=0.102 yaw=0.069 tilt=0.0551/0.1128 reset=0.000 sat=0.0000
+fwd1.0_yaw_r0.75         xy=0.077 yaw=0.055 tilt=0.0398/0.0758 reset=0.000 sat=0.0000
+left1.0_yaw_l0.75        xy=0.250 yaw=0.052 tilt=0.0413/0.0866 reset=0.000 sat=0.0000
+right1.0_yaw_r0.75       xy=0.269 yaw=0.065 tilt=0.0471/0.1030 reset=0.000 sat=0.0000
+diag_fl1.0_yaw_l0.75     xy=0.124 yaw=0.086 tilt=0.0601/0.1183 reset=0.000 sat=0.0000
+diag_br1.0_yaw_r0.75     xy=0.123 yaw=0.079 tilt=0.0534/0.1161 reset=0.000 sat=0.0000
+Creating random replay env
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+/buildAgent/work/99bede84aa0a52c2/source/foundation/FdFoundation.cpp (166) : invalid operation : Foundation object exists already. Only one instance per process can be created.
+

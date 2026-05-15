@@ -1,0 +1,17 @@
+[
+  {
+    "code": "n7ps",
+    "task": "T1Shoulder4GaitPhaseNightN7PitchBoostSideAmpConservative_from7000LegFrozen_train300",
+    "label": "shoulder4_night_n7_pitchboost_sideamp300",
+    "display": "T1Shoulder4 NightN7 PitchBoost SideAmp model_300",
+    "command": "Night N7 PitchBoost SideAmp Conservative：完全保留 N7P 的前后摆手和 roll 零基础，只把侧移动态外展 extra_amp 从 0.38 提到 0.46、roll_max 从 0.30 提到 0.34、dynamic_min_outward 从 0.08 提到 0.10。",
+    "note": "Conservative side-lift-only tune based on N7P. shoulder_dynamic_roll_base_amp remains 0.0; pitch amp remains 0.84.",
+    "params": {
+      "shoulder_dynamic_pitch_amp": 0.84,
+      "shoulder_dynamic_roll_base_amp": 0.0,
+      "shoulder_dynamic_roll_extra_amp": 0.46,
+      "shoulder_dynamic_roll_max": 0.34,
+      "shoulder_boundary_dynamic_min_outward": 0.10
+    }
+  }
+]

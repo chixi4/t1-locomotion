@@ -1,0 +1,79 @@
+START random 2026-05-13 19:06:04 label=shoulder4_kinematic_scratch_vellegopp300
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Creating random replay env
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+random replay progress 0/3000 (0%)
+random replay progress 150/3000 (5%)
+random replay progress 300/3000 (10%)
+random replay progress 450/3000 (15%)
+random replay progress 600/3000 (20%)
+random replay progress 750/3000 (25%)
+random replay progress 900/3000 (30%)
+random replay progress 1050/3000 (35%)
+random replay progress 1200/3000 (40%)
+random replay progress 1350/3000 (45%)
+random replay progress 1500/3000 (50%)
+random replay progress 1650/3000 (55%)
+random replay progress 1800/3000 (60%)
+random replay progress 1950/3000 (65%)
+random replay progress 2100/3000 (70%)
+random replay progress 2250/3000 (75%)
+random replay progress 2400/3000 (80%)
+random replay progress 2550/3000 (85%)
+random replay progress 2700/3000 (90%)
+random replay progress 2850/3000 (95%)
+random replay progress 3000/3000 (100%)
+{
+  "label": "shoulder4_kinematic_scratch_vellegopp300",
+  "checkpoint": "logs/2026-05-13-18-25-49/nn/model_300.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": null,
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.27078555298021767,
+    "linErrorRms": 0.38265847933434294,
+    "linErrorP95": 0.8499525189399719,
+    "yawErrorMean": 0.11196436868924578,
+    "yawErrorRms": 0.15919163778111556,
+    "yawErrorP95": 0.36475443840026855,
+    "tilt_mean": 0.04005247953107002,
+    "tilt_rms": 0.045339205151836294,
+    "tilt_p95": 0.07775605469942093,
+    "tilt_max": 0.12241660803556442,
+    "base_ang_vel_xy_rms": 0.4315722015683818,
+    "shoulder_pitch_abs_p95": 0.34111669659614563,
+    "shoulder_roll_abs_p95": 0.21489951014518738,
+    "left_shoulder_pitch_mean": 0.10168370801393958,
+    "left_shoulder_roll_mean": 0.041456730582064553,
+    "right_shoulder_pitch_mean": -0.09014208702640612,
+    "right_shoulder_roll_mean": -0.01975999082631571,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_kinematic_scratch_vellegopp300_eval/shoulder4_kinematic_scratch_vellegopp300_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_kinematic_scratch_vellegopp300_eval/shoulder4_kinematic_scratch_vellegopp300_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_kinematic_scratch_vellegopp300_eval/shoulder4_kinematic_scratch_vellegopp300_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_kinematic_scratch_vellegopp300_eval/shoulder4_kinematic_scratch_vellegopp300_random_eval.json"
+  },
+  "created_at": "2026-05-13-19-10-03"
+}
+DONE random 2026-05-13 19:10:05 label=shoulder4_kinematic_scratch_vellegopp300 elapsed=241s

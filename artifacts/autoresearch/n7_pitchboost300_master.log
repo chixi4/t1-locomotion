@@ -1,0 +1,8 @@
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PRECHECK python=/opt/conda/bin/python3
+==== NIGHTN 7WAY START 2026-05-13 08:57:53 order=n7p ====
+==== RUN 1/1 code=n7p label=shoulder4_night_n7_pitchboost300 2026-05-13 08:57:53 ====
+START run code=n7p label=shoulder4_night_n7_pitchboost300 task=T1Shoulder4GaitPhaseNightN7PitchBoost_from7000LegFrozen_train300 2026-05-13 08:57:54
+CONFIG train_num_envs=28672 train_max_iterations=300 final_iter=300 eval_num_envs=256
+==== START train 2026-05-13 08:57:54 label=shoulder4_night_n7_pitchboost300 ====

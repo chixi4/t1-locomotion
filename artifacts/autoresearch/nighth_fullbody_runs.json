@@ -1,0 +1,11 @@
+[
+  {
+    "code": "scratch5000",
+    "task": "T1Shoulder4NightHFullBodyGrid15Scratch_train5000",
+    "label": "shoulder4_nighth_fullbody_grid15_scratch5000",
+    "display": "T1Shoulder4 NightH FullBody Grid15 Scratch model_5000",
+    "urdf": "T1_locomotion_shoulder4_night_h_no_inward_limit.urdf",
+    "command": "从零训练 16D 全身策略；腿部使用 T1CircleGridFace6Tight15 的 grid3d_circle 1.5m/s、face6 逐格解锁课程；肩部融合 NightH NoInwardBoundary：roll target_clip/URDF 禁止内收，侧移时最小外展 margin，静止/低速保持 NightB 风格下垂 pitch。",
+    "note": "Full-body scratch fusion of the model_7000 leg curriculum and NightH no-inward shoulder rewards; no frozen leg checkpoint, no allowed-mask checkpoint, center-to-full face6 unlock."
+  }
+]

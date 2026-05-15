@@ -1,0 +1,50 @@
+{
+  "label": "shoulder4_night_g_bbase_side_delta400",
+  "checkpoint": "logs/2026-05-11-18-41-53/nn/model_400.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.17075794251293153,
+    "mean_yaw_err": 0.07101231673585273,
+    "mean_speed_ratio": 0.8700172164042791,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.04407782265552286,
+    "max_tilt": 0.15341149270534515,
+    "tilt_rms_mean": 0.049075178574829736,
+    "tilt_p95_mean": 0.07758564994700494,
+    "base_ang_vel_xy_rms_mean": 0.5194369532585158,
+    "shoulder_pitch_abs_p95_max": 0.27109119296073914,
+    "shoulder_roll_abs_p95_max": 0.04000562056899071,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.27128732153728347,
+    "linErrorRms": 0.3832352419348842,
+    "linErrorP95": 0.8552857041358948,
+    "yawErrorMean": 0.10366493091420752,
+    "yawErrorRms": 0.15144138499811033,
+    "yawErrorP95": 0.35554420948028564,
+    "tilt_mean": 0.040186786831774075,
+    "tilt_rms": 0.04568924878299138,
+    "tilt_p95": 0.07840444892644882,
+    "tilt_max": 0.128554105758667,
+    "base_ang_vel_xy_rms": 0.43891176326552817,
+    "shoulder_pitch_abs_p95": 0.16181686520576477,
+    "shoulder_roll_abs_p95": 0.040003702044487,
+    "left_shoulder_pitch_mean": -0.02538468508784741,
+    "left_shoulder_roll_mean": -0.03426998198668147,
+    "right_shoulder_pitch_mean": -0.013831323828296795,
+    "right_shoulder_roll_mean": 0.03710136617855008,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_night_g_bbase_side_delta400_eval/shoulder4_night_g_bbase_side_delta400_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_night_g_bbase_side_delta400_eval/shoulder4_night_g_bbase_side_delta400_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_night_g_bbase_side_delta400_eval/shoulder4_night_g_bbase_side_delta400_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_night_g_bbase_side_delta400_eval/shoulder4_night_g_bbase_side_delta400_random_eval.json"
+  },
+  "created_at": "2026-05-11-20-14-19"
+}

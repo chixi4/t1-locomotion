@@ -1,0 +1,7 @@
+2026-05-02T11:52:23+08:00	stopped_4096_early	stopped at ~epoch 56 before first checkpoint to benchmark higher-throughput env counts; logs preserved
+2026-05-02T12:12:36+08:00	official_high_throughput_choice	num_envs=28672 based on short benchmark: 28672 ~32164 transitions/s, 24576 ~31965, 30720 ~31874, 32768/40960 hit PhysX 64K material limit
+2026-05-02T12:15:51+08:00	official_highthroughput_restart	restarting 28672 envs after previous rc=143 killed by benchmark cleanup; killed log preserved as .killed143
+2026-05-13T11:46:38+08:00	shoulder_leglikeclean_start	new frozen-leg shoulder continuation from SideAmp model_300; 30s episodes, 8-12s resampling, direct tracking/survival rewards zeroed; train 300
+2026-05-13T13:30:21+08:00	shoulder_leglikesaggate_start	new LegLikeClean rerun from SideAmp model_300; restore shoulder_dynamic_target=-4.0 and gate static residual by pitch_gate; train 300
+2026-05-13T14:32:19+08:00	shoulder_kinematic_scratch_crossside_start	scratch arms; new continuous kinematic reward; no static posture reward; no arm energy; train 300
+2026-05-13T15:32:07+08:00	shoulder_kinematic_scratch_crossdelta_start	crossside diagnostic lifted both arms; restart scratch with dominant-foot cross-delta roll drive; train 300

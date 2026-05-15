@@ -1,0 +1,71 @@
+==== NIGHTM START 2026-05-12 19:54:27 order=m ====
+==== GPU audit started pid=35 ====
+==== RUN 1/1 code=m label=shoulder4_night_m_zerobase_dynamic300 2026-05-12 19:54:28 ====
++ set -euo pipefail
++ CODE=m
+++ meta_field m task
+++ local code=m
+++ local field=task
+++ python3 - artifacts/autoresearch/nightm_runs.json m task
++ TASK=T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300
+++ meta_field m label
+++ local code=m
+++ local field=label
+++ python3 - artifacts/autoresearch/nightm_runs.json m label
++ LABEL=shoulder4_night_m_zerobase_dynamic300
+++ meta_field m display
+++ local code=m
+++ local field=display
+++ python3 - artifacts/autoresearch/nightm_runs.json m display
++ DISPLAY_NAME='T1Shoulder4 NightM ZeroBaseDynamic model_300'
+++ meta_field m note
+++ local code=m
+++ local field=note
+++ python3 - artifacts/autoresearch/nightm_runs.json m note
++ NOTE='NightM ZeroBaseDynamic: remove constant moving roll baseline, foot-gate the no-lazy outward floor, and increase dynamic foot-delta roll amplitude for side steps.'
+++ meta_field m command
+++ local code=m
+++ local field=command
+++ python3 - artifacts/autoresearch/nightm_runs.json m command
++ COMMAND_TEXT='Night M：把运动时肩 roll 的常量基础外抬归零，只在真实横向脚步差/侧移动态出现时奖励更强侧抬。目标是走路基础关节侧抬接近0°，但侧移伸手峰值不低于 NightL。'
+++ date +%Y%m%d_%H%M%S
++ RUN_ID=T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300_20260512_195428_full_auto
++ TRAIN_LOG=artifacts/autoresearch/T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300_20260512_195428_full_auto.log
++ OUT_DIR=artifacts/autoresearch/shoulder4_night_m_zerobase_dynamic300_eval
++ METRICS_JSON=artifacts/autoresearch/shoulder4_night_m_zerobase_dynamic300_metrics.json
++ WEB_TAR=artifacts/autoresearch/shoulder4_night_m_zerobase_dynamic300_web_inputs.tgz
++ DONE_JSON=artifacts/autoresearch/shoulder4_night_m_zerobase_dynamic300_full_auto_done.json
++ FAIL_JSON=artifacts/autoresearch/shoulder4_night_m_zerobase_dynamic300_full_auto_failed.json
++ rm -f artifacts/autoresearch/shoulder4_night_m_zerobase_dynamic300_web_inputs.tgz artifacts/autoresearch/shoulder4_night_m_zerobase_dynamic300_full_auto_done.json artifacts/autoresearch/shoulder4_night_m_zerobase_dynamic300_full_auto_failed.json
++ tee artifacts/autoresearch/T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300_20260512_195428_full_auto.log
+++ date '+%Y-%m-%d %H:%M:%S'
++ echo 'START run code=m label=shoulder4_night_m_zerobase_dynamic300 task=T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300 2026-05-12 19:54:28'
+START run code=m label=shoulder4_night_m_zerobase_dynamic300 task=T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300 2026-05-12 19:54:28
++ phase_start train
++ PHASE_NAME=train
+++ date +%s
++ PHASE_T0=1778586868
++ tee -a artifacts/autoresearch/T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300_20260512_195428_full_auto.log
+++ date '+%Y-%m-%d %H:%M:%S'
++ echo '==== START train 2026-05-12 19:54:28 label=shoulder4_night_m_zerobase_dynamic300 ===='
+==== START train 2026-05-12 19:54:28 label=shoulder4_night_m_zerobase_dynamic300 ====
++ stdbuf -oL -eL python3 train_shoulder4_frozen.py --task T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300
++ tee -a artifacts/autoresearch/T1Shoulder4GaitPhaseNightMZeroBaseDynamic_from7000LegFrozen_train300_20260512_195428_full_auto.log
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled

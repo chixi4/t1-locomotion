@@ -1,0 +1,154 @@
+[
+  {
+    "code": "n1",
+    "task": "T1Shoulder4GaitPhaseNightN1ZeroSpring_from7000LegFrozen_train300",
+    "label": "shoulder4_night_n1_zerospring300",
+    "display": "T1Shoulder4 NightN1 ZeroSpring model_300",
+    "command": "Night N1：在 NightM 上加回“非侧移 roll 回零弹簧”；侧移时弹簧淡出，脚步动态侧抬保留。目标是先解决一走就抬手。",
+    "note": "Most likely fix: M dynamic target plus lateral-gated shoulder_roll/shoulder_base_roll_target zero spring.",
+    "params": {
+      "shoulder_base_roll_target": -2.2,
+      "shoulder_roll": -1.2,
+      "shoulder_dynamic_target": -4.0,
+      "shoulder_no_lazy_boundary": -1.8,
+      "shoulder_roll_soft_limit": 0.075,
+      "shoulder_roll_lateral_gated": true,
+      "shoulder_boundary_dynamic_min_outward": 0.075
+    }
+  },
+  {
+    "code": "n2",
+    "task": "T1Shoulder4GaitPhaseNightN2LongFootDeadband_from7000LegFrozen_train300",
+    "label": "shoulder4_night_n2_longfoot_deadband300",
+    "display": "T1Shoulder4 NightN2 LongFootDeadband model_300",
+    "command": "Night N2：把脚位触发变“更迟钝但更有力”，小脚位差不抬手，大侧步才抬；用于消掉走路基础抬手。",
+    "note": "Raises foot_norm and extra_amp to create an implicit deadband against ordinary foot-width changes.",
+    "params": {
+      "shoulder_base_roll_target": -1.6,
+      "shoulder_roll": -0.8,
+      "shoulder_dynamic_target": -4.6,
+      "shoulder_no_lazy_boundary": -1.4,
+      "shoulder_roll_soft_limit": 0.08,
+      "shoulder_roll_lateral_gated": true,
+      "shoulder_dynamic_roll_extra_amp": 0.42,
+      "shoulder_dynamic_roll_max": 0.28,
+      "shoulder_dynamic_roll_foot_norm": 0.16,
+      "shoulder_boundary_dynamic_min_outward": 0.04
+    }
+  },
+  {
+    "code": "n3",
+    "task": "T1Shoulder4GaitPhaseNightN3VelocitySpark_from7000LegFrozen_train300",
+    "label": "shoulder4_night_n3_velocity_spark300",
+    "display": "T1Shoulder4 NightN3 VelocitySpark model_300",
+    "command": "Night N3：把侧抬奖励从“脚站到哪”拉一点到“脚正在侧向动”；希望侧抬更有动态感、更少静态常量抬手。",
+    "note": "Reintroduces shoulder_lateral_foot_roll with a modest absolute roll target and keeps zero spring.",
+    "params": {
+      "shoulder_base_roll_target": -2.6,
+      "shoulder_roll": -1.0,
+      "shoulder_lateral_foot_roll": -1.2,
+      "shoulder_dynamic_target": -3.0,
+      "shoulder_no_lazy_boundary": -1.2,
+      "shoulder_roll_soft_limit": 0.08,
+      "shoulder_roll_lateral_gated": true,
+      "shoulder_lateral_roll_amp": 0.14,
+      "shoulder_dynamic_roll_extra_amp": 0.18,
+      "shoulder_dynamic_roll_max": 0.2,
+      "shoulder_dynamic_roll_foot_norm": 0.1,
+      "shoulder_boundary_dynamic_min_outward": 0.02
+    }
+  },
+  {
+    "code": "n4",
+    "task": "T1Shoulder4GaitPhaseNightN4PitchFirst_from7000LegFrozen_train300",
+    "label": "shoulder4_night_n4_pitchfirst300",
+    "display": "T1Shoulder4 NightN4 PitchFirst model_300",
+    "command": "Night N4：按你的思路，前后走主要奖励前后摆臂，侧向走才奖励 roll 侧抬；让两个通道分工。",
+    "note": "Adds gait/foot pitch rewards while preserving lateral-gated roll zero spring.",
+    "params": {
+      "shoulder_base_roll_target": -2.8,
+      "shoulder_roll": -1.2,
+      "shoulder_gait_phase_pitch": -0.9,
+      "shoulder_foot_phase_pitch": -1.0,
+      "shoulder_dynamic_target": -3.4,
+      "shoulder_no_lazy_boundary": -1.6,
+      "shoulder_roll_soft_limit": 0.08,
+      "shoulder_roll_lateral_gated": true,
+      "shoulder_pitch_phase_amp": 0.12,
+      "shoulder_dynamic_pitch_amp": 0.55,
+      "shoulder_dynamic_roll_extra_amp": 0.26,
+      "shoulder_dynamic_roll_max": 0.24,
+      "shoulder_boundary_dynamic_min_outward": 0.06
+    }
+  },
+  {
+    "code": "n5",
+    "task": "T1Shoulder4GaitPhaseNightN5InequalityFloor_from7000LegFrozen_train300",
+    "label": "shoulder4_night_n5_inequality_floor300",
+    "display": "T1Shoulder4 NightN5 InequalityFloor model_300",
+    "command": "Night N5：不再精确追一个侧抬角，而是只在侧步时设“最低外展线”；像过门槛一样，可能更自然也更平滑。",
+    "note": "Strong no-lazy boundary, weaker dynamic target; tests inequality-style lateral reach.",
+    "params": {
+      "shoulder_base_roll_target": -2.8,
+      "shoulder_roll": -1.0,
+      "shoulder_dynamic_target": -2.2,
+      "shoulder_no_lazy_boundary": -3.6,
+      "shoulder_roll_soft_limit": 0.08,
+      "shoulder_roll_lateral_gated": true,
+      "shoulder_dynamic_roll_extra_amp": 0.34,
+      "shoulder_dynamic_roll_max": 0.3,
+      "shoulder_dynamic_roll_foot_norm": 0.075,
+      "shoulder_boundary_dynamic_min_outward": 0.12,
+      "shoulder_boundary_roll_short_weight": 3.0,
+      "shoulder_boundary_roll_soft_limit": 0.26
+    }
+  },
+  {
+    "code": "n6",
+    "task": "T1Shoulder4GaitPhaseNightN6SmoothServo_from7000LegFrozen_train300",
+    "label": "shoulder4_night_n6_smooth_servo300",
+    "display": "T1Shoulder4 NightN6 SmoothServo model_300",
+    "command": "Night N6：侧抬目标还在，但给手臂速度/动作变化更高价格；专门赌“丝滑程度”会变好。",
+    "note": "Smoothness-heavy run with moderate zero spring and higher action/dof velocity penalties.",
+    "params": {
+      "shoulder_base_roll_target": -2.0,
+      "shoulder_roll": -0.8,
+      "shoulder_dynamic_target": -3.8,
+      "shoulder_no_lazy_boundary": -1.4,
+      "arm_action_rate": -0.095,
+      "arm_dof_vel": -0.00055,
+      "arm_power": -0.00045,
+      "shoulder_roll_soft_limit": 0.08,
+      "shoulder_roll_lateral_gated": true,
+      "shoulder_dynamic_roll_extra_amp": 0.32,
+      "shoulder_dynamic_roll_max": 0.26,
+      "shoulder_dynamic_roll_foot_norm": 0.1,
+      "shoulder_boundary_dynamic_min_outward": 0.07,
+      "shoulder_balance_action_rate_weight": 0.35
+    }
+  },
+  {
+    "code": "n7",
+    "task": "T1Shoulder4GaitPhaseNightN7DiagonalDecoupler_from7000LegFrozen_train300",
+    "label": "shoulder4_night_n7_diagonal_decoupler300",
+    "display": "T1Shoulder4 NightN7 DiagonalDecoupler model_300",
+    "command": "Night N7：把前进/转弯和侧移的门控切得更开，尤其防止斜走时 roll 基础抬起来。",
+    "note": "Gate-decoupling run with delayed motion gate, low yaw mixing, strong zero spring, and strong lateral extra.",
+    "params": {
+      "shoulder_base_roll_target": -3.2,
+      "shoulder_roll": -1.5,
+      "shoulder_dynamic_target": -4.0,
+      "shoulder_no_lazy_boundary": -1.8,
+      "shoulder_roll_soft_limit": 0.075,
+      "shoulder_roll_lateral_gated": true,
+      "shoulder_mix_yaw_weight": 0.1,
+      "shoulder_motion_gate_start": 0.12,
+      "shoulder_motion_gate_full": 0.85,
+      "shoulder_static_off": 0.12,
+      "shoulder_dynamic_roll_extra_amp": 0.38,
+      "shoulder_dynamic_roll_max": 0.3,
+      "shoulder_dynamic_roll_foot_norm": 0.07,
+      "shoulder_boundary_dynamic_min_outward": 0.08
+    }
+  }
+]

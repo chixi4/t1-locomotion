@@ -34,7 +34,6 @@ algorithm:
   bound_coef: 1.0
   entropy_coef: -0.01
   symmetric_coef: 10.
-  mirror_loss_coef: 0.1
   desired_kl: 0.01
 
 sim:

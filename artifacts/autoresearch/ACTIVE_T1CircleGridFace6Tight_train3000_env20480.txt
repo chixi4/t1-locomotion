@@ -1,0 +1,6 @@
+session=t1_face6_3000
+log=artifacts/autoresearch/T1CircleGridFace6Tight_train3000_env20480_20260504_215808.log
+script=artifacts/autoresearch/run_T1CircleGridFace6Tight_train3000_env20480_20260504_215808.sh
+start=2026-05-04 21:58:08 CST
+max_iterations=3000
+num_envs=20480

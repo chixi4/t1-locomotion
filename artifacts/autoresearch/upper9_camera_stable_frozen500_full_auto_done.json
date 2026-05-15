@@ -1,0 +1,13 @@
+{
+  "label": "upper9_camera_stable_frozen500",
+  "display_name": "T1 Upper9 CameraStable Frozen model_500",
+  "task": "T1Upper9CameraStableOfficial_from7000LegFrozen_train500",
+  "run_dir": "logs/2026-05-14-23-59-53",
+  "arm_checkpoint": "logs/2026-05-14-23-59-53/nn/model_500.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "eval_dir": "artifacts/autoresearch/upper9_camera_stable_frozen500_eval",
+  "metrics_json": "artifacts/autoresearch/upper9_camera_stable_frozen500_metrics.json",
+  "web_inputs": "artifacts/autoresearch/upper9_camera_stable_frozen500_web_inputs.tgz",
+  "train_log": "artifacts/autoresearch/T1Upper9CameraStableOfficial_from7000LegFrozen_train500_20260514_235905.log",
+  "created_at": "2026-05-14T17:12:44+00:00"
+}

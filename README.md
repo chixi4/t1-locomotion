@@ -12,6 +12,8 @@
 - **`isaaclab_experiments/`**：4 月下旬在 IsaacLab 方向做过的配置、patch 和复盘。它们不是最终路线，但解释了为什么后来切回 Booster Gym。
 - **`motion_retarget/`**：BVH/GMR 到 T1 动作数据的脚本链路，不包含 LAFAN1 原始或衍生数据。
 - **`results/`**：最终 `final_mirror100` 的可追溯评分 JSON。
+- **`AI_CONTEXT.md` / `EXPERIMENT_INDEX.md`**：给新电脑上的 AI 看的入口索引，先读这里再进长文档。
+- **`docs/research/2026-05-fullbody-camera-stable/`**：5 月的上肢与全身协调复盘，从 Night 系列一路写到 `Upper9` 的最终结果。
 
 ## 快速看效果
 
@@ -22,6 +24,15 @@ Release 附件中包含：
 - S0 到 S8 各阶段 checkpoint
 
 解压 Replay Player 后，macOS 双击 `Start-macOS.command`，Windows 双击 `Start-Windows.bat`，即可在浏览器里看 3D WebGL 回放。
+
+## 新路线入口
+
+如果你是想接着理解 5 月这条新路线，而不是只看旧的 S0-S8：
+
+1. 先读 `AI_CONTEXT.md`
+2. 再读 `docs/research/2026-05-fullbody-camera-stable/README.md`
+3. 然后看 `timeline.md`、`experiment_table.tsv` 和 `final_result.md`
+4. 最后回到 `artifacts/autoresearch/` 看对应的摘要、脚本和记录
 
 ## 项目的探索历程
 

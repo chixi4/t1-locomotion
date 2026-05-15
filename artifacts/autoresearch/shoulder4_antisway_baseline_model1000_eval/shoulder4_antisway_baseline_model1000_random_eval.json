@@ -1,0 +1,19 @@
+{
+  "seconds": 60.0,
+  "reset_steps": [],
+  "reset_frac": 0.0,
+  "linErrorMean": 0.27020066117746394,
+  "linErrorRms": 0.3812853966995817,
+  "linErrorP95": 0.8501908183097839,
+  "yawErrorMean": 0.09797483035102326,
+  "yawErrorRms": 0.14648009624930033,
+  "yawErrorP95": 0.35442230105400085,
+  "tilt_mean": 0.04037469800617867,
+  "tilt_rms": 0.045835531113994625,
+  "tilt_p95": 0.07939131557941437,
+  "tilt_max": 0.12333741039037704,
+  "base_ang_vel_xy_rms": 0.44466942060807,
+  "shoulder_pitch_abs_p95": 0.40416237711906433,
+  "shoulder_roll_abs_p95": 0.15806332230567932,
+  "arm_action_saturation_frac": 0.0
+}

@@ -1,0 +1,32 @@
+{
+  "task": "T1Upper9CameraStableOfficial_from7000LegFrozen_train500",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "results": [
+    {
+      "checkpoint": "logs/2026-05-14-08-59-29/nn/model_300.pth",
+      "num_envs": 96,
+      "seconds_per_command": 5.0,
+      "reset_events_per_env": 0.0,
+      "lin_error_mean": 0.21467795637451154,
+      "yaw_error_mean": 0.08308500680870115,
+      "camera_tilt_p95_all": 0.10150698237121106,
+      "camera_tilt_p95_moving": 0.10293266922235489,
+      "camera_ang_xy_rms_moving": 0.5950200955910981,
+      "stand_shoulder_abs_p95": 0.04069000203162432,
+      "stand_elbow_abs_p95": 0.026465922500938176,
+      "stand_waist_abs_p95": 0.03555002026259899,
+      "pitch_abs_p95_sagittal": 0.11831546537578103,
+      "pitch_lr_antisym_corr": 0.9483143839946726,
+      "pitch_left_foot_corr": 0.9368207848993102,
+      "pitch_common_abs_p95": 0.04828909598290919,
+      "side_left_arm_outward_p95_on_right_cmd": 0.19057411178946496,
+      "side_right_arm_outward_p95_on_left_cmd": 0.15000721141695977,
+      "side_outward_abs_p95": 0.16692446991801255,
+      "side_correct_arm_mean": 0.11984810633601488,
+      "elbow_pitch_abs_p95_moving": 0.07837496735155582,
+      "elbow_yaw_abs_p95_moving": 0.03506988976150751,
+      "waist_abs_p95_moving": 0.05925367139279842,
+      "arm_action_saturation_frac": 0.0
+    }
+  ]
+}

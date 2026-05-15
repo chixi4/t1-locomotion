@@ -1,0 +1,86 @@
+{
+  "candidates": [
+    33792,
+    34816,
+    35840
+  ],
+  "results": [
+    {
+      "num_envs": 33792,
+      "iterations_requested": 12,
+      "epochs_completed": 12,
+      "status": "ok",
+      "return_code": 0,
+      "elapsed_s": 160.81024531100002,
+      "mean_epoch_s": 8.406848134000004,
+      "env_steps_per_s": 96469.92393261181,
+      "ppo_iters_per_hour": 428.2223185929147,
+      "gpu": {
+        "gpu_util_avg": 36.35526315789474,
+        "gpu_util_max": 87.0,
+        "memory_used_mb_max": 17692.0,
+        "power_w_avg": 110.19197368421051,
+        "power_w_max": 240.34
+      },
+      "log": "artifacts/autoresearch/pitchroll_env_benchmark/env33792_iters12.log"
+    },
+    {
+      "num_envs": 34816,
+      "iterations_requested": 12,
+      "epochs_completed": 0,
+      "status": "failed",
+      "return_code": -11,
+      "elapsed_s": 79.93947952899998,
+      "mean_epoch_s": null,
+      "env_steps_per_s": null,
+      "ppo_iters_per_hour": null,
+      "gpu": {
+        "gpu_util_avg": 2.486842105263158,
+        "gpu_util_max": 9.0,
+        "memory_used_mb_max": 2226.0,
+        "power_w_avg": 17.924605263157904,
+        "power_w_max": 61.81
+      },
+      "log": "artifacts/autoresearch/pitchroll_env_benchmark/env34816_iters12.log"
+    },
+    {
+      "num_envs": 35840,
+      "iterations_requested": 12,
+      "epochs_completed": 0,
+      "status": "failed",
+      "return_code": -11,
+      "elapsed_s": 81.61119817400004,
+      "mean_epoch_s": null,
+      "env_steps_per_s": null,
+      "ppo_iters_per_hour": null,
+      "gpu": {
+        "gpu_util_avg": 2.7051282051282053,
+        "gpu_util_max": 9.0,
+        "memory_used_mb_max": 2226.0,
+        "power_w_avg": 14.8351282051282,
+        "power_w_max": 57.3
+      },
+      "log": "artifacts/autoresearch/pitchroll_env_benchmark/env35840_iters12.log"
+    }
+  ],
+  "best_by_env_steps_per_s": {
+    "num_envs": 33792,
+    "iterations_requested": 12,
+    "epochs_completed": 12,
+    "status": "ok",
+    "return_code": 0,
+    "elapsed_s": 160.81024531100002,
+    "mean_epoch_s": 8.406848134000004,
+    "env_steps_per_s": 96469.92393261181,
+    "ppo_iters_per_hour": 428.2223185929147,
+    "gpu": {
+      "gpu_util_avg": 36.35526315789474,
+      "gpu_util_max": 87.0,
+      "memory_used_mb_max": 17692.0,
+      "power_w_avg": 110.19197368421051,
+      "power_w_max": 240.34
+    },
+    "log": "artifacts/autoresearch/pitchroll_env_benchmark/env33792_iters12.log"
+  },
+  "created_at": "2026-05-07 08:49:09"
+}

@@ -1,0 +1,206 @@
+START train 2026-05-09 12:03:19 task=T1Shoulder4GaitPhaseSignFixDown_from7000LegFrozen_train80
+Importing module 'gym_38' (/opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /opt/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.0.1+cu118
+Device count 1
+/opt/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu118/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Setting seed: 42
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+/opt/conda/lib/python3.8/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using per-DOF actor mean scale: {'Left_Shoulder_Pitch': 0.75, 'Left_Shoulder_Roll': 0.55, 'Right_Shoulder_Pitch': 0.75, 'Right_Shoulder_Roll': 0.55}
+Loading frozen leg model from logs/2026-05-05-11-09-07/nn/model_4000.pth
+epoch: 1/80 (local 1/80)
+epoch: 2/80 (local 2/80)
+epoch: 3/80 (local 3/80)
+epoch: 4/80 (local 4/80)
+epoch: 5/80 (local 5/80)
+epoch: 6/80 (local 6/80)
+epoch: 7/80 (local 7/80)
+epoch: 8/80 (local 8/80)
+epoch: 9/80 (local 9/80)
+epoch: 10/80 (local 10/80)
+epoch: 11/80 (local 11/80)
+epoch: 12/80 (local 12/80)
+epoch: 13/80 (local 13/80)
+epoch: 14/80 (local 14/80)
+epoch: 15/80 (local 15/80)
+epoch: 16/80 (local 16/80)
+epoch: 17/80 (local 17/80)
+epoch: 18/80 (local 18/80)
+epoch: 19/80 (local 19/80)
+Saving model to logs/2026-05-09-12-04-10/nn/model_20.pth
+epoch: 20/80 (local 20/80)
+epoch: 21/80 (local 21/80)
+epoch: 22/80 (local 22/80)
+epoch: 23/80 (local 23/80)
+epoch: 24/80 (local 24/80)
+epoch: 25/80 (local 25/80)
+epoch: 26/80 (local 26/80)
+epoch: 27/80 (local 27/80)
+epoch: 28/80 (local 28/80)
+epoch: 29/80 (local 29/80)
+epoch: 30/80 (local 30/80)
+epoch: 31/80 (local 31/80)
+epoch: 32/80 (local 32/80)
+epoch: 33/80 (local 33/80)
+epoch: 34/80 (local 34/80)
+epoch: 35/80 (local 35/80)
+epoch: 36/80 (local 36/80)
+epoch: 37/80 (local 37/80)
+epoch: 38/80 (local 38/80)
+epoch: 39/80 (local 39/80)
+Saving model to logs/2026-05-09-12-04-10/nn/model_40.pth
+epoch: 40/80 (local 40/80)
+epoch: 41/80 (local 41/80)
+epoch: 42/80 (local 42/80)
+epoch: 43/80 (local 43/80)
+epoch: 44/80 (local 44/80)
+epoch: 45/80 (local 45/80)
+epoch: 46/80 (local 46/80)
+epoch: 47/80 (local 47/80)
+epoch: 48/80 (local 48/80)
+epoch: 49/80 (local 49/80)
+epoch: 50/80 (local 50/80)
+epoch: 51/80 (local 51/80)
+epoch: 52/80 (local 52/80)
+epoch: 53/80 (local 53/80)
+epoch: 54/80 (local 54/80)
+epoch: 55/80 (local 55/80)
+epoch: 56/80 (local 56/80)
+epoch: 57/80 (local 57/80)
+epoch: 58/80 (local 58/80)
+epoch: 59/80 (local 59/80)
+Saving model to logs/2026-05-09-12-04-10/nn/model_60.pth
+epoch: 60/80 (local 60/80)
+epoch: 61/80 (local 61/80)
+epoch: 62/80 (local 62/80)
+epoch: 63/80 (local 63/80)
+epoch: 64/80 (local 64/80)
+epoch: 65/80 (local 65/80)
+epoch: 66/80 (local 66/80)
+epoch: 67/80 (local 67/80)
+epoch: 68/80 (local 68/80)
+epoch: 69/80 (local 69/80)
+epoch: 70/80 (local 70/80)
+epoch: 71/80 (local 71/80)
+epoch: 72/80 (local 72/80)
+epoch: 73/80 (local 73/80)
+epoch: 74/80 (local 74/80)
+epoch: 75/80 (local 75/80)
+epoch: 76/80 (local 76/80)
+epoch: 77/80 (local 77/80)
+epoch: 78/80 (local 78/80)
+epoch: 79/80 (local 79/80)
+Saving model to logs/2026-05-09-12-04-10/nn/model_80.pth
+epoch: 80/80 (local 80/80)
+RUN_DIR=logs/2026-05-09-12-04-10
+ARM_CKPT=logs/2026-05-09-12-04-10/nn/model_80.pth
+START eval 2026-05-09 12:16:35 label=shoulder4_gaitphase_signfix_down80
+bash: /opt/conda/lib/libtinfo.so.6: no version information available (required by bash)
+START fixed 2026-05-09 12:16:35 label=shoulder4_gaitphase_signfix_down80
+START random 2026-05-09 12:34:18 label=shoulder4_gaitphase_signfix_down80
+DONE 2026-05-09 12:38:25 label=shoulder4_gaitphase_signfix_down80
+{
+  "label": "shoulder4_gaitphase_signfix_down80",
+  "checkpoint": "logs/2026-05-09-12-04-10/nn/model_80.pth",
+  "leg_checkpoint": "logs/2026-05-05-11-09-07/nn/model_4000.pth",
+  "fixed_eval": {
+    "command_count": 31,
+    "mean_xy_err": 0.1702129282475497,
+    "mean_yaw_err": 0.06531728854831156,
+    "mean_speed_ratio": 0.8706569115626507,
+    "max_reset_frac": 0.0,
+    "mean_tilt": 0.04420424334226542,
+    "max_tilt": 0.15118345618247986,
+    "tilt_rms_mean": 0.0492960612964937,
+    "tilt_p95_mean": 0.07817665463493716,
+    "base_ang_vel_xy_rms_mean": 0.5279563166732628,
+    "shoulder_pitch_abs_p95_max": 0.15576577186584473,
+    "shoulder_roll_abs_p95_max": 0.15894286334514618,
+    "arm_action_saturation_frac_max": 0.0
+  },
+  "random_replay_60s": {
+    "seconds": 60.0,
+    "reset_steps": [],
+    "reset_frac": 0.0,
+    "linErrorMean": 0.27007079180639143,
+    "linErrorRms": 0.38211173009622096,
+    "linErrorP95": 0.8527500629425049,
+    "yawErrorMean": 0.10049441570947991,
+    "yawErrorRms": 0.14941374778869052,
+    "yawErrorP95": 0.35706502199172974,
+    "tilt_mean": 0.04025241303767463,
+    "tilt_rms": 0.04563928817261899,
+    "tilt_p95": 0.07738596200942993,
+    "tilt_max": 0.12639249861240387,
+    "base_ang_vel_xy_rms": 0.44732927324803634,
+    "shoulder_pitch_abs_p95": 0.1302776038646698,
+    "shoulder_roll_abs_p95": 0.1442919224500656,
+    "arm_action_saturation_frac": 0.0
+  },
+  "files": {
+    "fixed_json": "artifacts/autoresearch/shoulder4_gaitphase_signfix_down80_eval/shoulder4_gaitphase_signfix_down80_fixed_eval.json",
+    "fixed_csv": "artifacts/autoresearch/shoulder4_gaitphase_signfix_down80_eval/shoulder4_gaitphase_signfix_down80_fixed_eval.csv",
+    "random_replay_json": "artifacts/autoresearch/shoulder4_gaitphase_signfix_down80_eval/shoulder4_gaitphase_signfix_down80_random_replay.json",
+    "random_eval_json": "artifacts/autoresearch/shoulder4_gaitphase_signfix_down80_eval/shoulder4_gaitphase_signfix_down80_random_eval.json"
+  },
+  "created_at": "2026-05-09-12-38-23"
+}START metrics 2026-05-09 12:38:25 label=shoulder4_gaitphase_signfix_down80
+{
+  "out": "artifacts/autoresearch/shoulder4_gaitphase_signfix_down80_metrics.json",
+  "emptyPolicy": "drop_zero",
+  "diagnostics": {
+    "value_loss": {
+      "tag": "value_loss",
+      "raw_count": 80,
+      "zero_count": 0,
+      "kept_count": 80
+    },
+    "steps": {
+      "tag": "steps",
+      "raw_count": 41,
+      "zero_count": 0,
+      "kept_count": 41
+    },
+    "reward": {
+      "tag": "reward",
+      "raw_count": 41,
+      "zero_count": 0,
+      "kept_count": 41
+    },
+    "lr": {
+      "tag": "lr",
+      "raw_count": 80,
+      "zero_count": 0,
+      "kept_count": 80
+    },
+    "kl_mean": {
+      "tag": "kl_mean",
+      "raw_count": 80,
+      "zero_count": 0,
+      "kept_count": 80
+    },
+    "entropy": {
+      "tag": "entropy",
+      "raw_count": 80,
+      "zero_count": 0,
+      "kept_count": 80
+    }
+  }
+}
+START pack 2026-05-09 12:38:26 label=shoulder4_gaitphase_signfix_down80
+-rwxrwxrwx 1 root root  786 May  9 12:38 artifacts/autoresearch/shoulder4_gaitphase_signfix_down80_full_auto_done.json
+-rwxrwxrwx 1 root root 2.5M May  9 12:38 artifacts/autoresearch/shoulder4_gaitphase_signfix_down80_web_inputs.tgz
+DONE 2026-05-09 12:38:26 label=shoulder4_gaitphase_signfix_down80
